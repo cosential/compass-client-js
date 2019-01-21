@@ -6,11 +6,15 @@ Description: A Client library written in JS for Compass (Cosential's general pur
 
 It is highly recommended to test the library on the UAT Environment before moving to PROD.
 
-## Getting started:
+## Using the UMD Bundle
+
+
+
+## To Build:
 
 - Clone the project '**cosential-client-js**'.
 - From within the project folder '**cosential-client-js**' run the command '**npm install**'.
-- Rename the file '**Config.ts.example**' to '**Config.ts**' in the '**./src**' folder.
+- Rename the file '**Config.spec.ts.example**' to '**Config.spec.ts**' in the '**./src**' folder.
 - Open file '**Config.ts**' from the '**./src**' folder. Please enter credentials for the firm and **save** the file.
 - From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
 
@@ -20,9 +24,11 @@ It is highly recommended to test the library on the UAT Environment before movin
 
 **./src** - Contains the source code (**.ts**) and unit test spec (**.spec.ts**) files. This is where developers should work.
 
-**./_bundles** - Contains the compiled (**.js**) files (UMD library). These files will be used for consumption. 
+**./_bundles** - Contains the compiled (**.js**) files (UMD Bundles). These files will be used for consumption. 
 
-**./lib** - Contains the compiled (**.js**) files, along with typescript definitions.
+**./lib** - Contains the compiled (**.js**) files (ES5 commonjs), along with typescript definitions.
+
+**./lib-esm** - Contains the compiled (**.js**) files (ES5 esmodule), along with typescript definitions.
 
 > Files inside the folders '**./out**' and '**./build**' should be re-compiled and re-generated **for every code change** in the '**./source**' folder. Even after you enter the credentials in '**./source/index.ts**' file. 
 
