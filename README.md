@@ -6,7 +6,7 @@ Description: A Client library written in JS for Compass (Cosential's general pur
 
 It is highly recommended to test the library on the UAT Environment before moving to PROD.
 
-## Using the UMD Bundle from HTML
+## Using compass.js from HTML
 
 Download the latest [UMD Bundle](./dist/compass.zip)
 
@@ -50,13 +50,13 @@ Download the latest [UMD Bundle](./dist/compass.zip)
 
 **./src** - Contains the source code (**.ts**) and unit test spec (**.spec.ts**) files. This is where developers should work.
 
-**./_bundles** - Contains the compiled (**.js**) files (UMD Bundles). These files will be used for consumption. 
+**./dist** - Contains the compiled (**.js**) files (UMD Bundles). These files will be used for consumption. 
 
 **./lib** - Contains the compiled (**.js**) files (ES5 commonjs), along with typescript definitions.
 
 **./lib-esm** - Contains the compiled (**.js**) files (ES5 esmodule), along with typescript definitions.
 
-## Compile and generate './_bundles' and './lib' files:
+## Compile and generate './dist' and './lib' files:
 
 - From within the project folder '**cosential-client-js**' run the command '**npm run build**'.
 
