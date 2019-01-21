@@ -1,9 +1,10 @@
 var path = require("path");
 var webpack = require("webpack");
+var zipFilesPlugin = require("webpack-archive-plugin");
 
 var PATHS = {
   entryPoint: path.resolve(__dirname, 'src/index.ts'),
-  bundles: path.resolve(__dirname, '_bundles'),
+  bundles: path.resolve(__dirname, 'dist'),
 }
 
 var config = {
@@ -43,6 +44,13 @@ var config = {
       minimize: true,
       sourceMap: true,
       include: /\.min\.js$/,
+    }),
+    new zipFilesPlugin({
+      entries: [
+        { src: PATHS.bundles, dist: 'compass' }
+      ],
+      output: path.join(PATHS.bundles, 'compass'),
+      format: 'zip'
     })
   ],
   module: {

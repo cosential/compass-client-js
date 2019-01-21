@@ -1,7 +1,0 @@
-export class Config {
-    static ApiKey: string = '4557e648-a7d9-4223-a1e3-6088da0c5395';
-    static CompassURL: string = 'https://compass.cosential.com/api';
-    static TestFirmId: number = 1234;
-    static TestUsername: string = 'jsmith';
-    static TestPassword: string = 'P@ssW0rd!';
-}

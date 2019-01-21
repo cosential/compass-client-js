@@ -1,0 +1,7 @@
+import { Config } from './Config';
+
+Config.ApiKey = 'BFD55F74-BB52-4BBB-AB13-763A12EC09C6';
+Config.CompassURL = 'https://compass.uat.cosential.com/api';
+Config.TestFirmId = 1234;
+Config.TestUsername = 'john';
+Config.TestPassword = 'P@sSw0rd!';
