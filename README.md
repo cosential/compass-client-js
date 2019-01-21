@@ -8,6 +8,8 @@ It is highly recommended to test the library on the UAT Environment before movin
 
 ## Using the UMD Bundle from HTML
 
+Download the latest [UMD Bundle](./dist/compass.zip)
+
 ```
 <script src="compass.js"></script>
 <script>
