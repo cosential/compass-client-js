@@ -1,5 +1,15 @@
-import {Greeter} from './Greeter';
+import { CompassClient } from './services/CompassClient';
+import { User } from './model/User';
 
-const example = new Greeter('World');
+var client = new CompassClient(256, 'dwarren', 'warren11');
 
-console.log(example.greet());
+client.get<User[]>('/user').then((res) =>{
+    if (res.Success) console.log(JSON.stringify(res.Result[0]));
+    else console.log(res.Error);
+});
+
+/** 
+ * Basic ZHdhcnJlbjp3YXJyZW4xMQ==
+ * Basic ZHdhcnJlbjp3YXJyZW4xMQ==
+ * 
+*/
