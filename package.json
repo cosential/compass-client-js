@@ -1,0 +1,20 @@
+{
+  "name": "compass-client-js",
+  "version": "1.0.0",
+  "description": "Cosential Compass API Javascript Client",
+  "main": "index.js",
+  "repository": "https://www.github.com/cosential/compass-client-js",
+  "author": "Damon Warren <dwarren@cosential.com>",
+  "contributors": ["Akshay Prabhu","Matt Butler","Nathan Williamson"],
+  "license": "Apache-2.0",
+  "scripts": {
+    "clean": "shx rm -rf _bundles lib lib-esm",
+    "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack"
+  },
+  "dependencies": {
+    "awesome-typescript-loader": "^3.0.4-rc.2",
+    "shx": "^0.2.2",
+    "typescript": "^2.1.6",
+    "webpack": "^2.2.1"
+  }
+}
