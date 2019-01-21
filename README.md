@@ -46,7 +46,7 @@ Download the latest [UMD Bundle](./dist/compass.zip)
 
 **If** authentication is successful, the unit testing should pass.
 
-## Folder structure:
+## Folder Structure:
 
 **./src** - Contains the source code (**.ts**) and unit test spec (**.spec.ts**) files. This is where developers should work.
 
@@ -56,16 +56,14 @@ Download the latest [UMD Bundle](./dist/compass.zip)
 
 **./lib-esm** - Contains the compiled (**.js**) files (ES5 esmodule), along with typescript definitions.
 
-## Compile and generate './dist' and './lib' files:
+## Compile and Generate './dist' and './lib' Files:
 
 - From within the project folder '**cosential-client-js**' run the command '**npm run build**'.
 
-## Run unit testing
+## Run Unit Testing
 
 - From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
 
 ## To Do:
 
-- [ ] How to consume the UMD client library?
 - [ ] How to consume from a typescript npm project
-- [ ] Complete the client library.
