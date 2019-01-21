@@ -39,7 +39,7 @@ It is highly recommended to test the library on the UAT Environment before movin
 - Clone the project '**cosential-client-js**'.
 - From within the project folder '**cosential-client-js**' run the command '**npm install**'.
 - Rename the file '**Config.spec.ts.example**' to '**Config.spec.ts**' in the '**./src**' folder.
-- Open file '**Config.ts**' from the '**./src**' folder. Please enter credentials for the firm and **save** the file.
+- Open file '**Config.spec.ts**' from the '**./src**' folder. Enter your API Key, and credentials for a test firm and **save** the file.
 - From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
 
 **If** authentication is successful, the unit testing should pass.
