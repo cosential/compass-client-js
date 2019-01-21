@@ -30,10 +30,6 @@ It is highly recommended to test the library on the UAT Environment before movin
 
 **./lib-esm** - Contains the compiled (**.js**) files (ES5 esmodule), along with typescript definitions.
 
-> Files inside the folders '**./out**' and '**./build**' should be re-compiled and re-generated **for every code change** in the '**./source**' folder. Even after you enter the credentials in '**./source/index.ts**' file. 
-
-> Please do **NOT** check-in the folders '**./out**' and '**./build**' to Git.
-
 ## Compile and generate './_bundles' and './lib' files:
 
 - From within the project folder '**cosential-client-js**' run the command '**npm run build**'.
