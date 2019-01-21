@@ -6,9 +6,33 @@ Description: A Client library written in JS for Compass (Cosential's general pur
 
 It is highly recommended to test the library on the UAT Environment before moving to PROD.
 
-## Using the UMD Bundle
+## Using the UMD Bundle from HTML
 
+```
+<script src="compass.js"></script>
+<script>
+    compass.Config.ApiKey = 'BFD55F74-BB52-4BBB-AB13-763A12EC09C6';
+    compass.Config.CompassURL = 'https://compass.uat.cosential.com/api';
 
+    var username = 'john';
+    var password = 'P@sSw0rd!';
+    var firmId = 1234;
+
+    var client = new compass.CompassClient(firmId, username, password);
+    
+    client.get('/user').then(function(response){
+        if (response.Success) {
+            //Success
+            var user = response.Result[0];
+            document.write('<h2>Hi, '+ user.FirstName +'</h2>');
+        } else {
+            document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+        }
+    }, function(response){
+        document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+    });
+</script>
+```
 
 ## To Build:
 
