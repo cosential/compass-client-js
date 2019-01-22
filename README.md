@@ -39,6 +39,26 @@ client.get('/user').then(function(response){
 });
 ```
 
+## Reconfigure the client with a new user / pass
+
+```
+client.reconfigure({
+    Username: 'Jane',
+    Password: '0th3Rp@Ss!'
+});
+
+client.get('/user').then(function(response){
+    if (response.Success) {
+        //Success
+        var user = response.Result[0];
+        document.write('<h2>Hi, '+ user.FirstName +'</h2>');
+    } else {
+        //Error
+        document.write('<h2>Error</h2><div>'+response.Message+'</div>');
+    }
+});
+```
+
 ## Using compass.js from HTML
 
 Download the latest [compass.js](./dist/compass.zip)
