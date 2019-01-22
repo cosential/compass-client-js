@@ -69,24 +69,8 @@ Download the latest [compass.js](./dist/compass.zip)
 - From within the project folder '**cosential-client-js**' run the command '**npm install**'.
 - Rename the file '**Config.spec.ts.example**' to '**Config.spec.ts**' in the '**./src**' folder.
 - Open file '**Config.spec.ts**' from the '**./src**' folder. Enter your API Key, and credentials for a test firm and **save** the file.
-- From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
-
-**If** authentication is successful, the unit testing should pass.
-
-## Folder Structure:
-
-**./src** - Contains the source code (**.ts**) and unit test spec (**.spec.ts**) files. This is where developers should work.
-
-**./dist** - Contains the compiled (**.js**) files (UMD Bundles). These files will be used for consumption. 
-
-**./lib** - Contains the compiled (**.js**) files (ES5 commonjs), along with typescript definitions.
-
-**./lib-esm** - Contains the compiled (**.js**) files (ES5 esmodule), along with typescript definitions.
-
-## Compile and Generate './dist' and './lib' Files:
-
 - From within the project folder '**cosential-client-js**' run the command '**npm run build**'.
-
-## Run Unit Testing
-
 - From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
+
+
+**If** tests pass, authentication and comunication with Compass was successful.
