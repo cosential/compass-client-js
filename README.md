@@ -1,4 +1,4 @@
-# cosential-client-js
+# compass.js
 
 Version: **ALPHA**
 
