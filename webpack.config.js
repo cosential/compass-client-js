@@ -1,6 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var zipFilesPlugin = require("webpack-archive-plugin");
+var TypedocWebpackPlugin = require("typedoc-webpack-plugin");
 
 var PATHS = {
   entryPoint: path.resolve(__dirname, 'src/index.ts'),
@@ -51,6 +52,16 @@ var config = {
       ],
       output: path.join(PATHS.bundles, 'compass'),
       format: 'zip'
+    }),
+    new TypedocWebpackPlugin({
+      name: 'compass.js',
+      mode: 'file',
+      out: '../docs',
+      module: 'commonjs',
+      target: 'es2015',
+      exclude: '**/node_modules/**/*.*,dist,lib,lib-esm,test',
+      experimentalDecorators: true,
+      excludeExternals: true
     })
   ],
   module: {

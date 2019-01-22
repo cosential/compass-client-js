@@ -34,7 +34,27 @@ client.get('/user').then(function(response){
         document.write('<h2>Hi, '+ user.FirstName +'</h2>');
     } else {
         //Error
-        document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+        document.write('<h2>Error</h2><div>'+response.Message+'</div>');
+    }
+});
+```
+
+## Reconfigure the client with a new user / pass
+
+```
+client.reconfigure({
+    Username: 'Jane',
+    Password: '0th3Rp@Ss!'
+});
+
+client.get('/user').then(function(response){
+    if (response.Success) {
+        //Success
+        var user = response.Result[0];
+        document.write('<h2>Hi, '+ user.FirstName +'</h2>');
+    } else {
+        //Error
+        document.write('<h2>Error</h2><div>'+response.Message+'</div>');
     }
 });
 ```
@@ -61,7 +81,7 @@ Download the latest [compass.js](./dist/compass.zip)
             document.write('<h2>Hi, '+ user.FirstName +'</h2>');
         } else {
             //Error
-            document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+            document.write('<h2>Error</h2><div>'+response.Message+'</div>');
         }
     });
 </script>
