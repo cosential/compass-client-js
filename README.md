@@ -34,7 +34,7 @@ client.get('/user').then(function(response){
         document.write('<h2>Hi, '+ user.FirstName +'</h2>');
     } else {
         //Error
-        document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+        document.write('<h2>Error</h2><div>'+JSON.stringify(response.Message)+'</div>');
     }
 });
 ```
@@ -61,7 +61,7 @@ Download the latest [compass.js](./dist/compass.zip)
             document.write('<h2>Hi, '+ user.FirstName +'</h2>');
         } else {
             //Error
-            document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+            document.write('<h2>Error</h2><div>'+response.Message+'</div>');
         }
     });
 </script>
