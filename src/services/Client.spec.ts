@@ -3,9 +3,9 @@ import { Client } from './Client';
 import { User } from "../model/User";
 import { TestClientConfig } from './TestClientConfig';
 
-let client: Client = null;
-
 describe("CompassClient", () => {
+
+    let client: Client = null;
 
     beforeEach(() => {
         client = new Client(TestClientConfig);
