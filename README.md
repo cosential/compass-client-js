@@ -1,16 +1,22 @@
-# compass.js
+# Cosential compass.js
+
+Author: [Cosential, Inc.](https://www.cosential.com/)
 
 Version: **ALPHA**
 
 Description: A Client library written in JS for Compass (Cosential's general purpose RESTful API).
 
-It is highly recommended to test the library on the UAT Environment before moving to PROD.
+It is highly recommended to test the library on the UAT Environment before moving to our production environment.
 
 ## Getting Started (Install using npm)
 
 ```
 npm install compass-client-js --save
 ```
+
+## Full Library Reference
+
+[https://cosential.github.io/compass-client-js](https://cosential.github.io/compass-client-js)
 
 ###### https://www.npmjs.com/package/compass-client-js
 

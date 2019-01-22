@@ -54,12 +54,12 @@ var config = {
       format: 'zip'
     }),
     new TypedocWebpackPlugin({
-      name: 'compass.js',
+      name: 'Cosential compass.js',
       mode: 'file',
       out: '../docs',
       module: 'commonjs',
       target: 'es2015',
-      exclude: '**/node_modules/**/*.*,dist,lib,lib-esm,test',
+      exclude: '**/node_modules/**/*.*,dist,lib,lib-esm,test,src/**/*.spec.ts,src/services/testClientConfig.ts',
       experimentalDecorators: true,
       excludeExternals: true
     })

@@ -1,4 +1,11 @@
-export { Client } from './services/Client';
+//The client service
+export { Client } from './services/client';
 
-//Models
-export { User } from './model/User';
+//Interfaces
+export { IGetResponse } from './interfaces/IGetResponse';
+export { IRequestOptions } from './interfaces/IRequestOptions';
+
+//Service Models
+export { ClientConfig } from './serviceModels/clientConfig';
+
+//Compass Models

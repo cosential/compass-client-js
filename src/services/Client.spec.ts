@@ -1,45 +1,43 @@
 import 'jasmine';
-import { Client } from './Client';
-import { User } from "../model/User";
-import { TestClientConfig } from './TestClientConfig';
+import { Client } from './client';
+import { User } from "../compassModels/user";
+import { TestClientConfig } from './testClientConfig';
+import { IGetResponse } from '..';
 
 describe("CompassClient", () => {
 
-    let client: Client = null;
+    let client: Client = new Client(TestClientConfig);
 
     beforeEach(() => {
-        client = new Client(TestClientConfig);
+        
     });
 
     it("Can connect to compass and read a user", async () => {
-
-        let res = await client.get<User[]>('/user');
-        expect(res.Success).toBeTruthy(res.Message);
+        let res: IGetResponse<User[]> = await client.get<User[]>('/user');
+        expect(res.success).toBeTruthy(res.message);
     });
 
     it("Can be reconfigured", async () => {
-        
-        client.reconfigure({"Username": TestClientConfig.Username + 'FAIL'});
-
-        let res = await client.get<User[]>('/user');
-        expect(res.Success).toBeFalsy();
+        client.config.username = TestClientConfig.username + 'FAIL';
+        let res: IGetResponse<User[]> = await client.get<User[]>('/user');
+        expect(res.success).toBeFalsy();
     });
 
     it("Can validate the CompassURL when reconfigured", async() => {
         try {
-            client.reconfigure({"CompassURL": "This is not a valid URL"});
+            client.config.compassUrl = "This is not a valid URL";
             fail("Call to reconfigure should have failed and didn't");
         } catch (e) {
-            expect(e.Message).toBeTruthy;
+            expect(e.message).toBeTruthy;
         }
     });
 
     it("Can validate the ApiKey when reconfigured", async() => {
         try {
-            client.reconfigure({"ApiKey": "This is not a valid ApiKey"});
+            client.config.apiKey = "This is not a valid apiKey";
             fail("Call to reconfigure should have failed and didn't");
         } catch (e) {
-            expect(e.Message).toBeTruthy;
+            expect(e.message).toBeTruthy;
         }
     });
 });

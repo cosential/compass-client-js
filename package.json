@@ -20,9 +20,11 @@
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.0.4-rc.2",
+    "class-transformer": "^0.2.0",
     "es6-promise": "^4.2.5",
     "isomorphic-fetch": "^2.2.1",
     "js-base64": "^2.5.1",
+    "reflect-metadata": "^0.1.13",
     "shx": "^0.2.2",
     "typescript": "^2.1.6",
     "webpack": "^2.2.1"
