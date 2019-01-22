@@ -1,0 +1,11 @@
+import { ClientConfig } from "../model/ClientConfig";
+const config = new ClientConfig();
+
+//These settings are used for unit testing
+config.ApiKey = '68BC02D5-5C17-4A40-8043-942B79DA34B7';
+config.CompassURL = 'https://compass.uat.cosential.com/api';
+config.FirmId = 1234;
+config.Username = 'john';
+config.Password = 'P@sSw0rd!';
+
+export { config as TestClientConfig };
