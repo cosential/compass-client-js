@@ -18,7 +18,9 @@ describe("CompassClient", () => {
     });
 
     it("Can be reconfigured", async () => {
+        
         client.reconfigure({"Username": TestClientConfig.Username + 'FAIL'});
+
         let res = await client.get<User[]>('/user');
         expect(res.Success).toBeFalsy();
     });

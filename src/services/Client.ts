@@ -21,6 +21,20 @@ export class Client {
         this.reconfigure(config);
     }
 
+    /**
+   * Used to reconfigure the client configuration options.
+   *
+   * @param config - An anonymous object with any properties from [ClientConfig](./clientconfig.html)
+   * 
+   * @example
+   * ```
+   * client.reconfigure({"Username": "jane"});
+   * ```
+   * 
+   * @returns void
+   *
+   * @beta
+   */
     public reconfigure(config: object): void {
         Object.keys(this.config).forEach(prop => {
             if (prop in config) {
@@ -68,7 +82,7 @@ export class Client {
             return {
                 Success: false,
                 Error: e,
-                Message: e.Message,
+                Message: e.message,
                 Result: null
             };
         }         
