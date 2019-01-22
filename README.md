@@ -6,9 +6,37 @@ Description: A Client library written in JS for Compass (Cosential's general pur
 
 It is highly recommended to test the library on the UAT Environment before moving to PROD.
 
-## Using compass.js from HTML for library consumption
+## Getting Started
 
-Download the latest [UMD Bundle](./dist/compass.zip)
+```
+npm install compass-client-js --save
+```
+
+```
+// Example
+import * as client from 'compass-client-js';
+
+client.Config.CompassURL = 'https://compass.uat.cosential.com/api';
+client.Config.ApiKey = 'BFD55F74-BB52-4BBB-AB13-763A12EC09C6';
+
+let client = new client.CompassClient(1234, 'john', 'P@sSw0rd!');
+
+client.get('/user').then(function(response){
+    if (response.Success) {
+        //Success
+        var user = response.Result[0];
+        document.write('<h2>Hi, '+ user.FirstName +'</h2>');
+    } else {
+        //Error
+        document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
+    }
+});
+```
+###### https://www.npmjs.com/package/compass-client-js
+
+## Using compass.js from HTML
+
+Download the latest [compass.js](./dist/compass.zip)
 
 ```
 <script src="compass.js"></script>
@@ -28,32 +56,14 @@ Download the latest [UMD Bundle](./dist/compass.zip)
             var user = response.Result[0];
             document.write('<h2>Hi, '+ user.FirstName +'</h2>');
         } else {
+            //Error
             document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
         }
-    }, function(response){
-        document.write('<h2>Error</h2><div>'+JSON.stringify(response)+'</div>');
     });
 </script>
 ```
 
-## Using NPM for library consumption
-
-```
-npm i compass-client-js
-```
-
-```
-// Example
-import * as client from 'compass-client-js';
-
-client.Config.CompassURL = 'https://compass.uat.cosential.com/api';
-client.Config.ApiKey = 'BFD55F74-BB52-4BBB-AB13-763A12EC09C6';
-
-let auth = new client.CompassClient(1234, 'john', 'P@sSw0rd!');
-```
-###### https://www.npmjs.com/package/compass-client-js
-
-## To Build:
+## Building compass.js:
 
 - Clone the project '**cosential-client-js**'.
 - From within the project folder '**cosential-client-js**' run the command '**npm install**'.

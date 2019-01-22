@@ -1,0 +1,114 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\damon.warren\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'compass-client-js' ]
+2 info using npm@4.0.5
+3 info using node@v10.15.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData compass-client-js
+8 silly fetchNamedPackageData compass-client-js
+9 silly mapToRegistry name compass-client-js
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'compass-client-js',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'compass-client-js',
+12 silly mapToRegistry   name: 'compass-client-js',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/compass-client-js
+14 verbose request uri https://registry.npmjs.org/compass-client-js
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 5:27:02 AM
+17 verbose request id ea8ce7b133a56360
+18 http request GET https://registry.npmjs.org/compass-client-js
+19 http 200 https://registry.npmjs.org/compass-client-js
+20 verbose headers { date: 'Tue, 22 Jan 2019 11:27:05 GMT',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'set-cookie':
+20 verbose headers    [ '__cfduid=d11c0cce779ec32a2da99fe74acb7b24d1548156425; expires=Wed, 22-Jan-20 11:27:05 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+20 verbose headers   'cf-cache-status': 'MISS',
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   'cf-ray': '49d1ab5b1e2258d3-DFW',
+20 verbose headers   etag: 'W/"edc24bd3915431bc5dad52c834b6c1d4"',
+20 verbose headers   'expect-ct':
+20 verbose headers    'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+20 verbose headers   'last-modified': 'Mon, 21 Jan 2019 23:23:02 GMT',
+20 verbose headers   vary: 'accept-encoding, accept',
+20 verbose headers   'x-amz-meta-rev': '3-d743b4b6771b1d86760ea396bf48aa9d',
+20 verbose headers   server: 'cloudflare',
+20 verbose headers   'content-encoding': 'gzip' }
+21 silly get cb [ 200,
+21 silly get   { date: 'Tue, 22 Jan 2019 11:27:05 GMT',
+21 silly get     'content-type': 'application/json',
+21 silly get     'transfer-encoding': 'chunked',
+21 silly get     connection: 'keep-alive',
+21 silly get     'set-cookie':
+21 silly get      [ '__cfduid=d11c0cce779ec32a2da99fe74acb7b24d1548156425; expires=Wed, 22-Jan-20 11:27:05 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+21 silly get     'cf-cache-status': 'MISS',
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     'cf-ray': '49d1ab5b1e2258d3-DFW',
+21 silly get     etag: 'W/"edc24bd3915431bc5dad52c834b6c1d4"',
+21 silly get     'expect-ct':
+21 silly get      'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 silly get     'last-modified': 'Mon, 21 Jan 2019 23:23:02 GMT',
+21 silly get     vary: 'accept-encoding, accept',
+21 silly get     'x-amz-meta-rev': '3-d743b4b6771b1d86760ea396bf48aa9d',
+21 silly get     server: 'cloudflare',
+21 silly get     'content-encoding': 'gzip' } ]
+22 verbose get saving compass-client-js to C:\Users\damon.warren\AppData\Roaming\npm-cache\registry.npmjs.org\compass-client-js\.cache.json
+23 verbose correctMkdir C:\Users\damon.warren\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+24 silly install normalizeTree
+25 silly loadCurrentTree Finishing
+26 silly loadIdealTree Starting
+27 silly install loadIdealTree
+28 silly cloneCurrentTree Starting
+29 silly install cloneCurrentTreeToIdealTree
+30 silly cloneCurrentTree Finishing
+31 silly loadShrinkwrap Starting
+32 silly install loadShrinkwrap
+33 silly loadShrinkwrap Finishing
+34 silly loadAllDepsIntoIdealTree Starting
+35 silly install loadAllDepsIntoIdealTree
+36 silly rollbackFailedOptional Starting
+37 silly rollbackFailedOptional Finishing
+38 silly runTopLevelLifecycles Finishing
+39 silly install printInstalled
+40 verbose stack Error: Refusing to install package with name "compass-client-js" under a package
+40 verbose stack also called "compass-client-js". Did you name your project the same
+40 verbose stack as the dependency you're installing?
+40 verbose stack
+40 verbose stack For more information, see:
+40 verbose stack     <https://docs.npmjs.com/cli/install#limitations-of-npms-install-algorithm>
+40 verbose stack     at checkSelf (C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\lib\install\validate-args.js:53:14)
+40 verbose stack     at Array.<anonymous> (C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+40 verbose stack     at LOOP (C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+40 verbose stack     at chain (C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+40 verbose stack     at C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\lib\install\validate-args.js:16:5
+40 verbose stack     at C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\async-map.js:52:35
+40 verbose stack     at Array.forEach (<anonymous>)
+40 verbose stack     at C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\async-map.js:52:11
+40 verbose stack     at Array.forEach (<anonymous>)
+40 verbose stack     at asyncMap (C:\Users\damon.warren\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\async-map.js:51:8)
+41 verbose cwd D:\Source\Repos\compass-client-js
+42 error Windows_NT 10.0.17134
+43 error argv "D:\\nodejs\\node.exe" "C:\\Users\\damon.warren\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "compass-client-js"
+44 error node v10.15.0
+45 error npm  v4.0.5
+46 error code ENOSELF
+47 error Refusing to install package with name "compass-client-js" under a package
+47 error also called "compass-client-js". Did you name your project the same
+47 error as the dependency you're installing?
+47 error
+47 error For more information, see:
+47 error     <https://docs.npmjs.com/cli/install#limitations-of-npms-install-algorithm>
+48 error If you need help, you may report this error at:
+48 error     <https://github.com/npm/npm/issues>
+49 verbose exit [ 1, true ]
