@@ -1,8 +1,9 @@
 {
   "name": "compass-client-js",
-  "version": "1.0.0",
+  "version": "1.0.2", // Update version before publishing
   "description": "Cosential Compass API Javascript Client",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "https://www.github.com/cosential/compass-client-js",
   "author": "",
   "contributors": [

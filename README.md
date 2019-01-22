@@ -6,7 +6,7 @@ Description: A Client library written in JS for Compass (Cosential's general pur
 
 It is highly recommended to test the library on the UAT Environment before moving to PROD.
 
-## Using compass.js from HTML
+## Using compass.js from HTML for library consumption
 
 Download the latest [UMD Bundle](./dist/compass.zip)
 
@@ -36,6 +36,23 @@ Download the latest [UMD Bundle](./dist/compass.zip)
 </script>
 ```
 
+## Using NPM for library consumption
+
+```
+npm i compass-client-js
+```
+
+```
+// Example
+import * as client from 'compass-client-js';
+
+client.Config.CompassURL = 'https://compass.uat.cosential.com/api';
+client.Config.ApiKey = 'BFD55F74-BB52-4BBB-AB13-763A12EC09C6';
+
+let auth = new client.CompassClient(1234, 'john', 'P@sSw0rd!');
+```
+###### https://www.npmjs.com/package/compass-client-js
+
 ## To Build:
 
 - Clone the project '**cosential-client-js**'.
@@ -63,7 +80,3 @@ Download the latest [UMD Bundle](./dist/compass.zip)
 ## Run Unit Testing
 
 - From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
-
-## To Do:
-
-- [ ] How to consume from a typescript npm project
