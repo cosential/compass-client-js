@@ -66,10 +66,25 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The User class represents the user that has successfully authenticated into the Compass API</p>
+					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><pre><code><span class="hljs-keyword">let</span> client = <span class="hljs-keyword">new</span> compass.Client(...);
-client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>)</span>{ <span class="hljs-built_in">console</span>.log(res.Result.FirstName); });</code></pre></dd>
+						<dd><pre><code>client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-keyword">function</span>(res){
+     <span class="hljs-keyword">if</span> (res.success) {
+         //The API <span class="hljs-keyword">call</span> was successful
+
+         //This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
+         let <span class="hljs-keyword">user</span> = res.result[<span class="hljs-number">0</span>];
+
+         //Because <span class="hljs-keyword">user</span> <span class="hljs-keyword">is</span> an API response <span class="hljs-keyword">object</span>, properties are proper <span class="hljs-keyword">case</span>, <span class="hljs-keyword">not</span> camel <span class="hljs-keyword">case</span>.
+         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + <span class="hljs-keyword">user</span>.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *
+     } <span class="hljs-keyword">else</span> {
+         //Something went wrong
+         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
+     }
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -110,7 +125,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">Firm<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:16</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L29">compassModels/user.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -120,7 +135,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:12</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L25">compassModels/user.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -130,7 +145,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">Gender<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:17</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L30">compassModels/user.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +155,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:14</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L27">compassModels/user.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +165,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">MI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:13</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L26">compassModels/user.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +175,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">Nick<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:15</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L28">compassModels/user.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +185,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:11</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L24">compassModels/user.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +195,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:18</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L31">compassModels/user.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +205,7 @@ client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/user'</span>).then(<
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/user.ts:19</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/f5e5c19/src/compassModels/user.ts#L32">compassModels/user.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
