@@ -1,6 +1,6 @@
 {
   "name": "compass-client-js",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Cosential Compass API Javascript Client",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.0.4-rc.2",
+    "class-transformer": "^0.2.0",
     "es6-promise": "^4.2.5",
     "isomorphic-fetch": "^2.2.1",
     "js-base64": "^2.5.1",
