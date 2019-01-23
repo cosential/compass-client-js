@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>compass.js</title>
+	<title>Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">compass.js</a>
+					<a href="index.html" class="title">Cosential compass.js</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> compass.js</h1>
+			<h1> Cosential compass.js</h1>
 		</div>
 	</div>
 </header>
@@ -62,67 +62,67 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="compass-js">compass.js</h1>
+				<h1 id="cosential-compass-js">Cosential compass.js</h1>
+				<p>Author: <a href="https://www.cosential.com/">Cosential, Inc.</a></p>
 				<p>Version: <strong>ALPHA</strong></p>
 				<p>Description: A Client library written in JS for Compass (Cosential&#39;s general purpose RESTful API).</p>
-				<p>It is highly recommended to test the library on the UAT Environment before moving to PROD.</p>
+				<p>It is highly recommended to test the library on the UAT Environment before moving to our production environment.</p>
 				<h2 id="getting-started-install-using-npm-">Getting Started (Install using npm)</h2>
 				<pre><code>npm <span class="hljs-keyword">install</span> compass-<span class="hljs-keyword">client</span>-js <span class="hljs-comment">--save</span></code></pre><h6 id="https-www-npmjs-com-package-compass-client-js"><a href="https://www.npmjs.com/package/compass-client-js">https://www.npmjs.com/package/compass-client-js</a></h6>
+				<h2 id="full-library-reference">Full Library Reference</h2>
+				<p><a href="https://cosential.github.io/compass-client-js">https://cosential.github.io/compass-client-js</a></p>
 				<h2 id="initialize-the-client-and-get-the-authenticated-user">Initialize the client and get the authenticated user</h2>
 				<pre><code><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> compass <span class="hljs-keyword">from</span> <span class="hljs-string">'compass-client-js'</span>;
 
-<span class="hljs-keyword">let</span> client = <span class="hljs-keyword">new</span> compass.Client({
-    <span class="hljs-attr">ApiKey</span>: <span class="hljs-string">'68BC02D5-5C17-4A40-8043-942B79DA34B7'</span>,
-    <span class="hljs-attr">CompassURL</span>: <span class="hljs-string">'https://compass.uat.cosential.com/api'</span>,
-    <span class="hljs-attr">FirmId</span>: <span class="hljs-number">1234</span>,
-    <span class="hljs-attr">Username</span>: <span class="hljs-string">'john'</span>,
-    <span class="hljs-attr">Password</span>: <span class="hljs-string">'P@sSw0rd!'</span>
+let client = <span class="hljs-built_in">new</span> compass.Client({
+    apiKey: <span class="hljs-string">'68BC02D5-5C17-4A40-8043-942B79DA34B7'</span>,
+    compassUrl: <span class="hljs-string">'https://compass.uat.cosential.com/api'</span>,
+    firmId: <span class="hljs-number">1234</span>,
+    username: <span class="hljs-string">'john'</span>,
+    <span class="hljs-keyword">password</span>: <span class="hljs-string">'P@sSw0rd!'</span>
 });
 
-client.get(<span class="hljs-string">'/user'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
-    <span class="hljs-keyword">if</span> (response.Success) {
-        <span class="hljs-comment">//Success</span>
-        <span class="hljs-keyword">var</span> user = response.Result[<span class="hljs-number">0</span>];
-        <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Hi, '</span>+ user.FirstName +<span class="hljs-string">'&lt;/h2&gt;'</span>);
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-comment">//Error</span>
-        <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span>+response.Message+<span class="hljs-string">'&lt;/div&gt;'</span>);
-    }
-});</code></pre><h2 id="reconfigure-the-client-with-a-new-user-pass">Reconfigure the client with a new user / pass</h2>
-				<pre><code>client.reconfigure({
-    <span class="hljs-attr">Username</span>: <span class="hljs-string">'Jane'</span>,
-    <span class="hljs-attr">Password</span>: <span class="hljs-string">'0th3Rp@Ss!'</span>
-});
+client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-keyword">function</span>(res){ 
+      <span class="hljs-keyword">if</span> (res.success) { 
+          //The API <span class="hljs-keyword">call</span> was successful
 
-client.get(<span class="hljs-string">'/user'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
-    <span class="hljs-keyword">if</span> (response.Success) {
-        <span class="hljs-comment">//Success</span>
-        <span class="hljs-keyword">var</span> user = response.Result[<span class="hljs-number">0</span>];
-        <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Hi, '</span>+ user.FirstName +<span class="hljs-string">'&lt;/h2&gt;'</span>);
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-comment">//Error</span>
-        <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span>+response.Message+<span class="hljs-string">'&lt;/div&gt;'</span>);
-    }
-});</code></pre><h2 id="using-compass-js-from-html">Using compass.js from HTML</h2>
+          //This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
+          let <span class="hljs-keyword">user</span> = res.result[<span class="hljs-number">0</span>]; 
+
+          //Because <span class="hljs-keyword">user</span> <span class="hljs-keyword">is</span> an API response <span class="hljs-keyword">object</span>, properties are proper <span class="hljs-keyword">case</span>, <span class="hljs-keyword">not</span> camel <span class="hljs-keyword">case</span>.
+          document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + <span class="hljs-keyword">user</span>.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *          
+      } <span class="hljs-keyword">else</span> {
+          //Something went wrong
+          document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
+      }
+ });</code></pre><h2 id="reconfigure-the-client-with-a-new-user-pass">Reconfigure the client with a new user / pass</h2>
+				<pre><code>client.<span class="hljs-built_in">config</span>.username = <span class="hljs-string">'Jane'</span>;
+client.<span class="hljs-built_in">config</span>.password = <span class="hljs-string">'0th3Rp@Ss!'</span>;
+
+client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre><h2 id="using-compass-js-from-html">Using compass.js from HTML</h2>
 				<p>Download the latest <a href="./dist/compass.zip">compass.js</a></p>
 				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"compass.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-keyword">let</span> client = <span class="hljs-keyword">new</span> compass.Client({
-        <span class="hljs-attr">ApiKey</span>: <span class="hljs-string">'68BC02D5-5C17-4A40-8043-942B79DA34B7'</span>,
-        <span class="hljs-attr">CompassURL</span>: <span class="hljs-string">'https://compass.uat.cosential.com/api'</span>,
-        <span class="hljs-attr">FirmId</span>: <span class="hljs-number">1234</span>,
-        <span class="hljs-attr">Username</span>: <span class="hljs-string">'john'</span>,
-        <span class="hljs-attr">Password</span>: <span class="hljs-string">'P@sSw0rd!'</span>
+        <span class="hljs-attr">apiKey</span>: <span class="hljs-string">'68BC02D5-5C17-4A40-8043-942B79DA34B7'</span>,
+        <span class="hljs-attr">compassUrl</span>: <span class="hljs-string">'https://compass.uat.cosential.com/api'</span>,
+        <span class="hljs-attr">firmId</span>: <span class="hljs-number">1234</span>,
+        <span class="hljs-attr">username</span>: <span class="hljs-string">'john'</span>,
+        <span class="hljs-attr">password</span>: <span class="hljs-string">'P@sSw0rd!'</span>
     });
 
-    client.get(<span class="hljs-string">'/user'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
-        <span class="hljs-keyword">if</span> (response.Success) {
-            <span class="hljs-comment">//Success</span>
-            <span class="hljs-keyword">var</span> user = response.Result[<span class="hljs-number">0</span>];
-            <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Hi, '</span>+ user.FirstName +<span class="hljs-string">'&lt;/h2&gt;'</span>);
+    client.get&lt;User[]&gt;(<span class="hljs-string">'/user'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>)</span>{ 
+        <span class="hljs-keyword">if</span> (res.success) { 
+            <span class="hljs-comment">//The API call was successful</span>
+
+            <span class="hljs-comment">//This api endpoint always returns a single element array</span>
+            <span class="hljs-keyword">let</span> user = res.result[<span class="hljs-number">0</span>]; 
+
+            <span class="hljs-comment">//Because user is an API response object, properties are proper case, not camel case.</span>
+            <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + user.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *          
         } <span class="hljs-keyword">else</span> {
-            <span class="hljs-comment">//Error</span>
-            <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span>+response.Message+<span class="hljs-string">'&lt;/div&gt;'</span>);
+            <span class="hljs-comment">//Something went wrong</span>
+            <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
         }
     });
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h2 id="building-compass-js-">Building compass.js:</h2>
@@ -166,12 +166,6 @@ client.get(<span class="hljs-string">'/user'</span>).then(<span class="hljs-func
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/irequestoptions.html" class="tsd-kind-icon">IRequest<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#client" class="tsd-kind-icon">client</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#config" class="tsd-kind-icon">config</a>
 					</li>
 				</ul>
 			</nav>

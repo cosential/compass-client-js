@@ -1,10 +1,12 @@
-# compass.js
+# Cosential compass.js
+
+Author: [Cosential, Inc.](https://www.cosential.com/)
 
 Version: **ALPHA**
 
 Description: A Client library written in JS for Compass (Cosential's general purpose RESTful API).
 
-It is highly recommended to test the library on the UAT Environment before moving to PROD.
+It is highly recommended to test the library on the UAT Environment before moving to our production environment.
 
 ## Getting Started (Install using npm)
 
@@ -14,49 +16,47 @@ npm install compass-client-js --save
 
 ###### https://www.npmjs.com/package/compass-client-js
 
+## Full Library Reference
+
+[https://cosential.github.io/compass-client-js](https://cosential.github.io/compass-client-js)
+
+
 ## Initialize the client and get the authenticated user
 
 ```
 import * as compass from 'compass-client-js';
 
 let client = new compass.Client({
-    ApiKey: '68BC02D5-5C17-4A40-8043-942B79DA34B7',
-    CompassURL: 'https://compass.uat.cosential.com/api',
-    FirmId: 1234,
-    Username: 'john',
-    Password: 'P@sSw0rd!'
+    apiKey: '68BC02D5-5C17-4A40-8043-942B79DA34B7',
+    compassUrl: 'https://compass.uat.cosential.com/api',
+    firmId: 1234,
+    username: 'john',
+    password: 'P@sSw0rd!'
 });
 
-client.get('/user').then(function(response){
-    if (response.Success) {
-        //Success
-        var user = response.Result[0];
-        document.write('<h2>Hi, '+ user.FirstName +'</h2>');
-    } else {
-        //Error
-        document.write('<h2>Error</h2><div>'+response.Message+'</div>');
-    }
-});
+client.get<User[]>('/user').then(function(res){ 
+      if (res.success) { 
+          //The API call was successful
+ 
+          //This api endpoint always returns a single element array
+          let user = res.result[0]; 
+ 
+          //Because user is an API response object, properties are proper case, not camel case.
+          document.write('<h2>Hi, ' + user.FirstName + '! You are authenticated</h2>'); *          
+      } else {
+          //Something went wrong
+          document.write('<h2>Error</h2><div>' + res.message + '</div>');
+      }
+ });
 ```
 
 ## Reconfigure the client with a new user / pass
 
 ```
-client.reconfigure({
-    Username: 'Jane',
-    Password: '0th3Rp@Ss!'
-});
+client.config.username = 'Jane';
+client.config.password = '0th3Rp@Ss!';
 
-client.get('/user').then(function(response){
-    if (response.Success) {
-        //Success
-        var user = response.Result[0];
-        document.write('<h2>Hi, '+ user.FirstName +'</h2>');
-    } else {
-        //Error
-        document.write('<h2>Error</h2><div>'+response.Message+'</div>');
-    }
-});
+client.get('/user').then( //... );
 ```
 
 ## Using compass.js from HTML
@@ -67,21 +67,25 @@ Download the latest [compass.js](./dist/compass.zip)
 <script src="compass.js"></script>
 <script>
     let client = new compass.Client({
-        ApiKey: '68BC02D5-5C17-4A40-8043-942B79DA34B7',
-        CompassURL: 'https://compass.uat.cosential.com/api',
-        FirmId: 1234,
-        Username: 'john',
-        Password: 'P@sSw0rd!'
+        apiKey: '68BC02D5-5C17-4A40-8043-942B79DA34B7',
+        compassUrl: 'https://compass.uat.cosential.com/api',
+        firmId: 1234,
+        username: 'john',
+        password: 'P@sSw0rd!'
     });
+
+    client.get<User[]>('/user').then(function(res){ 
+        if (res.success) { 
+            //The API call was successful
     
-    client.get('/user').then(function(response){
-        if (response.Success) {
-            //Success
-            var user = response.Result[0];
-            document.write('<h2>Hi, '+ user.FirstName +'</h2>');
+            //This api endpoint always returns a single element array
+            let user = res.result[0]; 
+    
+            //Because user is an API response object, properties are proper case, not camel case.
+            document.write('<h2>Hi, ' + user.FirstName + '! You are authenticated</h2>'); *          
         } else {
-            //Error
-            document.write('<h2>Error</h2><div>'+response.Message+'</div>');
+            //Something went wrong
+            document.write('<h2>Error</h2><div>' + res.message + '</div>');
         }
     });
 </script>
