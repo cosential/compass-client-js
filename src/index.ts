@@ -9,3 +9,4 @@ export { IRequestOptions } from './interfaces/IRequestOptions';
 export { ClientConfig } from './serviceModels/clientConfig';
 
 //Compass Models
+export { User } from './compassModels/user';
