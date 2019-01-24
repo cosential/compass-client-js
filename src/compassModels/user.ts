@@ -1,5 +1,5 @@
 /**
- * The User class represents the user that has successfully authenticated into the Compass API
+ * Represents the User that has successfully authenticated into the Compass API.
  * 
  * @example
  * ```

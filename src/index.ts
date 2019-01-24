@@ -1,5 +1,5 @@
 //The client service
-export { Client } from './services/client';
+export { Client } from './services/Client';
 
 //Interfaces
 export { IGetResponse } from './interfaces/IGetResponse';
