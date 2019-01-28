@@ -3,6 +3,9 @@ import 'isomorphic-fetch';
 import { ClientConfig } from '../serviceModels/clientConfig';
 import { IRequestOptions, IGetResponse } from '..';
 
+/**
+ * Represents the Client service for the Cosential Compass API calls.
+ */
 export class Client {
 
     private _config: ClientConfig;
@@ -27,6 +30,27 @@ export class Client {
         this.config = config;
     }
 
+    /**
+     * Returns a response for the GET request.
+     * 
+     * @param url - Compass API endpoint
+     * @param opts - Optional request headers
+     * @returns A detailed response object as a Promise
+     * 
+     * @example
+     * ```
+     * client.get<Contact[]>('/contacts').then(function(res){
+     *      if (res.success) {
+     *          //This endpoint returns an array of contact elements
+     *          res.result.forEach( (index) => { document.write(index.ContactId); } );
+     *      } else {
+     *          //Something went wrong
+     *          document.write('<h2>Error</h2><div>' + res.message + '</div>');
+     *      }
+     * });
+     * ```
+     * 
+     */
     public async get<T>(url: string, opts: IRequestOptions = {showErrors: true}): Promise<IGetResponse<T>> {
         
         let headers = {
