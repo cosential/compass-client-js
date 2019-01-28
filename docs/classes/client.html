@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents the Client service for the Cosential Compass API calls.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -115,7 +122,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/client.ts:24</li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/bf4084a/src/services/Client.ts#L27">services/Client.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -137,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <a href="clientconfig.html" class="tsd-signature-type">ClientConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in services/client.ts:8</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/bf4084a/src/services/Client.ts#L11">services/Client.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/client.ts:14</li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/bf4084a/src/services/Client.ts#L17">services/Client.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -168,7 +175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/client.ts:22</li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/bf4084a/src/services/Client.ts#L25">services/Client.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,9 +210,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/client.ts:30</li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/bf4084a/src/services/Client.ts#L54">services/Client.ts:54</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a response for the GET request.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code>client.<span class="hljs-keyword">get</span>&lt;Contact[]&gt;(<span class="hljs-string">'/contacts'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-keyword">function</span>(res){
+     <span class="hljs-keyword">if</span> (res.success) {
+         //This endpoint <span class="hljs-keyword">returns</span> an <span class="hljs-keyword">array</span> <span class="hljs-keyword">of</span> contact elements
+         res.result.<span class="hljs-keyword">forEach</span>( (<span class="hljs-keyword">index</span>) =&gt; { document.<span class="hljs-keyword">write</span>(<span class="hljs-keyword">index</span>.ContactId); } );
+     } <span class="hljs-keyword">else</span> {
+         //Something went wrong
+         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
+     }
+});</code></pre></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -216,12 +240,19 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Compass API endpoint</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/irequestoptions.html" class="tsd-signature-type">IRequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional request headers</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/igetresponse.html" class="tsd-signature-type">IGetResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A detailed response object as a Promise</p>
 						</li>
 					</ul>
 				</section>
