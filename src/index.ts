@@ -2,7 +2,7 @@
 export { Client } from './services/Client';
 
 //Interfaces
-export { IGetResponse } from './interfaces/IGetResponse';
+export { IResponse } from './interfaces/IResponse';
 export { IRequestOptions } from './interfaces/IRequestOptions';
 
 //Service Models
