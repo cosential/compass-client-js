@@ -1,16 +1,16 @@
 {
   "name": "compass-client-js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Cosential Compass API Javascript Client",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "https://www.github.com/cosential/compass-client-js",
   "author": "",
   "contributors": [
-    "Akshay Prabhu",
+    "Akshay Prabhu <aprabhu@cosential.com>",
     "Damon Warren <dwarren@cosential.com>",
-    "Matt Butler",
-    "Nathan Williamson"
+    "Matt Butler <mbutler@cosential.com>",
+    "Nathan Williamson <nwilliamson@cosential.com>"
   ],
   "license": "Apache-2.0",
   "scripts": {

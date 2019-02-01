@@ -10,3 +10,4 @@ export { ClientConfig } from './serviceModels/clientConfig';
 
 //Compass Models
 export { User } from './compassModels/user';
+export { Contact } from './compassModels/contact';

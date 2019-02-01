@@ -66,7 +66,7 @@
  * }
  * ```
  */
-export class Contact {
+export interface Contact {
   ContactId: number;
   CompanyId: number;
   CompanyName: string;
