@@ -95,8 +95,8 @@ Download the latest [compass.js](./dist/compass.zip)
 
 - Clone the project '**cosential-client-js**'.
 - From within the project folder '**cosential-client-js**' run the command '**npm install**'.
-- Rename the file '**TestClientConfig.ts.example**' to '**TestClientConfig.ts**' in the '**./src/services**' folder.
-- Open file '**TestClientConfig.ts**' from the '**./src/services**' folder. Enter your API Key, and credentials for a test firm and **save** the file.
+- Rename the file '**test-client-config.ts.example**' to '**test-client-config.ts**' in the '**./src/services**' folder.
+- Open file '**test-client-config.ts**' from the '**./src/services**' folder. Enter your API Key, and credentials for a test firm and **save** the file.
 - From within the project folder '**cosential-client-js**' run the command '**npm run build**'.
 - From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
 

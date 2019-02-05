@@ -1,8 +1,8 @@
-import { Contact } from './../compassModels/contact';
+
 import { Base64 } from 'js-base64';
 import 'isomorphic-fetch';
-import { ClientConfig } from '../serviceModels/clientConfig';
-import { IRequestOptions, IResponse } from '..';
+import { ClientConfig } from '../service-models/client-config';
+import { RequestOptions, ResponseData } from '..';
 
 /**
  * Represents the Client service for the Cosential Compass API calls.
@@ -37,7 +37,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async get<T>(url: string, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async get<T>(url: string, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             //Basic auth
@@ -87,7 +87,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async post<T>(url: string, payload: T, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async post<T>(url: string, payload: T, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
@@ -137,7 +137,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async put<T>(url: string, payload: T, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async put<T>(url: string, payload: T, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
@@ -186,7 +186,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async delete<T>(url: string, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async delete<T>(url: string, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
@@ -234,7 +234,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async search<T>(url: string, parameters: any, includeDeleted: boolean = false, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async search<T>(url: string, parameters: any, includeDeleted: boolean = false, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),

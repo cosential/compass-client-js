@@ -9,4 +9,4 @@ dist/compass.js.map
 dist/compass.min.js
 dist/compass.min.js.map
 test
-src/services/testClientConfig.ts
+src/services/test-client-config.ts
