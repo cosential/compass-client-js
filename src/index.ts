@@ -2,7 +2,7 @@
 export { Client } from './services/client';
 
 //Interfaces
-export { ResponseData } from './interfaces/response';
+export { ResponseData } from './interfaces/response-data';
 export { RequestOptions } from './interfaces/request-options';
 
 //Service Models
