@@ -2,8 +2,8 @@
 export { Client } from './services/client';
 
 //Interfaces
-export { IResponse } from './interfaces/response';
-export { IRequestOptions } from './interfaces/request-options';
+export { ResponseData } from './interfaces/response';
+export { RequestOptions } from './interfaces/request-options';
 
 //Service Models
 export { ClientConfig } from './service-models/client-config';

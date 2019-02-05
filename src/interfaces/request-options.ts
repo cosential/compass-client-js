@@ -1,3 +1,3 @@
-export interface IRequestOptions {
+export interface RequestOptions {
     showErrors: boolean;
 }

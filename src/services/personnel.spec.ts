@@ -3,7 +3,7 @@ import { Client } from './client';
 import { ClientConfig } from '../service-models/client-config';
 import { Personnel } from "../compass-models/personnel";
 import { TestClientConfig as c } from './test-client-config';
-import { IResponse } from '..';
+import { ResponseData } from '..';
 
 describe("PersonnelClient", () => {
 
@@ -19,7 +19,7 @@ describe("PersonnelClient", () => {
     });
 
     it("Can read personnel", async () => {
-        let res: IResponse<Personnel[]> = await client.get<Personnel[]>('/personnel');
+        let res: ResponseData<Personnel[]> = await client.get<Personnel[]>('/personnel');
         if(res.success) aValidPersonnelId = res.result[0].PersonnelId;
         expect(res.success).toBeTruthy(res.message);
     });
@@ -27,7 +27,7 @@ describe("PersonnelClient", () => {
     it("Can read personnel for incorrect url", async () => {
         let mistypedUrls: string[] = ['/personne', '/personnels', '/perosnnel'];
         mistypedUrls.forEach(async (index) => {       
-            let res: IResponse<Personnel[]> = await client.get<Personnel[]>(index);
+            let res: ResponseData<Personnel[]> = await client.get<Personnel[]>(index);
             expect(res.success).toBeFalsy(res.message);
         });
     });
@@ -35,33 +35,33 @@ describe("PersonnelClient", () => {
     it("Can read a personnel", async () => {
         //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let url = '/personnel/' + aValidPersonnelId;
-        let res: IResponse<Personnel> = await client.get<Personnel>(url);
+        let res: ResponseData<Personnel> = await client.get<Personnel>(url);
         expect(res.success).toBeTruthy(res.message);
     });
 
     it("Can read a personnel for invalid id", async () => {
         let url: string = '/personnel/5555444';
-        let res: IResponse<Personnel> = await client.get<Personnel>(url);
+        let res: ResponseData<Personnel> = await client.get<Personnel>(url);
         expect(res.success).toBeFalsy(res.message);
     });
 
     it("Can add personnel with valid data", async () => {
         //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let url = '/personnel/' + aValidPersonnelId;
-        let resGet: IResponse<Personnel> = await client.get<Personnel>(url);
+        let resGet: ResponseData<Personnel> = await client.get<Personnel>(url);
 
         resGet.result.FirstName = "John";
         resGet.result.LastName = "Doe";
         let exPersonnel: Personnel[] = [resGet.result];
 
-        let resPost: IResponse<Personnel[]> = await client.post<Personnel[]>('/personnel', exPersonnel);
+        let resPost: ResponseData<Personnel[]> = await client.post<Personnel[]>('/personnel', exPersonnel);
         expect(resPost.success).toBeTruthy(resPost.message);
     });
 
     it("Can update personnel with valid data", async () => {
         //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let urlGet = '/personnel/' + aValidPersonnelId;
-        let resGet: IResponse<Personnel> = await client.get<Personnel>(urlGet);
+        let resGet: ResponseData<Personnel> = await client.get<Personnel>(urlGet);
 
         resGet.result.Title = "Quality Analyst";
         resGet.result.LastName = "Cena";
@@ -70,14 +70,14 @@ describe("PersonnelClient", () => {
         let exPersonnel: Personnel = resGet.result;
         let urlPut = '/personnel/' + resGet.result.PersonnelId;
 
-        let resPut: IResponse<Personnel> = await client.put<Personnel>(urlPut, exPersonnel);
+        let resPut: ResponseData<Personnel> = await client.put<Personnel>(urlPut, exPersonnel);
         expect(resPut.success).toBeTruthy(resPut.message);
     });
 
     it("Can update personnel with invalid data", async () => {
         //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let urlGet = '/personnel/' + aValidPersonnelId;
-        let resGet: IResponse<Personnel> = await client.get<Personnel>(urlGet);
+        let resGet: ResponseData<Personnel> = await client.get<Personnel>(urlGet);
 
         resGet.result.Notes = "A random note";
         //Not clearing off the existing row_version
@@ -85,20 +85,20 @@ describe("PersonnelClient", () => {
         let exPersonnel: Personnel = resGet.result;
         let urlPut = '/personnel/' + resGet.result.PersonnelId;
 
-        let resPut: IResponse<Personnel> = await client.put<Personnel>(urlPut, exPersonnel);
+        let resPut: ResponseData<Personnel> = await client.put<Personnel>(urlPut, exPersonnel);
         expect(resPut.success).toBeFalsy(resPut.message);
     });
 
     it("Can delete a personnel with valid id", async () => {
         //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let url = '/personnel/' + aValidPersonnelId;
-        let res: IResponse<Personnel> = await client.delete<Personnel>(url);
+        let res: ResponseData<Personnel> = await client.delete<Personnel>(url);
         expect(res.success).toBeTruthy(res.message);
     });
 
     it("Can delete a personnel with invalid id", async () => {
         let url: string = '/personnel/5555999';
-        let res: IResponse<Personnel> = await client.delete<Personnel>(url);
+        let res: ResponseData<Personnel> = await client.delete<Personnel>(url);
         expect(res.success).toBeFalsy(res.message);
     });
     
@@ -108,7 +108,7 @@ describe("PersonnelClient", () => {
             //"FirstName": "John"
         };
 
-        let res: IResponse<Personnel[]> = await client.search<Personnel[]>('/personnel', queryParams);
+        let res: ResponseData<Personnel[]> = await client.search<Personnel[]>('/personnel', queryParams);
         expect(res.success).toBeTruthy(res.message);
     });
 
@@ -117,7 +117,7 @@ describe("PersonnelClient", () => {
             "test": "abc"
         };
 
-        let res: IResponse<Personnel[]> = await client.search<Personnel[]>('/personnel', queryParams);
+        let res: ResponseData<Personnel[]> = await client.search<Personnel[]>('/personnel', queryParams);
         //return all or none on empty or invalid params
         expect(res.success).toBeTruthy(res.message);
     });

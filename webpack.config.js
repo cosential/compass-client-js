@@ -59,7 +59,7 @@ var config = {
       out: '../docs',
       module: 'commonjs',
       target: 'es2015',
-      exclude: '**/node_modules/**/*.*,dist,lib,lib-esm,test,src/**/*.spec.ts,src/services/testClientConfig.ts',
+      exclude: '**/node_modules/**/*.*,dist,lib,lib-esm,test,src/**/*.spec.ts,src/services/test-client-config.ts',
       experimentalDecorators: true,
       excludeExternals: true
     })
