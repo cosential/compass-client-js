@@ -1,8 +1,8 @@
 import 'jasmine';
-import { Client } from './Client';
-import { ClientConfig } from '../serviceModels/clientConfig';
-import { User } from "../compassModels/user";
-import { TestClientConfig as c } from './TestClientConfig';
+import { Client } from './client';
+import { ClientConfig } from '../service-models/client-config';
+import { User } from "../compass-models/user";
+import { TestClientConfig as c } from './test-client-config';
 import { IResponse } from '..';
 
 describe("CompassClient", () => {

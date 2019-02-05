@@ -1,7 +1,7 @@
-import { Contact } from './../compassModels/contact';
+
 import { Base64 } from 'js-base64';
 import 'isomorphic-fetch';
-import { ClientConfig } from '../serviceModels/clientConfig';
+import { ClientConfig } from '../service-models/client-config';
 import { IRequestOptions, IResponse } from '..';
 
 /**
