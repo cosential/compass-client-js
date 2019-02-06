@@ -1,9 +1,9 @@
 import 'jasmine';
-import { Client } from './Client';
-import { ClientConfig } from '../serviceModels/clientConfig';
-import { User } from "../compassModels/user";
-import { TestClientConfig as c } from './TestClientConfig';
-import { IResponse } from '..';
+import { Client } from './client';
+import { ClientConfig } from '../service-models/client-config';
+import { User } from "../compass-models/user";
+import { TestClientConfig as c } from './test-client-config';
+import { ResponseData } from '..';
 
 describe("CompassClient", () => {
 
@@ -18,13 +18,13 @@ describe("CompassClient", () => {
     });
 
     it("Can connect to compass and read a user", async () => {
-        let res: IResponse<User[]> = await client.get<User[]>('/user');
+        let res: ResponseData<User[]> = await client.get<User[]>('/user');
         expect(res.success).toBeTruthy(res.message);
     });
 
     it("Can be reconfigured", async () => {
         client.config.username = c.username + 'FAIL';
-        let res: IResponse<User[]> = await client.get<User[]>('/user');
+        let res: ResponseData<User[]> = await client.get<User[]>('/user');
         expect(res.success).toBeFalsy();
     });
 

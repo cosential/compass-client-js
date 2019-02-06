@@ -1,4 +1,4 @@
-import { ClientConfig } from "../serviceModels/clientConfig";
+import { ClientConfig } from "../service-models/client-config";
 const config = new ClientConfig();
 
 /* These settings are used for unit testing */

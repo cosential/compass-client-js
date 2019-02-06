@@ -57,7 +57,7 @@
 					<a href="contact.html">Contact</a>
 				</li>
 			</ul>
-			<h1>Class Contact</h1>
+			<h1>Interface Contact</h1>
 		</div>
 	</div>
 </header>
@@ -121,8 +121,8 @@ client.put&lt;Contact&gt;<span class="hljs-function">(<span class="hljs-params">
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Search Contact/s</p>
-							<pre><code><span class="hljs-keyword">let</span> queryParams = { <span class="hljs-string">"BusinessEmailAddress"</span>: <span class="hljs-string">"jdoe@cosential.com"</span>, <span class="hljs-string">"FirstName"</span>: <span class="hljs-string">"John"</span> };
-client.search&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/contacts'</span>, queryParams</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'BusinessEmailAddress:jdoe@cosential.com OR BusinessEmailAddress:johnd@cosential.com'</span>;
+client.search&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/contacts'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
      <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -147,73 +147,73 @@ client.search&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-par
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#assistantemail" class="tsd-kind-icon">Assistant<wbr>Email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#assistantname" class="tsd-kind-icon">Assistant<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#assistantphone" class="tsd-kind-icon">Assistant<wbr>Phone</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#assistanttitle" class="tsd-kind-icon">Assistant<wbr>Title</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#birthday" class="tsd-kind-icon">Birthday</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#businessemailaddress" class="tsd-kind-icon">Business<wbr>Email<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#companyid" class="tsd-kind-icon">Company<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#companyname" class="tsd-kind-icon">Company<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#contactid" class="tsd-kind-icon">Contact<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#createdatetime" class="tsd-kind-icon">Create<wbr>Date<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#createdbyuserid" class="tsd-kind-icon">Created<wbr>ByUser<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#department" class="tsd-kind-icon">Department</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#email" class="tsd-kind-icon">Email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#externalid" class="tsd-kind-icon">External<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#firstname" class="tsd-kind-icon">First<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#formalname" class="tsd-kind-icon">Formal<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#homeemailaddress" class="tsd-kind-icon">HomeEMail<wbr>Address</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#importedrecord" class="tsd-kind-icon">Imported<wbr>Record</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualdate1" class="tsd-kind-icon">Individual<wbr>Date1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualdate2" class="tsd-kind-icon">Individual<wbr>Date2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individuallongtext1" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individuallongtext2" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individuallongtext3" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text3</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individuallongtext4" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text4</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individuallongtext5" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text5</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualmoney1" class="tsd-kind-icon">Individual<wbr>Money1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualmoney2" class="tsd-kind-icon">Individual<wbr>Money2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualnumber1" class="tsd-kind-icon">Individual<wbr>Number1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualnumber2" class="tsd-kind-icon">Individual<wbr>Number2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualshorttext1" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualshorttext2" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualshorttext3" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text3</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualshorttext4" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text4</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualshorttext5" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text5</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualvaluelistid1" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualvaluelistid2" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#individualvaluelistid3" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID3</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#isactive" class="tsd-kind-icon">Is<wbr>Active</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#isprimarycontact" class="tsd-kind-icon">Is<wbr>Primary<wbr>Contact</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#isprivate" class="tsd-kind-icon">Is<wbr>Private</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#lastdeletedbyuserid" class="tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#lastdeleteddatetime" class="tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#lastmodifiedbyuserid" class="tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#lastmodifieddatetime" class="tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#lastname" class="tsd-kind-icon">Last<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#mailingstatusid" class="tsd-kind-icon">Mailing<wbr>StatusID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#middlename" class="tsd-kind-icon">Middle<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#nickname" class="tsd-kind-icon">Nick<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#notes" class="tsd-kind-icon">Notes</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#prefix" class="tsd-kind-icon">Prefix</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#sameascompanyind" class="tsd-kind-icon">Same<wbr>AsCompany<wbr>Ind</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#spousebirthday" class="tsd-kind-icon">Spouse<wbr>Birth<wbr>Day</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#spousename" class="tsd-kind-icon">Spouse<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#suffix" class="tsd-kind-icon">Suffix</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#title" class="tsd-kind-icon">Title</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#webpage" class="tsd-kind-icon">Webpage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#customfield1" class="tsd-kind-icon">custom<wbr>Field1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#customfield2" class="tsd-kind-icon">custom<wbr>Field2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#customfield3" class="tsd-kind-icon">custom<wbr>Field3</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#customfield4" class="tsd-kind-icon">custom<wbr>Field4</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#importtypeid" class="tsd-kind-icon">import<wbr>TypeID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#linkedinurl" class="tsd-kind-icon">linkedinURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#twitterurl" class="tsd-kind-icon">twitterURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#version_device" class="tsd-kind-icon">version_<wbr>device</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contact.html#version_username" class="tsd-kind-icon">version_<wbr>user<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#assistantemail" class="tsd-kind-icon">Assistant<wbr>Email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#assistantname" class="tsd-kind-icon">Assistant<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#assistantphone" class="tsd-kind-icon">Assistant<wbr>Phone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#assistanttitle" class="tsd-kind-icon">Assistant<wbr>Title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#birthday" class="tsd-kind-icon">Birthday</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#businessemailaddress" class="tsd-kind-icon">Business<wbr>Email<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#companyid" class="tsd-kind-icon">Company<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#companyname" class="tsd-kind-icon">Company<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#contactid" class="tsd-kind-icon">Contact<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#createdatetime" class="tsd-kind-icon">Create<wbr>Date<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#createdbyuserid" class="tsd-kind-icon">Created<wbr>ByUser<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#department" class="tsd-kind-icon">Department</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#email" class="tsd-kind-icon">Email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#externalid" class="tsd-kind-icon">External<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#firstname" class="tsd-kind-icon">First<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#formalname" class="tsd-kind-icon">Formal<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#homeemailaddress" class="tsd-kind-icon">HomeEMail<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#importedrecord" class="tsd-kind-icon">Imported<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualdate1" class="tsd-kind-icon">Individual<wbr>Date1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualdate2" class="tsd-kind-icon">Individual<wbr>Date2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individuallongtext1" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individuallongtext2" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individuallongtext3" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individuallongtext4" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individuallongtext5" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualmoney1" class="tsd-kind-icon">Individual<wbr>Money1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualmoney2" class="tsd-kind-icon">Individual<wbr>Money2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualnumber1" class="tsd-kind-icon">Individual<wbr>Number1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualnumber2" class="tsd-kind-icon">Individual<wbr>Number2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualshorttext1" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualshorttext2" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualshorttext3" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualshorttext4" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualshorttext5" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualvaluelistid1" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualvaluelistid2" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#individualvaluelistid3" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#isactive" class="tsd-kind-icon">Is<wbr>Active</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#isprimarycontact" class="tsd-kind-icon">Is<wbr>Primary<wbr>Contact</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#isprivate" class="tsd-kind-icon">Is<wbr>Private</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#lastdeletedbyuserid" class="tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#lastdeleteddatetime" class="tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#lastmodifiedbyuserid" class="tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#lastmodifieddatetime" class="tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#lastname" class="tsd-kind-icon">Last<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#mailingstatusid" class="tsd-kind-icon">Mailing<wbr>StatusID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#middlename" class="tsd-kind-icon">Middle<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#nickname" class="tsd-kind-icon">Nick<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#notes" class="tsd-kind-icon">Notes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#prefix" class="tsd-kind-icon">Prefix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#sameascompanyind" class="tsd-kind-icon">Same<wbr>AsCompany<wbr>Ind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#spousebirthday" class="tsd-kind-icon">Spouse<wbr>Birth<wbr>Day</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#spousename" class="tsd-kind-icon">Spouse<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#suffix" class="tsd-kind-icon">Suffix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#title" class="tsd-kind-icon">Title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#webpage" class="tsd-kind-icon">Webpage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#customfield1" class="tsd-kind-icon">custom<wbr>Field1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#customfield2" class="tsd-kind-icon">custom<wbr>Field2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#customfield3" class="tsd-kind-icon">custom<wbr>Field3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#customfield4" class="tsd-kind-icon">custom<wbr>Field4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#importtypeid" class="tsd-kind-icon">import<wbr>TypeID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#linkedinurl" class="tsd-kind-icon">linkedinURL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#twitterurl" class="tsd-kind-icon">twitterURL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#version_device" class="tsd-kind-icon">version_<wbr>device</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contact.html#version_username" class="tsd-kind-icon">version_<wbr>user<wbr>Name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -221,673 +221,673 @@ client.search&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-par
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="assistantemail" class="tsd-anchor"></a>
 					<h3>Assistant<wbr>Email</h3>
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:91</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L91">compass-models/contact.ts:91</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="assistantname" class="tsd-anchor"></a>
 					<h3>Assistant<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:88</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L88">compass-models/contact.ts:88</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="assistantphone" class="tsd-anchor"></a>
 					<h3>Assistant<wbr>Phone</h3>
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:90</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L90">compass-models/contact.ts:90</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="assistanttitle" class="tsd-anchor"></a>
 					<h3>Assistant<wbr>Title</h3>
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:89</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L89">compass-models/contact.ts:89</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="birthday" class="tsd-anchor"></a>
 					<h3>Birthday</h3>
 					<div class="tsd-signature tsd-kind-icon">Birthday<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:94</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L94">compass-models/contact.ts:94</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="businessemailaddress" class="tsd-anchor"></a>
 					<h3>Business<wbr>Email<wbr>Address</h3>
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>Email<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:87</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L87">compass-models/contact.ts:87</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="companyid" class="tsd-anchor"></a>
 					<h3>Company<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:71</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L71">compass-models/contact.ts:71</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="companyname" class="tsd-anchor"></a>
 					<h3>Company<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:72</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L72">compass-models/contact.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="contactid" class="tsd-anchor"></a>
 					<h3>Contact<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:70</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L70">compass-models/contact.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="createdatetime" class="tsd-anchor"></a>
 					<h3>Create<wbr>Date<wbr>Time</h3>
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:128</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L128">compass-models/contact.ts:128</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="createdbyuserid" class="tsd-anchor"></a>
 					<h3>Created<wbr>ByUser<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:129</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L129">compass-models/contact.ts:129</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="deleterecord" class="tsd-anchor"></a>
 					<h3>Delete<wbr>Record</h3>
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:85</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L85">compass-models/contact.ts:85</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="department" class="tsd-anchor"></a>
 					<h3>Department</h3>
 					<div class="tsd-signature tsd-kind-icon">Department<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:93</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L93">compass-models/contact.ts:93</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="email" class="tsd-anchor"></a>
 					<h3>Email</h3>
 					<div class="tsd-signature tsd-kind-icon">Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:81</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L81">compass-models/contact.ts:81</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="externalid" class="tsd-anchor"></a>
 					<h3>External<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:97</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L97">compass-models/contact.ts:97</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="firstname" class="tsd-anchor"></a>
 					<h3>First<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:74</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L74">compass-models/contact.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="formalname" class="tsd-anchor"></a>
 					<h3>Formal<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Formal<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:79</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L79">compass-models/contact.ts:79</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="homeemailaddress" class="tsd-anchor"></a>
 					<h3>HomeEMail<wbr>Address</h3>
 					<div class="tsd-signature tsd-kind-icon">HomeEMail<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:86</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L86">compass-models/contact.ts:86</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="importedrecord" class="tsd-anchor"></a>
 					<h3>Imported<wbr>Record</h3>
 					<div class="tsd-signature tsd-kind-icon">Imported<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:98</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L98">compass-models/contact.ts:98</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualdate1" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Date1</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Date1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:117</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L117">compass-models/contact.ts:117</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualdate2" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Date2</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Date2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:118</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L118">compass-models/contact.ts:118</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individuallongtext1" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Long<wbr>Text1</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:110</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L110">compass-models/contact.ts:110</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individuallongtext2" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Long<wbr>Text2</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:111</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L111">compass-models/contact.ts:111</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individuallongtext3" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Long<wbr>Text3</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:112</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L112">compass-models/contact.ts:112</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individuallongtext4" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Long<wbr>Text4</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:113</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L113">compass-models/contact.ts:113</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individuallongtext5" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Long<wbr>Text5</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:114</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L114">compass-models/contact.ts:114</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualmoney1" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Money1</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Money1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:121</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L121">compass-models/contact.ts:121</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualmoney2" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Money2</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Money2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:122</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L122">compass-models/contact.ts:122</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualnumber1" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Number1</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Number1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:115</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L115">compass-models/contact.ts:115</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualnumber2" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Number2</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Number2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:116</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L116">compass-models/contact.ts:116</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualshorttext1" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Short<wbr>Text1</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:105</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L105">compass-models/contact.ts:105</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualshorttext2" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Short<wbr>Text2</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:106</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L106">compass-models/contact.ts:106</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualshorttext3" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Short<wbr>Text3</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:107</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L107">compass-models/contact.ts:107</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualshorttext4" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Short<wbr>Text4</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:108</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L108">compass-models/contact.ts:108</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualshorttext5" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Short<wbr>Text5</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:109</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L109">compass-models/contact.ts:109</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualvaluelistid1" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Value<wbr>ListID1</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Value<wbr>ListID1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:119</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L119">compass-models/contact.ts:119</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualvaluelistid2" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Value<wbr>ListID2</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Value<wbr>ListID2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:120</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L120">compass-models/contact.ts:120</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="individualvaluelistid3" class="tsd-anchor"></a>
 					<h3>Individual<wbr>Value<wbr>ListID3</h3>
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Value<wbr>ListID3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:123</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L123">compass-models/contact.ts:123</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="isactive" class="tsd-anchor"></a>
 					<h3>Is<wbr>Active</h3>
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:84</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L84">compass-models/contact.ts:84</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="isprimarycontact" class="tsd-anchor"></a>
 					<h3>Is<wbr>Primary<wbr>Contact</h3>
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Primary<wbr>Contact<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:82</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L82">compass-models/contact.ts:82</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="isprivate" class="tsd-anchor"></a>
 					<h3>Is<wbr>Private</h3>
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Private<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:83</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L83">compass-models/contact.ts:83</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="lastdeletedbyuserid" class="tsd-anchor"></a>
 					<h3>Last<wbr>Deleted<wbr>ByUser<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:133</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L133">compass-models/contact.ts:133</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="lastdeleteddatetime" class="tsd-anchor"></a>
 					<h3>Last<wbr>Deleted<wbr>Date<wbr>Time</h3>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:132</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L132">compass-models/contact.ts:132</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="lastmodifiedbyuserid" class="tsd-anchor"></a>
 					<h3>Last<wbr>Modified<wbr>ByUser<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:131</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L131">compass-models/contact.ts:131</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="lastmodifieddatetime" class="tsd-anchor"></a>
 					<h3>Last<wbr>Modified<wbr>Date<wbr>Time</h3>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:130</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L130">compass-models/contact.ts:130</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="lastname" class="tsd-anchor"></a>
 					<h3>Last<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:76</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L76">compass-models/contact.ts:76</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="mailingstatusid" class="tsd-anchor"></a>
 					<h3>Mailing<wbr>StatusID</h3>
 					<div class="tsd-signature tsd-kind-icon">Mailing<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:125</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L125">compass-models/contact.ts:125</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="middlename" class="tsd-anchor"></a>
 					<h3>Middle<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Middle<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:75</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L75">compass-models/contact.ts:75</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="nickname" class="tsd-anchor"></a>
 					<h3>Nick<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Nick<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:80</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L80">compass-models/contact.ts:80</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="notes" class="tsd-anchor"></a>
 					<h3>Notes</h3>
 					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:92</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L92">compass-models/contact.ts:92</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="prefix" class="tsd-anchor"></a>
 					<h3>Prefix</h3>
 					<div class="tsd-signature tsd-kind-icon">Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:73</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L73">compass-models/contact.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="row_version" class="tsd-anchor"></a>
 					<h3>ROW_<wbr>VERSION</h3>
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:136</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L136">compass-models/contact.ts:136</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sameascompanyind" class="tsd-anchor"></a>
 					<h3>Same<wbr>AsCompany<wbr>Ind</h3>
 					<div class="tsd-signature tsd-kind-icon">Same<wbr>AsCompany<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:99</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L99">compass-models/contact.ts:99</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="spousebirthday" class="tsd-anchor"></a>
 					<h3>Spouse<wbr>Birth<wbr>Day</h3>
 					<div class="tsd-signature tsd-kind-icon">Spouse<wbr>Birth<wbr>Day<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:96</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L96">compass-models/contact.ts:96</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="spousename" class="tsd-anchor"></a>
 					<h3>Spouse<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">Spouse<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:95</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L95">compass-models/contact.ts:95</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="suffix" class="tsd-anchor"></a>
 					<h3>Suffix</h3>
 					<div class="tsd-signature tsd-kind-icon">Suffix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:77</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L77">compass-models/contact.ts:77</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="title" class="tsd-anchor"></a>
 					<h3>Title</h3>
 					<div class="tsd-signature tsd-kind-icon">Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:78</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L78">compass-models/contact.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="webpage" class="tsd-anchor"></a>
 					<h3>Webpage</h3>
 					<div class="tsd-signature tsd-kind-icon">Webpage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:100</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L100">compass-models/contact.ts:100</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="customfield1" class="tsd-anchor"></a>
 					<h3>custom<wbr>Field1</h3>
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:101</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L101">compass-models/contact.ts:101</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="customfield2" class="tsd-anchor"></a>
 					<h3>custom<wbr>Field2</h3>
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:102</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L102">compass-models/contact.ts:102</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="customfield3" class="tsd-anchor"></a>
 					<h3>custom<wbr>Field3</h3>
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:103</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L103">compass-models/contact.ts:103</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="customfield4" class="tsd-anchor"></a>
 					<h3>custom<wbr>Field4</h3>
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:104</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L104">compass-models/contact.ts:104</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="importtypeid" class="tsd-anchor"></a>
 					<h3>import<wbr>TypeID</h3>
 					<div class="tsd-signature tsd-kind-icon">import<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:124</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L124">compass-models/contact.ts:124</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="linkedinurl" class="tsd-anchor"></a>
 					<h3>linkedinURL</h3>
 					<div class="tsd-signature tsd-kind-icon">linkedinURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:127</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L127">compass-models/contact.ts:127</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="twitterurl" class="tsd-anchor"></a>
 					<h3>twitterURL</h3>
 					<div class="tsd-signature tsd-kind-icon">twitterURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:126</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L126">compass-models/contact.ts:126</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="version_device" class="tsd-anchor"></a>
 					<h3>version_<wbr>device</h3>
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:134</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L134">compass-models/contact.ts:134</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="version_username" class="tsd-anchor"></a>
 					<h3>version_<wbr>user<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>user<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compassModels/contact.ts:135</li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/94b902b/src/compass-models/contact.ts#L135">compass-models/contact.ts:135</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -904,232 +904,232 @@ client.search&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-par
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="client.html" class="tsd-kind-icon">Client</a>
+						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="clientconfig.html" class="tsd-kind-icon">Client<wbr>Config</a>
+						<a href="../classes/clientconfig.html" class="tsd-kind-icon">Client<wbr>Config</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-interface">
 						<a href="contact.html" class="tsd-kind-icon">Contact</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#assistantemail" class="tsd-kind-icon">Assistant<wbr>Email</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#assistantname" class="tsd-kind-icon">Assistant<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#assistantphone" class="tsd-kind-icon">Assistant<wbr>Phone</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#assistanttitle" class="tsd-kind-icon">Assistant<wbr>Title</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#birthday" class="tsd-kind-icon">Birthday</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#businessemailaddress" class="tsd-kind-icon">Business<wbr>Email<wbr>Address</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#companyid" class="tsd-kind-icon">Company<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#companyname" class="tsd-kind-icon">Company<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#contactid" class="tsd-kind-icon">Contact<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#createdatetime" class="tsd-kind-icon">Create<wbr>Date<wbr>Time</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#createdbyuserid" class="tsd-kind-icon">Created<wbr>ByUser<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#department" class="tsd-kind-icon">Department</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#email" class="tsd-kind-icon">Email</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#externalid" class="tsd-kind-icon">External<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#firstname" class="tsd-kind-icon">First<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#formalname" class="tsd-kind-icon">Formal<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#homeemailaddress" class="tsd-kind-icon">HomeEMail<wbr>Address</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#importedrecord" class="tsd-kind-icon">Imported<wbr>Record</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualdate1" class="tsd-kind-icon">Individual<wbr>Date1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualdate2" class="tsd-kind-icon">Individual<wbr>Date2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individuallongtext1" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individuallongtext2" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individuallongtext3" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text3</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individuallongtext4" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text4</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individuallongtext5" class="tsd-kind-icon">Individual<wbr>Long<wbr>Text5</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualmoney1" class="tsd-kind-icon">Individual<wbr>Money1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualmoney2" class="tsd-kind-icon">Individual<wbr>Money2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualnumber1" class="tsd-kind-icon">Individual<wbr>Number1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualnumber2" class="tsd-kind-icon">Individual<wbr>Number2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualshorttext1" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualshorttext2" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualshorttext3" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text3</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualshorttext4" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text4</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualshorttext5" class="tsd-kind-icon">Individual<wbr>Short<wbr>Text5</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualvaluelistid1" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualvaluelistid2" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#individualvaluelistid3" class="tsd-kind-icon">Individual<wbr>Value<wbr>ListID3</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#isactive" class="tsd-kind-icon">Is<wbr>Active</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#isprimarycontact" class="tsd-kind-icon">Is<wbr>Primary<wbr>Contact</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#isprivate" class="tsd-kind-icon">Is<wbr>Private</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#lastdeletedbyuserid" class="tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#lastdeleteddatetime" class="tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#lastmodifiedbyuserid" class="tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#lastmodifieddatetime" class="tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#lastname" class="tsd-kind-icon">Last<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#mailingstatusid" class="tsd-kind-icon">Mailing<wbr>StatusID</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#middlename" class="tsd-kind-icon">Middle<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#nickname" class="tsd-kind-icon">Nick<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#notes" class="tsd-kind-icon">Notes</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#prefix" class="tsd-kind-icon">Prefix</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#sameascompanyind" class="tsd-kind-icon">Same<wbr>AsCompany<wbr>Ind</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#spousebirthday" class="tsd-kind-icon">Spouse<wbr>Birth<wbr>Day</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#spousename" class="tsd-kind-icon">Spouse<wbr>Name</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#suffix" class="tsd-kind-icon">Suffix</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#title" class="tsd-kind-icon">Title</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#webpage" class="tsd-kind-icon">Webpage</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#customfield1" class="tsd-kind-icon">custom<wbr>Field1</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#customfield2" class="tsd-kind-icon">custom<wbr>Field2</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#customfield3" class="tsd-kind-icon">custom<wbr>Field3</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#customfield4" class="tsd-kind-icon">custom<wbr>Field4</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#importtypeid" class="tsd-kind-icon">import<wbr>TypeID</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#linkedinurl" class="tsd-kind-icon">linkedinURL</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#twitterurl" class="tsd-kind-icon">twitterURL</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#version_device" class="tsd-kind-icon">version_<wbr>device</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="contact.html#version_username" class="tsd-kind-icon">version_<wbr>user<wbr>Name</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="user.html" class="tsd-kind-icon">User</a>
+					<li class=" tsd-kind-interface">
+						<a href="personnel.html" class="tsd-kind-icon">Personnel</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/irequestoptions.html" class="tsd-kind-icon">IRequest<wbr>Options</a>
+						<a href="requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/iresponse.html" class="tsd-kind-icon">IResponse</a>
+						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#config" class="tsd-kind-icon">config</a>
+					<li class=" tsd-kind-interface">
+						<a href="user.html" class="tsd-kind-icon">User</a>
 					</li>
 				</ul>
 			</nav>
