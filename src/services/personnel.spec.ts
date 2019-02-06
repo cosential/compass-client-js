@@ -103,21 +103,14 @@ describe("PersonnelClient", () => {
     });
     
     it("Search personnel using valid params", async () => {
-        let queryParams = {
-            "OfficeEmail": "jdoe@cosential.com"//,
-            //"FirstName": "John"
-        };
-
-        let res: ResponseData<Personnel[]> = await client.search<Personnel[]>('/personnel', queryParams);
+        let searchQuery = 'OfficeEmail:jdoe@cosential.com';
+        let res: ResponseData<Personnel[]> = await client.search<Personnel[]>('/personnel', searchQuery);
         expect(res.success).toBeTruthy(res.message);
     });
 
     it("Search personnel for invalid params", async () => {
-        let queryParams = {
-            "test": "abc"
-        };
-
-        let res: ResponseData<Personnel[]> = await client.search<Personnel[]>('/personnel', queryParams);
+        let searchQuery = 'test:abc';
+        let res: ResponseData<Personnel[]> = await client.search<Personnel[]>('/personnel', searchQuery);
         //return all or none on empty or invalid params
         expect(res.success).toBeTruthy(res.message);
     });

@@ -56,8 +56,8 @@
  * ```
  * @example Search Personnel
  * ```
- * let queryParams = { "OfficeEmail": "jdoe@cosential.com", "FirstName": "John" };
- * client.search<Personnel[]>('/personnel', queryParams).then( (res) => {
+ * let searchQuery = 'OfficeEmail:jdoe@cosential.com AND FirstName:John';
+ * client.search<Personnel[]>('/personnel', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong
