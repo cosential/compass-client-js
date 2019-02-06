@@ -229,13 +229,18 @@ export class Client {
     /**
      * Returns search results based on query parameters.
      * @param url - Compass API endpoint
-     * @param parameters - Search constraints
+     * @param queryString - Complete search query
      * @param includeDeleted - Include deleted records in search
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async search<T>(url: string, parameters: any, includeDeleted: boolean = false, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
+    public async search<T>(url: string, queryString: string, includeDeleted: boolean = false, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
+        let searchQuery: string = (queryString != null) ? queryString.trim() : queryString;
+        if(searchQuery == '' || searchQuery == null){
+            throw new Error(`Compass API call failed. String to search '${searchQuery}' is Empty or Invalid.`);
+        }
+
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
             'x-compass-firm-id': this.config.firmId.toString(),
@@ -243,16 +248,8 @@ export class Client {
             'Accept': 'application/json'
         };
 
-        let newUrl: string = this.config.compassUrl + url;
-
-        if(Object.keys(parameters).length > 0){
-            newUrl +=  '/search?q=';
-            Object.keys(parameters).forEach( (index) => { newUrl += (index + ':' + parameters[index] + ' AND ') } );
-            //remove trailing AND
-            newUrl = newUrl.substring(0, newUrl.length - 5);
-
-            if (includeDeleted) newUrl += '&includedeleted=true';
-        }        
+        let newUrl: string = this.config.compassUrl + url + '/search?q=' + searchQuery;
+        if (includeDeleted) newUrl += '&includedeleted=true';                
 
         if (opts.showErrors) headers['x-compass-show-errors'] = 'true';
 

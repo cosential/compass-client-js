@@ -117,21 +117,14 @@ describe("ContactClient", () => {
     });
     
     it("Search contact/s using valid params", async () => {
-        let queryParams = {
-            "BusinessEmailAddress": "jdoe@cosential.com"//,
-            //"FirstName": "John"
-        };
-
-        let res: ResponseData<Contact[]> = await client.search<Contact[]>('/contacts', queryParams);
+        let searchQuery = 'BusinessEmailAddress:jdoe@cosential.com AND FirstName:John';
+        let res: ResponseData<Contact[]> = await client.search<Contact[]>('/contacts', searchQuery);
         expect(res.success).toBeTruthy(res.message);
     });
 
     it("Search contact/s for invalid params", async () => {
-        let queryParams = {
-            "test": "abc"
-        };
-
-        let res: ResponseData<Contact[]> = await client.search<Contact[]>('/contacts', queryParams);
+        let searchQuery = 'test:abc';
+        let res: ResponseData<Contact[]> = await client.search<Contact[]>('/contacts', searchQuery);
         //return all or none on empty or invalid params
         expect(res.success).toBeTruthy(res.message);
     });
