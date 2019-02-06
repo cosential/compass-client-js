@@ -56,8 +56,8 @@
  * ```
  * @example Search Contact/s
  * ```
- * let queryParams = { "BusinessEmailAddress": "jdoe@cosential.com", "FirstName": "John" };
- * client.search<Contact[]>('/contacts', queryParams).then( (res) => {
+ * let searchQuery = 'BusinessEmailAddress:jdoe@cosential.com OR BusinessEmailAddress:johnd@cosential.com';
+ * client.search<Contact[]>('/contacts', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong
@@ -66,7 +66,7 @@
  * }
  * ```
  */
-export class Contact {
+export interface Contact {
   ContactId: number;
   CompanyId: number;
   CompanyName: string;

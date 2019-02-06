@@ -1,8 +1,8 @@
-import { Contact } from './../compassModels/contact';
+
 import { Base64 } from 'js-base64';
 import 'isomorphic-fetch';
-import { ClientConfig } from '../serviceModels/clientConfig';
-import { IRequestOptions, IResponse } from '..';
+import { ClientConfig } from '../service-models/client-config';
+import { RequestOptions, ResponseData } from '..';
 
 /**
  * Represents the Client service for the Cosential Compass API calls.
@@ -37,7 +37,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async get<T>(url: string, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async get<T>(url: string, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             //Basic auth
@@ -87,7 +87,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async post<T>(url: string, payload: T, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async post<T>(url: string, payload: T, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
@@ -137,7 +137,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async put<T>(url: string, payload: T, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async put<T>(url: string, payload: T, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
@@ -186,7 +186,7 @@ export class Client {
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async delete<T>(url: string, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async delete<T>(url: string, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
@@ -229,13 +229,18 @@ export class Client {
     /**
      * Returns search results based on query parameters.
      * @param url - Compass API endpoint
-     * @param parameters - Search constraints
+     * @param queryString - Complete search query
      * @param includeDeleted - Include deleted records in search
      * @param opts - Optional request headers
      * @returns A detailed response object as a Promise
      */
-    public async search<T>(url: string, parameters: any, includeDeleted: boolean = false, opts: IRequestOptions = {showErrors: true}): Promise<IResponse<T>> {
+    public async search<T>(url: string, queryString: string, includeDeleted: boolean = false, opts: RequestOptions = {showErrors: true}): Promise<ResponseData<T>> {
         
+        let searchQuery: string = (queryString != null) ? queryString.trim() : queryString;
+        if(searchQuery == '' || searchQuery == null){
+            throw new Error(`Compass API call failed. String to search '${searchQuery}' is Empty or Invalid.`);
+        }
+
         let headers = {
             'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
             'x-compass-firm-id': this.config.firmId.toString(),
@@ -243,16 +248,8 @@ export class Client {
             'Accept': 'application/json'
         };
 
-        let newUrl: string = this.config.compassUrl + url;
-
-        if(Object.keys(parameters).length > 0){
-            newUrl +=  '/search?q=';
-            Object.keys(parameters).forEach( (index) => { newUrl += (index + ':' + parameters[index] + ' AND ') } );
-            //remove trailing AND
-            newUrl = newUrl.substring(0, newUrl.length - 5);
-
-            if (includeDeleted) newUrl += '&includedeleted=true';
-        }        
+        let newUrl: string = this.config.compassUrl + url + '/search?q=' + searchQuery;
+        if (includeDeleted) newUrl += '&includedeleted=true';                
 
         if (opts.showErrors) headers['x-compass-show-errors'] = 'true';
 

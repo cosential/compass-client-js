@@ -20,7 +20,7 @@
  * ```
  * 
  */
-export class User {
+export interface User {
     Title: string;
     FirstName: string;
     MI: string;
