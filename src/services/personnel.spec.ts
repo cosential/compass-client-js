@@ -8,19 +8,21 @@ import { ResponseData } from '..';
 describe("PersonnelClient", () => {
 
     let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
-    let aValidPersonnelId: number = 1146777;
+    let aValidPersonnelId: number;
 
-    beforeEach(() => {
+    beforeEach(async () => {
         client.config.firmId = c.firmId;
         client.config.username = c.username;
         client.config.password = c.password;
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
+
+        let res: ResponseData<Personnel[]> = await client.get<Personnel[]>('/personnel');
+        if(res.success) aValidPersonnelId = res.result[0].PersonnelId;
     });
 
     it("Can read personnel", async () => {
         let res: ResponseData<Personnel[]> = await client.get<Personnel[]>('/personnel');
-        if(res.success) aValidPersonnelId = res.result[0].PersonnelId;
         expect(res.success).toBeTruthy(res.message);
     });
 
@@ -33,7 +35,6 @@ describe("PersonnelClient", () => {
     });
 
     it("Can read a personnel", async () => {
-        //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let url = '/personnel/' + aValidPersonnelId;
         let res: ResponseData<Personnel> = await client.get<Personnel>(url);
         expect(res.success).toBeTruthy(res.message);
@@ -46,7 +47,6 @@ describe("PersonnelClient", () => {
     });
 
     it("Can add personnel with valid data", async () => {
-        //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let url = '/personnel/' + aValidPersonnelId;
         let resGet: ResponseData<Personnel> = await client.get<Personnel>(url);
 
@@ -59,7 +59,6 @@ describe("PersonnelClient", () => {
     });
 
     it("Can update personnel with valid data", async () => {
-        //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let urlGet = '/personnel/' + aValidPersonnelId;
         let resGet: ResponseData<Personnel> = await client.get<Personnel>(urlGet);
 
@@ -75,7 +74,6 @@ describe("PersonnelClient", () => {
     });
 
     it("Can update personnel with invalid data", async () => {
-        //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let urlGet = '/personnel/' + aValidPersonnelId;
         let resGet: ResponseData<Personnel> = await client.get<Personnel>(urlGet);
 
@@ -90,7 +88,6 @@ describe("PersonnelClient", () => {
     });
 
     it("Can delete a personnel with valid id", async () => {
-        //In case this function runs prior to getting a valid id, 1146777 acts as a test id from UAT Env
         let url = '/personnel/' + aValidPersonnelId;
         let res: ResponseData<Personnel> = await client.delete<Personnel>(url);
         expect(res.success).toBeTruthy(res.message);

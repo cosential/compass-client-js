@@ -8,14 +8,17 @@ import { ResponseData } from '..';
 describe("ContactClient", () => {
 
     let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
-    let aValidContactId: number = 5527672;
+    let aValidContactId: number;
 
-    beforeEach(() => {
+    beforeEach(async () => {
         client.config.firmId = c.firmId;
         client.config.username = c.username;
         client.config.password = c.password;
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
+
+        let res: ResponseData<Contact[]> = await client.get<Contact[]>('/contacts');
+        if(res.success) aValidContactId = res.result[0].ContactId;
     });
 
     it("Can read contacts", async () => {
@@ -33,7 +36,6 @@ describe("ContactClient", () => {
     });
 
     it("Can read a contact", async () => {
-        //In case this function runs prior to getting a valid id, 5527672 acts as a test id from UAT Env
         let url = '/contacts/' + aValidContactId;
         let res: ResponseData<Contact> = await client.get<Contact>(url);
         expect(res.success).toBeTruthy(res.message);
@@ -46,7 +48,6 @@ describe("ContactClient", () => {
     });
 
     it("Can add contact/s with valid data", async () => {
-        //In case this function runs prior to getting a valid id, 5527672 acts as a test id from UAT Env
         let url = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(url);
 
@@ -59,7 +60,6 @@ describe("ContactClient", () => {
     });
 
     it("Can add contact/s with invalid data", async () => {
-        //In case this function runs prior to getting a valid id, 5527672 acts as a test id from UAT Env
         let url = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(url);
 
@@ -73,7 +73,6 @@ describe("ContactClient", () => {
     });
 
     it("Can update contact with valid data", async () => {
-        //In case this function runs prior to getting a valid id, 5527672 acts as a test id from UAT Env
         let urlGet = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(urlGet);
 
@@ -89,7 +88,6 @@ describe("ContactClient", () => {
     });
 
     it("Can update contact with invalid data", async () => {
-        //In case this function runs prior to getting a valid id, 5527672 acts as a test id from UAT Env
         let urlGet = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(urlGet);
 
@@ -104,7 +102,6 @@ describe("ContactClient", () => {
     });
 
     it("Can delete a contact with valid id", async () => {
-        //In case this function runs prior to getting a valid id, 5527672 acts as a test id from UAT Env
         let url = '/contacts/' + aValidContactId;
         let res: ResponseData<Contact> = await client.delete<Contact>(url);
         expect(res.success).toBeTruthy(res.message);
