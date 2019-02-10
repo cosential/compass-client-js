@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PersonnelImageMetadata | Cosential compass.js</title>
+	<title>ProjectImageMetadata | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="personnelimagemetadata.html">PersonnelImageMetadata</a>
+					<a href="projectimagemetadata.html">ProjectImageMetadata</a>
 				</li>
 			</ul>
-			<h1>Interface PersonnelImageMetadata</h1>
+			<h1>Interface ProjectImageMetadata</h1>
 		</div>
 	</div>
 </header>
@@ -67,14 +67,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the image metadata for a Personnel.</p>
+						<p>Represents the image metadata for a Project.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read images metadata for a Personnel</p>
-							<pre><code>client.get&lt;PersonnelImageMetadata[]&gt;<span class="hljs-function">(<span class="hljs-params">'/personnel/5556666/images'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read images metadata for a Project</p>
+							<pre><code>client.get&lt;ProjectImageMetadata[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/5556666/images'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
-         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ImageSizeKB</span>); }</span>);
+         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OriginalImageEndpoint</span>); }</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
@@ -86,7 +86,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PersonnelImageMetadata</span>
+						<span class="target">ProjectImageMetadata</span>
 					</li>
 				</ul>
 			</section>
@@ -97,26 +97,31 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#cdrompath" class="tsd-kind-icon">CDRom<wbr>Path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#caption" class="tsd-kind-icon">Caption</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#comments" class="tsd-kind-icon">Comments</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#credit" class="tsd-kind-icon">Credit</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#device" class="tsd-kind-icon">Device</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imagehash" class="tsd-kind-icon">Image<wbr>Hash</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imageid" class="tsd-kind-icon">Image<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imagename" class="tsd-kind-icon">Image<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imagesizekb" class="tsd-kind-icon">Image<wbr>SizeKB</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#keywords" class="tsd-kind-icon">Keywords</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#networkpath" class="tsd-kind-icon">Network<wbr>Path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#ordernumber" class="tsd-kind-icon">Order<wbr>Number</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#originalimageendpoint" class="tsd-kind-icon">Original<wbr>Image<wbr>Endpoint</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#personnelid" class="tsd-kind-icon">Personnel<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#primaryphoto" class="tsd-kind-icon">Primary<wbr>Photo</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#thumbnailimageendpoint" class="tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#uploaddate" class="tsd-kind-icon">Upload<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#websiteimageendpoint" class="tsd-kind-icon">Website<wbr>Image<wbr>Endpoint</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#latitude" class="tsd-kind-icon">latitude</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#longitude" class="tsd-kind-icon">longitude</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#accesslevel" class="tsd-kind-icon">Access<wbr>Level</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#cdrompath" class="tsd-kind-icon">CDRom<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#caption" class="tsd-kind-icon">Caption</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#comments" class="tsd-kind-icon">Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#credit" class="tsd-kind-icon">Credit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#device" class="tsd-kind-icon">Device</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#imagehash" class="tsd-kind-icon">Image<wbr>Hash</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#imageid" class="tsd-kind-icon">Image<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#imagename" class="tsd-kind-icon">Image<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#imagenumber" class="tsd-kind-icon">Image<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#imagesizekb" class="tsd-kind-icon">Image<wbr>SizeKB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#iswebsiteimage" class="tsd-kind-icon">Is<wbr>Website<wbr>Image</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#iswebsitethumbnail" class="tsd-kind-icon">Is<wbr>Website<wbr>Thumbnail</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#keywords" class="tsd-kind-icon">Keywords</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#networkpath" class="tsd-kind-icon">Network<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#ordernumber" class="tsd-kind-icon">Order<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#originalimageendpoint" class="tsd-kind-icon">Original<wbr>Image<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#projectid" class="tsd-kind-icon">Project<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#projectname" class="tsd-kind-icon">Project<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#projectnumber" class="tsd-kind-icon">Project<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#thumbnailimageendpoint" class="tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#uploaddate" class="tsd-kind-icon">Upload<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#websiteimageendpoint" class="tsd-kind-icon">Website<wbr>Image<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#latitude" class="tsd-kind-icon">latitude</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectimagemetadata.html#longitude" class="tsd-kind-icon">longitude</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,12 +130,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="accesslevel" class="tsd-anchor"></a>
+					<h3>Access<wbr>Level</h3>
+					<div class="tsd-signature tsd-kind-icon">Access<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/images/project-image-metadata.ts:29</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="cdrompath" class="tsd-anchor"></a>
 					<h3>CDRom<wbr>Path</h3>
 					<div class="tsd-signature tsd-kind-icon">CDRom<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L22">compass-models/images/personnel-image-metadata.ts:22</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">Caption<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L18">compass-models/images/personnel-image-metadata.ts:18</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L24">compass-models/images/personnel-image-metadata.ts:24</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">Credit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L19">compass-models/images/personnel-image-metadata.ts:19</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">Device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L26">compass-models/images/personnel-image-metadata.ts:26</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L29">compass-models/images/personnel-image-metadata.ts:29</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:35</li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L16">compass-models/images/personnel-image-metadata.ts:16</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +215,17 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L17">compass-models/images/personnel-image-metadata.ts:17</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:19</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="imagenumber" class="tsd-anchor"></a>
+					<h3>Image<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Image<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/images/project-image-metadata.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +235,27 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>SizeKB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L30">compass-models/images/personnel-image-metadata.ts:30</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:36</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iswebsiteimage" class="tsd-anchor"></a>
+					<h3>Is<wbr>Website<wbr>Image</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Website<wbr>Image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/images/project-image-metadata.ts:23</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="iswebsitethumbnail" class="tsd-anchor"></a>
+					<h3>Is<wbr>Website<wbr>Thumbnail</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Website<wbr>Thumbnail<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/images/project-image-metadata.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">Keywords<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L20">compass-models/images/personnel-image-metadata.ts:20</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -230,17 +275,17 @@
 					<div class="tsd-signature tsd-kind-icon">Network<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L21">compass-models/images/personnel-image-metadata.ts:21</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:25</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="ordernumber" class="tsd-anchor"></a>
 					<h3>Order<wbr>Number</h3>
-					<div class="tsd-signature tsd-kind-icon">Order<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">Order<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L23">compass-models/images/personnel-image-metadata.ts:23</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -250,27 +295,37 @@
 					<div class="tsd-signature tsd-kind-icon">Original<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L31">compass-models/images/personnel-image-metadata.ts:31</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:37</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="personnelid" class="tsd-anchor"></a>
-					<h3>Personnel<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Personnel<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="projectid" class="tsd-anchor"></a>
+					<h3>Project<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L15">compass-models/images/personnel-image-metadata.ts:15</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:15</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="primaryphoto" class="tsd-anchor"></a>
-					<h3>Primary<wbr>Photo</h3>
-					<div class="tsd-signature tsd-kind-icon">Primary<wbr>Photo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="projectname" class="tsd-anchor"></a>
+					<h3>Project<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L34">compass-models/images/personnel-image-metadata.ts:34</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:16</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectnumber" class="tsd-anchor"></a>
+					<h3>Project<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/images/project-image-metadata.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +335,7 @@
 					<div class="tsd-signature tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L33">compass-models/images/personnel-image-metadata.ts:33</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:39</li>
 						</ul>
 					</aside>
 				</section>
@@ -290,7 +345,7 @@
 					<div class="tsd-signature tsd-kind-icon">Upload<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L25">compass-models/images/personnel-image-metadata.ts:25</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +355,7 @@
 					<div class="tsd-signature tsd-kind-icon">Website<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L32">compass-models/images/personnel-image-metadata.ts:32</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:38</li>
 						</ul>
 					</aside>
 				</section>
@@ -310,7 +365,7 @@
 					<div class="tsd-signature tsd-kind-icon">latitude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L27">compass-models/images/personnel-image-metadata.ts:27</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +375,7 @@
 					<div class="tsd-signature tsd-kind-icon">longitude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/personnel-image-metadata.ts#L28">compass-models/images/personnel-image-metadata.ts:28</a></li>
+							<li>Defined in compass-models/images/project-image-metadata.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -381,81 +436,96 @@
 					<li class=" tsd-kind-interface">
 						<a href="personnel.html" class="tsd-kind-icon">Personnel</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="personnelimagemetadata.html" class="tsd-kind-icon">Personnel<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="project.html" class="tsd-kind-icon">Project</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="personnelimagemetadata.html" class="tsd-kind-icon">Personnel<wbr>Image<wbr>Metadata</a>
+						<a href="projectimagemetadata.html" class="tsd-kind-icon">Project<wbr>Image<wbr>Metadata</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#cdrompath" class="tsd-kind-icon">CDRom<wbr>Path</a>
+								<a href="projectimagemetadata.html#accesslevel" class="tsd-kind-icon">Access<wbr>Level</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#caption" class="tsd-kind-icon">Caption</a>
+								<a href="projectimagemetadata.html#cdrompath" class="tsd-kind-icon">CDRom<wbr>Path</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#comments" class="tsd-kind-icon">Comments</a>
+								<a href="projectimagemetadata.html#caption" class="tsd-kind-icon">Caption</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#credit" class="tsd-kind-icon">Credit</a>
+								<a href="projectimagemetadata.html#comments" class="tsd-kind-icon">Comments</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#device" class="tsd-kind-icon">Device</a>
+								<a href="projectimagemetadata.html#credit" class="tsd-kind-icon">Credit</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#imagehash" class="tsd-kind-icon">Image<wbr>Hash</a>
+								<a href="projectimagemetadata.html#device" class="tsd-kind-icon">Device</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#imageid" class="tsd-kind-icon">Image<wbr>Id</a>
+								<a href="projectimagemetadata.html#imagehash" class="tsd-kind-icon">Image<wbr>Hash</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#imagename" class="tsd-kind-icon">Image<wbr>Name</a>
+								<a href="projectimagemetadata.html#imageid" class="tsd-kind-icon">Image<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#imagesizekb" class="tsd-kind-icon">Image<wbr>SizeKB</a>
+								<a href="projectimagemetadata.html#imagename" class="tsd-kind-icon">Image<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#keywords" class="tsd-kind-icon">Keywords</a>
+								<a href="projectimagemetadata.html#imagenumber" class="tsd-kind-icon">Image<wbr>Number</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#networkpath" class="tsd-kind-icon">Network<wbr>Path</a>
+								<a href="projectimagemetadata.html#imagesizekb" class="tsd-kind-icon">Image<wbr>SizeKB</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#ordernumber" class="tsd-kind-icon">Order<wbr>Number</a>
+								<a href="projectimagemetadata.html#iswebsiteimage" class="tsd-kind-icon">Is<wbr>Website<wbr>Image</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#originalimageendpoint" class="tsd-kind-icon">Original<wbr>Image<wbr>Endpoint</a>
+								<a href="projectimagemetadata.html#iswebsitethumbnail" class="tsd-kind-icon">Is<wbr>Website<wbr>Thumbnail</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#personnelid" class="tsd-kind-icon">Personnel<wbr>Id</a>
+								<a href="projectimagemetadata.html#keywords" class="tsd-kind-icon">Keywords</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#primaryphoto" class="tsd-kind-icon">Primary<wbr>Photo</a>
+								<a href="projectimagemetadata.html#networkpath" class="tsd-kind-icon">Network<wbr>Path</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#thumbnailimageendpoint" class="tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint</a>
+								<a href="projectimagemetadata.html#ordernumber" class="tsd-kind-icon">Order<wbr>Number</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#uploaddate" class="tsd-kind-icon">Upload<wbr>Date</a>
+								<a href="projectimagemetadata.html#originalimageendpoint" class="tsd-kind-icon">Original<wbr>Image<wbr>Endpoint</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#websiteimageendpoint" class="tsd-kind-icon">Website<wbr>Image<wbr>Endpoint</a>
+								<a href="projectimagemetadata.html#projectid" class="tsd-kind-icon">Project<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#latitude" class="tsd-kind-icon">latitude</a>
+								<a href="projectimagemetadata.html#projectname" class="tsd-kind-icon">Project<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="personnelimagemetadata.html#longitude" class="tsd-kind-icon">longitude</a>
+								<a href="projectimagemetadata.html#projectnumber" class="tsd-kind-icon">Project<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectimagemetadata.html#thumbnailimageendpoint" class="tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectimagemetadata.html#uploaddate" class="tsd-kind-icon">Upload<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectimagemetadata.html#websiteimageendpoint" class="tsd-kind-icon">Website<wbr>Image<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectimagemetadata.html#latitude" class="tsd-kind-icon">latitude</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectimagemetadata.html#longitude" class="tsd-kind-icon">longitude</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="project.html" class="tsd-kind-icon">Project</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="projectimagemetadata.html" class="tsd-kind-icon">Project<wbr>Image<wbr>Metadata</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
 					</li>

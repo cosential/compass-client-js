@@ -1,9 +1,9 @@
 import 'jasmine';
-import { Client } from './client';
-import { ClientConfig } from '../service-models/client-config';
-import { Personnel } from "../compass-models/personnel";
-import { TestClientConfig as c } from './test-client-config';
-import { ResponseData } from '..';
+import { Client } from '../client';
+import { ClientConfig } from '../../service-models/client-config';
+import { Personnel } from '../../compass-models/personnel';
+import { TestClientConfig as c } from '../test-client-config';
+import { ResponseData } from '../..';
 
 describe("PersonnelClient", () => {
 
@@ -50,8 +50,8 @@ describe("PersonnelClient", () => {
         let url = '/personnel/' + aValidPersonnelId;
         let resGet: ResponseData<Personnel> = await client.get<Personnel>(url);
 
-        resGet.result.FirstName = "John";
-        resGet.result.LastName = "Doe";
+        resGet.result.FirstName = 'John';
+        resGet.result.LastName = 'Doe';
         let exPersonnel: Personnel[] = [resGet.result];
 
         let resPost: ResponseData<Personnel[]> = await client.post<Personnel[]>('/personnel', exPersonnel);
@@ -62,9 +62,9 @@ describe("PersonnelClient", () => {
         let urlGet = '/personnel/' + aValidPersonnelId;
         let resGet: ResponseData<Personnel> = await client.get<Personnel>(urlGet);
 
-        resGet.result.Title = "Quality Analyst";
-        resGet.result.LastName = "Cena";
-        resGet.result.ROW_VERSION = "";
+        resGet.result.Title = 'Quality Analyst';
+        resGet.result.LastName = 'Cena';
+        resGet.result.ROW_VERSION = '';
 
         let exPersonnel: Personnel = resGet.result;
         let urlPut = '/personnel/' + resGet.result.PersonnelId;

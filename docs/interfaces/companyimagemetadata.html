@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContactImageMetadata | Cosential compass.js</title>
+	<title>CompanyImageMetadata | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contactimagemetadata.html">ContactImageMetadata</a>
+					<a href="companyimagemetadata.html">CompanyImageMetadata</a>
 				</li>
 			</ul>
-			<h1>Interface ContactImageMetadata</h1>
+			<h1>Interface CompanyImageMetadata</h1>
 		</div>
 	</div>
 </header>
@@ -67,12 +67,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the image metadata for a Contact.</p>
+						<p>Represents the image metadata for a Company.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read images metadata for a Contact</p>
-							<pre><code>client.get&lt;ContactImageMetadata[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5556666/images'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read images metadata for a Company</p>
+							<pre><code>client.get&lt;CompanyImageMetadata[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5556666/images'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
          res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ImageUrl</span>); }</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -86,7 +86,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContactImageMetadata</span>
+						<span class="target">CompanyImageMetadata</span>
 					</li>
 				</ul>
 			</section>
@@ -97,9 +97,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactimagemetadata.html#entity" class="tsd-kind-icon">Entity</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactimagemetadata.html#imagetype" class="tsd-kind-icon">Image<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactimagemetadata.html#imageurl" class="tsd-kind-icon">Image<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companyimagemetadata.html#entity" class="tsd-kind-icon">Entity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companyimagemetadata.html#imagetype" class="tsd-kind-icon">Image<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companyimagemetadata.html#imageurl" class="tsd-kind-icon">Image<wbr>Url</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,7 +113,7 @@
 					<div class="tsd-signature tsd-kind-icon">Entity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/contact-image-metadata.ts#L15">compass-models/images/contact-image-metadata.ts:15</a></li>
+							<li>Defined in compass-models/images/company-image-metadata.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -123,7 +123,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/contact-image-metadata.ts#L16">compass-models/images/contact-image-metadata.ts:16</a></li>
+							<li>Defined in compass-models/images/company-image-metadata.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -133,7 +133,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/compass-models/images/contact-image-metadata.ts#L17">compass-models/images/contact-image-metadata.ts:17</a></li>
+							<li>Defined in compass-models/images/company-image-metadata.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -173,30 +173,30 @@
 					<li class=" tsd-kind-interface">
 						<a href="company.html" class="tsd-kind-icon">Company</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="contact.html" class="tsd-kind-icon">Contact</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
+						<a href="companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactimagemetadata.html#entity" class="tsd-kind-icon">Entity</a>
+								<a href="companyimagemetadata.html#entity" class="tsd-kind-icon">Entity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactimagemetadata.html#imagetype" class="tsd-kind-icon">Image<wbr>Type</a>
+								<a href="companyimagemetadata.html#imagetype" class="tsd-kind-icon">Image<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactimagemetadata.html#imageurl" class="tsd-kind-icon">Image<wbr>Url</a>
+								<a href="companyimagemetadata.html#imageurl" class="tsd-kind-icon">Image<wbr>Url</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="contact.html" class="tsd-kind-icon">Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="image.html" class="tsd-kind-icon">Image</a>
 					</li>

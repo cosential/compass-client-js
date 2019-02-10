@@ -1,9 +1,9 @@
 import 'jasmine';
-import { Client } from './client';
-import { ClientConfig } from '../service-models/client-config';
-import { Contact } from "../compass-models/contact";
-import { TestClientConfig as c } from './test-client-config';
-import { ResponseData } from '..';
+import { Client } from '../client';
+import { ClientConfig } from '../../service-models/client-config';
+import { Contact } from "../../compass-models/contact";
+import { TestClientConfig as c } from '../test-client-config';
+import { ResponseData } from '../..';
 
 describe("ContactClient", () => {
 
@@ -23,7 +23,6 @@ describe("ContactClient", () => {
 
     it("Can read contacts", async () => {
         let res: ResponseData<Contact[]> = await client.get<Contact[]>('/contacts');
-        if(res.success) aValidContactId = res.result[0].ContactId;
         expect(res.success).toBeTruthy(res.message);
     });
 
@@ -51,8 +50,8 @@ describe("ContactClient", () => {
         let url = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(url);
 
-        resGet.result.FirstName = "John";
-        resGet.result.LastName = "Doe";
+        resGet.result.FirstName = 'John';
+        resGet.result.LastName = 'Doe';
         let exContact: Contact[] = [resGet.result];
 
         let resPost: ResponseData<Contact[]> = await client.post<Contact[]>('/contacts', exContact);
@@ -76,9 +75,9 @@ describe("ContactClient", () => {
         let urlGet = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(urlGet);
 
-        resGet.result.Title = "Any random title";
+        resGet.result.Title = 'Any random title';
         resGet.result.IsActive = 0;
-        resGet.result.ROW_VERSION = "";
+        resGet.result.ROW_VERSION = '';
 
         let exContact: Contact = resGet.result;
         let urlPut = '/contacts/' + resGet.result.ContactId;
@@ -91,7 +90,7 @@ describe("ContactClient", () => {
         let urlGet = '/contacts/' + aValidContactId;
         let resGet: ResponseData<Contact> = await client.get<Contact>(urlGet);
 
-        resGet.result.Notes = "A random note";
+        resGet.result.Notes = 'A random note';
         //Not clearing off the existing row_version
         
         let exContact: Contact = resGet.result;

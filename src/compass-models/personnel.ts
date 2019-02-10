@@ -9,7 +9,6 @@
  *          console.log(res.message);
  *      }
  * });
- *
  * ```
  * @example Read a Personnel
  * ```

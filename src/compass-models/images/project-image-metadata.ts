@@ -1,26 +1,32 @@
 /**
- * Represents the image metadata for a Personnel.
- * @example Read images metadata for a Personnel
+ * Represents the image metadata for a Project.
+ * @example Read images metadata for a Project
  * ```
- * client.get<PersonnelImageMetadata[]>('/personnel/5556666/images').then( (res) => {
+ * client.get<ProjectImageMetadata[]>('/projects/5556666/images').then( (res) => {
  *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.ImageSizeKB); });
+ *          res.result.forEach((index) => { console.log(index.OriginalImageEndpoint); });
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }
  * });
  * ```
  */
-export interface PersonnelImageMetadata {
-  PersonnelId: number;
+export interface ProjectImageMetadata {
+  ProjectId: number;
+  ProjectName: string;
+  ProjectNumber: string;
   ImageId: number;
   ImageName: string;
   Caption: string;
   Credit: string;
   Keywords: string;
+  IsWebsiteImage: boolean;
+  IsWebsiteThumbnail: boolean;
   NetworkPath: string;
   CDRomPath: string;
-  OrderNumber: string;
+  ImageNumber: string;
+  OrderNumber: number;
+  AccessLevel: string;
   Comments: string;
   UploadDate: string;
   Device: string;
@@ -31,5 +37,4 @@ export interface PersonnelImageMetadata {
   OriginalImageEndpoint: string;
   WebsiteImageEndpoint: string;
   ThumbnailImageEndpoint: string;
-  PrimaryPhoto: boolean;
 }
