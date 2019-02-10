@@ -2,11 +2,20 @@
  * Represents an Image.
  * @example Read a Contact's profile image
  * ```
- * client.getContactImage<Image>(5555666, 'profilepicture').then( (res) => {
- *      if(res.success){ //success //returns an image as a base64 encoded string
- *          //returns profile picture by default or for an invalid image type unless otherwise specified
- *          //expect an empty result for no associated image          
+ * contactClient.getContactImages<Image>('5556666', 2).then( (res) => {
+ *      if(res.success){ //success //returns profile image as a base64 encoded string
  *          console.log(res.result.Data);
+ *      } else { //something went wrong 
+ *          console.log(res.message);
+ *      }
+ * });
+ * ```
+ * @example Read all images for a Contact
+ * ```
+ * contactClient.getContactImages<any>('5556666', 1).then( (res) => {
+ *      if(res.success){ //success //returns all images as an object containing base64 for each
+ *          //return all images is the default behavior in case of no image type
+ *          console.log(res.result);
  *      } else { //something went wrong 
  *          console.log(res.message);
  *      }
@@ -14,11 +23,20 @@
  * ```
  * @example Read primary image of a personnel
  * ```
- * client.getPersonnelImage<Image>(5555666, true).then( (res) => {
+ * personnelClient.getPersonnelImages<Image>('5556666', true).then( (res) => {
  *      if(res.success){ //success //returns an image as a base64 encoded string
- *          //returns primary image by default. Else, the most recent one.
- *          //expect an empty result for no associated image          
  *          console.log(res.result.Data);
+ *      } else { //something went wrong 
+ *          console.log(res.message);
+ *      }
+ * });
+ * ```
+ * @example Read all images for a Personnel
+ * ```
+ * personnelClient.getPersonnelImages<any>('5556666', false).then( (res) => {
+ *      if(res.success){ //success //returns all images as an object containing base64 for each
+ *          //return all images is the default behavior in case primary photo is not requested
+ *          console.log(res.result);
  *      } else { //something went wrong 
  *          console.log(res.message);
  *      }

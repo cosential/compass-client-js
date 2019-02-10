@@ -1,0 +1,2506 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Project | Cosential compass.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Cosential compass.js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="project.html">Project</a>
+				</li>
+			</ul>
+			<h1>Interface Project</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents the Project.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read all Projects</p>
+							<pre><code>client.get&lt;Project[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of project elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ProjectId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a Project</p>
+							<pre><code>client.get&lt;Project&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.FirstName + ' ' + res.result.LastName</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add new Project/s</p>
+							<pre><code><span class="hljs-comment">//payload is an array of Project elements to be added</span>
+client.post&lt;Project[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Project <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.ProjectId</span>) + "." } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Project creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Update a Project</p>
+							<pre><code><span class="hljs-comment">//payload is a Project element containing new and existing values</span>
+<span class="hljs-comment">//note that the API client does not support under posting of data</span>
+client.put&lt;Project&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns the updated element</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated project <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.ProjectId</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Project update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Delete a Project</p>
+							<pre><code>client.delete&lt;Project&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//element marked as inactive</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Search Project/s</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ProjectName:Sample Construction'</span>;
+client.search&lt;Project[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/projects'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
+     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+     }
+}</code></pre></dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Project</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#accountexecutivecomments" class="tsd-kind-icon">Account<wbr>Executive<wbr>Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#accountingcloseddate" class="tsd-kind-icon">Accounting<wbr>Closed<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#accounting_id" class="tsd-kind-icon">Accounting_<wbr>ID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#actualcompletiondate" class="tsd-kind-icon">Actual<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#additionsize" class="tsd-kind-icon">Addition<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#archivestatus" class="tsd-kind-icon">Archive<wbr>Status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#awardeddate" class="tsd-kind-icon">Awarded<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billwithmainjob" class="tsd-kind-icon">Bill<wbr>With<wbr>Main<wbr>Job</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingaddress1" class="tsd-kind-icon">Billing<wbr>Address1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingaddress2" class="tsd-kind-icon">Billing<wbr>Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingcity" class="tsd-kind-icon">Billing<wbr>City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingcountry" class="tsd-kind-icon">Billing<wbr>Country</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingcounty" class="tsd-kind-icon">Billing<wbr>County</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingfax" class="tsd-kind-icon">Billing<wbr>Fax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingphone" class="tsd-kind-icon">Billing<wbr>Phone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingstate" class="tsd-kind-icon">Billing<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billingzip" class="tsd-kind-icon">Billing<wbr>Zip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#bonded" class="tsd-kind-icon">Bonded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#buildingsize" class="tsd-kind-icon">Building<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#certofoccdate" class="tsd-kind-icon">Cert<wbr>OfOcc<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#clientcomments" class="tsd-kind-icon">Client<wbr>Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#comments" class="tsd-kind-icon">Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#completiondate" class="tsd-kind-icon">Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#constructioncompletiondate" class="tsd-kind-icon">Construction<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#constructionstartdate" class="tsd-kind-icon">Construction<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#contractsigneddate" class="tsd-kind-icon">Contract<wbr>Signed<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#contracttypeid" class="tsd-kind-icon">Contract<wbr>TypeID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#contract_name" class="tsd-kind-icon">Contract_<wbr><wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#costconfidential" class="tsd-kind-icon">Cost<wbr>Confidential</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#costdisplaytype" class="tsd-kind-icon">Cost<wbr>Display<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#createdbyuser" class="tsd-kind-icon">Created<wbr>ByUser</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#createddate" class="tsd-kind-icon">Created<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#deletedbyuser" class="tsd-kind-icon">Deleted<wbr>ByUser</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#deleteddate" class="tsd-kind-icon">Deleted<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#descriptionbrief" class="tsd-kind-icon">Description<wbr>Brief</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#designcompletedate" class="tsd-kind-icon">Design<wbr>Complete<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#designstartdate" class="tsd-kind-icon">Design<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#enabled" class="tsd-kind-icon">Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#estcompletiondate" class="tsd-kind-icon">Est<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#estconstructionstartdate" class="tsd-kind-icon">Est<wbr>Construction<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#experiencetype2545" class="tsd-kind-icon">Experience<wbr>Type2545</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#federalwork" class="tsd-kind-icon">Federal<wbr>Work</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#feebasisfee" class="tsd-kind-icon">Fee<wbr>Basis<wbr>Fee</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#feebasisrate" class="tsd-kind-icon">Fee<wbr>Basis<wbr>Rate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#feebasisupset" class="tsd-kind-icon">Fee<wbr>Basis<wbr>Upset</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#feesearned" class="tsd-kind-icon">Fees<wbr>Earned</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#filestatus" class="tsd-kind-icon">File<wbr>Status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#internallabor" class="tsd-kind-icon">Internal<wbr>Labor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#ispublishableproject" class="tsd-kind-icon">Is<wbr>Publishable<wbr>Project</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#logofile" class="tsd-kind-icon">Logo<wbr>File</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#masterid" class="tsd-kind-icon">MasterID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#metroarea" class="tsd-kind-icon">Metro<wbr>Area</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#modifieddate" class="tsd-kind-icon">Modified<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#modifieduser" class="tsd-kind-icon">Modified<wbr>User</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#naics" class="tsd-kind-icon">Naics</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#newsize" class="tsd-kind-icon">New<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#notes" class="tsd-kind-icon">Notes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#numbeds" class="tsd-kind-icon">Num<wbr>Beds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#numfloors" class="tsd-kind-icon">Num<wbr>Floors</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#numrooms" class="tsd-kind-icon">Num<wbr>Rooms</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#numunits" class="tsd-kind-icon">Num<wbr>Units</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#opportunityid" class="tsd-kind-icon">Opportunity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#otherprojectname" class="tsd-kind-icon">Other<wbr>Project<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#ownercomments" class="tsd-kind-icon">Owner<wbr>Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#ownertype" class="tsd-kind-icon">Owner<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#parkingsize" class="tsd-kind-icon">Parking<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#parkingspaces" class="tsd-kind-icon">Parking<wbr>Spaces</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#percentcomplete" class="tsd-kind-icon">Percent<wbr>Complete</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#phase" class="tsd-kind-icon">Phase</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#preferred" class="tsd-kind-icon">Preferred</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#procurement" class="tsd-kind-icon">Procurement</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#profilecodeid" class="tsd-kind-icon">Profile<wbr>Code<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projaddress" class="tsd-kind-icon">Proj<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projaddress2" class="tsd-kind-icon">Proj<wbr>Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projcity" class="tsd-kind-icon">Proj<wbr>City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projcountry" class="tsd-kind-icon">Proj<wbr>Country</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projcounty" class="tsd-kind-icon">Proj<wbr>County</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projlat" class="tsd-kind-icon">Proj<wbr>Lat</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projlocation" class="tsd-kind-icon">Proj<wbr>Location</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projlong" class="tsd-kind-icon">Proj<wbr>Long</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projstate" class="tsd-kind-icon">Proj<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projstatus" class="tsd-kind-icon">Proj<wbr>Status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projzip" class="tsd-kind-icon">Proj<wbr>Zip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectauthorization" class="tsd-kind-icon">Project<wbr>Authorization</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectdisplayname" class="tsd-kind-icon">Project<wbr>Display<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectid" class="tsd-kind-icon">Project<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectlink" class="tsd-kind-icon">Project<wbr>Link</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectname" class="tsd-kind-icon">Project<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectnamefor2545" class="tsd-kind-icon">Project<wbr>Name<wbr>For2545</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectnumber" class="tsd-kind-icon">Project<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectspeed" class="tsd-kind-icon">Project<wbr>Speed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectstatusid" class="tsd-kind-icon">Project<wbr>StatusID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#project_approved" class="tsd-kind-icon">Project_<wbr><wbr>Approved</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsdate1" class="tsd-kind-icon">Projects<wbr>Date1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsdate2" class="tsd-kind-icon">Projects<wbr>Date2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsdate3" class="tsd-kind-icon">Projects<wbr>Date3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsdate4" class="tsd-kind-icon">Projects<wbr>Date4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsdate5" class="tsd-kind-icon">Projects<wbr>Date5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectslongtext1" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectslongtext2" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectslongtext3" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectslongtext4" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectslongtext5" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsmoney1" class="tsd-kind-icon">Projects<wbr>Money1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsmoney2" class="tsd-kind-icon">Projects<wbr>Money2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsmoney3" class="tsd-kind-icon">Projects<wbr>Money3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsmoney4" class="tsd-kind-icon">Projects<wbr>Money4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsmoney5" class="tsd-kind-icon">Projects<wbr>Money5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsnumber1" class="tsd-kind-icon">Projects<wbr>Number1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsnumber2" class="tsd-kind-icon">Projects<wbr>Number2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsnumber3" class="tsd-kind-icon">Projects<wbr>Number3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsnumber4" class="tsd-kind-icon">Projects<wbr>Number4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsnumber5" class="tsd-kind-icon">Projects<wbr>Number5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectspercent1" class="tsd-kind-icon">Projects<wbr>Percent1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectspercent2" class="tsd-kind-icon">Projects<wbr>Percent2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectspercent3" class="tsd-kind-icon">Projects<wbr>Percent3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectspercent4" class="tsd-kind-icon">Projects<wbr>Percent4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectspercent5" class="tsd-kind-icon">Projects<wbr>Percent5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsshorttext1" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsshorttext2" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsshorttext3" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsshorttext4" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsshorttext5" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsvaluelistid1" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsvaluelistid2" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsvaluelistid3" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsvaluelistid4" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projectsvaluelistid5" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#prominent" class="tsd-kind-icon">Prominent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#proposalnumber" class="tsd-kind-icon">Proposal<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#publishtowebsite" class="tsd-kind-icon">Publish<wbr>ToWebsite</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#reference2558" class="tsd-kind-icon">Reference2558</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#renovationsize" class="tsd-kind-icon">Renovation<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#responsibilityfor2545" class="tsd-kind-icon">Responsibility<wbr>For2545</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#schedulecomments" class="tsd-kind-icon">Schedule<wbr>Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#scheduleconstcompletiondate" class="tsd-kind-icon">Schedule<wbr>Const<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#schedulecontingency" class="tsd-kind-icon">Schedule<wbr>Contingency</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#schedulefactor" class="tsd-kind-icon">Schedule<wbr>Factor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#scheduleprofitgoal" class="tsd-kind-icon">Schedule<wbr>Profit<wbr>Goal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#scheduleschedulecomments" class="tsd-kind-icon">Schedule<wbr>Schedule<wbr>Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#selfperform" class="tsd-kind-icon">Self<wbr>Perform</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#sitefax" class="tsd-kind-icon">Site<wbr>Fax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#sitephonenumber" class="tsd-kind-icon">Site<wbr>Phone<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#sitesize" class="tsd-kind-icon">Site<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#sizecomments" class="tsd-kind-icon">Size<wbr>Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#sizetype" class="tsd-kind-icon">Size<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#subcatsenabled" class="tsd-kind-icon">Sub<wbr>Cats<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#subsidiary" class="tsd-kind-icon">Subsidiary</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#totalcontract" class="tsd-kind-icon">Total<wbr>Contract</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#usesexternaldata" class="tsd-kind-icon">Uses<wbr>External<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#workcompletiondate" class="tsd-kind-icon">Work<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#billinginformation" class="tsd-kind-icon">billing<wbr>Information</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#ismarketingproject" class="tsd-kind-icon">is<wbr>Marketing<wbr>Project</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#issubmarketingproject" class="tsd-kind-icon">is<wbr>Sub<wbr>Marketing<wbr>Project</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="project.html#projnumberrequested" class="tsd-kind-icon">proj<wbr>Number<wbr>Requested</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="accountexecutivecomments" class="tsd-anchor"></a>
+					<h3>Account<wbr>Executive<wbr>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Account<wbr>Executive<wbr>Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:93</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="accountingcloseddate" class="tsd-anchor"></a>
+					<h3>Accounting<wbr>Closed<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Accounting<wbr>Closed<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:105</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="accounting_id" class="tsd-anchor"></a>
+					<h3>Accounting_<wbr>ID</h3>
+					<div class="tsd-signature tsd-kind-icon">Accounting_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:174</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="actualcompletiondate" class="tsd-anchor"></a>
+					<h3>Actual<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Actual<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:101</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="additionsize" class="tsd-anchor"></a>
+					<h3>Addition<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Addition<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:116</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="archivestatus" class="tsd-anchor"></a>
+					<h3>Archive<wbr>Status</h3>
+					<div class="tsd-signature tsd-kind-icon">Archive<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:176</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="awardeddate" class="tsd-anchor"></a>
+					<h3>Awarded<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Awarded<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:96</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billwithmainjob" class="tsd-anchor"></a>
+					<h3>Bill<wbr>With<wbr>Main<wbr>Job</h3>
+					<div class="tsd-signature tsd-kind-icon">Bill<wbr>With<wbr>Main<wbr>Job<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:195</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingaddress1" class="tsd-anchor"></a>
+					<h3>Billing<wbr>Address1</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:186</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingaddress2" class="tsd-anchor"></a>
+					<h3>Billing<wbr>Address2</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:187</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingcity" class="tsd-anchor"></a>
+					<h3>Billing<wbr>City</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:188</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingcountry" class="tsd-anchor"></a>
+					<h3>Billing<wbr>Country</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>Country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:191</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingcounty" class="tsd-anchor"></a>
+					<h3>Billing<wbr>County</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>County<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:192</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingfax" class="tsd-anchor"></a>
+					<h3>Billing<wbr>Fax</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:194</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingphone" class="tsd-anchor"></a>
+					<h3>Billing<wbr>Phone</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:193</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingstate" class="tsd-anchor"></a>
+					<h3>Billing<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:189</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billingzip" class="tsd-anchor"></a>
+					<h3>Billing<wbr>Zip</h3>
+					<div class="tsd-signature tsd-kind-icon">Billing<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:190</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="bonded" class="tsd-anchor"></a>
+					<h3>Bonded</h3>
+					<div class="tsd-signature tsd-kind-icon">Bonded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:136</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="buildingsize" class="tsd-anchor"></a>
+					<h3>Building<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Building<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:107</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="certofoccdate" class="tsd-anchor"></a>
+					<h3>Cert<wbr>OfOcc<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Cert<wbr>OfOcc<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:104</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="clientcomments" class="tsd-anchor"></a>
+					<h3>Client<wbr>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Client<wbr>Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:91</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="comments" class="tsd-anchor"></a>
+					<h3>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:85</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="completiondate" class="tsd-anchor"></a>
+					<h3>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:80</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="constructioncompletiondate" class="tsd-anchor"></a>
+					<h3>Construction<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Construction<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:129</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="constructionstartdate" class="tsd-anchor"></a>
+					<h3>Construction<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Construction<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:100</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="contractsigneddate" class="tsd-anchor"></a>
+					<h3>Contract<wbr>Signed<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Contract<wbr>Signed<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:97</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="contracttypeid" class="tsd-anchor"></a>
+					<h3>Contract<wbr>TypeID</h3>
+					<div class="tsd-signature tsd-kind-icon">Contract<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:208</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="contract_name" class="tsd-anchor"></a>
+					<h3>Contract_<wbr><wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Contract_<wbr><wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:173</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="costconfidential" class="tsd-anchor"></a>
+					<h3>Cost<wbr>Confidential</h3>
+					<div class="tsd-signature tsd-kind-icon">Cost<wbr>Confidential<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:94</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="costdisplaytype" class="tsd-anchor"></a>
+					<h3>Cost<wbr>Display<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Cost<wbr>Display<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:121</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createdbyuser" class="tsd-anchor"></a>
+					<h3>Created<wbr>ByUser</h3>
+					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:203</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createddate" class="tsd-anchor"></a>
+					<h3>Created<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Created<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:202</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deleterecord" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Record</h3>
+					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:131</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deletedbyuser" class="tsd-anchor"></a>
+					<h3>Deleted<wbr>ByUser</h3>
+					<div class="tsd-signature tsd-kind-icon">Deleted<wbr>ByUser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:207</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deleteddate" class="tsd-anchor"></a>
+					<h3>Deleted<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Deleted<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:206</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="descriptionbrief" class="tsd-anchor"></a>
+					<h3>Description<wbr>Brief</h3>
+					<div class="tsd-signature tsd-kind-icon">Description<wbr>Brief<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:84</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="designcompletedate" class="tsd-anchor"></a>
+					<h3>Design<wbr>Complete<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Design<wbr>Complete<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:99</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="designstartdate" class="tsd-anchor"></a>
+					<h3>Design<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Design<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:98</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="enabled" class="tsd-anchor"></a>
+					<h3>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:126</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estcompletiondate" class="tsd-anchor"></a>
+					<h3>Est<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Est<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:102</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estconstructionstartdate" class="tsd-anchor"></a>
+					<h3>Est<wbr>Construction<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Est<wbr>Construction<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:103</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="experiencetype2545" class="tsd-anchor"></a>
+					<h3>Experience<wbr>Type2545</h3>
+					<div class="tsd-signature tsd-kind-icon">Experience<wbr>Type2545<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:123</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="federalwork" class="tsd-anchor"></a>
+					<h3>Federal<wbr>Work</h3>
+					<div class="tsd-signature tsd-kind-icon">Federal<wbr>Work<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:81</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feebasisfee" class="tsd-anchor"></a>
+					<h3>Fee<wbr>Basis<wbr>Fee</h3>
+					<div class="tsd-signature tsd-kind-icon">Fee<wbr>Basis<wbr>Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:177</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feebasisrate" class="tsd-anchor"></a>
+					<h3>Fee<wbr>Basis<wbr>Rate</h3>
+					<div class="tsd-signature tsd-kind-icon">Fee<wbr>Basis<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:178</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feebasisupset" class="tsd-anchor"></a>
+					<h3>Fee<wbr>Basis<wbr>Upset</h3>
+					<div class="tsd-signature tsd-kind-icon">Fee<wbr>Basis<wbr>Upset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:179</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feesearned" class="tsd-anchor"></a>
+					<h3>Fees<wbr>Earned</h3>
+					<div class="tsd-signature tsd-kind-icon">Fees<wbr>Earned<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:183</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="filestatus" class="tsd-anchor"></a>
+					<h3>File<wbr>Status</h3>
+					<div class="tsd-signature tsd-kind-icon">File<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:140</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="internallabor" class="tsd-anchor"></a>
+					<h3>Internal<wbr>Labor</h3>
+					<div class="tsd-signature tsd-kind-icon">Internal<wbr>Labor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:182</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ispublishableproject" class="tsd-anchor"></a>
+					<h3>Is<wbr>Publishable<wbr>Project</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Publishable<wbr>Project<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:225</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="logofile" class="tsd-anchor"></a>
+					<h3>Logo<wbr>File</h3>
+					<div class="tsd-signature tsd-kind-icon">Logo<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:125</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="masterid" class="tsd-anchor"></a>
+					<h3>MasterID</h3>
+					<div class="tsd-signature tsd-kind-icon">MasterID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:220</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="metroarea" class="tsd-anchor"></a>
+					<h3>Metro<wbr>Area</h3>
+					<div class="tsd-signature tsd-kind-icon">Metro<wbr>Area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:79</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="modifieddate" class="tsd-anchor"></a>
+					<h3>Modified<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Modified<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:204</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="modifieduser" class="tsd-anchor"></a>
+					<h3>Modified<wbr>User</h3>
+					<div class="tsd-signature tsd-kind-icon">Modified<wbr>User<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:205</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="naics" class="tsd-anchor"></a>
+					<h3>Naics</h3>
+					<div class="tsd-signature tsd-kind-icon">Naics<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:135</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="newsize" class="tsd-anchor"></a>
+					<h3>New<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">New<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:114</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="notes" class="tsd-anchor"></a>
+					<h3>Notes</h3>
+					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:138</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="numbeds" class="tsd-anchor"></a>
+					<h3>Num<wbr>Beds</h3>
+					<div class="tsd-signature tsd-kind-icon">Num<wbr>Beds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:111</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="numfloors" class="tsd-anchor"></a>
+					<h3>Num<wbr>Floors</h3>
+					<div class="tsd-signature tsd-kind-icon">Num<wbr>Floors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:109</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="numrooms" class="tsd-anchor"></a>
+					<h3>Num<wbr>Rooms</h3>
+					<div class="tsd-signature tsd-kind-icon">Num<wbr>Rooms<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:110</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="numunits" class="tsd-anchor"></a>
+					<h3>Num<wbr>Units</h3>
+					<div class="tsd-signature tsd-kind-icon">Num<wbr>Units<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:112</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityid" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:218</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="otherprojectname" class="tsd-anchor"></a>
+					<h3>Other<wbr>Project<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Other<wbr>Project<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:71</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ownercomments" class="tsd-anchor"></a>
+					<h3>Owner<wbr>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Owner<wbr>Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:92</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ownertype" class="tsd-anchor"></a>
+					<h3>Owner<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Owner<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:139</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="parkingsize" class="tsd-anchor"></a>
+					<h3>Parking<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Parking<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:118</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="parkingspaces" class="tsd-anchor"></a>
+					<h3>Parking<wbr>Spaces</h3>
+					<div class="tsd-signature tsd-kind-icon">Parking<wbr>Spaces<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:117</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="percentcomplete" class="tsd-anchor"></a>
+					<h3>Percent<wbr>Complete</h3>
+					<div class="tsd-signature tsd-kind-icon">Percent<wbr>Complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:89</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="phase" class="tsd-anchor"></a>
+					<h3>Phase</h3>
+					<div class="tsd-signature tsd-kind-icon">Phase<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:95</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="preferred" class="tsd-anchor"></a>
+					<h3>Preferred</h3>
+					<div class="tsd-signature tsd-kind-icon">Preferred<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:82</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="procurement" class="tsd-anchor"></a>
+					<h3>Procurement</h3>
+					<div class="tsd-signature tsd-kind-icon">Procurement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:142</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="profilecodeid" class="tsd-anchor"></a>
+					<h3>Profile<wbr>Code<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Profile<wbr>Code<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:134</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projaddress" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:73</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projaddress2" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Address2</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:124</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projcity" class="tsd-anchor"></a>
+					<h3>Proj<wbr>City</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:74</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projcountry" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Country</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:78</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projcounty" class="tsd-anchor"></a>
+					<h3>Proj<wbr>County</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>County<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:77</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projlat" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Lat</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Lat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:223</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projlocation" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Location</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Location<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:128</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projlong" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Long</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Long<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:224</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projstate" class="tsd-anchor"></a>
+					<h3>Proj<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:75</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projstatus" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Status</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:214</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projzip" class="tsd-anchor"></a>
+					<h3>Proj<wbr>Zip</h3>
+					<div class="tsd-signature tsd-kind-icon">Proj<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:76</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectauthorization" class="tsd-anchor"></a>
+					<h3>Project<wbr>Authorization</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Authorization<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:90</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectdisplayname" class="tsd-anchor"></a>
+					<h3>Project<wbr>Display<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:219</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectid" class="tsd-anchor"></a>
+					<h3>Project<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:69</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectlink" class="tsd-anchor"></a>
+					<h3>Project<wbr>Link</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Link<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:180</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectname" class="tsd-anchor"></a>
+					<h3>Project<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:70</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectnamefor2545" class="tsd-anchor"></a>
+					<h3>Project<wbr>Name<wbr>For2545</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Name<wbr>For2545<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:119</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectnumber" class="tsd-anchor"></a>
+					<h3>Project<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:72</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectspeed" class="tsd-anchor"></a>
+					<h3>Project<wbr>Speed</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Speed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:141</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectstatusid" class="tsd-anchor"></a>
+					<h3>Project<wbr>StatusID</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:215</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="project_approved" class="tsd-anchor"></a>
+					<h3>Project_<wbr><wbr>Approved</h3>
+					<div class="tsd-signature tsd-kind-icon">Project_<wbr><wbr>Approved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:133</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsdate1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Date1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Date1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:153</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsdate2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Date2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Date2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:154</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsdate3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Date3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Date3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:155</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsdate4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Date4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Date4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:156</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsdate5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Date5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Date5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:157</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectslongtext1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Long<wbr>Text1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Long<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:158</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectslongtext2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Long<wbr>Text2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Long<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:159</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectslongtext3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Long<wbr>Text3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Long<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:160</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectslongtext4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Long<wbr>Text4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Long<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:161</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectslongtext5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Long<wbr>Text5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Long<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:162</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsmoney1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Money1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Money1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:168</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsmoney2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Money2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Money2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:169</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsmoney3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Money3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Money3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:170</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsmoney4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Money4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Money4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:171</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsmoney5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Money5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Money5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:172</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsnumber1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Number1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Number1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:148</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsnumber2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Number2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Number2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:149</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsnumber3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Number3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Number3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:150</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsnumber4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Number4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Number4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:151</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsnumber5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Number5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Number5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:152</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectspercent1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Percent1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Percent1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:197</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectspercent2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Percent2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Percent2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:198</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectspercent3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Percent3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Percent3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:199</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectspercent4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Percent4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Percent4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:200</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectspercent5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Percent5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Percent5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:201</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsshorttext1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Short<wbr>Text1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Short<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:143</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsshorttext2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Short<wbr>Text2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Short<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:144</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsshorttext3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Short<wbr>Text3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Short<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:145</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsshorttext4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Short<wbr>Text4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Short<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:146</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsshorttext5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Short<wbr>Text5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Short<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:147</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsvaluelistid1" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Value<wbr>ListID1</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Value<wbr>ListID1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:163</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsvaluelistid2" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Value<wbr>ListID2</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Value<wbr>ListID2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:164</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsvaluelistid3" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Value<wbr>ListID3</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Value<wbr>ListID3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:165</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsvaluelistid4" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Value<wbr>ListID4</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Value<wbr>ListID4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:166</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectsvaluelistid5" class="tsd-anchor"></a>
+					<h3>Projects<wbr>Value<wbr>ListID5</h3>
+					<div class="tsd-signature tsd-kind-icon">Projects<wbr>Value<wbr>ListID5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:167</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="prominent" class="tsd-anchor"></a>
+					<h3>Prominent</h3>
+					<div class="tsd-signature tsd-kind-icon">Prominent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:83</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="proposalnumber" class="tsd-anchor"></a>
+					<h3>Proposal<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:86</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="publishtowebsite" class="tsd-anchor"></a>
+					<h3>Publish<wbr>ToWebsite</h3>
+					<div class="tsd-signature tsd-kind-icon">Publish<wbr>ToWebsite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:216</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="row_version" class="tsd-anchor"></a>
+					<h3>ROW_<wbr>VERSION</h3>
+					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:217</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reference2558" class="tsd-anchor"></a>
+					<h3>Reference2558</h3>
+					<div class="tsd-signature tsd-kind-icon">Reference2558<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:122</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="renovationsize" class="tsd-anchor"></a>
+					<h3>Renovation<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Renovation<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:115</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="responsibilityfor2545" class="tsd-anchor"></a>
+					<h3>Responsibility<wbr>For2545</h3>
+					<div class="tsd-signature tsd-kind-icon">Responsibility<wbr>For2545<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:120</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="schedulecomments" class="tsd-anchor"></a>
+					<h3>Schedule<wbr>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Schedule<wbr>Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:106</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="scheduleconstcompletiondate" class="tsd-anchor"></a>
+					<h3>Schedule<wbr>Const<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Schedule<wbr>Const<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:213</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="schedulecontingency" class="tsd-anchor"></a>
+					<h3>Schedule<wbr>Contingency</h3>
+					<div class="tsd-signature tsd-kind-icon">Schedule<wbr>Contingency<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:210</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="schedulefactor" class="tsd-anchor"></a>
+					<h3>Schedule<wbr>Factor</h3>
+					<div class="tsd-signature tsd-kind-icon">Schedule<wbr>Factor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:211</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="scheduleprofitgoal" class="tsd-anchor"></a>
+					<h3>Schedule<wbr>Profit<wbr>Goal</h3>
+					<div class="tsd-signature tsd-kind-icon">Schedule<wbr>Profit<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:212</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="scheduleschedulecomments" class="tsd-anchor"></a>
+					<h3>Schedule<wbr>Schedule<wbr>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Schedule<wbr>Schedule<wbr>Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:209</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="selfperform" class="tsd-anchor"></a>
+					<h3>Self<wbr>Perform</h3>
+					<div class="tsd-signature tsd-kind-icon">Self<wbr>Perform<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:137</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sitefax" class="tsd-anchor"></a>
+					<h3>Site<wbr>Fax</h3>
+					<div class="tsd-signature tsd-kind-icon">Site<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:185</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sitephonenumber" class="tsd-anchor"></a>
+					<h3>Site<wbr>Phone<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Site<wbr>Phone<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:87</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sitesize" class="tsd-anchor"></a>
+					<h3>Site<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Site<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:113</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sizecomments" class="tsd-anchor"></a>
+					<h3>Size<wbr>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Size<wbr>Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:132</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sizetype" class="tsd-anchor"></a>
+					<h3>Size<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Size<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:108</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="subcatsenabled" class="tsd-anchor"></a>
+					<h3>Sub<wbr>Cats<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">Sub<wbr>Cats<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:127</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="subsidiary" class="tsd-anchor"></a>
+					<h3>Subsidiary</h3>
+					<div class="tsd-signature tsd-kind-icon">Subsidiary<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:130</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="totalcontract" class="tsd-anchor"></a>
+					<h3>Total<wbr>Contract</h3>
+					<div class="tsd-signature tsd-kind-icon">Total<wbr>Contract<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:181</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="usesexternaldata" class="tsd-anchor"></a>
+					<h3>Uses<wbr>External<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Uses<wbr>External<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:175</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="workcompletiondate" class="tsd-anchor"></a>
+					<h3>Work<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Work<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:88</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="billinginformation" class="tsd-anchor"></a>
+					<h3>billing<wbr>Information</h3>
+					<div class="tsd-signature tsd-kind-icon">billing<wbr>Information<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:184</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ismarketingproject" class="tsd-anchor"></a>
+					<h3>is<wbr>Marketing<wbr>Project</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Marketing<wbr>Project<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:221</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="issubmarketingproject" class="tsd-anchor"></a>
+					<h3>is<wbr>Sub<wbr>Marketing<wbr>Project</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Sub<wbr>Marketing<wbr>Project<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:222</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projnumberrequested" class="tsd-anchor"></a>
+					<h3>proj<wbr>Number<wbr>Requested</h3>
+					<div class="tsd-signature tsd-kind-icon">proj<wbr>Number<wbr>Requested<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/project.ts:196</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/clientconfig.html" class="tsd-kind-icon">Client<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/companyclient.html" class="tsd-kind-icon">Company<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/projectclient.html" class="tsd-kind-icon">Project<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="calllog.html" class="tsd-kind-icon">Call<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="company.html" class="tsd-kind-icon">Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contact.html" class="tsd-kind-icon">Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="image.html" class="tsd-kind-icon">Image</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="lead.html" class="tsd-kind-icon">Lead</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="opportunity.html" class="tsd-kind-icon">Opportunity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="personnel.html" class="tsd-kind-icon">Personnel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="personnelimagemetadata.html" class="tsd-kind-icon">Personnel<wbr>Image<wbr>Metadata</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="project.html" class="tsd-kind-icon">Project</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#accountexecutivecomments" class="tsd-kind-icon">Account<wbr>Executive<wbr>Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#accountingcloseddate" class="tsd-kind-icon">Accounting<wbr>Closed<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#accounting_id" class="tsd-kind-icon">Accounting_<wbr>ID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#actualcompletiondate" class="tsd-kind-icon">Actual<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#additionsize" class="tsd-kind-icon">Addition<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#archivestatus" class="tsd-kind-icon">Archive<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#awardeddate" class="tsd-kind-icon">Awarded<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billwithmainjob" class="tsd-kind-icon">Bill<wbr>With<wbr>Main<wbr>Job</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingaddress1" class="tsd-kind-icon">Billing<wbr>Address1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingaddress2" class="tsd-kind-icon">Billing<wbr>Address2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingcity" class="tsd-kind-icon">Billing<wbr>City</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingcountry" class="tsd-kind-icon">Billing<wbr>Country</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingcounty" class="tsd-kind-icon">Billing<wbr>County</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingfax" class="tsd-kind-icon">Billing<wbr>Fax</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingphone" class="tsd-kind-icon">Billing<wbr>Phone</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingstate" class="tsd-kind-icon">Billing<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billingzip" class="tsd-kind-icon">Billing<wbr>Zip</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#bonded" class="tsd-kind-icon">Bonded</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#buildingsize" class="tsd-kind-icon">Building<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#certofoccdate" class="tsd-kind-icon">Cert<wbr>OfOcc<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#clientcomments" class="tsd-kind-icon">Client<wbr>Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#comments" class="tsd-kind-icon">Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#completiondate" class="tsd-kind-icon">Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#constructioncompletiondate" class="tsd-kind-icon">Construction<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#constructionstartdate" class="tsd-kind-icon">Construction<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#contractsigneddate" class="tsd-kind-icon">Contract<wbr>Signed<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#contracttypeid" class="tsd-kind-icon">Contract<wbr>TypeID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#contract_name" class="tsd-kind-icon">Contract_<wbr><wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#costconfidential" class="tsd-kind-icon">Cost<wbr>Confidential</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#costdisplaytype" class="tsd-kind-icon">Cost<wbr>Display<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#createdbyuser" class="tsd-kind-icon">Created<wbr>ByUser</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#createddate" class="tsd-kind-icon">Created<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#deletedbyuser" class="tsd-kind-icon">Deleted<wbr>ByUser</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#deleteddate" class="tsd-kind-icon">Deleted<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#descriptionbrief" class="tsd-kind-icon">Description<wbr>Brief</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#designcompletedate" class="tsd-kind-icon">Design<wbr>Complete<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#designstartdate" class="tsd-kind-icon">Design<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#enabled" class="tsd-kind-icon">Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#estcompletiondate" class="tsd-kind-icon">Est<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#estconstructionstartdate" class="tsd-kind-icon">Est<wbr>Construction<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#experiencetype2545" class="tsd-kind-icon">Experience<wbr>Type2545</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#federalwork" class="tsd-kind-icon">Federal<wbr>Work</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#feebasisfee" class="tsd-kind-icon">Fee<wbr>Basis<wbr>Fee</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#feebasisrate" class="tsd-kind-icon">Fee<wbr>Basis<wbr>Rate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#feebasisupset" class="tsd-kind-icon">Fee<wbr>Basis<wbr>Upset</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#feesearned" class="tsd-kind-icon">Fees<wbr>Earned</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#filestatus" class="tsd-kind-icon">File<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#internallabor" class="tsd-kind-icon">Internal<wbr>Labor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#ispublishableproject" class="tsd-kind-icon">Is<wbr>Publishable<wbr>Project</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#logofile" class="tsd-kind-icon">Logo<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#masterid" class="tsd-kind-icon">MasterID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#metroarea" class="tsd-kind-icon">Metro<wbr>Area</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#modifieddate" class="tsd-kind-icon">Modified<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#modifieduser" class="tsd-kind-icon">Modified<wbr>User</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#naics" class="tsd-kind-icon">Naics</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#newsize" class="tsd-kind-icon">New<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#notes" class="tsd-kind-icon">Notes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#numbeds" class="tsd-kind-icon">Num<wbr>Beds</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#numfloors" class="tsd-kind-icon">Num<wbr>Floors</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#numrooms" class="tsd-kind-icon">Num<wbr>Rooms</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#numunits" class="tsd-kind-icon">Num<wbr>Units</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#opportunityid" class="tsd-kind-icon">Opportunity<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#otherprojectname" class="tsd-kind-icon">Other<wbr>Project<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#ownercomments" class="tsd-kind-icon">Owner<wbr>Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#ownertype" class="tsd-kind-icon">Owner<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#parkingsize" class="tsd-kind-icon">Parking<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#parkingspaces" class="tsd-kind-icon">Parking<wbr>Spaces</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#percentcomplete" class="tsd-kind-icon">Percent<wbr>Complete</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#phase" class="tsd-kind-icon">Phase</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#preferred" class="tsd-kind-icon">Preferred</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#procurement" class="tsd-kind-icon">Procurement</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#profilecodeid" class="tsd-kind-icon">Profile<wbr>Code<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projaddress" class="tsd-kind-icon">Proj<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projaddress2" class="tsd-kind-icon">Proj<wbr>Address2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projcity" class="tsd-kind-icon">Proj<wbr>City</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projcountry" class="tsd-kind-icon">Proj<wbr>Country</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projcounty" class="tsd-kind-icon">Proj<wbr>County</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projlat" class="tsd-kind-icon">Proj<wbr>Lat</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projlocation" class="tsd-kind-icon">Proj<wbr>Location</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projlong" class="tsd-kind-icon">Proj<wbr>Long</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projstate" class="tsd-kind-icon">Proj<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projstatus" class="tsd-kind-icon">Proj<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projzip" class="tsd-kind-icon">Proj<wbr>Zip</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectauthorization" class="tsd-kind-icon">Project<wbr>Authorization</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectdisplayname" class="tsd-kind-icon">Project<wbr>Display<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectid" class="tsd-kind-icon">Project<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectlink" class="tsd-kind-icon">Project<wbr>Link</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectname" class="tsd-kind-icon">Project<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectnamefor2545" class="tsd-kind-icon">Project<wbr>Name<wbr>For2545</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectnumber" class="tsd-kind-icon">Project<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectspeed" class="tsd-kind-icon">Project<wbr>Speed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectstatusid" class="tsd-kind-icon">Project<wbr>StatusID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#project_approved" class="tsd-kind-icon">Project_<wbr><wbr>Approved</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsdate1" class="tsd-kind-icon">Projects<wbr>Date1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsdate2" class="tsd-kind-icon">Projects<wbr>Date2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsdate3" class="tsd-kind-icon">Projects<wbr>Date3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsdate4" class="tsd-kind-icon">Projects<wbr>Date4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsdate5" class="tsd-kind-icon">Projects<wbr>Date5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectslongtext1" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectslongtext2" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectslongtext3" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectslongtext4" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectslongtext5" class="tsd-kind-icon">Projects<wbr>Long<wbr>Text5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsmoney1" class="tsd-kind-icon">Projects<wbr>Money1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsmoney2" class="tsd-kind-icon">Projects<wbr>Money2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsmoney3" class="tsd-kind-icon">Projects<wbr>Money3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsmoney4" class="tsd-kind-icon">Projects<wbr>Money4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsmoney5" class="tsd-kind-icon">Projects<wbr>Money5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsnumber1" class="tsd-kind-icon">Projects<wbr>Number1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsnumber2" class="tsd-kind-icon">Projects<wbr>Number2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsnumber3" class="tsd-kind-icon">Projects<wbr>Number3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsnumber4" class="tsd-kind-icon">Projects<wbr>Number4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsnumber5" class="tsd-kind-icon">Projects<wbr>Number5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectspercent1" class="tsd-kind-icon">Projects<wbr>Percent1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectspercent2" class="tsd-kind-icon">Projects<wbr>Percent2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectspercent3" class="tsd-kind-icon">Projects<wbr>Percent3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectspercent4" class="tsd-kind-icon">Projects<wbr>Percent4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectspercent5" class="tsd-kind-icon">Projects<wbr>Percent5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsshorttext1" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsshorttext2" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsshorttext3" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsshorttext4" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsshorttext5" class="tsd-kind-icon">Projects<wbr>Short<wbr>Text5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsvaluelistid1" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsvaluelistid2" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsvaluelistid3" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsvaluelistid4" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projectsvaluelistid5" class="tsd-kind-icon">Projects<wbr>Value<wbr>ListID5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#prominent" class="tsd-kind-icon">Prominent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#proposalnumber" class="tsd-kind-icon">Proposal<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#publishtowebsite" class="tsd-kind-icon">Publish<wbr>ToWebsite</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#reference2558" class="tsd-kind-icon">Reference2558</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#renovationsize" class="tsd-kind-icon">Renovation<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#responsibilityfor2545" class="tsd-kind-icon">Responsibility<wbr>For2545</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#schedulecomments" class="tsd-kind-icon">Schedule<wbr>Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#scheduleconstcompletiondate" class="tsd-kind-icon">Schedule<wbr>Const<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#schedulecontingency" class="tsd-kind-icon">Schedule<wbr>Contingency</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#schedulefactor" class="tsd-kind-icon">Schedule<wbr>Factor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#scheduleprofitgoal" class="tsd-kind-icon">Schedule<wbr>Profit<wbr>Goal</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#scheduleschedulecomments" class="tsd-kind-icon">Schedule<wbr>Schedule<wbr>Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#selfperform" class="tsd-kind-icon">Self<wbr>Perform</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#sitefax" class="tsd-kind-icon">Site<wbr>Fax</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#sitephonenumber" class="tsd-kind-icon">Site<wbr>Phone<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#sitesize" class="tsd-kind-icon">Site<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#sizecomments" class="tsd-kind-icon">Size<wbr>Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#sizetype" class="tsd-kind-icon">Size<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#subcatsenabled" class="tsd-kind-icon">Sub<wbr>Cats<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#subsidiary" class="tsd-kind-icon">Subsidiary</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#totalcontract" class="tsd-kind-icon">Total<wbr>Contract</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#usesexternaldata" class="tsd-kind-icon">Uses<wbr>External<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#workcompletiondate" class="tsd-kind-icon">Work<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#billinginformation" class="tsd-kind-icon">billing<wbr>Information</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#ismarketingproject" class="tsd-kind-icon">is<wbr>Marketing<wbr>Project</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#issubmarketingproject" class="tsd-kind-icon">is<wbr>Sub<wbr>Marketing<wbr>Project</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="project.html#projnumberrequested" class="tsd-kind-icon">proj<wbr>Number<wbr>Requested</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="projectimagemetadata.html" class="tsd-kind-icon">Project<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="user.html" class="tsd-kind-icon">User</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
