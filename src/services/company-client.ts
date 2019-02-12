@@ -9,5 +9,6 @@ import { Client } from './client';
 export class CompanyClient extends Client {
     
     //TODO: Implementation for Company Images
+    //TODO: Implementation for Company Addresses
 
 }
