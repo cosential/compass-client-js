@@ -104,8 +104,11 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="contactclient.html#findaddress" class="tsd-kind-icon">find<wbr>Address</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="contactclient.html#getcontactaddress" class="tsd-kind-icon">get<wbr>Contact<wbr>Address</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="contactclient.html#getcontactimages" class="tsd-kind-icon">get<wbr>Contact<wbr>Images</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="contactclient.html#mostrecentdate" class="tsd-kind-icon">most<wbr>Recent<wbr>Date</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#post" class="tsd-kind-icon">post</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#put" class="tsd-kind-icon">put</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#search" class="tsd-kind-icon">search</a></li>
@@ -127,7 +130,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L28">services/client.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L28">services/client.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -155,7 +158,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#config">config</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L18">services/client.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L18">services/client.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -169,7 +172,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#config">config</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L26">services/client.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L26">services/client.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,7 +208,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L189">services/client.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L189">services/client.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -239,6 +242,56 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+					<a name="findaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> find<wbr>Address</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Address&lt;T&gt;<span class="tsd-signature-symbol">(</span>allAddresses<span class="tsd-signature-symbol">: </span><a href="../interfaces/contactaddress.html" class="tsd-signature-type">ContactAddress</a><span class="tsd-signature-symbol">[]</span>, requestedAddress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, otherAddress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/contact-client.ts#L93">services/contact-client.ts:93</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an address id of the resultant address.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>allAddresses: <a href="../interfaces/contactaddress.html" class="tsd-signature-type">ContactAddress</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of all addresses associated to a Contact</p>
+									</div>
+								</li>
+								<li>
+									<h5>requestedAddress: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Requested address type</p>
+									</div>
+								</li>
+								<li>
+									<h5>otherAddress: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Not requested address type</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>An address id as a number</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
@@ -250,7 +303,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L40">services/client.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L40">services/client.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,6 +338,56 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="getcontactaddress" class="tsd-anchor"></a>
+					<h3>get<wbr>Contact<wbr>Address</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Contact<wbr>Address&lt;T&gt;<span class="tsd-signature-symbol">(</span>contactId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, addressType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/contact-client.ts#L64">services/contact-client.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns Contact Address.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>contactId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Cosential contact id</p>
+									</div>
+								</li>
+								<li>
+									<h5>addressType: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required address type. [1 = Office, 2 = Home]</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional request headers</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A detailed response object as a Promise</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="getcontactimages" class="tsd-anchor"></a>
 					<h3>get<wbr>Contact<wbr>Images</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
@@ -294,7 +397,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/contact-client.ts:19</li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/contact-client.ts#L20">services/contact-client.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,6 +437,50 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+					<a name="mostrecentdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> most<wbr>Recent<wbr>Date</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">most<wbr>Recent<wbr>Date&lt;T&gt;<span class="tsd-signature-symbol">(</span>allAddresses<span class="tsd-signature-symbol">: </span><a href="../interfaces/contactaddress.html" class="tsd-signature-type">ContactAddress</a><span class="tsd-signature-symbol">[]</span>, addressType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/contact-client.ts#L126">services/contact-client.ts:126</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns most recent date for an address type.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>allAddresses: <a href="../interfaces/contactaddress.html" class="tsd-signature-type">ContactAddress</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of all addresses associated to a Contact</p>
+									</div>
+								</li>
+								<li>
+									<h5>addressType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Address type to be looked up for most recent date</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Most recent date for an address type as a string</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="post" class="tsd-anchor"></a>
 					<h3>post</h3>
@@ -345,7 +492,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#post">post</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L90">services/client.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L90">services/client.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,7 +543,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#put">put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L140">services/client.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L140">services/client.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -447,7 +594,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#search">search</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/8599ce6/src/services/client.ts#L237">services/client.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/services/client.ts#L237">services/client.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -528,11 +675,20 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="contactclient.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+								<a href="contactclient.html#findaddress" class="tsd-kind-icon">find<wbr>Address</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="contactclient.html#get" class="tsd-kind-icon">get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="contactclient.html#getcontactaddress" class="tsd-kind-icon">get<wbr>Contact<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="contactclient.html#getcontactimages" class="tsd-kind-icon">get<wbr>Contact<wbr>Images</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
+								<a href="contactclient.html#mostrecentdate" class="tsd-kind-icon">most<wbr>Recent<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="contactclient.html#post" class="tsd-kind-icon">post</a>
@@ -560,10 +716,16 @@
 						<a href="../interfaces/company.html" class="tsd-kind-icon">Company</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/companyaddress.html" class="tsd-kind-icon">Company<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/contact.html" class="tsd-kind-icon">Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/contactaddress.html" class="tsd-kind-icon">Contact<wbr>Address</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>

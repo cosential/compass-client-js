@@ -22,6 +22,7 @@ export { Opportunity } from './compass-models/opportunity';
 export { Lead } from './compass-models/lead';
 export { CallLog } from './compass-models/call-log';
 export { Image } from './compass-models/images/image';
+export { ContactAddress } from './compass-models/contact-address';
 export { ContactImageMetadata } from './compass-models/images/contact-image-metadata';
 export { CompanyImageMetadata } from './compass-models/images/company-image-metadata';
 export { PersonnelImageMetadata } from './compass-models/images/personnel-image-metadata';

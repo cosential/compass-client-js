@@ -53,7 +53,6 @@ describe("PersonnelImageClient", () => {
     it("Can fetch photo for an invalid id", async () => {
         let res: ResponseData<Image> = await personnelClient.getPersonnelImages<Image>(5556666);
         //returns success as true with resultset as null
-        console.log(res);
         expect(res.success).toBeTruthy(res.message);
     });
 });
