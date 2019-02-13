@@ -1,3 +1,4 @@
 export interface RequestOptions {
-    showErrors: boolean;
+  showErrors: boolean;
+  urlEncoded?: boolean;
 }

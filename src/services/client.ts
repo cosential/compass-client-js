@@ -144,7 +144,7 @@ export class Client {
             'x-compass-firm-id': this.config.firmId.toString(),
             'x-compass-api-key': this.config.apiKey,
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': (opts.urlEncoded) ? 'application/x-www-form-urlencoded' : 'application/json'
         };
 
         if (opts.showErrors) headers['x-compass-show-errors'] = 'true';

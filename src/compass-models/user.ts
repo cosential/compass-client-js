@@ -1,6 +1,5 @@
 /**
  * Represents the User that has successfully authenticated into the Compass API.
- * 
  * @example
  * ```
  * client.get<User[]>('/user').then(function(res){ 
@@ -18,7 +17,6 @@
  *      }
  * });
  * ```
- * 
  */
 export interface User {
     Title: string;
