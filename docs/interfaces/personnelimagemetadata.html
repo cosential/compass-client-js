@@ -1,0 +1,545 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PersonnelImageMetadata | Cosential compass.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Cosential compass.js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="personnelimagemetadata.html">PersonnelImageMetadata</a>
+				</li>
+			</ul>
+			<h1>Interface PersonnelImageMetadata</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents the image metadata for a Personnel.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read images metadata for a Personnel</p>
+							<pre><code>client.get&lt;PersonnelImageMetadata[]&gt;<span class="hljs-function">(<span class="hljs-params">'/personnel/5556666/images'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
+         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ImageSizeKB</span>); }</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">PersonnelImageMetadata</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#cdrompath" class="tsd-kind-icon">CDRom<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#caption" class="tsd-kind-icon">Caption</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#comments" class="tsd-kind-icon">Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#credit" class="tsd-kind-icon">Credit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#device" class="tsd-kind-icon">Device</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imagehash" class="tsd-kind-icon">Image<wbr>Hash</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imageid" class="tsd-kind-icon">Image<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imagename" class="tsd-kind-icon">Image<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#imagesizekb" class="tsd-kind-icon">Image<wbr>SizeKB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#keywords" class="tsd-kind-icon">Keywords</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#networkpath" class="tsd-kind-icon">Network<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#ordernumber" class="tsd-kind-icon">Order<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#originalimageendpoint" class="tsd-kind-icon">Original<wbr>Image<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#personnelid" class="tsd-kind-icon">Personnel<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#primaryphoto" class="tsd-kind-icon">Primary<wbr>Photo</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#thumbnailimageendpoint" class="tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#uploaddate" class="tsd-kind-icon">Upload<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#websiteimageendpoint" class="tsd-kind-icon">Website<wbr>Image<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#latitude" class="tsd-kind-icon">latitude</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="personnelimagemetadata.html#longitude" class="tsd-kind-icon">longitude</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="cdrompath" class="tsd-anchor"></a>
+					<h3>CDRom<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">CDRom<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L22">compass-models/images/personnel-image-metadata.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="caption" class="tsd-anchor"></a>
+					<h3>Caption</h3>
+					<div class="tsd-signature tsd-kind-icon">Caption<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L18">compass-models/images/personnel-image-metadata.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="comments" class="tsd-anchor"></a>
+					<h3>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L24">compass-models/images/personnel-image-metadata.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="credit" class="tsd-anchor"></a>
+					<h3>Credit</h3>
+					<div class="tsd-signature tsd-kind-icon">Credit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L19">compass-models/images/personnel-image-metadata.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="device" class="tsd-anchor"></a>
+					<h3>Device</h3>
+					<div class="tsd-signature tsd-kind-icon">Device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L26">compass-models/images/personnel-image-metadata.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="imagehash" class="tsd-anchor"></a>
+					<h3>Image<wbr>Hash</h3>
+					<div class="tsd-signature tsd-kind-icon">Image<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L29">compass-models/images/personnel-image-metadata.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="imageid" class="tsd-anchor"></a>
+					<h3>Image<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Image<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L16">compass-models/images/personnel-image-metadata.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="imagename" class="tsd-anchor"></a>
+					<h3>Image<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Image<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L17">compass-models/images/personnel-image-metadata.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="imagesizekb" class="tsd-anchor"></a>
+					<h3>Image<wbr>SizeKB</h3>
+					<div class="tsd-signature tsd-kind-icon">Image<wbr>SizeKB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L30">compass-models/images/personnel-image-metadata.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="keywords" class="tsd-anchor"></a>
+					<h3>Keywords</h3>
+					<div class="tsd-signature tsd-kind-icon">Keywords<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L20">compass-models/images/personnel-image-metadata.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="networkpath" class="tsd-anchor"></a>
+					<h3>Network<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Network<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L21">compass-models/images/personnel-image-metadata.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ordernumber" class="tsd-anchor"></a>
+					<h3>Order<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Order<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L23">compass-models/images/personnel-image-metadata.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="originalimageendpoint" class="tsd-anchor"></a>
+					<h3>Original<wbr>Image<wbr>Endpoint</h3>
+					<div class="tsd-signature tsd-kind-icon">Original<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L31">compass-models/images/personnel-image-metadata.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="personnelid" class="tsd-anchor"></a>
+					<h3>Personnel<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Personnel<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L15">compass-models/images/personnel-image-metadata.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="primaryphoto" class="tsd-anchor"></a>
+					<h3>Primary<wbr>Photo</h3>
+					<div class="tsd-signature tsd-kind-icon">Primary<wbr>Photo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L34">compass-models/images/personnel-image-metadata.ts:34</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="thumbnailimageendpoint" class="tsd-anchor"></a>
+					<h3>Thumbnail<wbr>Image<wbr>Endpoint</h3>
+					<div class="tsd-signature tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L33">compass-models/images/personnel-image-metadata.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="uploaddate" class="tsd-anchor"></a>
+					<h3>Upload<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Upload<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L25">compass-models/images/personnel-image-metadata.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="websiteimageendpoint" class="tsd-anchor"></a>
+					<h3>Website<wbr>Image<wbr>Endpoint</h3>
+					<div class="tsd-signature tsd-kind-icon">Website<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L32">compass-models/images/personnel-image-metadata.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="latitude" class="tsd-anchor"></a>
+					<h3>latitude</h3>
+					<div class="tsd-signature tsd-kind-icon">latitude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L27">compass-models/images/personnel-image-metadata.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="longitude" class="tsd-anchor"></a>
+					<h3>longitude</h3>
+					<div class="tsd-signature tsd-kind-icon">longitude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/personnel-image-metadata.ts#L28">compass-models/images/personnel-image-metadata.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/clientconfig.html" class="tsd-kind-icon">Client<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/companyclient.html" class="tsd-kind-icon">Company<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/projectclient.html" class="tsd-kind-icon">Project<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="calllog.html" class="tsd-kind-icon">Call<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="company.html" class="tsd-kind-icon">Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="companyaddress.html" class="tsd-kind-icon">Company<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contact.html" class="tsd-kind-icon">Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contactaddress.html" class="tsd-kind-icon">Contact<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="image.html" class="tsd-kind-icon">Image</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="lead.html" class="tsd-kind-icon">Lead</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="opportunity.html" class="tsd-kind-icon">Opportunity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="personnel.html" class="tsd-kind-icon">Personnel</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="personnelimagemetadata.html" class="tsd-kind-icon">Personnel<wbr>Image<wbr>Metadata</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#cdrompath" class="tsd-kind-icon">CDRom<wbr>Path</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#caption" class="tsd-kind-icon">Caption</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#comments" class="tsd-kind-icon">Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#credit" class="tsd-kind-icon">Credit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#device" class="tsd-kind-icon">Device</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#imagehash" class="tsd-kind-icon">Image<wbr>Hash</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#imageid" class="tsd-kind-icon">Image<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#imagename" class="tsd-kind-icon">Image<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#imagesizekb" class="tsd-kind-icon">Image<wbr>SizeKB</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#keywords" class="tsd-kind-icon">Keywords</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#networkpath" class="tsd-kind-icon">Network<wbr>Path</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#ordernumber" class="tsd-kind-icon">Order<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#originalimageendpoint" class="tsd-kind-icon">Original<wbr>Image<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#personnelid" class="tsd-kind-icon">Personnel<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#primaryphoto" class="tsd-kind-icon">Primary<wbr>Photo</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#thumbnailimageendpoint" class="tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#uploaddate" class="tsd-kind-icon">Upload<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#websiteimageendpoint" class="tsd-kind-icon">Website<wbr>Image<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#latitude" class="tsd-kind-icon">latitude</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="personnelimagemetadata.html#longitude" class="tsd-kind-icon">longitude</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="project.html" class="tsd-kind-icon">Project</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="projectimagemetadata.html" class="tsd-kind-icon">Project<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="user.html" class="tsd-kind-icon">User</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

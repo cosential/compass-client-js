@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>User | Cosential compass.js</title>
+	<title>Image | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="user.html">User</a>
+					<a href="image.html">Image</a>
 				</li>
 			</ul>
-			<h1>Interface User</h1>
+			<h1>Interface Image</h1>
 		</div>
 	</div>
 </header>
@@ -67,22 +67,45 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the User that has successfully authenticated into the Compass API.</p>
+						<p>Represents an Image.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><pre><code>client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-keyword">function</span>(res){
-     <span class="hljs-keyword">if</span> (res.success) {
-         //The API <span class="hljs-keyword">call</span> was successful
-
-         //This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
-         let <span class="hljs-keyword">user</span> = res.result[<span class="hljs-number">0</span>];
-
-         //Because <span class="hljs-keyword">user</span> <span class="hljs-keyword">is</span> an API response <span class="hljs-keyword">object</span>, properties are proper <span class="hljs-keyword">case</span>, <span class="hljs-keyword">not</span> camel <span class="hljs-keyword">case</span>.
-         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + <span class="hljs-keyword">user</span>.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *
-     } <span class="hljs-keyword">else</span> {
-         //Something went wrong
-         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
+						<dd><p>Read a Contact&#39;s profile image</p>
+							<pre><code>contactClient.getContactImages&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params">'5556666', 2</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success //returns profile image as a base64 encoded string</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Data</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read all images for a Contact</p>
+							<pre><code>contactClient.getContactImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'5556666'</span>, <span class="hljs-number">1</span>).<span class="hljs-keyword">then</span>( (res) =&gt; {
+     <span class="hljs-keyword">if</span>(res.success){ //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
+         //<span class="hljs-keyword">return</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">is</span> the <span class="hljs-keyword">default</span> behavior <span class="hljs-keyword">in</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">no</span> image <span class="hljs-keyword">type</span>
+         console.log(res.result);
+     } <span class="hljs-keyword">else</span> { //something went wrong
+         console.log(res.message);
+     }
+});</code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read primary image of a personnel</p>
+							<pre><code>personnelClient.getPersonnelImages&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params">'5556666', <span class="hljs-literal">true</span></span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success //returns an image as a base64 encoded string</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Data</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read all images for a Personnel</p>
+							<pre><code>personnelClient.getPersonnelImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'5556666'</span>, <span class="hljs-keyword">false</span>).<span class="hljs-keyword">then</span>( (res) =&gt; {
+     <span class="hljs-keyword">if</span>(res.success){ //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
+         //<span class="hljs-keyword">return</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">is</span> the <span class="hljs-keyword">default</span> behavior <span class="hljs-keyword">in</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">primary</span> photo <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> requested
+         console.log(res.result);
+     } <span class="hljs-keyword">else</span> { //something went wrong
+         console.log(res.message);
      }
 });</code></pre></dd>
 					</dl>
@@ -92,7 +115,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">User</span>
+						<span class="target">Image</span>
 					</li>
 				</ul>
 			</section>
@@ -103,15 +126,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#firmname" class="tsd-kind-icon">Firm<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#firstname" class="tsd-kind-icon">First<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#gender" class="tsd-kind-icon">Gender</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#lastname" class="tsd-kind-icon">Last<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#mi" class="tsd-kind-icon">MI</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#nickname" class="tsd-kind-icon">Nick<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#title" class="tsd-kind-icon">Title</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#userid" class="tsd-kind-icon">User<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="user.html#usertoken" class="tsd-kind-icon">User<wbr>Token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="image.html#contenttype" class="tsd-kind-icon">Content<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="image.html#data" class="tsd-kind-icon">Data</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,92 +136,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="firmname" class="tsd-anchor"></a>
-					<h3>Firm<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Firm<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="contenttype" class="tsd-anchor"></a>
+					<h3>Content<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L27">compass-models/user.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/image.ts#L47">compass-models/images/image.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="firstname" class="tsd-anchor"></a>
-					<h3>First<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="data" class="tsd-anchor"></a>
+					<h3>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L23">compass-models/user.ts:23</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="gender" class="tsd-anchor"></a>
-					<h3>Gender</h3>
-					<div class="tsd-signature tsd-kind-icon">Gender<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L28">compass-models/user.ts:28</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="lastname" class="tsd-anchor"></a>
-					<h3>Last<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L25">compass-models/user.ts:25</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mi" class="tsd-anchor"></a>
-					<h3>MI</h3>
-					<div class="tsd-signature tsd-kind-icon">MI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L24">compass-models/user.ts:24</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nickname" class="tsd-anchor"></a>
-					<h3>Nick<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Nick<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L26">compass-models/user.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="title" class="tsd-anchor"></a>
-					<h3>Title</h3>
-					<div class="tsd-signature tsd-kind-icon">Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L22">compass-models/user.ts:22</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="userid" class="tsd-anchor"></a>
-					<h3>User<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">User<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L29">compass-models/user.ts:29</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="usertoken" class="tsd-anchor"></a>
-					<h3>User<wbr>Token</h3>
-					<div class="tsd-signature tsd-kind-icon">User<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/user.ts#L30">compass-models/user.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/5cfea7d/src/compass-models/images/image.ts#L48">compass-models/images/image.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -260,9 +206,21 @@
 					<li class=" tsd-kind-interface">
 						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="image.html" class="tsd-kind-icon">Image</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="image.html#contenttype" class="tsd-kind-icon">Content<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="image.html#data" class="tsd-kind-icon">Data</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="lead.html" class="tsd-kind-icon">Lead</a>
 					</li>
@@ -287,42 +245,9 @@
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="user.html" class="tsd-kind-icon">User</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#firmname" class="tsd-kind-icon">Firm<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#firstname" class="tsd-kind-icon">First<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#gender" class="tsd-kind-icon">Gender</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#lastname" class="tsd-kind-icon">Last<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#mi" class="tsd-kind-icon">MI</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#nickname" class="tsd-kind-icon">Nick<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#title" class="tsd-kind-icon">Title</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#userid" class="tsd-kind-icon">User<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="user.html#usertoken" class="tsd-kind-icon">User<wbr>Token</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
