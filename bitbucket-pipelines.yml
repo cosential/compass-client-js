@@ -1,0 +1,9 @@
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Mirror Repository To GitHub
+          script:
+            - git push -f --mirror git@github.com:cosential/compass-client-js.git
