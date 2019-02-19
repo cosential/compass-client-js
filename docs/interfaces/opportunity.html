@@ -1,0 +1,1994 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Opportunity | Cosential compass.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Cosential compass.js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="opportunity.html">Opportunity</a>
+				</li>
+			</ul>
+			<h1>Interface Opportunity</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents the Opportunity.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read all Opportunities</p>
+							<pre><code>client.get&lt;Opportunity[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of Opportunity elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OpportunityId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read an Opportunity</p>
+							<pre><code>client.get&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.OpportunityName + ' ' + res.result.OpportunityNumber</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add new Opportunity/s</p>
+							<pre><code><span class="hljs-comment">//payload is an array of Opportunity elements to be added</span>
+client.post&lt;Opportunity[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Opportunity <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.OpportunityId</span>) + "." } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Opportunity creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Update an Opportunity</p>
+							<pre><code><span class="hljs-comment">//payload is an Opportunity element containing new and existing values</span>
+<span class="hljs-comment">//note that the API client does not support under posting of data</span>
+client.put&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns the updated element</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated opportunity <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.OpportunityId</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Opportunity update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Delete an Opportunity</p>
+							<pre><code>client.delete&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//element marked as inactive</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Search Opportunity/s</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'OpportunityName:Sample Opportunity'</span>;
+client.search&lt;Opportunity[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/opportunities'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
+     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+     }
+}</code></pre></dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Opportunity</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#activeind" class="tsd-kind-icon">Active<wbr>Ind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#address1" class="tsd-kind-icon">Address1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#address2" class="tsd-kind-icon">Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#autonumber" class="tsd-kind-icon">Auto<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#city" class="tsd-kind-icon">City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#clientid" class="tsd-kind-icon">Client<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#clientname" class="tsd-kind-icon">Client<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#closedate" class="tsd-kind-icon">Close<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#comments" class="tsd-kind-icon">Comments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#constructioncompletiondate" class="tsd-kind-icon">Construction<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#constructionstartdate" class="tsd-kind-icon">Construction<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#cost" class="tsd-kind-icon">Cost</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#country" class="tsd-kind-icon">Country</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#createdatetime" class="tsd-kind-icon">Create<wbr>Date<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#createdbyuserid" class="tsd-kind-icon">Created<wbr>ByUser<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#designcompletiondate" class="tsd-kind-icon">Design<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#designstartdate" class="tsd-kind-icon">Design<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#estimatedcompletiondate" class="tsd-kind-icon">Estimated<wbr>Completion<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#estimatedfeepercentage" class="tsd-kind-icon">Estimated<wbr>Fee<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#estimatedmanagementunits" class="tsd-kind-icon">Estimated<wbr>Management<wbr>Units</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#estimatedselectiondate" class="tsd-kind-icon">Estimated<wbr>Selection<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#estimatedstartdate" class="tsd-kind-icon">Estimated<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#expectedrfpdate" class="tsd-kind-icon">ExpectedRFPDate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#externalid" class="tsd-kind-icon">External<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#factoredcoststd" class="tsd-kind-icon">Factored<wbr>CostSTD</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#factoredfee" class="tsd-kind-icon">Factored<wbr>Fee</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#fee" class="tsd-kind-icon">Fee</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#feecidifvolume" class="tsd-kind-icon">FeeCIDif<wbr>Volume</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#firmfee" class="tsd-kind-icon">Firm<wbr>Fee</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#grossmargin" class="tsd-kind-icon">Gross<wbr>Margin</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#grossmargindollarsstd" class="tsd-kind-icon">Gross<wbr>Margin<wbr>DollarsSTD</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#grossmarginpercent" class="tsd-kind-icon">Gross<wbr>Margin<wbr>Percent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#grossmarginpercentstd" class="tsd-kind-icon">Gross<wbr>Margin<wbr>PercentSTD</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#grossrevenuestd" class="tsd-kind-icon">Gross<wbr>RevenueSTD</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#interviewed" class="tsd-kind-icon">Interviewed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#labordifferentialdollars" class="tsd-kind-icon">Labor<wbr>Differential<wbr>Dollars</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#lastdeletedbyuserid" class="tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#lastdeleteddatetime" class="tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#lastmodifiedbyuserid" class="tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#lastmodifieddatetime" class="tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#marketingcostactual" class="tsd-kind-icon">Marketing<wbr>Cost<wbr>Actual</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#marketingcostbudget" class="tsd-kind-icon">Marketing<wbr>Cost<wbr>Budget</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#masteropportunityid" class="tsd-kind-icon">Master<wbr>Opportunity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#nextaction" class="tsd-kind-icon">Next<wbr>Action</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#note" class="tsd-kind-icon">Note</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opplat" class="tsd-kind-icon">Opp<wbr>Lat</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opplong" class="tsd-kind-icon">Opp<wbr>Long</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#oppselfperformhours" class="tsd-kind-icon">Opp<wbr>Self<wbr>Perform<wbr>Hours</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opptype" class="tsd-kind-icon">Opp<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opptypedescription" class="tsd-kind-icon">Opp<wbr>Type<wbr>Description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitydate1" class="tsd-kind-icon">Opportunity<wbr>Date1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitydate2" class="tsd-kind-icon">Opportunity<wbr>Date2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitydate3" class="tsd-kind-icon">Opportunity<wbr>Date3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitydate4" class="tsd-kind-icon">Opportunity<wbr>Date4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitydate5" class="tsd-kind-icon">Opportunity<wbr>Date5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitydescription" class="tsd-kind-icon">Opportunity<wbr>Description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityid" class="tsd-kind-icon">Opportunity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitylongtext1" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitylongtext2" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitylongtext3" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitylongtext4" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitylongtext5" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitymoney1" class="tsd-kind-icon">Opportunity<wbr>Money1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitymoney2" class="tsd-kind-icon">Opportunity<wbr>Money2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitymoney3" class="tsd-kind-icon">Opportunity<wbr>Money3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitymoney4" class="tsd-kind-icon">Opportunity<wbr>Money4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitymoney5" class="tsd-kind-icon">Opportunity<wbr>Money5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityname" class="tsd-kind-icon">Opportunity<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitynumber" class="tsd-kind-icon">Opportunity<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitynumber1" class="tsd-kind-icon">Opportunity<wbr>Number1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitynumber2" class="tsd-kind-icon">Opportunity<wbr>Number2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitynumber3" class="tsd-kind-icon">Opportunity<wbr>Number3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitynumber4" class="tsd-kind-icon">Opportunity<wbr>Number4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitynumber5" class="tsd-kind-icon">Opportunity<wbr>Number5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitypercent1" class="tsd-kind-icon">Opportunity<wbr>Percent1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitypercent2" class="tsd-kind-icon">Opportunity<wbr>Percent2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitypercent3" class="tsd-kind-icon">Opportunity<wbr>Percent3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitypercent4" class="tsd-kind-icon">Opportunity<wbr>Percent4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunitypercent5" class="tsd-kind-icon">Opportunity<wbr>Percent5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityshorttext1" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityshorttext2" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityshorttext3" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityshorttext4" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityshorttext5" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityvaluelistid1" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityvaluelistid2" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityvaluelistid3" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID3</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityvaluelistid4" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID4</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#opportunityvaluelistid5" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID5</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#ownerid" class="tsd-kind-icon">Owner<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#ownername" class="tsd-kind-icon">Owner<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#postalcode" class="tsd-kind-icon">Postal<wbr>Code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#preconenddate" class="tsd-kind-icon">Pre<wbr>Con<wbr>End<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#preconstartdate" class="tsd-kind-icon">Pre<wbr>Con<wbr>Start<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#presentationdate" class="tsd-kind-icon">Presentation<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#probability" class="tsd-kind-icon">Probability</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#projectprobability" class="tsd-kind-icon">Project<wbr>Probability</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#proposalduedate" class="tsd-kind-icon">Proposal<wbr>Due<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#proposalnumber" class="tsd-kind-icon">Proposal<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#proposalsubmitted" class="tsd-kind-icon">Proposal<wbr>Submitted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#qualsduedate" class="tsd-kind-icon">Quals<wbr>Due<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#rfprecieved" class="tsd-kind-icon">RFPRecieved</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#redzonescore" class="tsd-kind-icon">Red<wbr>Zone<wbr>Score</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#sf255form" class="tsd-kind-icon">SF255<wbr>Form</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#sf330form" class="tsd-kind-icon">SF330<wbr>Form</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#score" class="tsd-kind-icon">Score</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#shortlisted" class="tsd-kind-icon">Short<wbr>Listed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#shortlisteddate" class="tsd-kind-icon">Short<wbr>Listed<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#size" class="tsd-kind-icon">Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#sizeunit" class="tsd-kind-icon">Size<wbr>Unit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#stage" class="tsd-kind-icon">Stage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#stagetype" class="tsd-kind-icon">Stage<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#state" class="tsd-kind-icon">State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#teamoppfirmorgfeesource" class="tsd-kind-icon">Team<wbr>Opp<wbr>Firm<wbr>Org<wbr>Fee<wbr>Source</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#approvallevel" class="tsd-kind-icon">approval<wbr>Level</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#approvalstatus" class="tsd-kind-icon">approval<wbr>Status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunity.html#fundprobability" class="tsd-kind-icon">fund<wbr>Probability</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="activeind" class="tsd-anchor"></a>
+					<h3>Active<wbr>Ind</h3>
+					<div class="tsd-signature tsd-kind-icon">Active<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L94">compass-models/opportunity.ts:94</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="address1" class="tsd-anchor"></a>
+					<h3>Address1</h3>
+					<div class="tsd-signature tsd-kind-icon">Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L96">compass-models/opportunity.ts:96</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="address2" class="tsd-anchor"></a>
+					<h3>Address2</h3>
+					<div class="tsd-signature tsd-kind-icon">Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L97">compass-models/opportunity.ts:97</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="autonumber" class="tsd-anchor"></a>
+					<h3>Auto<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Auto<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L175">compass-models/opportunity.ts:175</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="city" class="tsd-anchor"></a>
+					<h3>City</h3>
+					<div class="tsd-signature tsd-kind-icon">City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L98">compass-models/opportunity.ts:98</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="clientid" class="tsd-anchor"></a>
+					<h3>Client<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Client<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L70">compass-models/opportunity.ts:70</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="clientname" class="tsd-anchor"></a>
+					<h3>Client<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Client<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L71">compass-models/opportunity.ts:71</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="closedate" class="tsd-anchor"></a>
+					<h3>Close<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Close<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L76">compass-models/opportunity.ts:76</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="comments" class="tsd-anchor"></a>
+					<h3>Comments</h3>
+					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L90">compass-models/opportunity.ts:90</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="constructioncompletiondate" class="tsd-anchor"></a>
+					<h3>Construction<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Construction<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L147">compass-models/opportunity.ts:147</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="constructionstartdate" class="tsd-anchor"></a>
+					<h3>Construction<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Construction<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L146">compass-models/opportunity.ts:146</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="cost" class="tsd-anchor"></a>
+					<h3>Cost</h3>
+					<div class="tsd-signature tsd-kind-icon">Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L77">compass-models/opportunity.ts:77</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="country" class="tsd-anchor"></a>
+					<h3>Country</h3>
+					<div class="tsd-signature tsd-kind-icon">Country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L101">compass-models/opportunity.ts:101</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createdatetime" class="tsd-anchor"></a>
+					<h3>Create<wbr>Date<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L154">compass-models/opportunity.ts:154</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createdbyuserid" class="tsd-anchor"></a>
+					<h3>Created<wbr>ByUser<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L155">compass-models/opportunity.ts:155</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deleterecord" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Record</h3>
+					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L95">compass-models/opportunity.ts:95</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="designcompletiondate" class="tsd-anchor"></a>
+					<h3>Design<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Design<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L145">compass-models/opportunity.ts:145</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="designstartdate" class="tsd-anchor"></a>
+					<h3>Design<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Design<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L144">compass-models/opportunity.ts:144</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estimatedcompletiondate" class="tsd-anchor"></a>
+					<h3>Estimated<wbr>Completion<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L135">compass-models/opportunity.ts:135</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estimatedfeepercentage" class="tsd-anchor"></a>
+					<h3>Estimated<wbr>Fee<wbr>Percentage</h3>
+					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Fee<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L160">compass-models/opportunity.ts:160</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estimatedmanagementunits" class="tsd-anchor"></a>
+					<h3>Estimated<wbr>Management<wbr>Units</h3>
+					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Management<wbr>Units<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L170">compass-models/opportunity.ts:170</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estimatedselectiondate" class="tsd-anchor"></a>
+					<h3>Estimated<wbr>Selection<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Selection<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L75">compass-models/opportunity.ts:75</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="estimatedstartdate" class="tsd-anchor"></a>
+					<h3>Estimated<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L134">compass-models/opportunity.ts:134</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="expectedrfpdate" class="tsd-anchor"></a>
+					<h3>ExpectedRFPDate</h3>
+					<div class="tsd-signature tsd-kind-icon">ExpectedRFPDate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L86">compass-models/opportunity.ts:86</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="externalid" class="tsd-anchor"></a>
+					<h3>External<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L103">compass-models/opportunity.ts:103</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="factoredcoststd" class="tsd-anchor"></a>
+					<h3>Factored<wbr>CostSTD</h3>
+					<div class="tsd-signature tsd-kind-icon">Factored<wbr>CostSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L165">compass-models/opportunity.ts:165</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="factoredfee" class="tsd-anchor"></a>
+					<h3>Factored<wbr>Fee</h3>
+					<div class="tsd-signature tsd-kind-icon">Factored<wbr>Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L161">compass-models/opportunity.ts:161</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fee" class="tsd-anchor"></a>
+					<h3>Fee</h3>
+					<div class="tsd-signature tsd-kind-icon">Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L80">compass-models/opportunity.ts:80</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feecidifvolume" class="tsd-anchor"></a>
+					<h3>FeeCIDif<wbr>Volume</h3>
+					<div class="tsd-signature tsd-kind-icon">FeeCIDif<wbr>Volume<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L167">compass-models/opportunity.ts:167</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feecipercent" class="tsd-anchor"></a>
+					<h3>FeeCIPercent</h3>
+					<div class="tsd-signature tsd-kind-icon">FeeCIPercent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L166">compass-models/opportunity.ts:166</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="firmfee" class="tsd-anchor"></a>
+					<h3>Firm<wbr>Fee</h3>
+					<div class="tsd-signature tsd-kind-icon">Firm<wbr>Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L136">compass-models/opportunity.ts:136</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="grossmargin" class="tsd-anchor"></a>
+					<h3>Gross<wbr>Margin</h3>
+					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L171">compass-models/opportunity.ts:171</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="grossmargindollarsstd" class="tsd-anchor"></a>
+					<h3>Gross<wbr>Margin<wbr>DollarsSTD</h3>
+					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<wbr>DollarsSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L163">compass-models/opportunity.ts:163</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="grossmarginpercent" class="tsd-anchor"></a>
+					<h3>Gross<wbr>Margin<wbr>Percent</h3>
+					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<wbr>Percent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L172">compass-models/opportunity.ts:172</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="grossmarginpercentstd" class="tsd-anchor"></a>
+					<h3>Gross<wbr>Margin<wbr>PercentSTD</h3>
+					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<wbr>PercentSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L164">compass-models/opportunity.ts:164</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="grossrevenuestd" class="tsd-anchor"></a>
+					<h3>Gross<wbr>RevenueSTD</h3>
+					<div class="tsd-signature tsd-kind-icon">Gross<wbr>RevenueSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L162">compass-models/opportunity.ts:162</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="interviewed" class="tsd-anchor"></a>
+					<h3>Interviewed</h3>
+					<div class="tsd-signature tsd-kind-icon">Interviewed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L151">compass-models/opportunity.ts:151</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="labordifferentialdollars" class="tsd-anchor"></a>
+					<h3>Labor<wbr>Differential<wbr>Dollars</h3>
+					<div class="tsd-signature tsd-kind-icon">Labor<wbr>Differential<wbr>Dollars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L168">compass-models/opportunity.ts:168</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastdeletedbyuserid" class="tsd-anchor"></a>
+					<h3>Last<wbr>Deleted<wbr>ByUser<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L159">compass-models/opportunity.ts:159</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastdeleteddatetime" class="tsd-anchor"></a>
+					<h3>Last<wbr>Deleted<wbr>Date<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L158">compass-models/opportunity.ts:158</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastmodifiedbyuserid" class="tsd-anchor"></a>
+					<h3>Last<wbr>Modified<wbr>ByUser<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L157">compass-models/opportunity.ts:157</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastmodifieddatetime" class="tsd-anchor"></a>
+					<h3>Last<wbr>Modified<wbr>Date<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L156">compass-models/opportunity.ts:156</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="marketingcostactual" class="tsd-anchor"></a>
+					<h3>Marketing<wbr>Cost<wbr>Actual</h3>
+					<div class="tsd-signature tsd-kind-icon">Marketing<wbr>Cost<wbr>Actual<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L92">compass-models/opportunity.ts:92</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="marketingcostbudget" class="tsd-anchor"></a>
+					<h3>Marketing<wbr>Cost<wbr>Budget</h3>
+					<div class="tsd-signature tsd-kind-icon">Marketing<wbr>Cost<wbr>Budget<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L91">compass-models/opportunity.ts:91</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="masteropportunityid" class="tsd-anchor"></a>
+					<h3>Master<wbr>Opportunity<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Master<wbr>Opportunity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L173">compass-models/opportunity.ts:173</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="nextaction" class="tsd-anchor"></a>
+					<h3>Next<wbr>Action</h3>
+					<div class="tsd-signature tsd-kind-icon">Next<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L82">compass-models/opportunity.ts:82</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="note" class="tsd-anchor"></a>
+					<h3>Note</h3>
+					<div class="tsd-signature tsd-kind-icon">Note<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L178">compass-models/opportunity.ts:178</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opplat" class="tsd-anchor"></a>
+					<h3>Opp<wbr>Lat</h3>
+					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Lat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L187">compass-models/opportunity.ts:187</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opplong" class="tsd-anchor"></a>
+					<h3>Opp<wbr>Long</h3>
+					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Long<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L188">compass-models/opportunity.ts:188</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="oppselfperformhours" class="tsd-anchor"></a>
+					<h3>Opp<wbr>Self<wbr>Perform<wbr>Hours</h3>
+					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Self<wbr>Perform<wbr>Hours<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L169">compass-models/opportunity.ts:169</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opptype" class="tsd-anchor"></a>
+					<h3>Opp<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L141">compass-models/opportunity.ts:141</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opptypedescription" class="tsd-anchor"></a>
+					<h3>Opp<wbr>Type<wbr>Description</h3>
+					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Type<wbr>Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L174">compass-models/opportunity.ts:174</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitydate1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Date1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L114">compass-models/opportunity.ts:114</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitydate2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Date2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L115">compass-models/opportunity.ts:115</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitydate3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Date3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L116">compass-models/opportunity.ts:116</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitydate4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Date4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L117">compass-models/opportunity.ts:117</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitydate5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Date5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L118">compass-models/opportunity.ts:118</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitydescription" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Description</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L102">compass-models/opportunity.ts:102</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityid" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L69">compass-models/opportunity.ts:69</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitylongtext1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Long<wbr>Text1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L180">compass-models/opportunity.ts:180</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitylongtext2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Long<wbr>Text2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L181">compass-models/opportunity.ts:181</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitylongtext3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Long<wbr>Text3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L182">compass-models/opportunity.ts:182</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitylongtext4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Long<wbr>Text4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L183">compass-models/opportunity.ts:183</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitylongtext5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Long<wbr>Text5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L184">compass-models/opportunity.ts:184</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitymoney1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Money1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L124">compass-models/opportunity.ts:124</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitymoney2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Money2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L125">compass-models/opportunity.ts:125</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitymoney3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Money3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L126">compass-models/opportunity.ts:126</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitymoney4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Money4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L127">compass-models/opportunity.ts:127</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitymoney5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Money5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L128">compass-models/opportunity.ts:128</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityname" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L74">compass-models/opportunity.ts:74</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitynumber" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L93">compass-models/opportunity.ts:93</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitynumber1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Number1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L109">compass-models/opportunity.ts:109</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitynumber2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Number2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L110">compass-models/opportunity.ts:110</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitynumber3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Number3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L111">compass-models/opportunity.ts:111</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitynumber4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Number4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L112">compass-models/opportunity.ts:112</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitynumber5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Number5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L113">compass-models/opportunity.ts:113</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitypercent1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Percent1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L129">compass-models/opportunity.ts:129</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitypercent2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Percent2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L130">compass-models/opportunity.ts:130</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitypercent3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Percent3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L131">compass-models/opportunity.ts:131</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitypercent4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Percent4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L132">compass-models/opportunity.ts:132</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunitypercent5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Percent5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L133">compass-models/opportunity.ts:133</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityshorttext1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Short<wbr>Text1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L104">compass-models/opportunity.ts:104</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityshorttext2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Short<wbr>Text2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L105">compass-models/opportunity.ts:105</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityshorttext3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Short<wbr>Text3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L106">compass-models/opportunity.ts:106</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityshorttext4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Short<wbr>Text4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L107">compass-models/opportunity.ts:107</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityshorttext5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Short<wbr>Text5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L108">compass-models/opportunity.ts:108</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityvaluelistid1" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Value<wbr>ListID1</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L119">compass-models/opportunity.ts:119</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityvaluelistid2" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Value<wbr>ListID2</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L120">compass-models/opportunity.ts:120</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityvaluelistid3" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Value<wbr>ListID3</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L121">compass-models/opportunity.ts:121</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityvaluelistid4" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Value<wbr>ListID4</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L122">compass-models/opportunity.ts:122</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="opportunityvaluelistid5" class="tsd-anchor"></a>
+					<h3>Opportunity<wbr>Value<wbr>ListID5</h3>
+					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L123">compass-models/opportunity.ts:123</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ownerid" class="tsd-anchor"></a>
+					<h3>Owner<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Owner<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L138">compass-models/opportunity.ts:138</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ownername" class="tsd-anchor"></a>
+					<h3>Owner<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Owner<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L139">compass-models/opportunity.ts:139</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="postalcode" class="tsd-anchor"></a>
+					<h3>Postal<wbr>Code</h3>
+					<div class="tsd-signature tsd-kind-icon">Postal<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L100">compass-models/opportunity.ts:100</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="preconenddate" class="tsd-anchor"></a>
+					<h3>Pre<wbr>Con<wbr>End<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Pre<wbr>Con<wbr>End<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L143">compass-models/opportunity.ts:143</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="preconstartdate" class="tsd-anchor"></a>
+					<h3>Pre<wbr>Con<wbr>Start<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Pre<wbr>Con<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L142">compass-models/opportunity.ts:142</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="presentationdate" class="tsd-anchor"></a>
+					<h3>Presentation<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Presentation<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L89">compass-models/opportunity.ts:89</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="probability" class="tsd-anchor"></a>
+					<h3>Probability</h3>
+					<div class="tsd-signature tsd-kind-icon">Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L81">compass-models/opportunity.ts:81</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectprobability" class="tsd-anchor"></a>
+					<h3>Project<wbr>Probability</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L137">compass-models/opportunity.ts:137</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="proposalduedate" class="tsd-anchor"></a>
+					<h3>Proposal<wbr>Due<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Due<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L85">compass-models/opportunity.ts:85</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="proposalnumber" class="tsd-anchor"></a>
+					<h3>Proposal<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L84">compass-models/opportunity.ts:84</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="proposalsubmitted" class="tsd-anchor"></a>
+					<h3>Proposal<wbr>Submitted</h3>
+					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Submitted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L88">compass-models/opportunity.ts:88</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="qualsduedate" class="tsd-anchor"></a>
+					<h3>Quals<wbr>Due<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Quals<wbr>Due<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L87">compass-models/opportunity.ts:87</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="rfprecieved" class="tsd-anchor"></a>
+					<h3>RFPRecieved</h3>
+					<div class="tsd-signature tsd-kind-icon">RFPRecieved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L83">compass-models/opportunity.ts:83</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="row_version" class="tsd-anchor"></a>
+					<h3>ROW_<wbr>VERSION</h3>
+					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L149">compass-models/opportunity.ts:149</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="redzonescore" class="tsd-anchor"></a>
+					<h3>Red<wbr>Zone<wbr>Score</h3>
+					<div class="tsd-signature tsd-kind-icon">Red<wbr>Zone<wbr>Score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L179">compass-models/opportunity.ts:179</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sf255form" class="tsd-anchor"></a>
+					<h3>SF255<wbr>Form</h3>
+					<div class="tsd-signature tsd-kind-icon">SF255<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L72">compass-models/opportunity.ts:72</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sf330form" class="tsd-anchor"></a>
+					<h3>SF330<wbr>Form</h3>
+					<div class="tsd-signature tsd-kind-icon">SF330<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L73">compass-models/opportunity.ts:73</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="score" class="tsd-anchor"></a>
+					<h3>Score</h3>
+					<div class="tsd-signature tsd-kind-icon">Score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L153">compass-models/opportunity.ts:153</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="shortlisted" class="tsd-anchor"></a>
+					<h3>Short<wbr>Listed</h3>
+					<div class="tsd-signature tsd-kind-icon">Short<wbr>Listed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L150">compass-models/opportunity.ts:150</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="shortlisteddate" class="tsd-anchor"></a>
+					<h3>Short<wbr>Listed<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Short<wbr>Listed<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L152">compass-models/opportunity.ts:152</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L78">compass-models/opportunity.ts:78</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sizeunit" class="tsd-anchor"></a>
+					<h3>Size<wbr>Unit</h3>
+					<div class="tsd-signature tsd-kind-icon">Size<wbr>Unit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L79">compass-models/opportunity.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="stage" class="tsd-anchor"></a>
+					<h3>Stage</h3>
+					<div class="tsd-signature tsd-kind-icon">Stage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L176">compass-models/opportunity.ts:176</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="stagetype" class="tsd-anchor"></a>
+					<h3>Stage<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L177">compass-models/opportunity.ts:177</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="state" class="tsd-anchor"></a>
+					<h3>State</h3>
+					<div class="tsd-signature tsd-kind-icon">State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L99">compass-models/opportunity.ts:99</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="teamoppfirmorgfeesource" class="tsd-anchor"></a>
+					<h3>Team<wbr>Opp<wbr>Firm<wbr>Org<wbr>Fee<wbr>Source</h3>
+					<div class="tsd-signature tsd-kind-icon">Team<wbr>Opp<wbr>Firm<wbr>Org<wbr>Fee<wbr>Source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L140">compass-models/opportunity.ts:140</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="approvallevel" class="tsd-anchor"></a>
+					<h3>approval<wbr>Level</h3>
+					<div class="tsd-signature tsd-kind-icon">approval<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L185">compass-models/opportunity.ts:185</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="approvalstatus" class="tsd-anchor"></a>
+					<h3>approval<wbr>Status</h3>
+					<div class="tsd-signature tsd-kind-icon">approval<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L186">compass-models/opportunity.ts:186</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fundprobability" class="tsd-anchor"></a>
+					<h3>fund<wbr>Probability</h3>
+					<div class="tsd-signature tsd-kind-icon">fund<wbr>Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/opportunity.ts#L148">compass-models/opportunity.ts:148</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/clientconfig.html" class="tsd-kind-icon">Client<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/companyclient.html" class="tsd-kind-icon">Company<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/projectclient.html" class="tsd-kind-icon">Project<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="calllog.html" class="tsd-kind-icon">Call<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="company.html" class="tsd-kind-icon">Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="companyaddress.html" class="tsd-kind-icon">Company<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contact.html" class="tsd-kind-icon">Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contactaddress.html" class="tsd-kind-icon">Contact<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="image.html" class="tsd-kind-icon">Image</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="lead.html" class="tsd-kind-icon">Lead</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="opportunity.html" class="tsd-kind-icon">Opportunity</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#activeind" class="tsd-kind-icon">Active<wbr>Ind</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#address1" class="tsd-kind-icon">Address1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#address2" class="tsd-kind-icon">Address2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#autonumber" class="tsd-kind-icon">Auto<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#city" class="tsd-kind-icon">City</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#clientid" class="tsd-kind-icon">Client<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#clientname" class="tsd-kind-icon">Client<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#closedate" class="tsd-kind-icon">Close<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#comments" class="tsd-kind-icon">Comments</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#constructioncompletiondate" class="tsd-kind-icon">Construction<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#constructionstartdate" class="tsd-kind-icon">Construction<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#cost" class="tsd-kind-icon">Cost</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#country" class="tsd-kind-icon">Country</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#createdatetime" class="tsd-kind-icon">Create<wbr>Date<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#createdbyuserid" class="tsd-kind-icon">Created<wbr>ByUser<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#designcompletiondate" class="tsd-kind-icon">Design<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#designstartdate" class="tsd-kind-icon">Design<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#estimatedcompletiondate" class="tsd-kind-icon">Estimated<wbr>Completion<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#estimatedfeepercentage" class="tsd-kind-icon">Estimated<wbr>Fee<wbr>Percentage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#estimatedmanagementunits" class="tsd-kind-icon">Estimated<wbr>Management<wbr>Units</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#estimatedselectiondate" class="tsd-kind-icon">Estimated<wbr>Selection<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#estimatedstartdate" class="tsd-kind-icon">Estimated<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#expectedrfpdate" class="tsd-kind-icon">ExpectedRFPDate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#externalid" class="tsd-kind-icon">External<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#factoredcoststd" class="tsd-kind-icon">Factored<wbr>CostSTD</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#factoredfee" class="tsd-kind-icon">Factored<wbr>Fee</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#fee" class="tsd-kind-icon">Fee</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#feecidifvolume" class="tsd-kind-icon">FeeCIDif<wbr>Volume</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#firmfee" class="tsd-kind-icon">Firm<wbr>Fee</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#grossmargin" class="tsd-kind-icon">Gross<wbr>Margin</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#grossmargindollarsstd" class="tsd-kind-icon">Gross<wbr>Margin<wbr>DollarsSTD</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#grossmarginpercent" class="tsd-kind-icon">Gross<wbr>Margin<wbr>Percent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#grossmarginpercentstd" class="tsd-kind-icon">Gross<wbr>Margin<wbr>PercentSTD</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#grossrevenuestd" class="tsd-kind-icon">Gross<wbr>RevenueSTD</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#interviewed" class="tsd-kind-icon">Interviewed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#labordifferentialdollars" class="tsd-kind-icon">Labor<wbr>Differential<wbr>Dollars</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#lastdeletedbyuserid" class="tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#lastdeleteddatetime" class="tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#lastmodifiedbyuserid" class="tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#lastmodifieddatetime" class="tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#marketingcostactual" class="tsd-kind-icon">Marketing<wbr>Cost<wbr>Actual</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#marketingcostbudget" class="tsd-kind-icon">Marketing<wbr>Cost<wbr>Budget</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#masteropportunityid" class="tsd-kind-icon">Master<wbr>Opportunity<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#nextaction" class="tsd-kind-icon">Next<wbr>Action</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#note" class="tsd-kind-icon">Note</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opplat" class="tsd-kind-icon">Opp<wbr>Lat</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opplong" class="tsd-kind-icon">Opp<wbr>Long</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#oppselfperformhours" class="tsd-kind-icon">Opp<wbr>Self<wbr>Perform<wbr>Hours</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opptype" class="tsd-kind-icon">Opp<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opptypedescription" class="tsd-kind-icon">Opp<wbr>Type<wbr>Description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitydate1" class="tsd-kind-icon">Opportunity<wbr>Date1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitydate2" class="tsd-kind-icon">Opportunity<wbr>Date2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitydate3" class="tsd-kind-icon">Opportunity<wbr>Date3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitydate4" class="tsd-kind-icon">Opportunity<wbr>Date4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitydate5" class="tsd-kind-icon">Opportunity<wbr>Date5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitydescription" class="tsd-kind-icon">Opportunity<wbr>Description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityid" class="tsd-kind-icon">Opportunity<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitylongtext1" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitylongtext2" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitylongtext3" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitylongtext4" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitylongtext5" class="tsd-kind-icon">Opportunity<wbr>Long<wbr>Text5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitymoney1" class="tsd-kind-icon">Opportunity<wbr>Money1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitymoney2" class="tsd-kind-icon">Opportunity<wbr>Money2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitymoney3" class="tsd-kind-icon">Opportunity<wbr>Money3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitymoney4" class="tsd-kind-icon">Opportunity<wbr>Money4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitymoney5" class="tsd-kind-icon">Opportunity<wbr>Money5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityname" class="tsd-kind-icon">Opportunity<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitynumber" class="tsd-kind-icon">Opportunity<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitynumber1" class="tsd-kind-icon">Opportunity<wbr>Number1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitynumber2" class="tsd-kind-icon">Opportunity<wbr>Number2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitynumber3" class="tsd-kind-icon">Opportunity<wbr>Number3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitynumber4" class="tsd-kind-icon">Opportunity<wbr>Number4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitynumber5" class="tsd-kind-icon">Opportunity<wbr>Number5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitypercent1" class="tsd-kind-icon">Opportunity<wbr>Percent1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitypercent2" class="tsd-kind-icon">Opportunity<wbr>Percent2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitypercent3" class="tsd-kind-icon">Opportunity<wbr>Percent3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitypercent4" class="tsd-kind-icon">Opportunity<wbr>Percent4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunitypercent5" class="tsd-kind-icon">Opportunity<wbr>Percent5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityshorttext1" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityshorttext2" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityshorttext3" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityshorttext4" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityshorttext5" class="tsd-kind-icon">Opportunity<wbr>Short<wbr>Text5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityvaluelistid1" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityvaluelistid2" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityvaluelistid3" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID3</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityvaluelistid4" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID4</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#opportunityvaluelistid5" class="tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID5</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#ownerid" class="tsd-kind-icon">Owner<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#ownername" class="tsd-kind-icon">Owner<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#postalcode" class="tsd-kind-icon">Postal<wbr>Code</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#preconenddate" class="tsd-kind-icon">Pre<wbr>Con<wbr>End<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#preconstartdate" class="tsd-kind-icon">Pre<wbr>Con<wbr>Start<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#presentationdate" class="tsd-kind-icon">Presentation<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#probability" class="tsd-kind-icon">Probability</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#projectprobability" class="tsd-kind-icon">Project<wbr>Probability</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#proposalduedate" class="tsd-kind-icon">Proposal<wbr>Due<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#proposalnumber" class="tsd-kind-icon">Proposal<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#proposalsubmitted" class="tsd-kind-icon">Proposal<wbr>Submitted</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#qualsduedate" class="tsd-kind-icon">Quals<wbr>Due<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#rfprecieved" class="tsd-kind-icon">RFPRecieved</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#redzonescore" class="tsd-kind-icon">Red<wbr>Zone<wbr>Score</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#sf255form" class="tsd-kind-icon">SF255<wbr>Form</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#sf330form" class="tsd-kind-icon">SF330<wbr>Form</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#score" class="tsd-kind-icon">Score</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#shortlisted" class="tsd-kind-icon">Short<wbr>Listed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#shortlisteddate" class="tsd-kind-icon">Short<wbr>Listed<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#size" class="tsd-kind-icon">Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#sizeunit" class="tsd-kind-icon">Size<wbr>Unit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#stage" class="tsd-kind-icon">Stage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#stagetype" class="tsd-kind-icon">Stage<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#state" class="tsd-kind-icon">State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#teamoppfirmorgfeesource" class="tsd-kind-icon">Team<wbr>Opp<wbr>Firm<wbr>Org<wbr>Fee<wbr>Source</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#approvallevel" class="tsd-kind-icon">approval<wbr>Level</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#approvalstatus" class="tsd-kind-icon">approval<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="opportunity.html#fundprobability" class="tsd-kind-icon">fund<wbr>Probability</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="personnel.html" class="tsd-kind-icon">Personnel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="personnelimagemetadata.html" class="tsd-kind-icon">Personnel<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="project.html" class="tsd-kind-icon">Project</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="projectimagemetadata.html" class="tsd-kind-icon">Project<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="user.html" class="tsd-kind-icon">User</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

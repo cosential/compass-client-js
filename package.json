@@ -1,25 +1,27 @@
 {
   "name": "compass-client-js",
-  "version": "1.0.0",
+  "version": "1.0.13",
   "description": "Cosential Compass API Javascript Client",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "https://www.github.com/cosential/compass-client-js",
   "author": "",
   "contributors": [
-    "Akshay Prabhu",
+    "Akshay Prabhu <aprabhu@cosential.com>",
     "Damon Warren <dwarren@cosential.com>",
-    "Matt Butler",
-    "Nathan Williamson"
+    "Dawson Turechek <dturechek@cosential.com>",
+    "Matt Butler <mbutler@cosential.com>",
+    "Nathan Williamson <nwilliamson@cosential.com>"
   ],
   "license": "Apache-2.0",
   "scripts": {
-    "clean": "shx rm -rf _bundles lib lib-esm",
+    "clean": "shx rm -rf _bundles dist lib lib-esm",
     "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack",
     "test": "ts-node node_modules/jasmine/bin/jasmine src/**/*.spec.ts"
   },
   "dependencies": {
-    "@types/js-base64": "^2.3.1",
     "awesome-typescript-loader": "^3.0.4-rc.2",
+    "class-transformer": "^0.2.0",
     "es6-promise": "^4.2.5",
     "isomorphic-fetch": "^2.2.1",
     "js-base64": "^2.5.1",
@@ -28,8 +30,14 @@
     "webpack": "^2.2.1"
   },
   "devDependencies": {
+    "@microsoft/tsdoc": "^0.12.4",
+    "@types/isomorphic-fetch": "0.0.34",
     "@types/jasmine": "^3.3.7",
+    "@types/js-base64": "^2.3.1",
     "jasmine": "^3.3.1",
-    "ts-node": "^7.0.1"
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.14.2",
+    "typedoc-webpack-plugin": "^1.1.4",
+    "webpack-archive-plugin": "^3.0.0"
   }
 }

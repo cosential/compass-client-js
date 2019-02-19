@@ -4,5 +4,9 @@ node_modules
 
 lib
 lib-esm
-_bundles
-src/Config.ts
+dist/compass.js
+dist/compass.js.map
+dist/compass.min.js
+dist/compass.min.js.map
+test
+src/services/test-client-config.ts
