@@ -13,3 +13,8 @@ pipelines:
           name: Mirror Repository To GitHub
           script:
             - git push -f --mirror git@github.com:cosential/compass-client-js.git
+      - step:
+        name: Publish to NPM
+        script:
+          - printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
+          - npm publish
