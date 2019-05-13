@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Lead/s
+ * @example Search Lead/s with pagination
  * ```
  * let searchQuery = 'Name:Victory';
  * client.search<Lead[]>('/leads', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Lead/s without pagination
+ * ```
+ * let searchQuery = 'NumOfViews:20';
+ * client.searchForAll<Lead>('/leads', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong

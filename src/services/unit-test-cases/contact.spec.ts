@@ -17,6 +17,8 @@ describe("ContactClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<Contact[]> = await client.get<Contact[]>('/contacts');
         if(res.success) aValidContactId = res.result[0].ContactId;
     });

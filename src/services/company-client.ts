@@ -30,7 +30,7 @@ export class CompanyClient extends Client {
             } message = address[1];
 
         } else { message = 'No associated addresses'; }
-        return { success: true, error: null, message: message, result: result };
+        return { success: true, status: 200, error: null, message: message, result: result };
     }
 
     /**

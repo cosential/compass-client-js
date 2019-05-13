@@ -17,6 +17,8 @@ describe("PersonnelClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<Personnel[]> = await client.get<Personnel[]>('/personnel');
         if(res.success) aValidPersonnelId = res.result[0].PersonnelId;
     });

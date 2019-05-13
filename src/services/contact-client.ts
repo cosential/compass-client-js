@@ -47,10 +47,10 @@ export class ContactClient extends Client {
                     let imageBase64: string = response.result.Data;
 
                     images[imageType] = imageBase64;
-                } return { success: true, error: null, message: null, result: images };
+                } return { success: true, status: 200, error: null, message: null, result: images };
             }
         } else { 
-            return { success: true, error: null, message: 'No associated image metadata', result: null }; 
+            return { success: true, status: res.status, error: null, message: 'No associated image metadata', result: null }; 
         }
     }
     
@@ -80,7 +80,7 @@ export class ContactClient extends Client {
             } else { message = 'Not a valid address type'; }
         } else { message = 'No associated addresses'; }
 
-        return { success: true, error: null, message: message, result: result };
+        return { success: true, status: 200, error: null, message: message, result: result };
     }
 
     /**

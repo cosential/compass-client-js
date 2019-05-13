@@ -17,6 +17,8 @@ describe("ProjectClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<Project[]> = await client.get<Project[]>('/projects');
         if(res.success) aValidProjectId = res.result[0].ProjectId;
     });

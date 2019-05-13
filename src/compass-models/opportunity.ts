@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Opportunity/s
+ * @example Search Opportunity/s with pagination
  * ```
  * let searchQuery = 'OpportunityName:Sample Opportunity';
  * client.search<Opportunity[]>('/opportunities', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Opportunity/s without pagination
+ * ```
+ * let searchQuery = 'ActiveInd:1';
+ * client.searchForAll<Opportunity>('/opportunities', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong

@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Personnel
+ * @example Search Personnel with pagination
  * ```
  * let searchQuery = 'OfficeEmail:jdoe@cosential.com AND FirstName:John';
  * client.search<Personnel[]>('/personnel', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Personnel without pagination
+ * ```
+ * let searchQuery = 'Title:Architect';
+ * client.searchForAll<Personnel>('/personnel', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong
@@ -155,5 +166,6 @@ export interface Personnel {
   DeskOfficeLocation: string;
   SF254Code: number;
   Confidential: boolean;
+  ProfileImageUrl: string;
   ROW_VERSION: string;
 }
