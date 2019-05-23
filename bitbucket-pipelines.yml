@@ -1,11 +1,6 @@
 image: atlassian/default-image:2
 
 pipelines:
-  default:
-    - step:
-        name: Publish to NPM
-        script:
-          - npm publish
   branches:
     master:
       - step:
