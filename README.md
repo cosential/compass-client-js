@@ -2,7 +2,7 @@
 
 Author: [Cosential, Inc.](https://www.cosential.com/)
 
-Version: **ALPHA**
+Version: **1.0.37**
 
 Description: A Client library written in JS for Compass (Cosential's general purpose RESTful API).
 
