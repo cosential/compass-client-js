@@ -17,6 +17,8 @@ describe("CallLogClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<CallLog[]> = await client.get<CallLog[]>('/calllogs');
         if(res.success) aValidCallLogId = res.result[0].id;
     });

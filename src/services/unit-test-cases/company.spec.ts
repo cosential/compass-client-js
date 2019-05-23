@@ -17,6 +17,8 @@ describe("CompanyClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<Company[]> = await client.get<Company[]>('/companies');
         if(res.success) aValidCompanyId = res.result[0].CompanyId;
     });
@@ -122,6 +124,12 @@ describe("CompanyClient", () => {
         let searchQuery = 'test:abc';
         let res: ResponseData<Company[]> = await client.search<Company[]>('/companies', searchQuery);
         //return all or none on empty or invalid params
+        expect(res.success).toBeTruthy(res.message);
+    });
+
+    it("Search company/s without pagination", async () => {
+        let searchQuery = 'Name:test';
+        let res: ResponseData<Company[]> = await client.searchForAll<Company>('/companies', searchQuery);
         expect(res.success).toBeTruthy(res.message);
     });
 });

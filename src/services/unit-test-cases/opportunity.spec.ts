@@ -17,6 +17,8 @@ describe("OpportunityClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<Opportunity[]> = await client.get<Opportunity[]>('/opportunities');
         if(res.success) aValidOpportunityId = res.result[0].OpportunityId;
     });

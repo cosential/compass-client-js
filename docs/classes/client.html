@@ -89,6 +89,9 @@
 							<li>
 								<a href="projectclient.html" class="tsd-signature-type">ProjectClient</a>
 							</li>
+							<li>
+								<a href="emailclient.html" class="tsd-signature-type">EmailClient</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -123,6 +126,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="client.html#post" class="tsd-kind-icon">post</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="client.html#put" class="tsd-kind-icon">put</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="client.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="client.html#searchforall" class="tsd-kind-icon">search<wbr>For<wbr>All</a></li>
 							</ul>
 						</section>
 					</div>
@@ -140,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L28">services/client.ts:28</a></li>
+									<li>Defined in services/client.ts:28</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -162,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">_config<span class="tsd-signature-symbol">:</span> <a href="clientconfig.html" class="tsd-signature-type">ClientConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L12">services/client.ts:12</a></li>
+							<li>Defined in services/client.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +184,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L18">services/client.ts:18</a></li>
+									<li>Defined in services/client.ts:18</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -193,7 +197,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L26">services/client.ts:26</a></li>
+									<li>Defined in services/client.ts:26</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -228,7 +232,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L189">services/client.ts:189</a></li>
+									<li>Defined in services/client.ts:238</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,13 +270,13 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a>, from<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, includeDeleted<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L40">services/client.ts:40</a></li>
+									<li>Defined in services/client.ts:43</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,6 +304,24 @@
 										<p>Optional request headers</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> from: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of elements you would like to skip</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;50</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of elements you would like to receive (max is 500)</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> includeDeleted: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Include deleted records in GET</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>A detailed response object as a Promise</p>
@@ -316,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L90">services/client.ts:90</a></li>
+									<li>Defined in services/client.ts:115</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -366,7 +388,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L140">services/client.ts:140</a></li>
+									<li>Defined in services/client.ts:177</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,18 +432,18 @@
 					<a name="search" class="tsd-anchor"></a>
 					<h3>search</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">search&lt;T&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, queryString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, includeDeleted<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">search&lt;T&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, queryString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fields<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, from<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, size<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, includeDeleted<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/services/client.ts#L237">services/client.ts:237</a></li>
+									<li>Defined in services/client.ts:300</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns search results based on query parameters.</p>
+									<p>Returns top 50 search results based on query string unless otherwise specified.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -445,6 +467,21 @@
 									</div>
 								</li>
 								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fields: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> from: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of elements you would like to skip</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;50</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of elements you would like to receive (max is 500)</p>
+									</div>
+								</li>
+								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> includeDeleted: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Include deleted records in search</p>
@@ -458,6 +495,68 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A detailed response object as a Promise</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="searchforall" class="tsd-anchor"></a>
+					<h3>search<wbr>For<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">search<wbr>For<wbr>All&lt;T&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, queryString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fields<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, includeDeleted<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in services/client.ts:331</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns entire search result data set.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Compass API endpoint</p>
+									</div>
+								</li>
+								<li>
+									<h5>queryString: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Complete search query</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fields: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Comma-separated fields to return</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> includeDeleted: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Include deleted records in search</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional request headers</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>A detailed response object as a Promise</p>
 						</li>
 					</ul>
@@ -503,6 +602,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="client.html#search" class="tsd-kind-icon">search</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="client.html#searchforall" class="tsd-kind-icon">search<wbr>For<wbr>All</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -515,6 +617,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="emailclient.html" class="tsd-kind-icon">Email<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
@@ -544,6 +649,33 @@
 						<a href="../interfaces/contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/email.html" class="tsd-kind-icon">Email</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailattachment.html" class="tsd-kind-icon">Email<wbr>Attachment</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailattachmentmetadata.html" class="tsd-kind-icon">Email<wbr>Attachment<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailcompany.html" class="tsd-kind-icon">Email<wbr>Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailcontact.html" class="tsd-kind-icon">Email<wbr>Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emaillead.html" class="tsd-kind-icon">Email<wbr>Lead</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailopportunity.html" class="tsd-kind-icon">Email<wbr>Opportunity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailpersonnel.html" class="tsd-kind-icon">Email<wbr>Personnel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/emailproject.html" class="tsd-kind-icon">Email<wbr>Project</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/image.html" class="tsd-kind-icon">Image</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -571,7 +703,13 @@
 						<a href="../interfaces/responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/social.html" class="tsd-kind-icon">Social</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
 					</li>
 				</ul>
 			</nav>

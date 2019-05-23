@@ -17,6 +17,8 @@ describe("LeadClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let res: ResponseData<Lead[]> = await client.get<Lead[]>('/leads');
         if(res.success) aValidLeadId = res.result[0].LeadId;
     });

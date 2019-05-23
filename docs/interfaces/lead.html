@@ -119,9 +119,19 @@ client.put&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-params">'/l
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Search Lead/s</p>
+						<dd><p>Search Lead/s with pagination</p>
 							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'Name:Victory'</span>;
 client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/leads'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
+     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+     }
+}</code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Search Lead/s without pagination</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'NumOfViews:20'</span>;
+client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/leads'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
      <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -183,7 +193,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Bid<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L86">compass-models/lead.ts:86</a></li>
+							<li>Defined in compass-models/lead.ts:97</li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +203,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L84">compass-models/lead.ts:84</a></li>
+							<li>Defined in compass-models/lead.ts:95</li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +213,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>First<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L79">compass-models/lead.ts:79</a></li>
+							<li>Defined in compass-models/lead.ts:90</li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +223,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Last<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L80">compass-models/lead.ts:80</a></li>
+							<li>Defined in compass-models/lead.ts:91</li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +233,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L85">compass-models/lead.ts:85</a></li>
+							<li>Defined in compass-models/lead.ts:96</li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +243,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L75">compass-models/lead.ts:75</a></li>
+							<li>Defined in compass-models/lead.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +253,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L92">compass-models/lead.ts:92</a></li>
+							<li>Defined in compass-models/lead.ts:103</li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +263,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L73">compass-models/lead.ts:73</a></li>
+							<li>Defined in compass-models/lead.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +273,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Deliverable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L89">compass-models/lead.ts:89</a></li>
+							<li>Defined in compass-models/lead.ts:100</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +283,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L71">compass-models/lead.ts:71</a></li>
+							<li>Defined in compass-models/lead.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -283,7 +293,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L77">compass-models/lead.ts:77</a></li>
+							<li>Defined in compass-models/lead.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +303,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L82">compass-models/lead.ts:82</a></li>
+							<li>Defined in compass-models/lead.ts:93</li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +313,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L76">compass-models/lead.ts:76</a></li>
+							<li>Defined in compass-models/lead.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -313,7 +323,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Lead<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L69">compass-models/lead.ts:69</a></li>
+							<li>Defined in compass-models/lead.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +333,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Legacy<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L87">compass-models/lead.ts:87</a></li>
+							<li>Defined in compass-models/lead.ts:98</li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +343,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L88">compass-models/lead.ts:88</a></li>
+							<li>Defined in compass-models/lead.ts:99</li>
 						</ul>
 					</aside>
 				</section>
@@ -343,7 +353,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L70">compass-models/lead.ts:70</a></li>
+							<li>Defined in compass-models/lead.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -353,7 +363,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Next<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L72">compass-models/lead.ts:72</a></li>
+							<li>Defined in compass-models/lead.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -363,7 +373,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L90">compass-models/lead.ts:90</a></li>
+							<li>Defined in compass-models/lead.ts:101</li>
 						</ul>
 					</aside>
 				</section>
@@ -373,7 +383,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Num<wbr>OfViews<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L81">compass-models/lead.ts:81</a></li>
+							<li>Defined in compass-models/lead.ts:92</li>
 						</ul>
 					</aside>
 				</section>
@@ -383,7 +393,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L78">compass-models/lead.ts:78</a></li>
+							<li>Defined in compass-models/lead.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -393,7 +403,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L91">compass-models/lead.ts:91</a></li>
+							<li>Defined in compass-models/lead.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -403,7 +413,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L83">compass-models/lead.ts:83</a></li>
+							<li>Defined in compass-models/lead.ts:94</li>
 						</ul>
 					</aside>
 				</section>
@@ -413,7 +423,7 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Tick<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/lead.ts#L74">compass-models/lead.ts:74</a></li>
+							<li>Defined in compass-models/lead.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -442,6 +452,9 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 						<a href="../classes/contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="../classes/emailclient.html" class="tsd-kind-icon">Email<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="../classes/personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -467,6 +480,33 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="email.html" class="tsd-kind-icon">Email</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailattachment.html" class="tsd-kind-icon">Email<wbr>Attachment</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailattachmentmetadata.html" class="tsd-kind-icon">Email<wbr>Attachment<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailcompany.html" class="tsd-kind-icon">Email<wbr>Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailcontact.html" class="tsd-kind-icon">Email<wbr>Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emaillead.html" class="tsd-kind-icon">Email<wbr>Lead</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailopportunity.html" class="tsd-kind-icon">Email<wbr>Opportunity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailpersonnel.html" class="tsd-kind-icon">Email<wbr>Personnel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailproject.html" class="tsd-kind-icon">Email<wbr>Project</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="image.html" class="tsd-kind-icon">Image</a>
@@ -574,7 +614,13 @@ client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params
 						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="social.html" class="tsd-kind-icon">Social</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
 					</li>
 				</ul>
 			</nav>

@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Project/s
+ * @example Search Project/s with pagination
  * ```
  * let searchQuery = 'ProjectName:Sample Construction';
  * client.search<Project[]>('/projects', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Project/s without pagination
+ * ```
+ * let searchQuery = 'Prominent:true';
+ * client.searchForAll<Project>('/projects', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong

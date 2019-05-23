@@ -119,9 +119,19 @@ client.put&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs-params">
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Search Call Log/s</p>
+						<dd><p>Search Call Log/s with pagination</p>
 							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'subject:Any Random Subject'</span>;
 client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/calllogs'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
+     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+     }
+}</code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Search Call Log/s without pagination</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'isFollowup:true'</span>;
+client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/calllogs'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
      <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -172,7 +182,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">Call<wbr>Disposition<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L76">compass-models/call-log.ts:76</a></li>
+							<li>Defined in compass-models/call-log.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +192,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">Call<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L72">compass-models/call-log.ts:72</a></li>
+							<li>Defined in compass-models/call-log.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +202,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L81">compass-models/call-log.ts:81</a></li>
+							<li>Defined in compass-models/call-log.ts:92</li>
 						</ul>
 					</aside>
 				</section>
@@ -202,7 +212,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L79">compass-models/call-log.ts:79</a></li>
+							<li>Defined in compass-models/call-log.ts:90</li>
 						</ul>
 					</aside>
 				</section>
@@ -212,7 +222,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L80">compass-models/call-log.ts:80</a></li>
+							<li>Defined in compass-models/call-log.ts:91</li>
 						</ul>
 					</aside>
 				</section>
@@ -222,7 +232,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L74">compass-models/call-log.ts:74</a></li>
+							<li>Defined in compass-models/call-log.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -232,7 +242,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L78">compass-models/call-log.ts:78</a></li>
+							<li>Defined in compass-models/call-log.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -242,7 +252,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">end<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L71">compass-models/call-log.ts:71</a></li>
+							<li>Defined in compass-models/call-log.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +262,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L69">compass-models/call-log.ts:69</a></li>
+							<li>Defined in compass-models/call-log.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -262,7 +272,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Followup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L75">compass-models/call-log.ts:75</a></li>
+							<li>Defined in compass-models/call-log.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -272,7 +282,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L70">compass-models/call-log.ts:70</a></li>
+							<li>Defined in compass-models/call-log.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +292,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L77">compass-models/call-log.ts:77</a></li>
+							<li>Defined in compass-models/call-log.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +302,7 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">subject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cosential/compass-client-js/blob/2842c0b/src/compass-models/call-log.ts#L73">compass-models/call-log.ts:73</a></li>
+							<li>Defined in compass-models/call-log.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -319,6 +329,9 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/emailclient.html" class="tsd-kind-icon">Email<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
@@ -393,6 +406,33 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 						<a href="contactimagemetadata.html" class="tsd-kind-icon">Contact<wbr>Image<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="email.html" class="tsd-kind-icon">Email</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailattachment.html" class="tsd-kind-icon">Email<wbr>Attachment</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailattachmentmetadata.html" class="tsd-kind-icon">Email<wbr>Attachment<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailcompany.html" class="tsd-kind-icon">Email<wbr>Company</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailcontact.html" class="tsd-kind-icon">Email<wbr>Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emaillead.html" class="tsd-kind-icon">Email<wbr>Lead</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailopportunity.html" class="tsd-kind-icon">Email<wbr>Opportunity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailpersonnel.html" class="tsd-kind-icon">Email<wbr>Personnel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="emailproject.html" class="tsd-kind-icon">Email<wbr>Project</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="image.html" class="tsd-kind-icon">Image</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -420,7 +460,13 @@ client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-par
 						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="social.html" class="tsd-kind-icon">Social</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
 					</li>
 				</ul>
 			</nav>

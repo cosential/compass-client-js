@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Company/s
+ * @example Search Company/s with pagination
  * ```
  * let searchQuery = 'Name:Cosential';
  * client.search<Company[]>('/companies', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Company/s without pagination
+ * ```
+ * let searchQuery = 'Country:Liechtenstein';
+ * client.searchForAll<Company>('/companies', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong

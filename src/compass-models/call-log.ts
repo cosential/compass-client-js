@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Call Log/s
+ * @example Search Call Log/s with pagination
  * ```
  * let searchQuery = 'subject:Any Random Subject';
  * client.search<CallLog[]>('/calllogs', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Call Log/s without pagination
+ * ```
+ * let searchQuery = 'isFollowup:true';
+ * client.searchForAll<CallLog>('/calllogs', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong

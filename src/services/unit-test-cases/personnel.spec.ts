@@ -1,9 +1,9 @@
 import 'jasmine';
-import { Client } from '../client';
-import { ClientConfig } from '../../service-models/client-config';
-import { Personnel } from '../../compass-models/personnel';
-import { TestClientConfig as c } from '../test-client-config';
 import { ResponseData } from '../..';
+import { Personnel } from '../../compass-models/personnel';
+import { ClientConfig } from '../../service-models/client-config';
+import { Client } from '../client';
+import { TestClientConfig as c } from '../test-client-config';
 
 describe("PersonnelClient", () => {
 
@@ -16,6 +16,8 @@ describe("PersonnelClient", () => {
         client.config.password = c.password;
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
+
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
         let res: ResponseData<Personnel[]> = await client.get<Personnel[]>('/personnel');
         if(res.success) aValidPersonnelId = res.result[0].PersonnelId;

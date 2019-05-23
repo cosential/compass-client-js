@@ -49,6 +49,7 @@ export class PersonnelClient extends Client {
             }            
             return {
                 success: true,
+                status: 200,
                 error: null,
                 message: null,
                 result: images
@@ -57,6 +58,7 @@ export class PersonnelClient extends Client {
         } else {
             return {
                 success: true,
+                status: metadata.status,
                 error: null,
                 message: 'No associated image metadata',
                 result: null

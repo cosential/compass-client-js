@@ -53,10 +53,21 @@
  *      }
  * });
  * ```
- * @example Search Contact/s
+ * @example Search Contact/s with pagination
  * ```
  * let searchQuery = 'BusinessEmailAddress:jdoe@cosential.com OR BusinessEmailAddress:johnd@cosential.com';
  * client.search<Contact[]>('/contacts', searchQuery).then( (res) => {
+ *      if(res.success){ //search successful
+ *          console.log("Your search returned " + res.result.length + " result/s.");
+ *      } else { //something went wrong
+ *          console.log("Search failed. Error Message: " + res.message)
+ *      }
+ * }
+ * ```
+ * @example Search Contact/s without pagination
+ * ```
+ * let searchQuery = 'FirstName:John';
+ * client.searchForAll<Contact>('/contacts', searchQuery).then( (res) => {
  *      if(res.success){ //search successful
  *          console.log("Your search returned " + res.result.length + " result/s.");
  *      } else { //something went wrong
@@ -132,5 +143,6 @@ export interface Contact {
   LastDeletedByUserId: number;
   version_device: string;
   version_userName: string;
+  ProfileImageUrl: string;
   ROW_VERSION: string;
 }

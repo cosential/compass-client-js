@@ -18,6 +18,8 @@ describe("CompanyAddressClient", () => {
         companyClient.config.apiKey = c.apiKey;
         companyClient.config.compassUrl = c.compassUrl;
 
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
         let companies: ResponseData<Company[]> = await companyClient.get<Company[]>('/companies');
         if (companies.success) aValidCompanyId = companies.result[0].CompanyId;
     });
