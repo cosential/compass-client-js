@@ -21,7 +21,7 @@
  * });
  * ```
  * @example Update a Contact's Influence Level
- * // Payload is an array containing one object with a property "Id" corresponding to a value Influence Level
+ * // Payload is an array containing one object with a property "Id" corresponding to a valid Influence Level
  * ```
  * client.post<ContactInfluenceLevel[]>('/contacts/123456/influencelevel', payload).then( (res) => {
  *      if(res.success){ //returns an array of newly added elements
@@ -36,7 +36,7 @@
  * ```
  * client.post<ContactInfluenceLevel[]>('/contacts/123456/influencelevel', payload).then( (res) => {
  *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Cleared Contact's Influence Level." } );
+ *          console.log("Cleared Contact's Influence Level.");
  *      } else { //something went wrong
  *          console.log("Call Log creation failed. Error message: " + res.message);
  *      }

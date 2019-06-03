@@ -5,6 +5,7 @@ export { CompanyAddress } from './compass-models/company/company-address';
 export { Contact } from './compass-models/contact/contact';
 export { ContactAddress } from './compass-models/contact/contact-address';
 export { ContactInfluenceLevel } from './compass-models/contact/contact-influencelevel';
+export { ContactMailingList } from './compass-models/contact/contact-mailinglist';
 export { Email } from './compass-models/email/email';
 export { EmailAttachment } from './compass-models/email/email-attachment';
 export { EmailAttachmentMetadata } from './compass-models/email/email-attachment-metadata';
