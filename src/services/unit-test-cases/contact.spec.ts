@@ -5,12 +5,14 @@ import { ClientConfig } from '../../service-models/client-config';
 import { Client } from '../client';
 import { TestClientConfig as c } from '../test-client-config';
 import { ContactInfluenceLevel } from './../../compass-models/contact/contact-influencelevel';
+import { ContactMailingList } from './../../compass-models/contact/contact-mailinglist';
 
 describe("ContactClient", () => {
 
   let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
   let aValidContactId: number;
   let aValidContactInfluenceLevelId: number;
+  let aValidContactMailingListId: number;
 
   beforeEach(async () => {
     client.config.firmId = c.firmId;
@@ -26,6 +28,9 @@ describe("ContactClient", () => {
 
     let influenceLevelRes: ResponseData < ContactInfluenceLevel[] > = await client.get < ContactInfluenceLevel[] > ('/contacts/influencelevel');
     if (influenceLevelRes.success) aValidContactInfluenceLevelId = influenceLevelRes.result[0].Id;
+
+    let mailingListRes: ResponseData < ContactMailingList[] > = await client.get < ContactMailingList[] > ('/contacts/influencelevel');
+    if (mailingListRes.success) aValidContactInfluenceLevelId = mailingListRes.result[0].MailingListID;
   });
 
   it("Can read contacts", async () => {
@@ -134,24 +139,43 @@ describe("ContactClient", () => {
 
   it("Can read Contact Influence Level options", async () => {
     let url: string = '/contacts/influencelevel';
-    let res: ResponseData < ContactInfluenceLevel[] > = await client.get < ContactInfluenceLevel [] > (url);
+    let res: ResponseData < ContactInfluenceLevel[] > = await client.get < ContactInfluenceLevel[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can update a Contact's Influence Level", async () => {
     let url: string = '/contacts/' + aValidContactId + '/influencelevel';
-    let payload: any[] = [
-      {
-        Id: aValidContactInfluenceLevelId
-      }
-    ]
-    let res: ResponseData < ContactInfluenceLevel[] > = await client.post < ContactInfluenceLevel [] > (url, payload);
+    let payload: any[] = [{
+      Id: aValidContactInfluenceLevelId
+    }]
+    let res: ResponseData < ContactInfluenceLevel[] > = await client.post < ContactInfluenceLevel[] > (url, payload);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can read a Contact's Influence Level", async () => {
     let url: string = '/contacts/' + aValidContactId + '/influencelevel';
-    let res: ResponseData < ContactInfluenceLevel[] > = await client.get < ContactInfluenceLevel [] > (url);
+    let res: ResponseData < ContactInfluenceLevel[] > = await client.get < ContactInfluenceLevel[] > (url);
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it("Can read Contact MailingList options", async () => {
+    let url: string = '/contacts/Contact_MailingList';
+    let res: ResponseData < ContactMailingList[] > = await client.get < ContactMailingList[] > (url);
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it("Can update a Contact's MailingLists", async () => {
+    let url: string = '/contacts/' + aValidContactId + '/Contact_MailingList';
+    let payload: any[] = [{
+      MailingListId: aValidContactMailingListId
+    }]
+    let res: ResponseData < ContactMailingList[] > = await client.post < ContactMailingList[] > (url, payload);
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it("Can read a Contact's Mailing Lists", async () => {
+    let url: string = '/contacts/' + aValidContactId + '/Contact_MailingList';
+    let res: ResponseData < ContactMailingList[] > = await client.get < ContactMailingList[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 });
