@@ -126,12 +126,13 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
     });
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h2 id="building-compass-js-">Building compass.js:</h2>
 				<ul>
-					<li>Clone the project &#39;<strong>cosential-client-js</strong>&#39;.</li>
-					<li>From within the project folder &#39;<strong>cosential-client-js</strong>&#39; run the command &#39;<strong>npm install</strong>&#39;.</li>
+					<li>Clone the project.</li>
+					<li>From within the project folder run the command &#39;<strong>npm install</strong>&#39;.</li>
 					<li>Rename the file &#39;<strong>test-client-config.ts.example</strong>&#39; to &#39;<strong>test-client-config.ts</strong>&#39; in the &#39;<strong>./src/services</strong>&#39; folder.</li>
 					<li>Open file &#39;<strong>test-client-config.ts</strong>&#39; from the &#39;<strong>./src/services</strong>&#39; folder. Enter your API Key, and credentials for a test firm and <strong>save</strong> the file.</li>
-					<li>From within the project folder &#39;<strong>cosential-client-js</strong>&#39; run the command &#39;<strong>npm run build</strong>&#39;.</li>
-					<li>From within the project folder &#39;<strong>cosential-client-js</strong>&#39; run the command &#39;<strong>npm run test</strong>&#39;.</li>
+					<li>From within the project folder run the command &#39;<strong>npm run build</strong>&#39;.</li>
+					<li>From within the project folder run the command &#39;<strong>npm run test</strong>&#39;.</li>
+					<li>To run an individual unit test, from within the project folder run the command &#39;<strong>npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-test-cases/schema.spec.ts</strong>&#39;.</li>
 				</ul>
 				<p><strong>If</strong> tests pass, authentication and comunication with Compass was successful.</p>
 				<h2 id="folder-structure-">Folder Structure:</h2>
@@ -246,6 +247,9 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="interfaces/responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/schema.html" class="tsd-kind-icon">Schema</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/social.html" class="tsd-kind-icon">Social</a>
