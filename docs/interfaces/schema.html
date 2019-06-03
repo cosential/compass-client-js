@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UserFeature | Cosential compass.js</title>
+	<title>Schema | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="userfeature.html">UserFeature</a>
+					<a href="schema.html">Schema</a>
 				</li>
 			</ul>
-			<h1>Interface UserFeature</h1>
+			<h1>Interface Schema</h1>
 		</div>
 	</div>
 </header>
@@ -67,18 +67,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents a Cosential Feature.</p>
+						<p>Represents the Schema</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><pre><code>client.get&lt;UserFeature[]&gt;(<span class="hljs-string">'/user/features'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(res)</span>{</span>
-     <span class="hljs-keyword">if</span> (res.success) {
-         let featurekey = res.result[<span class="hljs-number">0</span>].featureKey;
-         <span class="hljs-comment">//loop through result to find the desired feature</span>
-         <span class="hljs-comment">//featureKey is unique to the feature</span>
-         console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Total features: "</span> + res.result.<span class="hljs-built_in">length</span>);
-     } <span class="hljs-keyword">else</span> {
-         console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Cound not fetch features. Error Message: "</span> + res.message)
+						<dd><p>Read an endpoint&#39;s schema</p>
+							<pre><code>client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">Schema</span>[]&gt;(<span class="hljs-string">'/contacts/schema'</span>).<span class="hljs-keyword">then</span>( (res) =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) { //<span class="hljs-keyword">returns</span> an <span class="hljs-keyword">array</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">call</span> <span class="hljs-keyword">log</span> elements
+         res.result.<span class="hljs-keyword">forEach</span>( (<span class="hljs-keyword">index</span>) =&gt; { console.log(<span class="hljs-keyword">index</span>.id); } );
+     } <span class="hljs-keyword">else</span> { //something went wrong
+         console.log(res.message);
      }
 });</code></pre></dd>
 					</dl>
@@ -88,7 +86,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">UserFeature</span>
+						<span class="target">Schema</span>
 					</li>
 				</ul>
 			</section>
@@ -99,24 +97,23 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#tags" class="tsd-kind-icon">Tags</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#addoncategory" class="tsd-kind-icon">addon<wbr>Category</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#addonribbonlabel" class="tsd-kind-icon">addon<wbr>Ribbon<wbr>Label</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#createdate" class="tsd-kind-icon">create<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#featureid" class="tsd-kind-icon">feature<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#featurekey" class="tsd-kind-icon">feature<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#featurename" class="tsd-kind-icon">feature<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#isaddon" class="tsd-kind-icon">is<wbr>Addon</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#isadmin" class="tsd-kind-icon">is<wbr>Admin</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#isavailabletouser" class="tsd-kind-icon">is<wbr>Available<wbr>ToUser</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#isenabled" class="tsd-kind-icon">is<wbr>Enabled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#ismetered" class="tsd-kind-icon">is<wbr>Metered</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#ismodule" class="tsd-kind-icon">is<wbr>Module</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#ispublic" class="tsd-kind-icon">is<wbr>Public</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#isrequired" class="tsd-kind-icon">is<wbr>Required</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#lastmodifieddate" class="tsd-kind-icon">last<wbr>Modified<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userfeature.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#arraytype" class="tsd-kind-icon">Array<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#datatype" class="tsd-kind-icon">Data<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#defaultvalue" class="tsd-kind-icon">Default<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#description" class="tsd-kind-icon">Description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#enabled" class="tsd-kind-icon">Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#group" class="tsd-kind-icon">Group</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#isexternalid" class="tsd-kind-icon">Is<wbr>External<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#ishidden" class="tsd-kind-icon">Is<wbr>Hidden</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#isprimarykey" class="tsd-kind-icon">Is<wbr>Primary<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#label" class="tsd-kind-icon">Label</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#maxlength" class="tsd-kind-icon">Max<wbr>Length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#objectendpoint" class="tsd-kind-icon">Object<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#propertyname" class="tsd-kind-icon">Property<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#required" class="tsd-kind-icon">Required</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#searchable" class="tsd-kind-icon">Searchable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#unicodesupported" class="tsd-kind-icon">Unicode<wbr>Supported</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,182 +122,172 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tags" class="tsd-anchor"></a>
-					<h3>Tags</h3>
-					<div class="tsd-signature tsd-kind-icon">Tags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="arraytype" class="tsd-anchor"></a>
+					<h3>Array<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Array<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:35</li>
+							<li>Defined in compass-models/schema.ts:27</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="addoncategory" class="tsd-anchor"></a>
-					<h3>addon<wbr>Category</h3>
-					<div class="tsd-signature tsd-kind-icon">addon<wbr>Category<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="datatype" class="tsd-anchor"></a>
+					<h3>Data<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Data<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:28</li>
+							<li>Defined in compass-models/schema.ts:23</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="addonribbonlabel" class="tsd-anchor"></a>
-					<h3>addon<wbr>Ribbon<wbr>Label</h3>
-					<div class="tsd-signature tsd-kind-icon">addon<wbr>Ribbon<wbr>Label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="defaultvalue" class="tsd-anchor"></a>
+					<h3>Default<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">Default<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:29</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="createdate" class="tsd-anchor"></a>
-					<h3>create<wbr>Date</h3>
-					<div class="tsd-signature tsd-kind-icon">create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in compass-models/user-feature.ts:27</li>
+							<li>Defined in compass-models/schema.ts:22</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="description" class="tsd-anchor"></a>
-					<h3>description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<h3>Description</h3>
+					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:22</li>
+							<li>Defined in compass-models/schema.ts:18</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="featureid" class="tsd-anchor"></a>
-					<h3>feature<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">feature<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="enabled" class="tsd-anchor"></a>
+					<h3>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:18</li>
+							<li>Defined in compass-models/schema.ts:19</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="featurekey" class="tsd-anchor"></a>
-					<h3>feature<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">feature<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="group" class="tsd-anchor"></a>
+					<h3>Group</h3>
+					<div class="tsd-signature tsd-kind-icon">Group<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:20</li>
+							<li>Defined in compass-models/schema.ts:16</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="featurename" class="tsd-anchor"></a>
-					<h3>feature<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">feature<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="isexternalid" class="tsd-anchor"></a>
+					<h3>Is<wbr>External<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:19</li>
+							<li>Defined in compass-models/schema.ts:29</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isaddon" class="tsd-anchor"></a>
-					<h3>is<wbr>Addon</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Addon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="ishidden" class="tsd-anchor"></a>
+					<h3>Is<wbr>Hidden</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:25</li>
+							<li>Defined in compass-models/schema.ts:31</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isadmin" class="tsd-anchor"></a>
-					<h3>is<wbr>Admin</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Admin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="isprimarykey" class="tsd-anchor"></a>
+					<h3>Is<wbr>Primary<wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Primary<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:31</li>
+							<li>Defined in compass-models/schema.ts:28</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isavailabletouser" class="tsd-anchor"></a>
-					<h3>is<wbr>Available<wbr>ToUser</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Available<wbr>ToUser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="label" class="tsd-anchor"></a>
+					<h3>Label</h3>
+					<div class="tsd-signature tsd-kind-icon">Label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:21</li>
+							<li>Defined in compass-models/schema.ts:17</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isenabled" class="tsd-anchor"></a>
-					<h3>is<wbr>Enabled</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="maxlength" class="tsd-anchor"></a>
+					<h3>Max<wbr>Length</h3>
+					<div class="tsd-signature tsd-kind-icon">Max<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:32</li>
+							<li>Defined in compass-models/schema.ts:24</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ismetered" class="tsd-anchor"></a>
-					<h3>is<wbr>Metered</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Metered<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="objectendpoint" class="tsd-anchor"></a>
+					<h3>Object<wbr>Endpoint</h3>
+					<div class="tsd-signature tsd-kind-icon">Object<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:33</li>
+							<li>Defined in compass-models/schema.ts:30</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ismodule" class="tsd-anchor"></a>
-					<h3>is<wbr>Module</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Module<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="propertyname" class="tsd-anchor"></a>
+					<h3>Property<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Property<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:24</li>
+							<li>Defined in compass-models/schema.ts:15</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ispublic" class="tsd-anchor"></a>
-					<h3>is<wbr>Public</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Public<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="readonly" class="tsd-anchor"></a>
+					<h3>Read<wbr>Only</h3>
+					<div class="tsd-signature tsd-kind-icon">Read<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:30</li>
+							<li>Defined in compass-models/schema.ts:20</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isrequired" class="tsd-anchor"></a>
-					<h3>is<wbr>Required</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="required" class="tsd-anchor"></a>
+					<h3>Required</h3>
+					<div class="tsd-signature tsd-kind-icon">Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:26</li>
+							<li>Defined in compass-models/schema.ts:21</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="lastmodifieddate" class="tsd-anchor"></a>
-					<h3>last<wbr>Modified<wbr>Date</h3>
-					<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="searchable" class="tsd-anchor"></a>
+					<h3>Searchable</h3>
+					<div class="tsd-signature tsd-kind-icon">Searchable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:34</li>
+							<li>Defined in compass-models/schema.ts:26</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="status" class="tsd-anchor"></a>
-					<h3>status</h3>
-					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="unicodesupported" class="tsd-anchor"></a>
+					<h3>Unicode<wbr>Supported</h3>
+					<div class="tsd-signature tsd-kind-icon">Unicode<wbr>Supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:23</li>
+							<li>Defined in compass-models/schema.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -412,78 +399,75 @@
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="schema.html" class="tsd-kind-icon">Schema</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#arraytype" class="tsd-kind-icon">Array<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#datatype" class="tsd-kind-icon">Data<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#defaultvalue" class="tsd-kind-icon">Default<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#description" class="tsd-kind-icon">Description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#enabled" class="tsd-kind-icon">Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#group" class="tsd-kind-icon">Group</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#isexternalid" class="tsd-kind-icon">Is<wbr>External<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#ishidden" class="tsd-kind-icon">Is<wbr>Hidden</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#isprimarykey" class="tsd-kind-icon">Is<wbr>Primary<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#label" class="tsd-kind-icon">Label</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#maxlength" class="tsd-kind-icon">Max<wbr>Length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#objectendpoint" class="tsd-kind-icon">Object<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#propertyname" class="tsd-kind-icon">Property<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#required" class="tsd-kind-icon">Required</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#searchable" class="tsd-kind-icon">Searchable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#unicodesupported" class="tsd-kind-icon">Unicode<wbr>Supported</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="social.html" class="tsd-kind-icon">Social</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="user.html" class="tsd-kind-icon">User</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#tags" class="tsd-kind-icon">Tags</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#addoncategory" class="tsd-kind-icon">addon<wbr>Category</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#addonribbonlabel" class="tsd-kind-icon">addon<wbr>Ribbon<wbr>Label</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#createdate" class="tsd-kind-icon">create<wbr>Date</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#description" class="tsd-kind-icon">description</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#featureid" class="tsd-kind-icon">feature<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#featurekey" class="tsd-kind-icon">feature<wbr>Key</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#featurename" class="tsd-kind-icon">feature<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#isaddon" class="tsd-kind-icon">is<wbr>Addon</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#isadmin" class="tsd-kind-icon">is<wbr>Admin</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#isavailabletouser" class="tsd-kind-icon">is<wbr>Available<wbr>ToUser</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#isenabled" class="tsd-kind-icon">is<wbr>Enabled</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#ismetered" class="tsd-kind-icon">is<wbr>Metered</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#ismodule" class="tsd-kind-icon">is<wbr>Module</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#ispublic" class="tsd-kind-icon">is<wbr>Public</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#isrequired" class="tsd-kind-icon">is<wbr>Required</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#lastmodifieddate" class="tsd-kind-icon">last<wbr>Modified<wbr>Date</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userfeature.html#status" class="tsd-kind-icon">status</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
