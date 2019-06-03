@@ -90,7 +90,7 @@
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Update a Contact&#39;s Influence Level
-							// Payload is an array containing one object with a property &quot;Id&quot; corresponding to a value Influence Level</p>
+							// Payload is an array containing one object with a property &quot;Id&quot; corresponding to a valid Influence Level</p>
 							<pre><code>client.post&lt;ContactInfluenceLevel[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/influencelevel', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Set Contact to have Influence Level <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.Id</span>) + "." } </span>);
@@ -101,13 +101,13 @@
 						<dt>example</dt>
 						<dd><p>Clear a Contact&#39;s Influence Level
 							// Payload is an empty array</p>
-							<pre><code>client.post&lt;ContactInfluenceLevel[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/contacts/123456/influencelevel'</span>, payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach( <span class="hljs-function">(<span class="hljs-params">index</span>) =&gt;</span> { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Cleared Contact's Influence Level."</span> } );
+							<pre><code>client.post&lt;ContactInfluenceLevel[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/influencelevel', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Cleared Contact's Influence Level."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Call Log creation failed. Error message: "</span> + res.message);
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Call Log creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
      }
-});</code></pre></dd>
+}</span>);</span></code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -252,6 +252,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="contactmailinglist.html" class="tsd-kind-icon">Contact<wbr>Mailing<wbr>List</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="email.html" class="tsd-kind-icon">Email</a>
 					</li>
