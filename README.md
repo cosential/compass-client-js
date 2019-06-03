@@ -2,8 +2,6 @@
 
 Author: [Cosential, Inc.](https://www.cosential.com/)
 
-Version: **ALPHA**
-
 Description: A Client library written in JS for Compass (Cosential's general purpose RESTful API).
 
 It is highly recommended to test the library on the UAT Environment before moving to our production environment.
