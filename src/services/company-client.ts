@@ -1,6 +1,6 @@
 import 'isomorphic-fetch';
 import { RequestOptions, ResponseData } from '..';
-import { CompanyAddress } from './../compass-models/company-address';
+import { CompanyAddress } from '../compass-models/company/company-address';
 import { Client } from './client';
 
 /**
