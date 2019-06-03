@@ -93,12 +93,13 @@ Download the latest [compass.js](./dist/compass.zip)
 
 ## Building compass.js:
 
-- Clone the project '**cosential-client-js**'.
-- From within the project folder '**cosential-client-js**' run the command '**npm install**'.
+- Clone the project.
+- From within the project folder run the command '**npm install**'.
 - Rename the file '**test-client-config.ts.example**' to '**test-client-config.ts**' in the '**./src/services**' folder.
 - Open file '**test-client-config.ts**' from the '**./src/services**' folder. Enter your API Key, and credentials for a test firm and **save** the file.
-- From within the project folder '**cosential-client-js**' run the command '**npm run build**'.
-- From within the project folder '**cosential-client-js**' run the command '**npm run test**'.
+- From within the project folder run the command '**npm run build**'.
+- From within the project folder run the command '**npm run test**'.
+- To run an individual unit test, from within the project folder run the command '**npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-test-cases/schema.spec.ts**'.
 
 
 **If** tests pass, authentication and comunication with Compass was successful.
