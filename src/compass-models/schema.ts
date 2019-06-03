@@ -4,7 +4,7 @@
  * ```
  * client.get<Schema[]>('/contacts/schema').then( (res) => {
  *      if (res.success) { //returns an array of call log elements
- *          res.result.forEach( (index) => { console.log(index.id); } );
+ *          res.result.forEach((index) => { console.log(index); });
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }

@@ -1,7 +1,7 @@
 import 'isomorphic-fetch';
 import { RequestOptions, ResponseData } from '..';
-import { EmailAttachmentMetadata } from '../compass-models/email-attachment-metadata';
-import { EmailAttachment } from './../compass-models/email-attachment';
+import { EmailAttachmentMetadata } from '../compass-models/email/email-attachment-metadata';
+import { EmailAttachment } from '../compass-models/email/email-attachment';
 import { Client } from './client';
 
 /**
