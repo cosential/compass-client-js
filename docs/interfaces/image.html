@@ -90,6 +90,16 @@
      }
 });</code></pre></dd>
 						<dt>example</dt>
+						<dd><p>Update a Contact&#39;s profile image</p>
+							<pre><code><span class="hljs-comment">// testImageData is a string containing raw base 64 encoded image data</span>
+contactClient.updateContactImage&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'5556666'</span>, <span class="hljs-string">'profilepicture'</span>, <span class="hljs-string">'image/jpeg'</span>, testImageData</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
+     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//success</span>
+         <span class="hljs-built_in">console</span>.log(res.result);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(res.message);
+     }
+});</code></pre></dd>
+						<dt>example</dt>
 						<dd><p>Read primary image of a personnel</p>
 							<pre><code>personnelClient.getPersonnelImages&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params">'5556666', <span class="hljs-literal">true</span></span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success //returns an image as a base64 encoded string</span>
@@ -141,7 +151,7 @@
 					<div class="tsd-signature tsd-kind-icon">Content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/image.ts:47</li>
+							<li>Defined in compass-models/images/image.ts:58</li>
 						</ul>
 					</aside>
 				</section>
@@ -151,7 +161,7 @@
 					<div class="tsd-signature tsd-kind-icon">Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/image.ts:48</li>
+							<li>Defined in compass-models/images/image.ts:59</li>
 						</ul>
 					</aside>
 				</section>
@@ -292,6 +302,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#testimage" class="tsd-kind-icon">test<wbr>Image</a>
 					</li>
 				</ul>
 			</nav>

@@ -21,6 +21,17 @@
  *      }
  * });
  * ```
+ * @example Update a Contact's profile image
+ * ```
+ * // testImageData is a string containing raw base 64 encoded image data
+ * contactClient.updateContactImage<Image>('5556666', 'profilepicture', 'image/jpeg', testImageData).then( (res) => {
+ *      if(res.success){ //success
+ *          console.log(res.result);
+ *      } else { //something went wrong 
+ *          console.log(res.message);
+ *      }
+ * });
+ * ```
  * @example Read primary image of a personnel
  * ```
  * personnelClient.getPersonnelImages<Image>('5556666', true).then( (res) => {

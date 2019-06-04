@@ -113,6 +113,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#put" class="tsd-kind-icon">put</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#search" class="tsd-kind-icon">search</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="contactclient.html#searchforall" class="tsd-kind-icon">search<wbr>For<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="contactclient.html#updatecontactimage" class="tsd-kind-icon">update<wbr>Contact<wbr>Image</a></li>
 							</ul>
 						</section>
 					</div>
@@ -209,7 +210,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in services/client.ts:238</li>
+									<li>Defined in services/client.ts:250</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -253,7 +254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/contact-client.ts:93</li>
+									<li>Defined in services/contact-client.ts:129</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -366,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/contact-client.ts:64</li>
+									<li>Defined in services/contact-client.ts:100</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -416,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/contact-client.ts:20</li>
+									<li>Defined in services/contact-client.ts:21</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -445,14 +446,16 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional request headers</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -466,7 +469,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in services/contact-client.ts:126</li>
+									<li>Defined in services/contact-client.ts:163</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +565,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#put">put</a></p>
 								<ul>
-									<li>Defined in services/client.ts:177</li>
+									<li>Defined in services/client.ts:183</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,7 +616,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#search">search</a></p>
 								<ul>
-									<li>Defined in services/client.ts:300</li>
+									<li>Defined in services/client.ts:318</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -685,7 +688,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#searchforall">searchForAll</a></p>
 								<ul>
-									<li>Defined in services/client.ts:331</li>
+									<li>Defined in services/client.ts:349</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -734,6 +737,64 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>A detailed response object as a Promise</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="updatecontactimage" class="tsd-anchor"></a>
+					<h3>update<wbr>Contact<wbr>Image</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Contact<wbr>Image<span class="tsd-signature-symbol">(</span>contactId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, imageType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, contentType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, imageData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/image.html" class="tsd-signature-type">Image</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in services/contact-client.ts:76</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a Contact&#39;s image</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>contactId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Contact&#39;s Id</p>
+									</div>
+								</li>
+								<li>
+									<h5>imageType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Which image should be set. Either &#39;profilepicture&#39;, &#39;cardfront&#39;, or &#39;cardback&#39;</p>
+									</div>
+								</li>
+								<li>
+									<h5>contentType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>&#39;image/gif&#39;, image/jpeg&#39;, &#39;image/png&#39;, or &#39;image/tiff&#39;</p>
+									</div>
+								</li>
+								<li>
+									<h5>imageData: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The raw base 64 encoded image data</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional request headers</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/image.html" class="tsd-signature-type">Image</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>A response object</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -798,6 +859,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="contactclient.html#searchforall" class="tsd-kind-icon">search<wbr>For<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="contactclient.html#updatecontactimage" class="tsd-kind-icon">update<wbr>Contact<wbr>Image</a>
 							</li>
 						</ul>
 					</li>
@@ -904,6 +968,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#testimage" class="tsd-kind-icon">test<wbr>Image</a>
 					</li>
 				</ul>
 			</nav>
