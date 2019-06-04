@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Social | Cosential compass.js</title>
+	<title>Schema | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="social.html">Social</a>
+					<a href="schema.html">Schema</a>
 				</li>
 			</ul>
-			<h1>Interface Social</h1>
+			<h1>Interface Schema</h1>
 		</div>
 	</div>
 </header>
@@ -67,15 +67,26 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents a Social Platform.</p>
+						<p>Represents the Schema</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read an endpoint&#39;s schema</p>
+							<pre><code>client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">Schema</span>[]&gt;(<span class="hljs-string">'/contacts/schema'</span>).<span class="hljs-keyword">then</span>( (res) =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) { //<span class="hljs-keyword">returns</span> an <span class="hljs-keyword">array</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">call</span> <span class="hljs-keyword">log</span> elements
+         res.result.<span class="hljs-keyword">forEach</span>((<span class="hljs-keyword">index</span>) =&gt; { console.log(<span class="hljs-keyword">index</span>); });
+     } <span class="hljs-keyword">else</span> { //something went wrong
+         console.log(res.message);
+     }
+});</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Social</span>
+						<span class="target">Schema</span>
 					</li>
 				</ul>
 			</section>
@@ -86,10 +97,23 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#id" class="tsd-kind-icon">Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#socialnetworkid" class="tsd-kind-icon">Social<wbr>Network<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#socialnetworkname" class="tsd-kind-icon">Social<wbr>Network<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#url" class="tsd-kind-icon">Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#arraytype" class="tsd-kind-icon">Array<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#datatype" class="tsd-kind-icon">Data<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#defaultvalue" class="tsd-kind-icon">Default<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#description" class="tsd-kind-icon">Description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#enabled" class="tsd-kind-icon">Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#group" class="tsd-kind-icon">Group</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#isexternalid" class="tsd-kind-icon">Is<wbr>External<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#ishidden" class="tsd-kind-icon">Is<wbr>Hidden</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#isprimarykey" class="tsd-kind-icon">Is<wbr>Primary<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#label" class="tsd-kind-icon">Label</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#maxlength" class="tsd-kind-icon">Max<wbr>Length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#objectendpoint" class="tsd-kind-icon">Object<wbr>Endpoint</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#propertyname" class="tsd-kind-icon">Property<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#required" class="tsd-kind-icon">Required</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#searchable" class="tsd-kind-icon">Searchable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="schema.html#unicodesupported" class="tsd-kind-icon">Unicode<wbr>Supported</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,42 +122,172 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="arraytype" class="tsd-anchor"></a>
+					<h3>Array<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Array<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:5</li>
+							<li>Defined in compass-models/schema.ts:27</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="socialnetworkid" class="tsd-anchor"></a>
-					<h3>Social<wbr>Network<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Social<wbr>Network<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="datatype" class="tsd-anchor"></a>
+					<h3>Data<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Data<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:6</li>
+							<li>Defined in compass-models/schema.ts:23</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="socialnetworkname" class="tsd-anchor"></a>
-					<h3>Social<wbr>Network<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Social<wbr>Network<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="defaultvalue" class="tsd-anchor"></a>
+					<h3>Default<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">Default<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:7</li>
+							<li>Defined in compass-models/schema.ts:22</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="description" class="tsd-anchor"></a>
+					<h3>Description</h3>
+					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:8</li>
+							<li>Defined in compass-models/schema.ts:18</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="enabled" class="tsd-anchor"></a>
+					<h3>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:19</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="group" class="tsd-anchor"></a>
+					<h3>Group</h3>
+					<div class="tsd-signature tsd-kind-icon">Group<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:16</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isexternalid" class="tsd-anchor"></a>
+					<h3>Is<wbr>External<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:29</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ishidden" class="tsd-anchor"></a>
+					<h3>Is<wbr>Hidden</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:31</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isprimarykey" class="tsd-anchor"></a>
+					<h3>Is<wbr>Primary<wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Primary<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:28</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="label" class="tsd-anchor"></a>
+					<h3>Label</h3>
+					<div class="tsd-signature tsd-kind-icon">Label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:17</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="maxlength" class="tsd-anchor"></a>
+					<h3>Max<wbr>Length</h3>
+					<div class="tsd-signature tsd-kind-icon">Max<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:24</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="objectendpoint" class="tsd-anchor"></a>
+					<h3>Object<wbr>Endpoint</h3>
+					<div class="tsd-signature tsd-kind-icon">Object<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:30</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="propertyname" class="tsd-anchor"></a>
+					<h3>Property<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Property<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:15</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readonly" class="tsd-anchor"></a>
+					<h3>Read<wbr>Only</h3>
+					<div class="tsd-signature tsd-kind-icon">Read<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:20</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="required" class="tsd-anchor"></a>
+					<h3>Required</h3>
+					<div class="tsd-signature tsd-kind-icon">Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:21</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="searchable" class="tsd-anchor"></a>
+					<h3>Searchable</h3>
+					<div class="tsd-signature tsd-kind-icon">Searchable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:26</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="unicodesupported" class="tsd-anchor"></a>
+					<h3>Unicode<wbr>Supported</h3>
+					<div class="tsd-signature tsd-kind-icon">Unicode<wbr>Supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/schema.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -251,30 +405,69 @@
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="responsedata.html" class="tsd-kind-icon">Response<wbr>Data</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="schema.html" class="tsd-kind-icon">Schema</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="social.html" class="tsd-kind-icon">Social</a>
+						<a href="schema.html" class="tsd-kind-icon">Schema</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#id" class="tsd-kind-icon">Id</a>
+								<a href="schema.html#arraytype" class="tsd-kind-icon">Array<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#socialnetworkid" class="tsd-kind-icon">Social<wbr>Network<wbr>Id</a>
+								<a href="schema.html#datatype" class="tsd-kind-icon">Data<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#socialnetworkname" class="tsd-kind-icon">Social<wbr>Network<wbr>Name</a>
+								<a href="schema.html#defaultvalue" class="tsd-kind-icon">Default<wbr>Value</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#url" class="tsd-kind-icon">Url</a>
+								<a href="schema.html#description" class="tsd-kind-icon">Description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#enabled" class="tsd-kind-icon">Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#group" class="tsd-kind-icon">Group</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#isexternalid" class="tsd-kind-icon">Is<wbr>External<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#ishidden" class="tsd-kind-icon">Is<wbr>Hidden</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#isprimarykey" class="tsd-kind-icon">Is<wbr>Primary<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#label" class="tsd-kind-icon">Label</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#maxlength" class="tsd-kind-icon">Max<wbr>Length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#objectendpoint" class="tsd-kind-icon">Object<wbr>Endpoint</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#propertyname" class="tsd-kind-icon">Property<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#readonly" class="tsd-kind-icon">Read<wbr>Only</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#required" class="tsd-kind-icon">Required</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#searchable" class="tsd-kind-icon">Searchable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="schema.html#unicodesupported" class="tsd-kind-icon">Unicode<wbr>Supported</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="social.html" class="tsd-kind-icon">Social</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="user.html" class="tsd-kind-icon">User</a>
 					</li>
