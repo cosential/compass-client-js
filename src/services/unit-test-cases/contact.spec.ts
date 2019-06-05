@@ -158,6 +158,12 @@ describe("ContactClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
+  it("Can delete a Contact's Influence Level", async () => {
+    let url: string = '/contacts/' + aValidContactId + '/influencelevel';
+    let res: ResponseData < ContactInfluenceLevel[] > = await client.delete < ContactInfluenceLevel[] > (url);
+    expect(res.success).toBeTruthy(res.message);
+  });
+
   it("Can read Contact MailingList options", async () => {
     let url: string = '/contacts/Contact_MailingList';
     let res: ResponseData < ContactMailingList[] > = await client.get < ContactMailingList[] > (url);
@@ -176,6 +182,12 @@ describe("ContactClient", () => {
   it("Can read a Contact's Mailing Lists", async () => {
     let url: string = '/contacts/' + aValidContactId + '/Contact_MailingList';
     let res: ResponseData < ContactMailingList[] > = await client.get < ContactMailingList[] > (url);
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it("Can delete a Contact's Mailing Lists", async () => {
+    let url: string = '/contacts/' + aValidContactId + '/Contact_MailingList';
+    let res: ResponseData < ContactMailingList[] > = await client.delete < ContactMailingList[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 });

@@ -31,10 +31,9 @@
  *      }
  * });
  * ```
- * @example Clear a Contact's Influence Level
- * // Payload is an empty array
+ * @example Delete a Contact's Influence Level
  * ```
- * client.post<ContactInfluenceLevel[]>('/contacts/123456/influencelevel', payload).then( (res) => {
+ * client.delete<ContactInfluenceLevel[]>('/contacts/123456/influencelevel').then( (res) => {
  *      if(res.success){ //returns an array of newly added elements
  *          console.log("Cleared Contact's Influence Level.");
  *      } else { //something went wrong

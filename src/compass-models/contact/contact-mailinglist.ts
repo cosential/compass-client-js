@@ -31,10 +31,9 @@
  *      }
  * });
  * ```
- * @example Clear a Contact's Mailing Lists
- * // Payload is an empty array
+ * @example Delete a Contact's Mailing Lists
  * ```
- * client.post<ContactMailingList[]>('/contacts/123456/Contact_MailingList', payload).then( (res) => {
+ * client.delete<ContactMailingList[]>('/contacts/123456/Contact_MailingList').then( (res) => {
  *      if(res.success){ //returns an array of newly added elements
  *          console.log("Cleared Contact's Mailing Lists.");
  *      } else { //something went wrong
