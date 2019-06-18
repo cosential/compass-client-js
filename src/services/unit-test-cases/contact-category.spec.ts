@@ -1,7 +1,6 @@
 import 'jasmine';
 import { Client } from '../client';
 import { ClientConfig } from '../../service-models/client-config';
-import { ContactType } from '../../compass-models/contact/contact-type';
 import { ResponseData } from '../../interfaces/response-data';
 import { TestClientConfig as c } from '../test-client-config';
 import { ContactCategory } from '../../compass-models/contact/contact-category';
