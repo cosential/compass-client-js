@@ -3,14 +3,14 @@
  * @example Read all Contacts categories
  * ```
  * client.get<ContactCategory[]>('/contacts/Contact_Category').then( (res) => {
- *      if (res.success) { //returns an array of contact type elements
+ *      if (res.success) { //returns an array of contact category elements
  *          res.result.forEach( (index) => { console.log(index.ContactCategoryID); } );
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }
  * });
  * ```
- * @example Read a Contact's contact types
+ * @example Read a Contact's contact categories
  * ```
  * client.get<ContactCategory[]>('/contacts/5555999/Contact_Category').then( (res) => {
  *      if (res.success) {
@@ -20,9 +20,9 @@
  *      }
  * });
  * ```
- * @example Add types to a contact
+ * @example Add categories to a contact
  * ```
- * // payload is an array of ContactType elements to be added
+ * // payload is an array of ContactCategory elements to be added
  * client.post<ContactCategory[]>('/contacts/5555999/Contact_Category', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.ContactCategoryID); } );
