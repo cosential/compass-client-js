@@ -1,31 +1,31 @@
 /**
- * Represents the Divisions.
- * @example Read all Divisions
+ * Represents the Practice Areas.
+ * @example Read all PracticeAreas
  * ```
- * client.get<Division[]>('/contacts/divisions').then( (res) => {
+ * client.get<PracticeArea[]>('/contacts/PracticeAreas').then( (res) => {
  *      if (res.success) { //returns an array of division elements
- *          res.result.forEach( (index) => { console.log(index.DivisionID); } );
+ *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }
  * });
  * ```
- * @example Read a Contact's divisions
+ * @example Read a Contact's PracticeAreas
  * ```
- * client.get<Division[]>('/contacts/5555999/divisions').then( (res) => {
+ * client.get<PracticeArea[]>('/contacts/5555999/PracticeAreas').then( (res) => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.DivisionID); } );
+ *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }
  * });
  * ```
- * @example Add divisions to a contact's divisions
+ * @example Add PracticeAreas to a contact's PracticeAreas
  * ```
  * // payload is an array of Division elements to be added
- * client.post<Division[]>('/contacts/5555999/divisions', payload).then( (res) => {
+ * client.post<PracticeArea[]>('/contacts/5555999/PracticeAreas', payload).then( (res) => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.DivisionID); } );
+ *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }
