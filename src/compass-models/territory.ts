@@ -3,7 +3,7 @@
  * @example Read all territories
  * ```
  * client.get<Territory[]>('/contacts/Territories').then( (res) => {
- *      if (res.success) { //returns an array of studio elements
+ *      if (res.success) { //returns an array of territory elements
  *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
  *      } else { //something went wrong
  *          console.log(res.message);
@@ -22,7 +22,7 @@
  * ```
  * @example Add territories to a contact's territories
  * ```
- * // payload is an array of Division elements to be added
+ * // payload is an array of territory elements to be added
  * client.post<Territory[]>('/contacts/5555999/Territories', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
