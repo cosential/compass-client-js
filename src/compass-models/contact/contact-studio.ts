@@ -2,7 +2,7 @@
  * Represents the Studios.
  * @example Read all studios
  * ```
- * client.get<Studio[]>('/contacts/studios').then( (res) => {
+ * client.get<ContactStudio[]>('/contacts/studios').then( (res) => {
  *      if (res.success) { //returns an array of studio elements
  *          res.result.forEach( (index) => { console.log(index.StudioId); } );
  *      } else { //something went wrong
@@ -12,7 +12,7 @@
  * ```
  * @example Read a Contact's studios
  * ```
- * client.get<Studio[]>('/contacts/5555999/studios').then( (res) => {
+ * client.get<ContactStudio[]>('/contacts/5555999/studios').then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.StudioId); } );
  *      } else { //something went wrong
@@ -23,7 +23,7 @@
  * @example Add studios to a contact's studios
  * ```
  * // payload is an array of Division elements to be added
- * client.post<Studio[]>('/contacts/5555999/studios', payload).then( (res) => {
+ * client.post<ContactStudio[]>('/contacts/5555999/studios', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.StudioId); } );
  *      } else { //something went wrong
@@ -32,7 +32,7 @@
  * });
  * ```
  */
-export interface Studio {
+export interface ContactStudio {
     StudioId: number;
     StudioName: string;
     StudioAcronym: string;

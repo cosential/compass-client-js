@@ -2,7 +2,7 @@
  * Represents the Offices.
  * @example Read all offices
  * ```
- * client.get<Office[]>('/contacts/offices').then( (res) => {
+ * client.get<ContactOffice[]>('/contacts/offices').then( (res) => {
  *      if (res.success) { //returns an array of office elements
  *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
  *      } else { //something went wrong
@@ -12,7 +12,7 @@
  * ```
  * @example Read a Contact's offices
  * ```
- * client.get<Office[]>('/contacts/5555999/offices').then( (res) => {
+ * client.get<ContactOffice[]>('/contacts/5555999/offices').then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
  *      } else { //something went wrong
@@ -23,7 +23,7 @@
  * @example Add offices to a contact
  * ```
  * // payload is an array of Offices elements to be added
- * client.post<Office[]>('/contacts/5555999/offices', payload).then( (res) => {
+ * client.post<ContactOffice[]>('/contacts/5555999/offices', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
  *      } else { //something went wrong
@@ -32,7 +32,7 @@
  * });
  * ```
  */
-export interface Office {
+export interface ContactOffice {
     OfficeID: number;
     OfficeName: string;
     OfficeAcronym: string;

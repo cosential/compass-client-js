@@ -2,7 +2,7 @@
  * Represents the Divisions.
  * @example Read all Divisions
  * ```
- * client.get<Division[]>('/contacts/divisions').then( (res) => {
+ * client.get<ContactDivision[]>('/contacts/divisions').then( (res) => {
  *      if (res.success) { //returns an array of division elements
  *          res.result.forEach( (index) => { console.log(index.DivisionID); } );
  *      } else { //something went wrong
@@ -12,7 +12,7 @@
  * ```
  * @example Read a Contact's divisions
  * ```
- * client.get<Division[]>('/contacts/5555999/divisions').then( (res) => {
+ * client.get<ContactDivision[]>('/contacts/5555999/divisions').then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.DivisionID); } );
  *      } else { //something went wrong
@@ -23,7 +23,7 @@
  * @example Add divisions to a contact's divisions
  * ```
  * // payload is an array of Division elements to be added
- * client.post<Division[]>('/contacts/5555999/divisions', payload).then( (res) => {
+ * client.post<ContactDivision[]>('/contacts/5555999/divisions', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.DivisionID); } );
  *      } else { //something went wrong
@@ -32,7 +32,7 @@
  * });
  * ```
  */
-export interface Division {
+export interface ContactDivision {
     DivisionID: number;
     DivisionName: string;
     DivisionAccronym: string;
