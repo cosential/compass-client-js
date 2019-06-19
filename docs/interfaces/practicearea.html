@@ -67,33 +67,33 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the Divisions.</p>
+						<p>Represents the Practice Areas.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/divisions'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read all PracticeAreas</p>
+							<pre><code>client.get&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of division elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/divisions'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read a Contact&#39;s PracticeAreas</p>
+							<pre><code>client.get&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add divisions to a contact&#39;s divisions</p>
+						<dd><p>Add PracticeAreas to a contact&#39;s PracticeAreas</p>
 							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/divisions', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+client.post&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/PracticeAreas', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
