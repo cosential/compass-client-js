@@ -1,0 +1,834 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Office | Cosential compass.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Cosential compass.js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="office.html">Office</a>
+				</li>
+			</ul>
+			<h1>Interface Office</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents the Offices.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read all offices</p>
+							<pre><code>client.get&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of office elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a Contact&#39;s offices</p>
+							<pre><code>client.get&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add offices to a contact</p>
+							<pre><code><span class="hljs-comment">// payload is an array of Offices elements to be added</span>
+client.post&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/offices', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Office</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#acassid" class="tsd-kind-icon">AcassID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#available" class="tsd-kind-icon">Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#businesslicense" class="tsd-kind-icon">Business<wbr>License</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#businessstatusid" class="tsd-kind-icon">Business<wbr>StatusID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#deleteindicator" class="tsd-kind-icon">Delete<wbr>Indicator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#dunsid" class="tsd-kind-icon">DunsID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#federalid" class="tsd-kind-icon">FederalID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#getpercent" class="tsd-kind-icon">Get<wbr>Percent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#gopercent" class="tsd-kind-icon">Go<wbr>Percent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#headquarterindicator" class="tsd-kind-icon">Headquarter<wbr>Indicator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#insurancecarrier" class="tsd-kind-icon">Insurance<wbr>Carrier</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#insurancecoverage" class="tsd-kind-icon">Insurance<wbr>Coverage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#labordifferential" class="tsd-kind-icon">Labor<wbr>Differential</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeacronym" class="tsd-kind-icon">Office<wbr>Acronym</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeaddress1" class="tsd-kind-icon">Office<wbr>Address1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeaddress2" class="tsd-kind-icon">Office<wbr>Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officecity" class="tsd-kind-icon">Office<wbr>City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officecountryid" class="tsd-kind-icon">Office<wbr>CountryID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officecounty" class="tsd-kind-icon">Office<wbr>County</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeemail" class="tsd-kind-icon">Office<wbr>Email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officefax" class="tsd-kind-icon">Office<wbr>Fax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeid" class="tsd-kind-icon">OfficeID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officename" class="tsd-kind-icon">Office<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officephone" class="tsd-kind-icon">Office<wbr>Phone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officestateid" class="tsd-kind-icon">Office<wbr>StateID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeurl" class="tsd-kind-icon">OfficeURL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officezip" class="tsd-kind-icon">Office<wbr>Zip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#ownershipid" class="tsd-kind-icon">OwnershipID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#previousfirmnames" class="tsd-kind-icon">Previous<wbr>Firm<wbr>Names</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#previousfirm_dunsid" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#previousfirm_yearfounded" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#selfperformhours" class="tsd-kind-icon">Self<wbr>Perform<wbr>Hours</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#servicesprovided" class="tsd-kind-icon">Services<wbr>Provided</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#totalstaffnum" class="tsd-kind-icon">Total<wbr>Staff<wbr>Num</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#userid" class="tsd-kind-icon">UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#yearfounded" class="tsd-kind-icon">Year<wbr>Founded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officesalesgoal" class="tsd-kind-icon">office<wbr>Sales<wbr>Goal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#old_officeid" class="tsd-kind-icon">old_<wbr>officeid</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="acassid" class="tsd-anchor"></a>
+					<h3>AcassID</h3>
+					<div class="tsd-signature tsd-kind-icon">AcassID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:53</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="assessmentpercentage" class="tsd-anchor"></a>
+					<h3>Assessment<wbr>Percentage</h3>
+					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:72</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="available" class="tsd-anchor"></a>
+					<h3>Available</h3>
+					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:79</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="businesslicense" class="tsd-anchor"></a>
+					<h3>Business<wbr>License</h3>
+					<div class="tsd-signature tsd-kind-icon">Business<wbr>License<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:54</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="businessstatusid" class="tsd-anchor"></a>
+					<h3>Business<wbr>StatusID</h3>
+					<div class="tsd-signature tsd-kind-icon">Business<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:55</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createdate" class="tsd-anchor"></a>
+					<h3>Create<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:66</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deleteindicator" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Indicator</h3>
+					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Indicator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:65</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="dunsid" class="tsd-anchor"></a>
+					<h3>DunsID</h3>
+					<div class="tsd-signature tsd-kind-icon">DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:52</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="federalid" class="tsd-anchor"></a>
+					<h3>FederalID</h3>
+					<div class="tsd-signature tsd-kind-icon">FederalID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:51</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feecipercent" class="tsd-anchor"></a>
+					<h3>FeeCIPercent</h3>
+					<div class="tsd-signature tsd-kind-icon">FeeCIPercent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:76</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="getpercent" class="tsd-anchor"></a>
+					<h3>Get<wbr>Percent</h3>
+					<div class="tsd-signature tsd-kind-icon">Get<wbr>Percent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:74</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="gopercent" class="tsd-anchor"></a>
+					<h3>Go<wbr>Percent</h3>
+					<div class="tsd-signature tsd-kind-icon">Go<wbr>Percent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:73</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="headquarterindicator" class="tsd-anchor"></a>
+					<h3>Headquarter<wbr>Indicator</h3>
+					<div class="tsd-signature tsd-kind-icon">Headquarter<wbr>Indicator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:39</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="insurancecarrier" class="tsd-anchor"></a>
+					<h3>Insurance<wbr>Carrier</h3>
+					<div class="tsd-signature tsd-kind-icon">Insurance<wbr>Carrier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:58</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="insurancecoverage" class="tsd-anchor"></a>
+					<h3>Insurance<wbr>Coverage</h3>
+					<div class="tsd-signature tsd-kind-icon">Insurance<wbr>Coverage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:57</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="labordifferential" class="tsd-anchor"></a>
+					<h3>Labor<wbr>Differential</h3>
+					<div class="tsd-signature tsd-kind-icon">Labor<wbr>Differential<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:77</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="marginpercentage" class="tsd-anchor"></a>
+					<h3>Margin<wbr>Percentage</h3>
+					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:71</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="modifydate" class="tsd-anchor"></a>
+					<h3>Modify<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:67</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officeacronym" class="tsd-anchor"></a>
+					<h3>Office<wbr>Acronym</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:38</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officeaddress1" class="tsd-anchor"></a>
+					<h3>Office<wbr>Address1</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:40</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officeaddress2" class="tsd-anchor"></a>
+					<h3>Office<wbr>Address2</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:41</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officecity" class="tsd-anchor"></a>
+					<h3>Office<wbr>City</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:42</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officecountryid" class="tsd-anchor"></a>
+					<h3>Office<wbr>CountryID</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:46</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officecounty" class="tsd-anchor"></a>
+					<h3>Office<wbr>County</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>County<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:45</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officeemail" class="tsd-anchor"></a>
+					<h3>Office<wbr>Email</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:49</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officefax" class="tsd-anchor"></a>
+					<h3>Office<wbr>Fax</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:48</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officeid" class="tsd-anchor"></a>
+					<h3>OfficeID</h3>
+					<div class="tsd-signature tsd-kind-icon">OfficeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:36</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officename" class="tsd-anchor"></a>
+					<h3>Office<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:37</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officephone" class="tsd-anchor"></a>
+					<h3>Office<wbr>Phone</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:47</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officestateid" class="tsd-anchor"></a>
+					<h3>Office<wbr>StateID</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:43</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officeurl" class="tsd-anchor"></a>
+					<h3>OfficeURL</h3>
+					<div class="tsd-signature tsd-kind-icon">OfficeURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:50</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officezip" class="tsd-anchor"></a>
+					<h3>Office<wbr>Zip</h3>
+					<div class="tsd-signature tsd-kind-icon">Office<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:44</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ownershipid" class="tsd-anchor"></a>
+					<h3>OwnershipID</h3>
+					<div class="tsd-signature tsd-kind-icon">OwnershipID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:59</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="previousfirmnames" class="tsd-anchor"></a>
+					<h3>Previous<wbr>Firm<wbr>Names</h3>
+					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Firm<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:60</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="previousfirm_dunsid" class="tsd-anchor"></a>
+					<h3>Previous<wbr>Firm_<wbr><wbr>DunsID</h3>
+					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:63</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="previousfirm_yearfounded" class="tsd-anchor"></a>
+					<h3>Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</h3>
+					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:62</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="row_version" class="tsd-anchor"></a>
+					<h3>ROW_<wbr>VERSION</h3>
+					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:78</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="selfperformhours" class="tsd-anchor"></a>
+					<h3>Self<wbr>Perform<wbr>Hours</h3>
+					<div class="tsd-signature tsd-kind-icon">Self<wbr>Perform<wbr>Hours<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:75</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="servicesprovided" class="tsd-anchor"></a>
+					<h3>Services<wbr>Provided</h3>
+					<div class="tsd-signature tsd-kind-icon">Services<wbr>Provided<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:64</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="totalstaffnum" class="tsd-anchor"></a>
+					<h3>Total<wbr>Staff<wbr>Num</h3>
+					<div class="tsd-signature tsd-kind-icon">Total<wbr>Staff<wbr>Num<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:56</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="userid" class="tsd-anchor"></a>
+					<h3>UserID</h3>
+					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:68</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="yearfounded" class="tsd-anchor"></a>
+					<h3>Year<wbr>Founded</h3>
+					<div class="tsd-signature tsd-kind-icon">Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:61</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="officesalesgoal" class="tsd-anchor"></a>
+					<h3>office<wbr>Sales<wbr>Goal</h3>
+					<div class="tsd-signature tsd-kind-icon">office<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:70</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="old_officeid" class="tsd-anchor"></a>
+					<h3>old_<wbr>officeid</h3>
+					<div class="tsd-signature tsd-kind-icon">old_<wbr>officeid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/offices.ts:69</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="office.html" class="tsd-kind-icon">Office</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#acassid" class="tsd-kind-icon">AcassID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#available" class="tsd-kind-icon">Available</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#businesslicense" class="tsd-kind-icon">Business<wbr>License</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#businessstatusid" class="tsd-kind-icon">Business<wbr>StatusID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#deleteindicator" class="tsd-kind-icon">Delete<wbr>Indicator</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#dunsid" class="tsd-kind-icon">DunsID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#federalid" class="tsd-kind-icon">FederalID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#getpercent" class="tsd-kind-icon">Get<wbr>Percent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#gopercent" class="tsd-kind-icon">Go<wbr>Percent</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#headquarterindicator" class="tsd-kind-icon">Headquarter<wbr>Indicator</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#insurancecarrier" class="tsd-kind-icon">Insurance<wbr>Carrier</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#insurancecoverage" class="tsd-kind-icon">Insurance<wbr>Coverage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#labordifferential" class="tsd-kind-icon">Labor<wbr>Differential</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officeacronym" class="tsd-kind-icon">Office<wbr>Acronym</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officeaddress1" class="tsd-kind-icon">Office<wbr>Address1</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officeaddress2" class="tsd-kind-icon">Office<wbr>Address2</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officecity" class="tsd-kind-icon">Office<wbr>City</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officecountryid" class="tsd-kind-icon">Office<wbr>CountryID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officecounty" class="tsd-kind-icon">Office<wbr>County</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officeemail" class="tsd-kind-icon">Office<wbr>Email</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officefax" class="tsd-kind-icon">Office<wbr>Fax</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officeid" class="tsd-kind-icon">OfficeID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officename" class="tsd-kind-icon">Office<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officephone" class="tsd-kind-icon">Office<wbr>Phone</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officestateid" class="tsd-kind-icon">Office<wbr>StateID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officeurl" class="tsd-kind-icon">OfficeURL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officezip" class="tsd-kind-icon">Office<wbr>Zip</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#ownershipid" class="tsd-kind-icon">OwnershipID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#previousfirmnames" class="tsd-kind-icon">Previous<wbr>Firm<wbr>Names</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#previousfirm_dunsid" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#previousfirm_yearfounded" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#selfperformhours" class="tsd-kind-icon">Self<wbr>Perform<wbr>Hours</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#servicesprovided" class="tsd-kind-icon">Services<wbr>Provided</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#totalstaffnum" class="tsd-kind-icon">Total<wbr>Staff<wbr>Num</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#userid" class="tsd-kind-icon">UserID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#yearfounded" class="tsd-kind-icon">Year<wbr>Founded</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#officesalesgoal" class="tsd-kind-icon">office<wbr>Sales<wbr>Goal</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="office.html#old_officeid" class="tsd-kind-icon">old_<wbr>officeid</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
