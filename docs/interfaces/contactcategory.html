@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Social | Cosential compass.js</title>
+	<title>ContactCategory | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="social.html">Social</a>
+					<a href="contactcategory.html">ContactCategory</a>
 				</li>
 			</ul>
-			<h1>Interface Social</h1>
+			<h1>Interface ContactCategory</h1>
 		</div>
 	</div>
 </header>
@@ -67,15 +67,45 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents a Social Platform.</p>
+						<p>Represents the Contact category.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read all Contacts categories</p>
+							<pre><code>client.get&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/Contact_Category'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact type elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactCategoryID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a Contact&#39;s contact types</p>
+							<pre><code>client.get&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/Contact_Category'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactCategoryID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add types to a contact</p>
+							<pre><code><span class="hljs-comment">// payload is an array of ContactType elements to be added</span>
+client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/Contact_Category', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactCategoryID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Social</span>
+						<span class="target">ContactCategory</span>
 					</li>
 				</ul>
 			</section>
@@ -86,10 +116,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#id" class="tsd-kind-icon">Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#socialnetworkid" class="tsd-kind-icon">Social<wbr>Network<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#socialnetworkname" class="tsd-kind-icon">Social<wbr>Network<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="social.html#url" class="tsd-kind-icon">Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#availabletype" class="tsd-kind-icon">Available<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#contactcategoryid" class="tsd-kind-icon">Contact<wbr>CategoryID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#contactcategoryname" class="tsd-kind-icon">Contact<wbr>Category<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#contactcategoryorder" class="tsd-kind-icon">Contact<wbr>Category<wbr>Order</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#description" class="tsd-kind-icon">Description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactcategory.html#old_id" class="tsd-kind-icon">Old_<wbr>ID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,42 +132,82 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="availabletype" class="tsd-anchor"></a>
+					<h3>Available<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:5</li>
+							<li>Defined in compass-models/contact/contact-category.ts:39</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="socialnetworkid" class="tsd-anchor"></a>
-					<h3>Social<wbr>Network<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Social<wbr>Network<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="contactcategoryid" class="tsd-anchor"></a>
+					<h3>Contact<wbr>CategoryID</h3>
+					<div class="tsd-signature tsd-kind-icon">Contact<wbr>CategoryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:6</li>
+							<li>Defined in compass-models/contact/contact-category.ts:36</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="socialnetworkname" class="tsd-anchor"></a>
-					<h3>Social<wbr>Network<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Social<wbr>Network<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="contactcategoryname" class="tsd-anchor"></a>
+					<h3>Contact<wbr>Category<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:7</li>
+							<li>Defined in compass-models/contact/contact-category.ts:37</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>Url</h3>
-					<div class="tsd-signature tsd-kind-icon">Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="contactcategoryorder" class="tsd-anchor"></a>
+					<h3>Contact<wbr>Category<wbr>Order</h3>
+					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Category<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:8</li>
+							<li>Defined in compass-models/contact/contact-category.ts:40</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createdate" class="tsd-anchor"></a>
+					<h3>Create<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/contact/contact-category.ts:41</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deleterecord" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Record</h3>
+					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/contact/contact-category.ts:42</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="description" class="tsd-anchor"></a>
+					<h3>Description</h3>
+					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/contact/contact-category.ts:38</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="old_id" class="tsd-anchor"></a>
+					<h3>Old_<wbr>ID</h3>
+					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/contact/contact-category.ts:43</li>
 						</ul>
 					</aside>
 				</section>
@@ -152,19 +226,31 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="social.html" class="tsd-kind-icon">Social</a>
+						<a href="contactcategory.html" class="tsd-kind-icon">Contact<wbr>Category</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#id" class="tsd-kind-icon">Id</a>
+								<a href="contactcategory.html#availabletype" class="tsd-kind-icon">Available<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#socialnetworkid" class="tsd-kind-icon">Social<wbr>Network<wbr>Id</a>
+								<a href="contactcategory.html#contactcategoryid" class="tsd-kind-icon">Contact<wbr>CategoryID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#socialnetworkname" class="tsd-kind-icon">Social<wbr>Network<wbr>Name</a>
+								<a href="contactcategory.html#contactcategoryname" class="tsd-kind-icon">Contact<wbr>Category<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="social.html#url" class="tsd-kind-icon">Url</a>
+								<a href="contactcategory.html#contactcategoryorder" class="tsd-kind-icon">Contact<wbr>Category<wbr>Order</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="contactcategory.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="contactcategory.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="contactcategory.html#description" class="tsd-kind-icon">Description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="contactcategory.html#old_id" class="tsd-kind-icon">Old_<wbr>ID</a>
 							</li>
 						</ul>
 					</li>
