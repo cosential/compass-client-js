@@ -2,7 +2,7 @@
  * Represents the Territories.
  * @example Read all territories
  * ```
- * client.get<Territory[]>('/contacts/Territories').then( (res) => {
+ * client.get<ContactTerritory[]>('/contacts/Territories').then( (res) => {
  *      if (res.success) { //returns an array of territory elements
  *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
  *      } else { //something went wrong
@@ -12,7 +12,7 @@
  * ```
  * @example Read a Contact's territory
  * ```
- * client.get<Territory[]>('/contacts/5555999/Territories').then( (res) => {
+ * client.get<ContactTerritory[]>('/contacts/5555999/Territories').then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
  *      } else { //something went wrong
@@ -23,7 +23,7 @@
  * @example Add territories to a contact's territories
  * ```
  * // payload is an array of territory elements to be added
- * client.post<Territory[]>('/contacts/5555999/Territories', payload).then( (res) => {
+ * client.post<ContactTerritory[]>('/contacts/5555999/Territories', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
  *      } else { //something went wrong
@@ -32,7 +32,7 @@
  * });
  * ```
  */
-export interface Territory { 
+export interface ContactTerritory { 
     TerritoryID: number;
     TerritoryName: string;
     zipCodes: string;

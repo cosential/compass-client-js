@@ -3,11 +3,11 @@ import { Client } from '../client';
 import { ClientConfig } from '../../service-models/client-config';
 import { ResponseData } from '../../interfaces/response-data';
 import { TestClientConfig as c } from '../test-client-config';
-import { Territory } from '../../compass-models/territory';
+import { ContactTerritory } from '../../compass-models/contact/contact-territory';
 
 
 
-describe("TerritoryClient", () => {
+describe("ContactTerritoryClient", () => {
 
     let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
     let aValidTerritoryId: number;
@@ -19,23 +19,23 @@ describe("TerritoryClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
-        let res: ResponseData<Territory[]> = await client.get<Territory[]>('/contacts/Territories');
+        let res: ResponseData<ContactTerritory[]> = await client.get<ContactTerritory[]>('/contacts/Territories');
         if(res.success) aValidTerritoryId = res.result[0].TerritoryID;
     });
 
-    it('Can read Territories', async () => {
-        let res: ResponseData<Territory[]> = await client.get<Territory[]>('/contacts/Territories');
+    it('Can read contact Territories', async () => {
+        let res: ResponseData<ContactTerritory[]> = await client.get<ContactTerritory[]>('/contacts/Territories');
         expect(res.success).toBeTruthy(res.message);
     });
 
     it('Can read a contacts Territories', async () => {
-        let res: ResponseData<Territory[]> = await client.get<Territory[]>('/contacts/8190580/Territories');
+        let res: ResponseData<ContactTerritory[]> = await client.get<ContactTerritory[]>('/contacts/8190580/Territories');
         expect(res.success).toBeTruthy(res.message);
     });
 
     it('Can add a Territory to a contact', async () => {
         const payload = [{ PracticeAreaId: 8677 }];
-        let res: ResponseData<Territory[]> = await client.post('/contacts/8190580/Territories', payload);
+        let res: ResponseData<ContactTerritory[]> = await client.post('/contacts/8190580/Territories', payload);
         expect(res.success).toBeTruthy(res.message);
     });
 });
