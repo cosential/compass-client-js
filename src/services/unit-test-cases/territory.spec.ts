@@ -3,13 +3,14 @@ import { Client } from '../client';
 import { ClientConfig } from '../../service-models/client-config';
 import { ResponseData } from '../../interfaces/response-data';
 import { TestClientConfig as c } from '../test-client-config';
-import { PracticeArea } from '../../compass-models/practice-area';
+import { Territory } from '../../compass-models/territory';
 
 
-describe("PracticeAreaClient", () => {
+
+describe("TerritoryClient", () => {
 
     let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
-    let aValidPracticeAreaId: number;
+    let aValidTerritoryId: number;
 
     beforeEach(async () => {
         client.config.firmId = c.firmId;
@@ -18,23 +19,23 @@ describe("PracticeAreaClient", () => {
         client.config.apiKey = c.apiKey;
         client.config.compassUrl = c.compassUrl;
 
-        let res: ResponseData<PracticeArea[]> = await client.get<PracticeArea[]>('/contacts/PracticeAreas');
-        if(res.success) aValidPracticeAreaId = res.result[0].PracticeAreaId;
+        let res: ResponseData<Territory[]> = await client.get<Territory[]>('/contacts/Territories');
+        if(res.success) aValidTerritoryId = res.result[0].TerritoryID;
     });
 
-    it('Can read practice areas', async () => {
-        let res: ResponseData<PracticeArea[]> = await client.get<PracticeArea[]>('/contacts/PracticeAreas');
+    it('Can read Territories', async () => {
+        let res: ResponseData<Territory[]> = await client.get<Territory[]>('/contacts/Territories');
         expect(res.success).toBeTruthy(res.message);
     });
 
-    it('Can read a contacts practice areas', async () => {
-        let res: ResponseData<PracticeArea[]> = await client.get<PracticeArea[]>('/contacts/8190580/PracticeAreas');
+    it('Can read a contacts Territories', async () => {
+        let res: ResponseData<Territory[]> = await client.get<Territory[]>('/contacts/8190580/Territories');
         expect(res.success).toBeTruthy(res.message);
     });
 
-    it('Can add a practice area to a contact', async () => {
+    it('Can add a Territory to a contact', async () => {
         const payload = [{ PracticeAreaId: 8677 }];
-        let res: ResponseData<PracticeArea[]> = await client.post('/contacts/8190580/PracticeAreas', payload);
+        let res: ResponseData<Territory[]> = await client.post('/contacts/8190580/Territories', payload);
         expect(res.success).toBeTruthy(res.message);
     });
 });
