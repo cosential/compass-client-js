@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContactStudio | Cosential compass.js</title>
+	<title>Studio | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contactstudio.html">ContactStudio</a>
+					<a href="studio.html">Studio</a>
 				</li>
 			</ul>
-			<h1>Interface ContactStudio</h1>
+			<h1>Interface Studio</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,8 @@
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all studios</p>
-							<pre><code>client.get&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read all Contact studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of studio elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -81,7 +81,7 @@
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read a Contact&#39;s studios</p>
-							<pre><code>client.get&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -91,7 +91,35 @@
 						<dt>example</dt>
 						<dd><p>Add studios to a contact&#39;s studios</p>
 							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/studios', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/studios', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read all Company studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of studio elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a Company&#39;s studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add studios to a Company&#39;s studios</p>
+							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
+client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/studios', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -105,7 +133,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContactStudio</span>
+						<span class="target">Studio</span>
 					</li>
 				</ul>
 			</section>
@@ -116,30 +144,30 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#associatedservices" class="tsd-kind-icon">Associated<wbr>Services</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#available" class="tsd-kind-icon">Available</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studioacronym" class="tsd-kind-icon">Studio<wbr>Acronym</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studioaddress1" class="tsd-kind-icon">Studio<wbr>Address1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studioaddress2" class="tsd-kind-icon">Studio<wbr>Address2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiocity" class="tsd-kind-icon">Studio<wbr>City</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiocountryid" class="tsd-kind-icon">Studio<wbr>CountryID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studioemail" class="tsd-kind-icon">Studio<wbr>Email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiofax" class="tsd-kind-icon">Studio<wbr>Fax</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studioid" class="tsd-kind-icon">Studio<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studioname" class="tsd-kind-icon">Studio<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiophone" class="tsd-kind-icon">Studio<wbr>Phone</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiosalesgoal" class="tsd-kind-icon">Studio<wbr>Sales<wbr>Goal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiostateid" class="tsd-kind-icon">Studio<wbr>StateID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiourl" class="tsd-kind-icon">Studio<wbr>Url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#studiozip" class="tsd-kind-icon">Studio<wbr>Zip</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#userid" class="tsd-kind-icon">UserID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactstudio.html#old_studioid" class="tsd-kind-icon">old_<wbr>studioid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#associatedservices" class="tsd-kind-icon">Associated<wbr>Services</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#available" class="tsd-kind-icon">Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studioacronym" class="tsd-kind-icon">Studio<wbr>Acronym</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studioaddress1" class="tsd-kind-icon">Studio<wbr>Address1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studioaddress2" class="tsd-kind-icon">Studio<wbr>Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiocity" class="tsd-kind-icon">Studio<wbr>City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiocountryid" class="tsd-kind-icon">Studio<wbr>CountryID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studioemail" class="tsd-kind-icon">Studio<wbr>Email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiofax" class="tsd-kind-icon">Studio<wbr>Fax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studioid" class="tsd-kind-icon">Studio<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studioname" class="tsd-kind-icon">Studio<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiophone" class="tsd-kind-icon">Studio<wbr>Phone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiosalesgoal" class="tsd-kind-icon">Studio<wbr>Sales<wbr>Goal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiostateid" class="tsd-kind-icon">Studio<wbr>StateID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiourl" class="tsd-kind-icon">Studio<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#studiozip" class="tsd-kind-icon">Studio<wbr>Zip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#userid" class="tsd-kind-icon">UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="studio.html#old_studioid" class="tsd-kind-icon">old_<wbr>studioid</a></li>
 							</ul>
 						</section>
 					</div>
@@ -153,7 +181,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:57</li>
+							<li>Defined in compass-models/studio.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +191,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Associated<wbr>Services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:58</li>
+							<li>Defined in compass-models/studio.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +201,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:52</li>
+							<li>Defined in compass-models/studio.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +211,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:49</li>
+							<li>Defined in compass-models/studio.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +221,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:51</li>
+							<li>Defined in compass-models/studio.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +231,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:56</li>
+							<li>Defined in compass-models/studio.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +241,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:50</li>
+							<li>Defined in compass-models/studio.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +251,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:59</li>
+							<li>Defined in compass-models/studio.ts:90</li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +261,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:38</li>
+							<li>Defined in compass-models/studio.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +271,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:39</li>
+							<li>Defined in compass-models/studio.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +281,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:40</li>
+							<li>Defined in compass-models/studio.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +291,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:41</li>
+							<li>Defined in compass-models/studio.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +301,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:44</li>
+							<li>Defined in compass-models/studio.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -283,7 +311,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:47</li>
+							<li>Defined in compass-models/studio.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +321,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:46</li>
+							<li>Defined in compass-models/studio.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +331,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:36</li>
+							<li>Defined in compass-models/studio.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -313,7 +341,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:37</li>
+							<li>Defined in compass-models/studio.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +351,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:45</li>
+							<li>Defined in compass-models/studio.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +361,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:55</li>
+							<li>Defined in compass-models/studio.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -343,7 +371,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:42</li>
+							<li>Defined in compass-models/studio.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -353,7 +381,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:48</li>
+							<li>Defined in compass-models/studio.ts:79</li>
 						</ul>
 					</aside>
 				</section>
@@ -363,7 +391,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:43</li>
+							<li>Defined in compass-models/studio.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -373,7 +401,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:53</li>
+							<li>Defined in compass-models/studio.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -383,7 +411,7 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>studioid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-studio.ts:54</li>
+							<li>Defined in compass-models/studio.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -402,79 +430,79 @@ client.post&lt;ContactStudio[]&gt;<span class="hljs-function">(<span class="hljs
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="contactstudio.html" class="tsd-kind-icon">Contact<wbr>Studio</a>
+						<a href="studio.html" class="tsd-kind-icon">Studio</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
+								<a href="studio.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#associatedservices" class="tsd-kind-icon">Associated<wbr>Services</a>
+								<a href="studio.html#associatedservices" class="tsd-kind-icon">Associated<wbr>Services</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#available" class="tsd-kind-icon">Available</a>
+								<a href="studio.html#available" class="tsd-kind-icon">Available</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
+								<a href="studio.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
+								<a href="studio.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
+								<a href="studio.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
+								<a href="studio.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
+								<a href="studio.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studioacronym" class="tsd-kind-icon">Studio<wbr>Acronym</a>
+								<a href="studio.html#studioacronym" class="tsd-kind-icon">Studio<wbr>Acronym</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studioaddress1" class="tsd-kind-icon">Studio<wbr>Address1</a>
+								<a href="studio.html#studioaddress1" class="tsd-kind-icon">Studio<wbr>Address1</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studioaddress2" class="tsd-kind-icon">Studio<wbr>Address2</a>
+								<a href="studio.html#studioaddress2" class="tsd-kind-icon">Studio<wbr>Address2</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiocity" class="tsd-kind-icon">Studio<wbr>City</a>
+								<a href="studio.html#studiocity" class="tsd-kind-icon">Studio<wbr>City</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiocountryid" class="tsd-kind-icon">Studio<wbr>CountryID</a>
+								<a href="studio.html#studiocountryid" class="tsd-kind-icon">Studio<wbr>CountryID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studioemail" class="tsd-kind-icon">Studio<wbr>Email</a>
+								<a href="studio.html#studioemail" class="tsd-kind-icon">Studio<wbr>Email</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiofax" class="tsd-kind-icon">Studio<wbr>Fax</a>
+								<a href="studio.html#studiofax" class="tsd-kind-icon">Studio<wbr>Fax</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studioid" class="tsd-kind-icon">Studio<wbr>Id</a>
+								<a href="studio.html#studioid" class="tsd-kind-icon">Studio<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studioname" class="tsd-kind-icon">Studio<wbr>Name</a>
+								<a href="studio.html#studioname" class="tsd-kind-icon">Studio<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiophone" class="tsd-kind-icon">Studio<wbr>Phone</a>
+								<a href="studio.html#studiophone" class="tsd-kind-icon">Studio<wbr>Phone</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiosalesgoal" class="tsd-kind-icon">Studio<wbr>Sales<wbr>Goal</a>
+								<a href="studio.html#studiosalesgoal" class="tsd-kind-icon">Studio<wbr>Sales<wbr>Goal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiostateid" class="tsd-kind-icon">Studio<wbr>StateID</a>
+								<a href="studio.html#studiostateid" class="tsd-kind-icon">Studio<wbr>StateID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiourl" class="tsd-kind-icon">Studio<wbr>Url</a>
+								<a href="studio.html#studiourl" class="tsd-kind-icon">Studio<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#studiozip" class="tsd-kind-icon">Studio<wbr>Zip</a>
+								<a href="studio.html#studiozip" class="tsd-kind-icon">Studio<wbr>Zip</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#userid" class="tsd-kind-icon">UserID</a>
+								<a href="studio.html#userid" class="tsd-kind-icon">UserID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactstudio.html#old_studioid" class="tsd-kind-icon">old_<wbr>studioid</a>
+								<a href="studio.html#old_studioid" class="tsd-kind-icon">old_<wbr>studioid</a>
 							</li>
 						</ul>
 					</li>

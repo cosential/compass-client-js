@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -119,7 +119,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
-var js_base64_1 = __webpack_require__(10);
+var js_base64_1 = __webpack_require__(9);
 /**
  * Represents the Client service for the Cosential Compass API calls.
  */
@@ -562,7 +562,7 @@ exports.Client = Client;
 // on the global object (window or self)
 //
 // Return that as the export for use in Webpack, Browserify etc.
-__webpack_require__(15);
+__webpack_require__(14);
 module.exports = self.fetch.bind(self);
 
 
@@ -586,8 +586,6 @@ var email_client_1 = __webpack_require__(6);
 exports.EmailClient = email_client_1.EmailClient;
 var personnel_client_1 = __webpack_require__(7);
 exports.PersonnelClient = personnel_client_1.PersonnelClient;
-var project_client_1 = __webpack_require__(8);
-exports.ProjectClient = project_client_1.ProjectClient;
 
 
 /***/ }),
@@ -597,7 +595,7 @@ exports.ProjectClient = project_client_1.ProjectClient;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = __webpack_require__(13);
+var util_1 = __webpack_require__(12);
 /**
  * Represents the Client configuration in order to authenticate a User.
  */
@@ -1373,38 +1371,6 @@ exports.PersonnelClient = PersonnelClient;
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(1);
-var client_1 = __webpack_require__(0);
-/**
- * Represents the client service for Projects.
- */
-var ProjectClient = /** @class */ (function (_super) {
-    __extends(ProjectClient, _super);
-    function ProjectClient() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return ProjectClient;
-}(client_1.Client));
-exports.ProjectClient = ProjectClient;
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -1433,7 +1399,7 @@ if (typeof Object.create === 'function') {
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -1673,10 +1639,10 @@ if (typeof Object.create === 'function') {
     return {Base64: global.Base64}
 }));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1866,7 +1832,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = function isBuffer(arg) {
@@ -1877,7 +1843,7 @@ module.exports = function isBuffer(arg) {
 }
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -2415,7 +2381,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(12);
+exports.isBuffer = __webpack_require__(11);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -2459,7 +2425,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(9);
+exports.inherits = __webpack_require__(8);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -2584,10 +2550,10 @@ function callbackify(original) {
 }
 exports.callbackify = callbackify;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 var g;
@@ -2614,7 +2580,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3143,7 +3109,7 @@ if (!self.fetch) {
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);
