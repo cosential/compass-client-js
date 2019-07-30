@@ -1,14 +1,5 @@
 import "jasmine";
 import { ResponseData } from "../..";
-import { Company } from "../../compass-models/company";
-import { Contact } from "../../compass-models/contact";
-import { Email } from "../../compass-models/email";
-import { EmailCompany } from "../../compass-models/email-company";
-import { EmailContact } from "../../compass-models/email-contact";
-import { EmailLead } from "../../compass-models/email-lead";
-import { EmailOpportunity } from "../../compass-models/email-opportunity";
-import { EmailPersonnel } from "../../compass-models/email-personnel";
-import { EmailProject } from "../../compass-models/email-project";
 import { Lead } from "../../compass-models/lead";
 import { Opportunity } from "../../compass-models/opportunity";
 import { Personnel } from "../../compass-models/personnel";
@@ -16,6 +7,15 @@ import { Project } from "../../compass-models/project";
 import { ClientConfig } from "../../service-models/client-config";
 import { Client } from "../client";
 import { TestClientConfig as c } from "../test-client-config";
+import { Contact } from './../../../lib-esm/compass-models/contact/contact.d';
+import { EmailCompany } from './../../../lib-esm/compass-models/email/email-company.d';
+import { EmailLead } from './../../../lib-esm/compass-models/email/email-lead.d';
+import { EmailOpportunity } from './../../../lib-esm/compass-models/email/email-opportunity.d';
+import { EmailPersonnel } from './../../../lib-esm/compass-models/email/email-personnel.d';
+import { EmailProject } from './../../../lib-esm/compass-models/email/email-project.d';
+import { Email } from './../../../lib-esm/compass-models/email/email.d';
+import { Company } from './../../../lib/compass-models/company/company.d';
+import { EmailContact } from './../../compass-models/email/email-contact';
 
 describe("EmailClient", () => {
   let client: Client = new Client(
@@ -32,43 +32,43 @@ describe("EmailClient", () => {
 
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
-    let res: ResponseData<Email[]> = await client.get<Email[]>("/emails");
+    let res: ResponseData < Email[] > = await client.get < Email[] > ("/emails");
     if (res.success) aValidEmailId = res.result[0].Id;
   });
 
   it("Can read emails", async () => {
-    let res: ResponseData<Email[]> = await client.get<Email[]>("/emails");
+    let res: ResponseData < Email[] > = await client.get < Email[] > ("/emails");
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can read emails for incorrect url", async () => {
     let mistypedUrls: string[] = ["/email", "/emailss", "/emalis"];
     mistypedUrls.forEach(async index => {
-      let res: ResponseData<Email[]> = await client.get<Email[]>(index);
+      let res: ResponseData < Email[] > = await client.get < Email[] > (index);
       expect(res.success).toBeFalsy(res.message);
     });
   });
 
   it("Can read an email", async () => {
     let url = "/emails/" + aValidEmailId;
-    let res: ResponseData<Email> = await client.get<Email>(url);
+    let res: ResponseData < Email > = await client.get < Email > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can read an email for invalid id", async () => {
     let url: string = "/emails/5555444";
-    let res: ResponseData<Email> = await client.get<Email>(url);
+    let res: ResponseData < Email > = await client.get < Email > (url);
     expect(res.result).toBeNull(res.message);
   });
 
   it("Can add email/s with valid data", async () => {
     let url = "/emails/" + aValidEmailId;
-    let resGet: ResponseData<Email> = await client.get<Email>(url);
+    let resGet: ResponseData < Email > = await client.get < Email > (url);
 
     resGet.result.Subject = "In reference to our conversation";
     let exEmail: Email[] = [resGet.result];
 
-    let resPost: ResponseData<Email[]> = await client.post<Email[]>(
+    let resPost: ResponseData < Email[] > = await client.post < Email[] > (
       "/emails",
       exEmail
     );
@@ -77,14 +77,14 @@ describe("EmailClient", () => {
 
   it("Can add email/s with invalid data", async () => {
     let url = "/emails/" + aValidEmailId;
-    let resGet: ResponseData<Email> = await client.get<Email>(url);
+    let resGet: ResponseData < Email > = await client.get < Email > (url);
 
     //not providing a mandatory field
     resGet.result.From = null;
     resGet.result.Body = "Some Random Body Text";
     let exEmail: Email[] = [resGet.result];
 
-    let resPost: ResponseData<Email[]> = await client.post<Email[]>(
+    let resPost: ResponseData < Email[] > = await client.post < Email[] > (
       "/emails",
       exEmail
     );
@@ -93,62 +93,62 @@ describe("EmailClient", () => {
 
   it("Can update email with valid data", async () => {
     let urlGet = "/emails/" + aValidEmailId;
-    let resGet: ResponseData<Email> = await client.get<Email>(urlGet);
+    let resGet: ResponseData < Email > = await client.get < Email > (urlGet);
 
     resGet.result.Body = "Please find attached";
 
     let exEmail: Email = resGet.result;
     let urlPut = "/emails/" + resGet.result.Id;
 
-    let resPut: ResponseData<Email> = await client.put<Email>(urlPut, exEmail);
+    let resPut: ResponseData < Email > = await client.put < Email > (urlPut, exEmail);
     expect(resPut.success).toBeTruthy(resPut.message);
   });
 
   it("Can delete an email with valid id", async () => {
     let url = "/emails/" + aValidEmailId;
-    let res: ResponseData<Email> = await client.delete<Email>(url);
+    let res: ResponseData < Email > = await client.delete < Email > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can delete an email with invalid id", async () => {
     let url: string = "/emails/5555999";
-    let res: ResponseData<Email> = await client.delete<Email>(url);
+    let res: ResponseData < Email > = await client.delete < Email > (url);
     expect(res.success).toBeFalsy(res.message);
   });
 
   it("Can fetch contacts associated to an Email", async () => {
     let url: string = "/emails/" + aValidEmailId + "/contacts";
-    let res: ResponseData<EmailContact[]> = await client.get<EmailContact[]>(url);
+    let res: ResponseData < EmailContact[] > = await client.get < EmailContact[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can fetch personnel associated to an Email", async () => {
     let url: string = "/emails/" + aValidEmailId + "/personnel";
-    let res: ResponseData<EmailPersonnel[]> = await client.get<EmailPersonnel[]>(url);
+    let res: ResponseData < EmailPersonnel[] > = await client.get < EmailPersonnel[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can fetch leads associated to an Email", async () => {
     let url: string = "/emails/" + aValidEmailId + "/leads";
-    let res: ResponseData<EmailLead[]> = await client.get<EmailLead[]>(url);
+    let res: ResponseData < EmailLead[] > = await client.get < EmailLead[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can fetch opportunities associated to an Email", async () => {
     let url: string = "/emails/" + aValidEmailId + "/opportunities";
-    let res: ResponseData<EmailOpportunity[]> = await client.get<EmailOpportunity[]>(url);
+    let res: ResponseData < EmailOpportunity[] > = await client.get < EmailOpportunity[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can fetch projects associated to an Email", async () => {
     let url: string = "/emails/" + aValidEmailId + "/projects";
-    let res: ResponseData<EmailProject[]> = await client.get<EmailProject[]>(url);
+    let res: ResponseData < EmailProject[] > = await client.get < EmailProject[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
   it("Can fetch companies associated to an Email", async () => {
     let url: string = "/emails/" + aValidEmailId + "/companies";
-    let res: ResponseData<EmailCompany[]> = await client.get<EmailCompany[]>(url);
+    let res: ResponseData < EmailCompany[] > = await client.get < EmailCompany[] > (url);
     expect(res.success).toBeTruthy(res.message);
   });
 
@@ -156,16 +156,14 @@ describe("EmailClient", () => {
     let urlGet = '/contacts';
     let urlPost = '/emails/' + aValidEmailId + '/contacts';
 
-    let resGet: ResponseData<Contact[]> = await client.get<Contact[]>(urlGet);
-    let exEmailContact: EmailContact[] = [
-      {
-        ContactId: resGet.result[0].ContactId,
-        FirstName: resGet.result[0].FirstName,
-        LastName: resGet.result[0].LastName
-      }
-    ];
+    let resGet: ResponseData < Contact[] > = await client.get < Contact[] > (urlGet);
+    let exEmailContact: EmailContact[] = [{
+      ContactId: resGet.result[0].ContactId,
+      FirstName: resGet.result[0].FirstName,
+      LastName: resGet.result[0].LastName
+    }];
 
-    let resPost: ResponseData<EmailContact[]> = await client.post<EmailContact[]>(urlPost, exEmailContact);
+    let resPost: ResponseData < EmailContact[] > = await client.post < EmailContact[] > (urlPost, exEmailContact);
     expect(resPost.success).toBeTruthy(resPost.message);
   });
 
@@ -173,20 +171,18 @@ describe("EmailClient", () => {
     let urlGet = '/personnel';
     let urlPost = '/emails/' + aValidEmailId + '/personnel';
 
-    let resGet: ResponseData<Personnel[]> = await client.get<Personnel[]>(urlGet);
-    let exEmailPersonnel: EmailPersonnel[] = [
-      {
-        PersonnelId: resGet.result[0].PersonnelId,
-        FirstName: resGet.result[0].FirstName,
-        MI: resGet.result[0].MI,
-        LastName: resGet.result[0].LastName,
-        Prefix: resGet.result[0].Prefix,
-        Suffix: resGet.result[0].Suffix,
-        Title: resGet.result[0].Title
-      }
-    ];
+    let resGet: ResponseData < Personnel[] > = await client.get < Personnel[] > (urlGet);
+    let exEmailPersonnel: EmailPersonnel[] = [{
+      PersonnelId: resGet.result[0].PersonnelId,
+      FirstName: resGet.result[0].FirstName,
+      MI: resGet.result[0].MI,
+      LastName: resGet.result[0].LastName,
+      Prefix: resGet.result[0].Prefix,
+      Suffix: resGet.result[0].Suffix,
+      Title: resGet.result[0].Title
+    }];
 
-    let resPost: ResponseData<EmailPersonnel[]> = await client.post<EmailPersonnel[]>(urlPost, exEmailPersonnel);
+    let resPost: ResponseData < EmailPersonnel[] > = await client.post < EmailPersonnel[] > (urlPost, exEmailPersonnel);
     expect(resPost.success).toBeTruthy(resPost.message);
   });
 
@@ -194,15 +190,13 @@ describe("EmailClient", () => {
     let urlGet = '/leads';
     let urlPost = '/emails/' + aValidEmailId + '/leads';
 
-    let resGet: ResponseData<Lead[]> = await client.get<Lead[]>(urlGet);
-    let exEmailLead: EmailLead[] = [
-      {
-        LeadId: resGet.result[0].LeadId,
-        LeadName: resGet.result[0].Name
-      }
-    ];
+    let resGet: ResponseData < Lead[] > = await client.get < Lead[] > (urlGet);
+    let exEmailLead: EmailLead[] = [{
+      LeadId: resGet.result[0].LeadId,
+      LeadName: resGet.result[0].Name
+    }];
 
-    let resPost: ResponseData<EmailLead[]> = await client.post<EmailLead[]>(urlPost, exEmailLead);
+    let resPost: ResponseData < EmailLead[] > = await client.post < EmailLead[] > (urlPost, exEmailLead);
     expect(resPost.success).toBeTruthy(resPost.message);
   });
 
@@ -210,15 +204,13 @@ describe("EmailClient", () => {
     let urlGet = '/opportunities';
     let urlPost = '/emails/' + aValidEmailId + '/opportunities';
 
-    let resGet: ResponseData<Opportunity[]> = await client.get<Opportunity[]>(urlGet);
-    let exEmailOpportunity: EmailOpportunity[] = [
-      {
-        OpportunityId: resGet.result[0].OpportunityId,
-        OpportunityName: resGet.result[0].OpportunityName
-      }
-    ];
+    let resGet: ResponseData < Opportunity[] > = await client.get < Opportunity[] > (urlGet);
+    let exEmailOpportunity: EmailOpportunity[] = [{
+      OpportunityId: resGet.result[0].OpportunityId,
+      OpportunityName: resGet.result[0].OpportunityName
+    }];
 
-    let resPost: ResponseData<EmailOpportunity[]> = await client.post<EmailOpportunity[]>(urlPost, exEmailOpportunity);
+    let resPost: ResponseData < EmailOpportunity[] > = await client.post < EmailOpportunity[] > (urlPost, exEmailOpportunity);
     expect(resPost.success).toBeTruthy(resPost.message);
   });
 
@@ -226,15 +218,13 @@ describe("EmailClient", () => {
     let urlGet = '/projects';
     let urlPost = '/emails/' + aValidEmailId + '/projects';
 
-    let resGet: ResponseData<Project[]> = await client.get<Project[]>(urlGet);
-    let exEmailProject: EmailProject[] = [
-      {
-        ProjectId: resGet.result[0].ProjectId,
-        ProjectName: resGet.result[0].ProjectName
-      }
-    ];
+    let resGet: ResponseData < Project[] > = await client.get < Project[] > (urlGet);
+    let exEmailProject: EmailProject[] = [{
+      ProjectId: resGet.result[0].ProjectId,
+      ProjectName: resGet.result[0].ProjectName
+    }];
 
-    let resPost: ResponseData<EmailProject[]> = await client.post<EmailProject[]>(urlPost, exEmailProject);
+    let resPost: ResponseData < EmailProject[] > = await client.post < EmailProject[] > (urlPost, exEmailProject);
     expect(resPost.success).toBeTruthy(resPost.message);
   });
 
@@ -242,15 +232,13 @@ describe("EmailClient", () => {
     let urlGet = '/companies';
     let urlPost = '/emails/' + aValidEmailId + '/companies';
 
-    let resGet: ResponseData<Company[]> = await client.get<Company[]>(urlGet);
-    let exEmailCompany: EmailCompany[] = [
-      {
-        CompanyId: resGet.result[0].CompanyId,
-        Name: resGet.result[0].Name
-      }
-    ];
+    let resGet: ResponseData < Company[] > = await client.get < Company[] > (urlGet);
+    let exEmailCompany: EmailCompany[] = [{
+      CompanyId: resGet.result[0].CompanyId,
+      Name: resGet.result[0].Name
+    }];
 
-    let resPost: ResponseData<EmailCompany[]> = await client.post<EmailCompany[]>(urlPost, exEmailCompany);
+    let resPost: ResponseData < EmailCompany[] > = await client.post < EmailCompany[] > (urlPost, exEmailCompany);
     expect(resPost.success).toBeTruthy(resPost.message);
   });
 
