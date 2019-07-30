@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContactOffice | Cosential compass.js</title>
+	<title>Office | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contactoffice.html">ContactOffice</a>
+					<a href="office.html">Office</a>
 				</li>
 			</ul>
-			<h1>Interface ContactOffice</h1>
+			<h1>Interface Office</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,8 @@
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all offices</p>
-							<pre><code>client.get&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read all Contact offices</p>
+							<pre><code>client.get&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of office elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -81,7 +81,7 @@
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read a Contact&#39;s offices</p>
-							<pre><code>client.get&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+							<pre><code>client.get&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -91,7 +91,35 @@
 						<dt>example</dt>
 						<dd><p>Add offices to a contact</p>
 							<pre><code><span class="hljs-comment">// payload is an array of Offices elements to be added</span>
-client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/offices', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+client.post&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/offices', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read all Company offices</p>
+							<pre><code>client.get&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of office elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a Company&#39;s offices</p>
+							<pre><code>client.get&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/offices'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add offices to a Company</p>
+							<pre><code><span class="hljs-comment">// payload is an array of Offices elements to be added</span>
+client.post&lt;Office[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/offices', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OfficeID</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -105,7 +133,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContactOffice</span>
+						<span class="target">Office</span>
 					</li>
 				</ul>
 			</section>
@@ -116,50 +144,50 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#acassid" class="tsd-kind-icon">AcassID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#available" class="tsd-kind-icon">Available</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#businesslicense" class="tsd-kind-icon">Business<wbr>License</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#businessstatusid" class="tsd-kind-icon">Business<wbr>StatusID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#deleteindicator" class="tsd-kind-icon">Delete<wbr>Indicator</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#dunsid" class="tsd-kind-icon">DunsID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#federalid" class="tsd-kind-icon">FederalID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#getpercent" class="tsd-kind-icon">Get<wbr>Percent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#gopercent" class="tsd-kind-icon">Go<wbr>Percent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#headquarterindicator" class="tsd-kind-icon">Headquarter<wbr>Indicator</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#insurancecarrier" class="tsd-kind-icon">Insurance<wbr>Carrier</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#insurancecoverage" class="tsd-kind-icon">Insurance<wbr>Coverage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#labordifferential" class="tsd-kind-icon">Labor<wbr>Differential</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officeacronym" class="tsd-kind-icon">Office<wbr>Acronym</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officeaddress1" class="tsd-kind-icon">Office<wbr>Address1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officeaddress2" class="tsd-kind-icon">Office<wbr>Address2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officecity" class="tsd-kind-icon">Office<wbr>City</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officecountryid" class="tsd-kind-icon">Office<wbr>CountryID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officecounty" class="tsd-kind-icon">Office<wbr>County</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officeemail" class="tsd-kind-icon">Office<wbr>Email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officefax" class="tsd-kind-icon">Office<wbr>Fax</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officeid" class="tsd-kind-icon">OfficeID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officename" class="tsd-kind-icon">Office<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officephone" class="tsd-kind-icon">Office<wbr>Phone</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officestateid" class="tsd-kind-icon">Office<wbr>StateID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officeurl" class="tsd-kind-icon">OfficeURL</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officezip" class="tsd-kind-icon">Office<wbr>Zip</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#ownershipid" class="tsd-kind-icon">OwnershipID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#previousfirmnames" class="tsd-kind-icon">Previous<wbr>Firm<wbr>Names</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#previousfirm_dunsid" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#previousfirm_yearfounded" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#selfperformhours" class="tsd-kind-icon">Self<wbr>Perform<wbr>Hours</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#servicesprovided" class="tsd-kind-icon">Services<wbr>Provided</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#totalstaffnum" class="tsd-kind-icon">Total<wbr>Staff<wbr>Num</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#userid" class="tsd-kind-icon">UserID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#yearfounded" class="tsd-kind-icon">Year<wbr>Founded</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#officesalesgoal" class="tsd-kind-icon">office<wbr>Sales<wbr>Goal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactoffice.html#old_officeid" class="tsd-kind-icon">old_<wbr>officeid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#acassid" class="tsd-kind-icon">AcassID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#available" class="tsd-kind-icon">Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#businesslicense" class="tsd-kind-icon">Business<wbr>License</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#businessstatusid" class="tsd-kind-icon">Business<wbr>StatusID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#deleteindicator" class="tsd-kind-icon">Delete<wbr>Indicator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#dunsid" class="tsd-kind-icon">DunsID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#federalid" class="tsd-kind-icon">FederalID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#getpercent" class="tsd-kind-icon">Get<wbr>Percent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#gopercent" class="tsd-kind-icon">Go<wbr>Percent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#headquarterindicator" class="tsd-kind-icon">Headquarter<wbr>Indicator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#insurancecarrier" class="tsd-kind-icon">Insurance<wbr>Carrier</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#insurancecoverage" class="tsd-kind-icon">Insurance<wbr>Coverage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#labordifferential" class="tsd-kind-icon">Labor<wbr>Differential</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeacronym" class="tsd-kind-icon">Office<wbr>Acronym</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeaddress1" class="tsd-kind-icon">Office<wbr>Address1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeaddress2" class="tsd-kind-icon">Office<wbr>Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officecity" class="tsd-kind-icon">Office<wbr>City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officecountryid" class="tsd-kind-icon">Office<wbr>CountryID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officecounty" class="tsd-kind-icon">Office<wbr>County</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeemail" class="tsd-kind-icon">Office<wbr>Email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officefax" class="tsd-kind-icon">Office<wbr>Fax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeid" class="tsd-kind-icon">OfficeID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officename" class="tsd-kind-icon">Office<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officephone" class="tsd-kind-icon">Office<wbr>Phone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officestateid" class="tsd-kind-icon">Office<wbr>StateID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officeurl" class="tsd-kind-icon">OfficeURL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officezip" class="tsd-kind-icon">Office<wbr>Zip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#ownershipid" class="tsd-kind-icon">OwnershipID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#previousfirmnames" class="tsd-kind-icon">Previous<wbr>Firm<wbr>Names</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#previousfirm_dunsid" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#previousfirm_yearfounded" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#selfperformhours" class="tsd-kind-icon">Self<wbr>Perform<wbr>Hours</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#servicesprovided" class="tsd-kind-icon">Services<wbr>Provided</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#totalstaffnum" class="tsd-kind-icon">Total<wbr>Staff<wbr>Num</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#userid" class="tsd-kind-icon">UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#yearfounded" class="tsd-kind-icon">Year<wbr>Founded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#officesalesgoal" class="tsd-kind-icon">office<wbr>Sales<wbr>Goal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="office.html#old_officeid" class="tsd-kind-icon">old_<wbr>officeid</a></li>
 							</ul>
 						</section>
 					</div>
@@ -173,7 +201,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">AcassID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:53</li>
+							<li>Defined in compass-models/office.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +211,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:72</li>
+							<li>Defined in compass-models/office.ts:103</li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +221,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:79</li>
+							<li>Defined in compass-models/office.ts:110</li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +231,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>License<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:54</li>
+							<li>Defined in compass-models/office.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +241,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:55</li>
+							<li>Defined in compass-models/office.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +251,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:66</li>
+							<li>Defined in compass-models/office.ts:97</li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +261,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Indicator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:65</li>
+							<li>Defined in compass-models/office.ts:96</li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +271,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:52</li>
+							<li>Defined in compass-models/office.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +281,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">FederalID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:51</li>
+							<li>Defined in compass-models/office.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +291,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">FeeCIPercent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:76</li>
+							<li>Defined in compass-models/office.ts:107</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +301,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Get<wbr>Percent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:74</li>
+							<li>Defined in compass-models/office.ts:105</li>
 						</ul>
 					</aside>
 				</section>
@@ -283,7 +311,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Go<wbr>Percent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:73</li>
+							<li>Defined in compass-models/office.ts:104</li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +321,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Headquarter<wbr>Indicator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:39</li>
+							<li>Defined in compass-models/office.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +331,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Insurance<wbr>Carrier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:58</li>
+							<li>Defined in compass-models/office.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -313,7 +341,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Insurance<wbr>Coverage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:57</li>
+							<li>Defined in compass-models/office.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +351,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Labor<wbr>Differential<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:77</li>
+							<li>Defined in compass-models/office.ts:108</li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +361,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:71</li>
+							<li>Defined in compass-models/office.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -343,7 +371,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:67</li>
+							<li>Defined in compass-models/office.ts:98</li>
 						</ul>
 					</aside>
 				</section>
@@ -353,7 +381,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:38</li>
+							<li>Defined in compass-models/office.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -363,7 +391,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:40</li>
+							<li>Defined in compass-models/office.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -373,7 +401,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:41</li>
+							<li>Defined in compass-models/office.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -383,7 +411,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:42</li>
+							<li>Defined in compass-models/office.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -393,7 +421,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:46</li>
+							<li>Defined in compass-models/office.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -403,7 +431,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>County<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:45</li>
+							<li>Defined in compass-models/office.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -413,7 +441,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:49</li>
+							<li>Defined in compass-models/office.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -423,7 +451,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:48</li>
+							<li>Defined in compass-models/office.ts:79</li>
 						</ul>
 					</aside>
 				</section>
@@ -433,7 +461,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">OfficeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:36</li>
+							<li>Defined in compass-models/office.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -443,7 +471,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:37</li>
+							<li>Defined in compass-models/office.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -453,7 +481,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:47</li>
+							<li>Defined in compass-models/office.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -463,7 +491,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:43</li>
+							<li>Defined in compass-models/office.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -473,7 +501,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">OfficeURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:50</li>
+							<li>Defined in compass-models/office.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -483,7 +511,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:44</li>
+							<li>Defined in compass-models/office.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -493,7 +521,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">OwnershipID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:59</li>
+							<li>Defined in compass-models/office.ts:90</li>
 						</ul>
 					</aside>
 				</section>
@@ -503,7 +531,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Firm<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:60</li>
+							<li>Defined in compass-models/office.ts:91</li>
 						</ul>
 					</aside>
 				</section>
@@ -513,7 +541,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:63</li>
+							<li>Defined in compass-models/office.ts:94</li>
 						</ul>
 					</aside>
 				</section>
@@ -523,7 +551,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:62</li>
+							<li>Defined in compass-models/office.ts:93</li>
 						</ul>
 					</aside>
 				</section>
@@ -533,7 +561,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:78</li>
+							<li>Defined in compass-models/office.ts:109</li>
 						</ul>
 					</aside>
 				</section>
@@ -543,7 +571,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Self<wbr>Perform<wbr>Hours<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:75</li>
+							<li>Defined in compass-models/office.ts:106</li>
 						</ul>
 					</aside>
 				</section>
@@ -553,7 +581,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Services<wbr>Provided<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:64</li>
+							<li>Defined in compass-models/office.ts:95</li>
 						</ul>
 					</aside>
 				</section>
@@ -563,7 +591,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Total<wbr>Staff<wbr>Num<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:56</li>
+							<li>Defined in compass-models/office.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -573,7 +601,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:68</li>
+							<li>Defined in compass-models/office.ts:99</li>
 						</ul>
 					</aside>
 				</section>
@@ -583,7 +611,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:61</li>
+							<li>Defined in compass-models/office.ts:92</li>
 						</ul>
 					</aside>
 				</section>
@@ -593,7 +621,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">office<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:70</li>
+							<li>Defined in compass-models/office.ts:101</li>
 						</ul>
 					</aside>
 				</section>
@@ -603,7 +631,7 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>officeid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-office.ts:69</li>
+							<li>Defined in compass-models/office.ts:100</li>
 						</ul>
 					</aside>
 				</section>
@@ -622,139 +650,139 @@ client.post&lt;ContactOffice[]&gt;<span class="hljs-function">(<span class="hljs
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="contactoffice.html" class="tsd-kind-icon">Contact<wbr>Office</a>
+						<a href="office.html" class="tsd-kind-icon">Office</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#acassid" class="tsd-kind-icon">AcassID</a>
+								<a href="office.html#acassid" class="tsd-kind-icon">AcassID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
+								<a href="office.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#available" class="tsd-kind-icon">Available</a>
+								<a href="office.html#available" class="tsd-kind-icon">Available</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#businesslicense" class="tsd-kind-icon">Business<wbr>License</a>
+								<a href="office.html#businesslicense" class="tsd-kind-icon">Business<wbr>License</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#businessstatusid" class="tsd-kind-icon">Business<wbr>StatusID</a>
+								<a href="office.html#businessstatusid" class="tsd-kind-icon">Business<wbr>StatusID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
+								<a href="office.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#deleteindicator" class="tsd-kind-icon">Delete<wbr>Indicator</a>
+								<a href="office.html#deleteindicator" class="tsd-kind-icon">Delete<wbr>Indicator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#dunsid" class="tsd-kind-icon">DunsID</a>
+								<a href="office.html#dunsid" class="tsd-kind-icon">DunsID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#federalid" class="tsd-kind-icon">FederalID</a>
+								<a href="office.html#federalid" class="tsd-kind-icon">FederalID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a>
+								<a href="office.html#feecipercent" class="tsd-kind-icon">FeeCIPercent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#getpercent" class="tsd-kind-icon">Get<wbr>Percent</a>
+								<a href="office.html#getpercent" class="tsd-kind-icon">Get<wbr>Percent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#gopercent" class="tsd-kind-icon">Go<wbr>Percent</a>
+								<a href="office.html#gopercent" class="tsd-kind-icon">Go<wbr>Percent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#headquarterindicator" class="tsd-kind-icon">Headquarter<wbr>Indicator</a>
+								<a href="office.html#headquarterindicator" class="tsd-kind-icon">Headquarter<wbr>Indicator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#insurancecarrier" class="tsd-kind-icon">Insurance<wbr>Carrier</a>
+								<a href="office.html#insurancecarrier" class="tsd-kind-icon">Insurance<wbr>Carrier</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#insurancecoverage" class="tsd-kind-icon">Insurance<wbr>Coverage</a>
+								<a href="office.html#insurancecoverage" class="tsd-kind-icon">Insurance<wbr>Coverage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#labordifferential" class="tsd-kind-icon">Labor<wbr>Differential</a>
+								<a href="office.html#labordifferential" class="tsd-kind-icon">Labor<wbr>Differential</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
+								<a href="office.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
+								<a href="office.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officeacronym" class="tsd-kind-icon">Office<wbr>Acronym</a>
+								<a href="office.html#officeacronym" class="tsd-kind-icon">Office<wbr>Acronym</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officeaddress1" class="tsd-kind-icon">Office<wbr>Address1</a>
+								<a href="office.html#officeaddress1" class="tsd-kind-icon">Office<wbr>Address1</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officeaddress2" class="tsd-kind-icon">Office<wbr>Address2</a>
+								<a href="office.html#officeaddress2" class="tsd-kind-icon">Office<wbr>Address2</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officecity" class="tsd-kind-icon">Office<wbr>City</a>
+								<a href="office.html#officecity" class="tsd-kind-icon">Office<wbr>City</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officecountryid" class="tsd-kind-icon">Office<wbr>CountryID</a>
+								<a href="office.html#officecountryid" class="tsd-kind-icon">Office<wbr>CountryID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officecounty" class="tsd-kind-icon">Office<wbr>County</a>
+								<a href="office.html#officecounty" class="tsd-kind-icon">Office<wbr>County</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officeemail" class="tsd-kind-icon">Office<wbr>Email</a>
+								<a href="office.html#officeemail" class="tsd-kind-icon">Office<wbr>Email</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officefax" class="tsd-kind-icon">Office<wbr>Fax</a>
+								<a href="office.html#officefax" class="tsd-kind-icon">Office<wbr>Fax</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officeid" class="tsd-kind-icon">OfficeID</a>
+								<a href="office.html#officeid" class="tsd-kind-icon">OfficeID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officename" class="tsd-kind-icon">Office<wbr>Name</a>
+								<a href="office.html#officename" class="tsd-kind-icon">Office<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officephone" class="tsd-kind-icon">Office<wbr>Phone</a>
+								<a href="office.html#officephone" class="tsd-kind-icon">Office<wbr>Phone</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officestateid" class="tsd-kind-icon">Office<wbr>StateID</a>
+								<a href="office.html#officestateid" class="tsd-kind-icon">Office<wbr>StateID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officeurl" class="tsd-kind-icon">OfficeURL</a>
+								<a href="office.html#officeurl" class="tsd-kind-icon">OfficeURL</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officezip" class="tsd-kind-icon">Office<wbr>Zip</a>
+								<a href="office.html#officezip" class="tsd-kind-icon">Office<wbr>Zip</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#ownershipid" class="tsd-kind-icon">OwnershipID</a>
+								<a href="office.html#ownershipid" class="tsd-kind-icon">OwnershipID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#previousfirmnames" class="tsd-kind-icon">Previous<wbr>Firm<wbr>Names</a>
+								<a href="office.html#previousfirmnames" class="tsd-kind-icon">Previous<wbr>Firm<wbr>Names</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#previousfirm_dunsid" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID</a>
+								<a href="office.html#previousfirm_dunsid" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>DunsID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#previousfirm_yearfounded" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</a>
+								<a href="office.html#previousfirm_yearfounded" class="tsd-kind-icon">Previous<wbr>Firm_<wbr><wbr>Year<wbr>Founded</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
+								<a href="office.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#selfperformhours" class="tsd-kind-icon">Self<wbr>Perform<wbr>Hours</a>
+								<a href="office.html#selfperformhours" class="tsd-kind-icon">Self<wbr>Perform<wbr>Hours</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#servicesprovided" class="tsd-kind-icon">Services<wbr>Provided</a>
+								<a href="office.html#servicesprovided" class="tsd-kind-icon">Services<wbr>Provided</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#totalstaffnum" class="tsd-kind-icon">Total<wbr>Staff<wbr>Num</a>
+								<a href="office.html#totalstaffnum" class="tsd-kind-icon">Total<wbr>Staff<wbr>Num</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#userid" class="tsd-kind-icon">UserID</a>
+								<a href="office.html#userid" class="tsd-kind-icon">UserID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#yearfounded" class="tsd-kind-icon">Year<wbr>Founded</a>
+								<a href="office.html#yearfounded" class="tsd-kind-icon">Year<wbr>Founded</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#officesalesgoal" class="tsd-kind-icon">office<wbr>Sales<wbr>Goal</a>
+								<a href="office.html#officesalesgoal" class="tsd-kind-icon">office<wbr>Sales<wbr>Goal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactoffice.html#old_officeid" class="tsd-kind-icon">old_<wbr>officeid</a>
+								<a href="office.html#old_officeid" class="tsd-kind-icon">old_<wbr>officeid</a>
 							</li>
 						</ul>
 					</li>

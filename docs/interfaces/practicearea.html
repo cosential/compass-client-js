@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContactPracticeArea | Cosential compass.js</title>
+	<title>PracticeArea | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contactpracticearea.html">ContactPracticeArea</a>
+					<a href="practicearea.html">PracticeArea</a>
 				</li>
 			</ul>
-			<h1>Interface ContactPracticeArea</h1>
+			<h1>Interface PracticeArea</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,8 @@
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all PracticeAreas</p>
-							<pre><code>client.get&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read all Contact PracticeAreas</p>
+							<pre><code>client.get&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of division elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -81,7 +81,7 @@
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read a Contact&#39;s PracticeAreas</p>
-							<pre><code>client.get&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+							<pre><code>client.get&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -91,7 +91,35 @@
 						<dt>example</dt>
 						<dd><p>Add PracticeAreas to a contact&#39;s PracticeAreas</p>
 							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/PracticeAreas', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+client.post&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/PracticeAreas', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read all Company PracticeAreas</p>
+							<pre><code>client.get&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of division elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a Company&#39;s PracticeAreas</p>
+							<pre><code>client.get&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/PracticeAreas'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add PracticeAreas to a Company&#39;s PracticeAreas</p>
+							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
+client.post&lt;PracticeArea[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/PracticeAreas', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PracticeAreaId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -105,7 +133,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContactPracticeArea</span>
+						<span class="target">PracticeArea</span>
 					</li>
 				</ul>
 			</section>
@@ -116,29 +144,29 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#available" class="tsd-kind-icon">Available</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaacronym" class="tsd-kind-icon">Practice<wbr>Area<wbr>Acronym</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaaddress1" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address1</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaaddress2" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address2</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareacity" class="tsd-kind-icon">Practice<wbr>Area<wbr>City</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareacountryid" class="tsd-kind-icon">Practice<wbr>Area<wbr>CountryID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaemail" class="tsd-kind-icon">Practice<wbr>Area<wbr>Email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareafax" class="tsd-kind-icon">Practice<wbr>Area<wbr>Fax</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaid" class="tsd-kind-icon">Practice<wbr>Area<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaname" class="tsd-kind-icon">Practice<wbr>Area<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaphone" class="tsd-kind-icon">Practice<wbr>Area<wbr>Phone</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareastateid" class="tsd-kind-icon">Practice<wbr>Area<wbr>StateID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareaurl" class="tsd-kind-icon">Practice<wbr>Area<wbr>Url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareazip" class="tsd-kind-icon">Practice<wbr>Area<wbr>Zip</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#userid" class="tsd-kind-icon">UserID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#old_practiceareaid" class="tsd-kind-icon">old_<wbr>practiceareaid</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactpracticearea.html#practiceareasalesgoal" class="tsd-kind-icon">practicearea<wbr>Sales<wbr>Goal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#available" class="tsd-kind-icon">Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaacronym" class="tsd-kind-icon">Practice<wbr>Area<wbr>Acronym</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaaddress1" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address1</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaaddress2" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address2</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareacity" class="tsd-kind-icon">Practice<wbr>Area<wbr>City</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareacountryid" class="tsd-kind-icon">Practice<wbr>Area<wbr>CountryID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaemail" class="tsd-kind-icon">Practice<wbr>Area<wbr>Email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareafax" class="tsd-kind-icon">Practice<wbr>Area<wbr>Fax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaid" class="tsd-kind-icon">Practice<wbr>Area<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaname" class="tsd-kind-icon">Practice<wbr>Area<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaphone" class="tsd-kind-icon">Practice<wbr>Area<wbr>Phone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareastateid" class="tsd-kind-icon">Practice<wbr>Area<wbr>StateID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareaurl" class="tsd-kind-icon">Practice<wbr>Area<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareazip" class="tsd-kind-icon">Practice<wbr>Area<wbr>Zip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#userid" class="tsd-kind-icon">UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#old_practiceareaid" class="tsd-kind-icon">old_<wbr>practiceareaid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="practicearea.html#practiceareasalesgoal" class="tsd-kind-icon">practicearea<wbr>Sales<wbr>Goal</a></li>
 							</ul>
 						</section>
 					</div>
@@ -152,7 +180,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:57</li>
+							<li>Defined in compass-models/practice-area.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +190,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:52</li>
+							<li>Defined in compass-models/practice-area.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +200,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:49</li>
+							<li>Defined in compass-models/practice-area.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +210,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:51</li>
+							<li>Defined in compass-models/practice-area.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +220,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:56</li>
+							<li>Defined in compass-models/practice-area.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -202,7 +230,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:50</li>
+							<li>Defined in compass-models/practice-area.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -212,7 +240,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:38</li>
+							<li>Defined in compass-models/practice-area.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -222,7 +250,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:39</li>
+							<li>Defined in compass-models/practice-area.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -232,7 +260,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:40</li>
+							<li>Defined in compass-models/practice-area.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -242,7 +270,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:41</li>
+							<li>Defined in compass-models/practice-area.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +280,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:44</li>
+							<li>Defined in compass-models/practice-area.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -262,7 +290,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:47</li>
+							<li>Defined in compass-models/practice-area.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -272,7 +300,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:46</li>
+							<li>Defined in compass-models/practice-area.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +310,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:36</li>
+							<li>Defined in compass-models/practice-area.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +320,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:37</li>
+							<li>Defined in compass-models/practice-area.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -302,7 +330,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:45</li>
+							<li>Defined in compass-models/practice-area.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -312,7 +340,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:42</li>
+							<li>Defined in compass-models/practice-area.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -322,7 +350,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:48</li>
+							<li>Defined in compass-models/practice-area.ts:79</li>
 						</ul>
 					</aside>
 				</section>
@@ -332,7 +360,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:43</li>
+							<li>Defined in compass-models/practice-area.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -342,7 +370,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:58</li>
+							<li>Defined in compass-models/practice-area.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -352,7 +380,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:53</li>
+							<li>Defined in compass-models/practice-area.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -362,7 +390,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>practiceareaid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:54</li>
+							<li>Defined in compass-models/practice-area.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -372,7 +400,7 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 					<div class="tsd-signature tsd-kind-icon">practicearea<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-practice-area.ts:55</li>
+							<li>Defined in compass-models/practice-area.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -391,76 +419,76 @@ client.post&lt;ContactPracticeArea[]&gt;<span class="hljs-function">(<span class
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="contactpracticearea.html" class="tsd-kind-icon">Contact<wbr>Practice<wbr>Area</a>
+						<a href="practicearea.html" class="tsd-kind-icon">Practice<wbr>Area</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
+								<a href="practicearea.html#assessmentpercentage" class="tsd-kind-icon">Assessment<wbr>Percentage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#available" class="tsd-kind-icon">Available</a>
+								<a href="practicearea.html#available" class="tsd-kind-icon">Available</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
+								<a href="practicearea.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
+								<a href="practicearea.html#deleterecord" class="tsd-kind-icon">Delete<wbr>Record</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
+								<a href="practicearea.html#marginpercentage" class="tsd-kind-icon">Margin<wbr>Percentage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
+								<a href="practicearea.html#modifydate" class="tsd-kind-icon">Modify<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaacronym" class="tsd-kind-icon">Practice<wbr>Area<wbr>Acronym</a>
+								<a href="practicearea.html#practiceareaacronym" class="tsd-kind-icon">Practice<wbr>Area<wbr>Acronym</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaaddress1" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address1</a>
+								<a href="practicearea.html#practiceareaaddress1" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address1</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaaddress2" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address2</a>
+								<a href="practicearea.html#practiceareaaddress2" class="tsd-kind-icon">Practice<wbr>Area<wbr>Address2</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareacity" class="tsd-kind-icon">Practice<wbr>Area<wbr>City</a>
+								<a href="practicearea.html#practiceareacity" class="tsd-kind-icon">Practice<wbr>Area<wbr>City</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareacountryid" class="tsd-kind-icon">Practice<wbr>Area<wbr>CountryID</a>
+								<a href="practicearea.html#practiceareacountryid" class="tsd-kind-icon">Practice<wbr>Area<wbr>CountryID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaemail" class="tsd-kind-icon">Practice<wbr>Area<wbr>Email</a>
+								<a href="practicearea.html#practiceareaemail" class="tsd-kind-icon">Practice<wbr>Area<wbr>Email</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareafax" class="tsd-kind-icon">Practice<wbr>Area<wbr>Fax</a>
+								<a href="practicearea.html#practiceareafax" class="tsd-kind-icon">Practice<wbr>Area<wbr>Fax</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaid" class="tsd-kind-icon">Practice<wbr>Area<wbr>Id</a>
+								<a href="practicearea.html#practiceareaid" class="tsd-kind-icon">Practice<wbr>Area<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaname" class="tsd-kind-icon">Practice<wbr>Area<wbr>Name</a>
+								<a href="practicearea.html#practiceareaname" class="tsd-kind-icon">Practice<wbr>Area<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaphone" class="tsd-kind-icon">Practice<wbr>Area<wbr>Phone</a>
+								<a href="practicearea.html#practiceareaphone" class="tsd-kind-icon">Practice<wbr>Area<wbr>Phone</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareastateid" class="tsd-kind-icon">Practice<wbr>Area<wbr>StateID</a>
+								<a href="practicearea.html#practiceareastateid" class="tsd-kind-icon">Practice<wbr>Area<wbr>StateID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareaurl" class="tsd-kind-icon">Practice<wbr>Area<wbr>Url</a>
+								<a href="practicearea.html#practiceareaurl" class="tsd-kind-icon">Practice<wbr>Area<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareazip" class="tsd-kind-icon">Practice<wbr>Area<wbr>Zip</a>
+								<a href="practicearea.html#practiceareazip" class="tsd-kind-icon">Practice<wbr>Area<wbr>Zip</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
+								<a href="practicearea.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#userid" class="tsd-kind-icon">UserID</a>
+								<a href="practicearea.html#userid" class="tsd-kind-icon">UserID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#old_practiceareaid" class="tsd-kind-icon">old_<wbr>practiceareaid</a>
+								<a href="practicearea.html#old_practiceareaid" class="tsd-kind-icon">old_<wbr>practiceareaid</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contactpracticearea.html#practiceareasalesgoal" class="tsd-kind-icon">practicearea<wbr>Sales<wbr>Goal</a>
+								<a href="practicearea.html#practiceareasalesgoal" class="tsd-kind-icon">practicearea<wbr>Sales<wbr>Goal</a>
 							</li>
 						</ul>
 					</li>
