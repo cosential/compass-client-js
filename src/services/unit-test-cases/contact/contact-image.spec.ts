@@ -1,12 +1,12 @@
 import 'jasmine';
-import { ResponseData } from '../..';
-import { Contact } from '../../compass-models/contact/contact';
-import { ContactImageMetadata } from '../../compass-models/images/contact-image-metadata';
-import { Image } from '../../compass-models/images/image';
-import { ClientConfig } from '../../service-models/client-config';
-import { ContactClient } from '../contact-client';
-import { TestClientConfig as c } from '../test-client-config';
-import { testImage } from '../test-data';
+import { ResponseData } from '../../..';
+import { Contact } from '../../../compass-models/contact/contact';
+import { ContactImageMetadata } from '../../../compass-models/images/contact-image-metadata';
+import { Image } from '../../../compass-models/images/image';
+import { ClientConfig } from '../../../service-models/client-config';
+import { ContactClient } from '../../contact-client';
+import { TestClientConfig as c } from '../../test-client-config';
+import { testImage } from '../../test-data';
 
 describe("ContactImageClient", () => {
 

@@ -1,18 +1,18 @@
 /**
- * Represents the Company SDBT.
- * @example Read all Company SDBTs
+ * Represents the Lead Type.
+ * @example Read all Leads Types
  * ```
- * client.get<CompanySDBT[]>('/companies/sdbt').then( (res) => {
- *      if (res.success) { //returns an array of contact SDBT elements
+ * client.get<LeadType[]>('/leads/leadtypes').then( (res) => {
+ *      if (res.success) { //returns an array of lead Type elements
  *          res.result.forEach( (index) => { console.log(index.Id); } );
  *      } else { //something went wrong
  *          console.log(res.message);
  *      }
  * });
  * ```
- * @example Read a Company's SDBTs
+ * @example Read a Lead's lead Types
  * ```
- * client.get<CompanySDBT[]>('/companies/5555999/sdbt').then( (res) => {
+ * client.get<LeadType[]>('/leads/5555999/leadtypes').then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.Id); } );
  *      } else { //something went wrong
@@ -20,10 +20,10 @@
  *      }
  * });
  * ```
- * @example Add SDBTs to a Company
+ * @example Add Types to a lead
  * ```
- * // payload is an array of CompanySDBT elements to be added
- * client.post<CompanySDBT[]>('/companies/5555999/sdbt', payload).then( (res) => {
+ * // payload is an array of LeadType elements to be added
+ * client.post<LeadType[]>('/leads/5555999/leadtypes', payload).then( (res) => {
  *      if (res.success) {
  *          res.result.forEach( (index) => { console.log(index.Id); } );
  *      } else { //something went wrong
@@ -32,7 +32,8 @@
  * });
  * ```
  */
-export interface CompanySDBT {
+export interface LeadType {
   Id: number;
   Name: string;
+  IsDeleted: boolean;
 }

@@ -1,13 +1,13 @@
 import 'jasmine';
-import { ContactRelationship } from '../../compass-models/contact/contact-relationship';
-import { Personnel } from '../../compass-models/personnel';
-import { ResponseData } from '../../interfaces/response-data';
-import { ClientConfig } from '../../service-models/client-config';
-import { Client } from '../client';
-import { TestClientConfig as c } from '../test-client-config';
-import { Contact } from './../../../lib/compass-models/contact/contact.d';
-import { ContactRelationshipOption } from './../../compass-models/contact/contact-relationship-option';
-import { ContactRelationshipStrength } from './../../compass-models/contact/contact-relationship-strength';
+import { ContactRelationship } from '../../../compass-models/contact/contact-relationship';
+import { Personnel } from '../../../compass-models/personnel';
+import { ResponseData } from '../../../interfaces/response-data';
+import { ClientConfig } from '../../../service-models/client-config';
+import { Client } from '../../client';
+import { TestClientConfig as c } from '../../test-client-config';
+import { Contact } from '../../../../lib/compass-models/contact/contact';
+import { ContactRelationshipOption } from '../../../compass-models/contact/contact-relationship-option';
+import { ContactRelationshipStrength } from '../../../compass-models/contact/contact-relationship-strength';
 
 describe("ContactRelationshipClient", () => {
 

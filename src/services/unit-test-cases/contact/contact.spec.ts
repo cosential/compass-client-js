@@ -1,11 +1,11 @@
 import 'jasmine';
-import { ResponseData } from '../..';
-import { Contact } from "../../compass-models/contact/contact";
-import { ClientConfig } from '../../service-models/client-config';
-import { Client } from '../client';
-import { TestClientConfig as c } from '../test-client-config';
-import { ContactInfluenceLevel } from './../../compass-models/contact/contact-influencelevel';
-import { ContactMailingList } from './../../compass-models/contact/contact-mailinglist';
+import { ResponseData } from '../../..';
+import { Contact } from "../../../compass-models/contact/contact";
+import { ClientConfig } from '../../../service-models/client-config';
+import { Client } from '../../client';
+import { TestClientConfig as c } from '../../test-client-config';
+import { ContactInfluenceLevel } from '../../../compass-models/contact/contact-influencelevel';
+import { ContactMailingList } from '../../../compass-models/contact/contact-mailinglist';
 
 describe("ContactClient", () => {
 

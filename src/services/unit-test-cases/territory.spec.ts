@@ -1,3 +1,4 @@
+import { Lead } from './../../compass-models/lead/lead';
 import 'jasmine';
 import { Contact } from '../../compass-models/contact/contact';
 import { Territory } from '../../compass-models/territory';
@@ -16,6 +17,8 @@ describe("TerritoryClient", () => {
   let aValidContactId: number;
   let aValidCompanyTerritoryId: number;
   let aValidCompanyId: number;
+  let aValidLeadTerritoryId: number;
+  let aValidLeadId: number;
 
   beforeEach(async () => {
     client.config.firmId = c.firmId;
@@ -24,14 +27,18 @@ describe("TerritoryClient", () => {
     client.config.apiKey = c.apiKey;
     client.config.compassUrl = c.compassUrl;
 
-    let contactTypeRes: ResponseData < Territory[] > = await client.get < Territory[] > ('/contacts/Territories');
-    if (contactTypeRes.success) aValidContactTerritoryId = contactTypeRes.result[0].TerritoryID;
+    let contactTerritoryRes: ResponseData < Territory[] > = await client.get < Territory[] > ('/contacts/Territories');
+    if (contactTerritoryRes.success) aValidContactTerritoryId = contactTerritoryRes.result[0].TerritoryID;
     let contactRes: ResponseData < Contact[] > = await client.get < Contact[] > ('/contacts');
     if (contactRes.success) aValidContactId = contactRes.result[0].ContactId;
-    let companyTypeRes: ResponseData < Territory[] > = await client.get < Territory[] > ('/companies/Territories');
-    if (companyTypeRes.success) aValidCompanyTerritoryId = companyTypeRes.result[0].TerritoryID;
+    let companyTerritoryRes: ResponseData < Territory[] > = await client.get < Territory[] > ('/companies/Territories');
+    if (companyTerritoryRes.success) aValidCompanyTerritoryId = companyTerritoryRes.result[0].TerritoryID;
     let companyRes: ResponseData < Company[] > = await client.get < Company[] > ('/companies');
     if (companyRes.success) aValidCompanyId = companyRes.result[0].CompanyId;
+    let leadTerritoryRes: ResponseData < Territory[] > = await client.get < Territory[] > ('/leads/territories');
+    if (leadTerritoryRes.success) aValidLeadTerritoryId = leadTerritoryRes.result[0].TerritoryID;
+    let leadRes: ResponseData < Lead[] > = await client.get < Lead[] > ('/leads');
+    if (leadRes.success) aValidLeadId = leadRes.result[0].LeadId;
   });
 
   it('Can read contact Territories', async () => {
@@ -63,6 +70,22 @@ describe("TerritoryClient", () => {
   it('Can add a Territory to a company', async () => {
     const payload = [{ TerritoryID: aValidCompanyTerritoryId }];
     let res: ResponseData < Territory[] > = await client.post < Territory[] > ('/companies/' + aValidCompanyId + '/Territories', < Territory[] > payload);
+    expect(res.success).toBeTruthy(res.message);
+  });
+  
+  it('Can read lead Territories', async () => {
+    let res: ResponseData < Territory[] > = await client.get < Territory[] > ('/leads/Territories');
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it('Can read a leads Territories', async () => {
+    let res: ResponseData < Territory[] > = await client.get < Territory[] > ('/leads/' + aValidLeadId + '/Territories');
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it('Can add a Territory to a lead', async () => {
+    const payload = [{ TerritoryID: aValidLeadTerritoryId }];
+    let res: ResponseData < Territory[] > = await client.post < Territory[] > ('/leads/' + aValidLeadId + '/Territories', < Territory[] > payload);
     expect(res.success).toBeTruthy(res.message);
   });
 });
