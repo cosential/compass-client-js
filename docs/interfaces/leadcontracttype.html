@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CompanySDBT | Cosential compass.js</title>
+	<title>LeadContractType | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="companysdbt.html">CompanySDBT</a>
+					<a href="leadcontracttype.html">LeadContractType</a>
 				</li>
 			</ul>
-			<h1>Interface CompanySDBT</h1>
+			<h1>Interface LeadContractType</h1>
 		</div>
 	</div>
 </header>
@@ -67,21 +67,21 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the Company SDBT.</p>
+						<p>Represents the Lead ContractType.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Company SDBTs</p>
-							<pre><code>client.get&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/sdbt'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact SDBT elements</span>
+						<dd><p>Read all Leads ContractTypes</p>
+							<pre><code>client.get&lt;LeadContractType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/contracttypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead ContractType elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Company&#39;s SDBTs</p>
-							<pre><code>client.get&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/sdbt'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read a Lead&#39;s lead ContractTypes</p>
+							<pre><code>client.get&lt;LeadContractType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/contracttypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -89,9 +89,9 @@
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add SDBTs to a Company</p>
-							<pre><code><span class="hljs-comment">// payload is an array of CompanySDBT elements to be added</span>
-client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/sdbt', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Add ContractTypes to a lead</p>
+							<pre><code><span class="hljs-comment">// payload is an array of LeadContractType elements to be added</span>
+client.post&lt;LeadContractType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/contracttypes', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -105,7 +105,7 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CompanySDBT</span>
+						<span class="target">LeadContractType</span>
 					</li>
 				</ul>
 			</section>
@@ -116,8 +116,15 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companysdbt.html#id" class="tsd-kind-icon">Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companysdbt.html#name" class="tsd-kind-icon">Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#contracttypeorder" class="tsd-kind-icon">Contract<wbr>Type<wbr>Order</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#description" class="tsd-kind-icon">Description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#id" class="tsd-kind-icon">Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#isavailable" class="tsd-kind-icon">Is<wbr>Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#name" class="tsd-kind-icon">Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#old_id" class="tsd-kind-icon">Old_<wbr>ID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadcontracttype.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,12 +133,62 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="contracttypeorder" class="tsd-anchor"></a>
+					<h3>Contract<wbr>Type<wbr>Order</h3>
+					<div class="tsd-signature tsd-kind-icon">Contract<wbr>Type<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:40</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="createdate" class="tsd-anchor"></a>
+					<h3>Create<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:42</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="description" class="tsd-anchor"></a>
+					<h3>Description</h3>
+					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:38</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="id" class="tsd-anchor"></a>
 					<h3>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sdbt.ts:36</li>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:36</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isavailable" class="tsd-anchor"></a>
+					<h3>Is<wbr>Available</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:39</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isdeleted" class="tsd-anchor"></a>
+					<h3>Is<wbr>Deleted</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:41</li>
 						</ul>
 					</aside>
 				</section>
@@ -141,7 +198,27 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sdbt.ts:37</li>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:37</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="old_id" class="tsd-anchor"></a>
+					<h3>Old_<wbr>ID</h3>
+					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:43</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="row_version" class="tsd-anchor"></a>
+					<h3>ROW_<wbr>VERSION</h3>
+					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-contract-type.ts:44</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,13 +237,34 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="companysdbt.html" class="tsd-kind-icon">CompanySDBT</a>
+						<a href="leadcontracttype.html" class="tsd-kind-icon">Lead<wbr>Contract<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="companysdbt.html#id" class="tsd-kind-icon">Id</a>
+								<a href="leadcontracttype.html#contracttypeorder" class="tsd-kind-icon">Contract<wbr>Type<wbr>Order</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="companysdbt.html#name" class="tsd-kind-icon">Name</a>
+								<a href="leadcontracttype.html#createdate" class="tsd-kind-icon">Create<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#description" class="tsd-kind-icon">Description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#id" class="tsd-kind-icon">Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#isavailable" class="tsd-kind-icon">Is<wbr>Available</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#name" class="tsd-kind-icon">Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#old_id" class="tsd-kind-icon">Old_<wbr>ID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadcontracttype.html#row_version" class="tsd-kind-icon">ROW_<wbr>VERSION</a>
 							</li>
 						</ul>
 					</li>

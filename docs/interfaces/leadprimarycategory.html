@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CompanySDBT | Cosential compass.js</title>
+	<title>LeadPrimaryCategory | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="companysdbt.html">CompanySDBT</a>
+					<a href="leadprimarycategory.html">LeadPrimaryCategory</a>
 				</li>
 			</ul>
-			<h1>Interface CompanySDBT</h1>
+			<h1>Interface LeadPrimaryCategory</h1>
 		</div>
 	</div>
 </header>
@@ -67,21 +67,21 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the Company SDBT.</p>
+						<p>Represents the Lead PrimaryCategory.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Company SDBTs</p>
-							<pre><code>client.get&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/sdbt'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact SDBT elements</span>
+						<dd><p>Read all Leads PrimaryCategories</p>
+							<pre><code>client.get&lt;LeadPrimaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/primarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead PrimaryCategory elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Company&#39;s SDBTs</p>
-							<pre><code>client.get&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/sdbt'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read a Lead&#39;s PrimaryCategories</p>
+							<pre><code>client.get&lt;LeadPrimaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/primarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -89,9 +89,9 @@
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add SDBTs to a Company</p>
-							<pre><code><span class="hljs-comment">// payload is an array of CompanySDBT elements to be added</span>
-client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/sdbt', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Add PrimaryCategories to a lead</p>
+							<pre><code><span class="hljs-comment">// payload is an array of LeadPrimaryCategory elements to be added</span>
+client.post&lt;LeadPrimaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/primarycategories', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -105,7 +105,7 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CompanySDBT</span>
+						<span class="target">LeadPrimaryCategory</span>
 					</li>
 				</ul>
 			</section>
@@ -116,8 +116,15 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companysdbt.html#id" class="tsd-kind-icon">Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companysdbt.html#name" class="tsd-kind-icon">Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#categoryname" class="tsd-kind-icon">Category<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#externalcategoryid" class="tsd-kind-icon">External<wbr>Category<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#isavailable" class="tsd-kind-icon">Is<wbr>Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#isdefault" class="tsd-kind-icon">Is<wbr>Default</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#isindustrystandard" class="tsd-kind-icon">Is<wbr>Industry<wbr>Standard</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#lastmodifydate" class="tsd-kind-icon">Last<wbr>Modify<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#primarycategoryid" class="tsd-kind-icon">Primary<wbr>Category<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadprimarycategory.html#projecttypecode" class="tsd-kind-icon">Project<wbr>Type<wbr>Code</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,22 +133,92 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="categoryname" class="tsd-anchor"></a>
+					<h3>Category<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sdbt.ts:36</li>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:37</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="externalcategoryid" class="tsd-anchor"></a>
+					<h3>External<wbr>Category<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">External<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sdbt.ts:37</li>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:43</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isavailable" class="tsd-anchor"></a>
+					<h3>Is<wbr>Available</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:39</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isdefault" class="tsd-anchor"></a>
+					<h3>Is<wbr>Default</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:42</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isdeleted" class="tsd-anchor"></a>
+					<h3>Is<wbr>Deleted</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:40</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isindustrystandard" class="tsd-anchor"></a>
+					<h3>Is<wbr>Industry<wbr>Standard</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Industry<wbr>Standard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:38</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="lastmodifydate" class="tsd-anchor"></a>
+					<h3>Last<wbr>Modify<wbr>Date</h3>
+					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:41</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="primarycategoryid" class="tsd-anchor"></a>
+					<h3>Primary<wbr>Category<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Primary<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:36</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projecttypecode" class="tsd-anchor"></a>
+					<h3>Project<wbr>Type<wbr>Code</h3>
+					<div class="tsd-signature tsd-kind-icon">Project<wbr>Type<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-primary-category.ts:44</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,13 +237,34 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="companysdbt.html" class="tsd-kind-icon">CompanySDBT</a>
+						<a href="leadprimarycategory.html" class="tsd-kind-icon">Lead<wbr>Primary<wbr>Category</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="companysdbt.html#id" class="tsd-kind-icon">Id</a>
+								<a href="leadprimarycategory.html#categoryname" class="tsd-kind-icon">Category<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="companysdbt.html#name" class="tsd-kind-icon">Name</a>
+								<a href="leadprimarycategory.html#externalcategoryid" class="tsd-kind-icon">External<wbr>Category<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#isavailable" class="tsd-kind-icon">Is<wbr>Available</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#isdefault" class="tsd-kind-icon">Is<wbr>Default</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#isindustrystandard" class="tsd-kind-icon">Is<wbr>Industry<wbr>Standard</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#lastmodifydate" class="tsd-kind-icon">Last<wbr>Modify<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#primarycategoryid" class="tsd-kind-icon">Primary<wbr>Category<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadprimarycategory.html#projecttypecode" class="tsd-kind-icon">Project<wbr>Type<wbr>Code</a>
 							</li>
 						</ul>
 					</li>

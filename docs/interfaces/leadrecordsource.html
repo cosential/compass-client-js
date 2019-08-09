@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CompanySDBT | Cosential compass.js</title>
+	<title>LeadRecordSource | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="companysdbt.html">CompanySDBT</a>
+					<a href="leadrecordsource.html">LeadRecordSource</a>
 				</li>
 			</ul>
-			<h1>Interface CompanySDBT</h1>
+			<h1>Interface LeadRecordSource</h1>
 		</div>
 	</div>
 </header>
@@ -67,21 +67,21 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the Company SDBT.</p>
+						<p>Represents the Lead Record Source.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Company SDBTs</p>
-							<pre><code>client.get&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/sdbt'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact SDBT elements</span>
+						<dd><p>Read all Leads Record Sources</p>
+							<pre><code>client.get&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/recordsource'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead Record Source elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Company&#39;s SDBTs</p>
-							<pre><code>client.get&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/sdbt'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Read a Lead&#39;s lead Record Sources</p>
+							<pre><code>client.get&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/recordsource'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -89,9 +89,9 @@
      }
 }</span>);</span></code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add SDBTs to a Company</p>
-							<pre><code><span class="hljs-comment">// payload is an array of CompanySDBT elements to be added</span>
-client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/sdbt', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+						<dd><p>Add Record Sources to a lead</p>
+							<pre><code><span class="hljs-comment">// payload is an array of LeadRecordSource elements to be added</span>
+client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/recordsource', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
@@ -105,7 +105,7 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CompanySDBT</span>
+						<span class="target">LeadRecordSource</span>
 					</li>
 				</ul>
 			</section>
@@ -116,8 +116,11 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companysdbt.html#id" class="tsd-kind-icon">Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="companysdbt.html#name" class="tsd-kind-icon">Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadrecordsource.html#id" class="tsd-kind-icon">Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadrecordsource.html#isavailable" class="tsd-kind-icon">Is<wbr>Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadrecordsource.html#isdefault" class="tsd-kind-icon">Is<wbr>Default</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadrecordsource.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadrecordsource.html#name" class="tsd-kind-icon">Name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -131,7 +134,37 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sdbt.ts:36</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:36</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isavailable" class="tsd-anchor"></a>
+					<h3>Is<wbr>Available</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-record-source.ts:39</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isdefault" class="tsd-anchor"></a>
+					<h3>Is<wbr>Default</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-record-source.ts:40</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="isdeleted" class="tsd-anchor"></a>
+					<h3>Is<wbr>Deleted</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in compass-models/lead/lead-record-source.ts:38</li>
 						</ul>
 					</aside>
 				</section>
@@ -141,7 +174,7 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sdbt.ts:37</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:37</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,13 +193,22 @@ client.post&lt;CompanySDBT[]&gt;<span class="hljs-function">(<span class="hljs-p
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="companysdbt.html" class="tsd-kind-icon">CompanySDBT</a>
+						<a href="leadrecordsource.html" class="tsd-kind-icon">Lead<wbr>Record<wbr>Source</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="companysdbt.html#id" class="tsd-kind-icon">Id</a>
+								<a href="leadrecordsource.html#id" class="tsd-kind-icon">Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="companysdbt.html#name" class="tsd-kind-icon">Name</a>
+								<a href="leadrecordsource.html#isavailable" class="tsd-kind-icon">Is<wbr>Available</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadrecordsource.html#isdefault" class="tsd-kind-icon">Is<wbr>Default</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadrecordsource.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="leadrecordsource.html#name" class="tsd-kind-icon">Name</a>
 							</li>
 						</ul>
 					</li>
