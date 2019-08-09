@@ -1,10 +1,10 @@
 import 'jasmine';
-import { ResponseData } from '../..';
-import { ClientConfig } from '../../service-models/client-config';
-import { ContactClient } from '../contact-client';
-import { TestClientConfig as c } from '../test-client-config';
-import { ContactAddress } from './../../../lib-esm/compass-models/contact/contact-address.d';
-import { Contact } from './../../../lib-esm/compass-models/contact/contact.d';
+import { ResponseData } from '../../..';
+import { ClientConfig } from '../../../service-models/client-config';
+import { ContactClient } from '../../contact-client';
+import { TestClientConfig as c } from '../../test-client-config';
+import { ContactAddress } from './../../../compass-models/contact/contact-address';
+import { Contact } from './../../../compass-models/contact/contact';
 
 describe("ContactAddressClient", () => {
 

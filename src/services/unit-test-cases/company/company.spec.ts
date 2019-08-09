@@ -1,9 +1,9 @@
 import 'jasmine';
-import { ResponseData } from '../..';
-import { ClientConfig } from '../../service-models/client-config';
-import { Client } from '../client';
-import { TestClientConfig as c } from '../test-client-config';
-import { Company } from './../../../lib-esm/compass-models/company/company.d';
+import { ResponseData } from '../../..';
+import { ClientConfig } from '../../../service-models/client-config';
+import { Client } from '../../client';
+import { TestClientConfig as c } from '../../test-client-config';
+import { Company } from './../../../compass-models/company/company';
 
 describe("CompanyClient", () => {
 

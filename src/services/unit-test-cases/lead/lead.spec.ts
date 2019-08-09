@@ -1,9 +1,9 @@
+import { Lead } from './../../../compass-models/lead/lead';
 import 'jasmine';
-import { ResponseData } from '../..';
-import { Lead } from '../../compass-models/lead';
-import { ClientConfig } from '../../service-models/client-config';
-import { Client } from '../client';
-import { TestClientConfig as c } from '../test-client-config';
+import { ResponseData } from '../../..';
+import { ClientConfig } from '../../../service-models/client-config';
+import { Client } from '../../client';
+import { TestClientConfig as c } from '../../test-client-config';
 
 describe("LeadClient", () => {
 

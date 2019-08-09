@@ -37,7 +37,7 @@ export interface CompanyType {
   CompanyTypeName: string;
   Description: string;
   AssociationID: number,
-    AvailableType: number;
+  AvailableType: number;
   CompanyTypeOrder: number;
   DeleteRecord: boolean;
   CreateDate: Date;

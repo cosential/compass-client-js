@@ -6,6 +6,7 @@ import { ClientConfig } from '../../service-models/client-config';
 import { Client } from '../client';
 import { TestClientConfig as c } from '../test-client-config';
 import { Company } from './../../../lib-esm/compass-models/company/company.d';
+import { Lead } from './../../compass-models/lead/lead';
 
 describe("StudioClient", () => {
 
@@ -14,6 +15,8 @@ describe("StudioClient", () => {
   let aValidContactId: number;
   let aValidCompanyStudioId: number;
   let aValidCompanyId: number;
+  let aValidLeadStudioId: number;
+  let aValidLeadId: number;
 
   beforeEach(async () => {
     client.config.firmId = c.firmId;
@@ -26,10 +29,14 @@ describe("StudioClient", () => {
     if (res.success) aValidContactStudioId = res.result[0].StudioId;
     let contactRes: ResponseData < Contact[] > = await client.get < Contact[] > ('/contacts');
     if (contactRes.success) aValidContactId = contactRes.result[0].ContactId;
-    let companyTypeRes: ResponseData < Studio[] > = await client.get < Studio[] > ('/companies/offices');
-    if (companyTypeRes.success) aValidCompanyStudioId = companyTypeRes.result[0].StudioId;
+    let companyStudioRes: ResponseData < Studio[] > = await client.get < Studio[] > ('/companies/offices');
+    if (companyStudioRes.success) aValidCompanyStudioId = companyStudioRes.result[0].StudioId;
     let companyRes: ResponseData < Company[] > = await client.get < Company[] > ('/companies');
     if (companyRes.success) aValidCompanyId = companyRes.result[0].CompanyId;
+    let leadStudioRes: ResponseData < Studio[] > = await client.get < Studio[] > ('/leads/studios');
+    if (leadStudioRes.success) aValidLeadStudioId = leadStudioRes.result[0].StudioId;
+    let leadRes: ResponseData < Lead[] > = await client.get < Lead[] > ('/leads');
+    if (leadRes.success) aValidLeadId = leadRes.result[0].LeadId;
   });
 
   it('Can read contact studios', async () => {
@@ -63,4 +70,21 @@ describe("StudioClient", () => {
     let res: ResponseData < Studio[] > = await client.post < Studio[] > ('/companies/' + aValidCompanyId + '/studios', < Studio[] > payload);
     expect(res.success).toBeTruthy(res.message);
   });
+
+  it('Can read lead studios', async () => {
+    let res: ResponseData < Studio[] > = await client.get < Studio[] > ('/leads/studios');
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it('Can read a leads studios', async () => {
+    let res: ResponseData < Studio[] > = await client.get < Studio[] > ('/leads/' + aValidLeadId + '/studios');
+    expect(res.success).toBeTruthy(res.message);
+  });
+
+  it('Can add a studio to a lead', async () => {
+    const payload = [{ StudioId: aValidLeadStudioId }];
+    let res: ResponseData < Studio[] > = await client.post < Studio[] > ('/leads/' + aValidLeadId + '/studios', < Studio[] > payload);
+    expect(res.success).toBeTruthy(res.message);
+  });
+
 });

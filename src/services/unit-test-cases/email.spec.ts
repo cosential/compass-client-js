@@ -1,6 +1,6 @@
 import "jasmine";
 import { ResponseData } from "../..";
-import { Lead } from "../../compass-models/lead";
+import { Lead } from "../../compass-models/lead/lead";
 import { Opportunity } from "../../compass-models/opportunity";
 import { Personnel } from "../../compass-models/personnel";
 import { Project } from "../../compass-models/project";

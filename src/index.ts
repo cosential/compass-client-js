@@ -30,7 +30,7 @@ export { ContactImageMetadata } from './compass-models/images/contact-image-meta
 export { Image } from './compass-models/images/image';
 export { PersonnelImageMetadata } from './compass-models/images/personnel-image-metadata';
 export { ProjectImageMetadata } from './compass-models/images/project-image-metadata';
-export { Lead } from './compass-models/lead';
+export { Lead } from './compass-models/lead/lead';
 export { Office } from './compass-models/office';
 export { Opportunity } from './compass-models/opportunity';
 export { Personnel } from './compass-models/personnel';
