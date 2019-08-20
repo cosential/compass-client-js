@@ -34,7 +34,7 @@
  */
 export interface LeadScore {
   Id: number;
-  Name: string;
+  Score: number;
   Description: string;
   IsDeleted: boolean;
 }
