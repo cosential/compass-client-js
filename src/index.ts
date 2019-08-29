@@ -3,6 +3,7 @@ export { CallLog } from './compass-models/call-log';
 export { Company } from './compass-models/company/company';
 export { CompanyAddress } from './compass-models/company/company-address';
 export { CompanyLSO } from './compass-models/company/company-lso';
+export { CompanyNAICS } from './compass-models/company/company-naics';
 export { CompanySDBT } from './compass-models/company/company-sdbt';
 export { CompanySIC } from './compass-models/company/company-sic';
 export { CompanyType } from './compass-models/company/company-type';
