@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LeadServiceType | Cosential compass.js</title>
+	<title>OpportunityStageType | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="leadservicetype.html">LeadServiceType</a>
+					<a href="opportunitystagetype.html">OpportunityStageType</a>
 				</li>
 			</ul>
-			<h1>Interface LeadServiceType</h1>
+			<h1>Interface OpportunityStageType</h1>
 		</div>
 	</div>
 </header>
@@ -67,33 +67,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the Lead ServiceType.</p>
+						<p>Represents the Opportunity Stage Type.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Leads ServiceTypes</p>
-							<pre><code>client.get&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/servicetypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead ServiceType elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Lead&#39;s lead ServiceTypes</p>
-							<pre><code>client.get&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/servicetypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add ServiceTypes to a lead</p>
-							<pre><code><span class="hljs-comment">// payload is an array of LeadServiceType elements to be added</span>
-client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/servicetypes', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
+						<dd><p>Read all Opportunity Stage Types</p>
+							<pre><code>client.get&lt;OpportunityStageType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/stage/stagetype'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity stage type elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StageTypeID</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
@@ -105,7 +86,7 @@ client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hl
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">LeadServiceType</span>
+						<span class="target">OpportunityStageType</span>
 					</li>
 				</ul>
 			</section>
@@ -116,11 +97,8 @@ client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hl
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadservicetype.html#isdefault" class="tsd-kind-icon">Is<wbr>Default</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadservicetype.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadservicetype.html#isviewable" class="tsd-kind-icon">Is<wbr>Viewable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadservicetype.html#servicetypeid" class="tsd-kind-icon">Service<wbr>Type<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="leadservicetype.html#servicetypename" class="tsd-kind-icon">Service<wbr>Type<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunitystagetype.html#stagetypeid" class="tsd-kind-icon">Stage<wbr>TypeID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunitystagetype.html#stagetypename" class="tsd-kind-icon">Stage<wbr>Type<wbr>Name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -129,52 +107,22 @@ client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hl
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isdefault" class="tsd-anchor"></a>
-					<h3>Is<wbr>Default</h3>
-					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="stagetypeid" class="tsd-anchor"></a>
+					<h3>Stage<wbr>TypeID</h3>
+					<div class="tsd-signature tsd-kind-icon">Stage<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-service-type.ts:39</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage-type.ts:15</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isdeleted" class="tsd-anchor"></a>
-					<h3>Is<wbr>Deleted</h3>
-					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="stagetypename" class="tsd-anchor"></a>
+					<h3>Stage<wbr>Type<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-service-type.ts:38</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isviewable" class="tsd-anchor"></a>
-					<h3>Is<wbr>Viewable</h3>
-					<div class="tsd-signature tsd-kind-icon">Is<wbr>Viewable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in compass-models/lead/lead-service-type.ts:40</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="servicetypeid" class="tsd-anchor"></a>
-					<h3>Service<wbr>Type<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Service<wbr>Type<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in compass-models/lead/lead-service-type.ts:36</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="servicetypename" class="tsd-anchor"></a>
-					<h3>Service<wbr>Type<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Service<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in compass-models/lead/lead-service-type.ts:37</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage-type.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -193,22 +141,13 @@ client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hl
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="leadservicetype.html" class="tsd-kind-icon">Lead<wbr>Service<wbr>Type</a>
+						<a href="opportunitystagetype.html" class="tsd-kind-icon">Opportunity<wbr>Stage<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="leadservicetype.html#isdefault" class="tsd-kind-icon">Is<wbr>Default</a>
+								<a href="opportunitystagetype.html#stagetypeid" class="tsd-kind-icon">Stage<wbr>TypeID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="leadservicetype.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="leadservicetype.html#isviewable" class="tsd-kind-icon">Is<wbr>Viewable</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="leadservicetype.html#servicetypeid" class="tsd-kind-icon">Service<wbr>Type<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="leadservicetype.html#servicetypename" class="tsd-kind-icon">Service<wbr>Type<wbr>Name</a>
+								<a href="opportunitystagetype.html#stagetypename" class="tsd-kind-icon">Stage<wbr>Type<wbr>Name</a>
 							</li>
 						</ul>
 					</li>
@@ -231,7 +170,6 @@ client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hl
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -280,7 +218,7 @@ client.post&lt;LeadServiceType[]&gt;<span class="hljs-function">(<span class="hl
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
