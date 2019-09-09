@@ -62,26 +62,15 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#cosential-compassjs" id="cosential-compassjs" style="color: inherit; text-decoration: none;">
-					<h1>Cosential compass.js</h1>
-				</a>
+				<h1 id="cosential-compass-js">Cosential compass.js</h1>
 				<p>Author: <a href="https://www.cosential.com/">Cosential, Inc.</a></p>
 				<p>Description: A Client library written in JS for Compass (Cosential&#39;s general purpose RESTful API).</p>
 				<p>It is highly recommended to test the library on the UAT Environment before moving to our production environment.</p>
-				<a href="#getting-started-install-using-npm" id="getting-started-install-using-npm" style="color: inherit; text-decoration: none;">
-					<h2>Getting Started (Install using npm)</h2>
-				</a>
-				<pre><code>npm <span class="hljs-keyword">install</span> compass-<span class="hljs-keyword">client</span>-js <span class="hljs-comment">--save</span></code></pre>
-				<a href="#a-hrefhttpswwwnpmjscompackagecompass-client-jshttpswwwnpmjscompackagecompass-client-jsa" id="a-hrefhttpswwwnpmjscompackagecompass-client-jshttpswwwnpmjscompackagecompass-client-jsa" style="color: inherit; text-decoration: none;">
-					<h6><a href="https://www.npmjs.com/package/compass-client-js">https://www.npmjs.com/package/compass-client-js</a></h6>
-				</a>
-				<a href="#full-library-reference" id="full-library-reference" style="color: inherit; text-decoration: none;">
-					<h2>Full Library Reference</h2>
-				</a>
+				<h2 id="getting-started-install-using-npm-">Getting Started (Install using npm)</h2>
+				<pre><code>npm <span class="hljs-keyword">install</span> compass-<span class="hljs-keyword">client</span>-js <span class="hljs-comment">--save</span></code></pre><h6 id="https-www-npmjs-com-package-compass-client-js"><a href="https://www.npmjs.com/package/compass-client-js">https://www.npmjs.com/package/compass-client-js</a></h6>
+				<h2 id="full-library-reference">Full Library Reference</h2>
 				<p><a href="https://cosential.github.io/compass-client-js">https://cosential.github.io/compass-client-js</a></p>
-				<a href="#initialize-the-client-and-get-the-authenticated-user" id="initialize-the-client-and-get-the-authenticated-user" style="color: inherit; text-decoration: none;">
-					<h2>Initialize the client and get the authenticated user</h2>
-				</a>
+				<h2 id="initialize-the-client-and-get-the-authenticated-user">Initialize the client and get the authenticated user</h2>
 				<pre><code><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> compass <span class="hljs-keyword">from</span> <span class="hljs-string">'compass-client-js'</span>;
 
 let client = <span class="hljs-built_in">new</span> compass.Client({
@@ -105,19 +94,13 @@ client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User<
           //Something went wrong
           document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
       }
- });</code></pre>
-				<a href="#reconfigure-the-client-with-a-new-user--pass" id="reconfigure-the-client-with-a-new-user--pass" style="color: inherit; text-decoration: none;">
-					<h2>Reconfigure the client with a new user / pass</h2>
-				</a>
+ });</code></pre><h2 id="reconfigure-the-client-with-a-new-user-pass">Reconfigure the client with a new user / pass</h2>
 				<pre><code>client.<span class="hljs-built_in">config</span>.username = <span class="hljs-string">'Jane'</span>;
 client.<span class="hljs-built_in">config</span>.password = <span class="hljs-string">'0th3Rp@Ss!'</span>;
 
-client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre>
-				<a href="#using-compassjs-from-html" id="using-compassjs-from-html" style="color: inherit; text-decoration: none;">
-					<h2>Using compass.js from HTML</h2>
-				</a>
+client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre><h2 id="using-compass-js-from-html">Using compass.js from HTML</h2>
 				<p>Download the latest <a href="./dist/compass.zip">compass.js</a></p>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"compass.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"compass.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-keyword">let</span> client = <span class="hljs-keyword">new</span> compass.Client({
         <span class="hljs-attr">apiKey</span>: <span class="hljs-string">'68BC02D5-5C17-4A40-8043-942B79DA34B7'</span>,
@@ -141,10 +124,7 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
             <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
         }
     });
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-				<a href="#building-compassjs" id="building-compassjs" style="color: inherit; text-decoration: none;">
-					<h2>Building compass.js:</h2>
-				</a>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h2 id="building-compass-js-">Building compass.js:</h2>
 				<ul>
 					<li>Clone the project.</li>
 					<li>From within the project folder run the command &#39;<strong>npm install</strong>&#39;.</li>
@@ -155,9 +135,7 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					<li>To run an individual unit test, from within the project folder run the command &#39;<strong>npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-test-cases/schema.spec.ts</strong>&#39;.</li>
 				</ul>
 				<p><strong>If</strong> tests pass, authentication and comunication with Compass was successful.</p>
-				<a href="#folder-structure" id="folder-structure" style="color: inherit; text-decoration: none;">
-					<h2>Folder Structure:</h2>
-				</a>
+				<h2 id="folder-structure-">Folder Structure:</h2>
 				<p><strong>./src</strong> - Contains the source code (<strong>.ts</strong>) and unit test spec (<strong>.spec.ts</strong>) files. This is where developers should work.</p>
 				<p><strong>./dist</strong> - Contains the compiled (<strong>.js</strong>) files (UMD Bundles). These files will be used for consumption. </p>
 				<p><strong>./lib</strong> - Contains the compiled (<strong>.js</strong>) files (ES5 commonjs), along with typescript definitions.</p>
@@ -208,6 +186,9 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 						<a href="interfaces/companylso.html" class="tsd-kind-icon">CompanyLSO</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/companynaics.html" class="tsd-kind-icon">CompanyNAICS</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/companysdbt.html" class="tsd-kind-icon">CompanySDBT</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -242,6 +223,12 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/contactrelationshipstrength.html" class="tsd-kind-icon">Contact<wbr>Relationship<wbr>Strength</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/contactrole.html" class="tsd-kind-icon">Contact<wbr>Role</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/contactroletype.html" class="tsd-kind-icon">Contact<wbr>Role<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/contacttype.html" class="tsd-kind-icon">Contact<wbr>Type</a>
@@ -286,9 +273,6 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 						<a href="interfaces/leadcontracttype.html" class="tsd-kind-icon">Lead<wbr>Contract<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/leadprimarycategory.html" class="tsd-kind-icon">Lead<wbr>Primary<wbr>Category</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/leadrecordsource.html" class="tsd-kind-icon">Lead<wbr>Record<wbr>Source</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -296,12 +280,6 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/leadscore.html" class="tsd-kind-icon">Lead<wbr>Score</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/leadsecondarycategory.html" class="tsd-kind-icon">Lead<wbr>Secondary<wbr>Category</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/leadservicetype.html" class="tsd-kind-icon">Lead<wbr>Service<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/leadsource.html" class="tsd-kind-icon">Lead<wbr>Source</a>
@@ -316,7 +294,40 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 						<a href="interfaces/office.html" class="tsd-kind-icon">Office</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/officedivision.html" class="tsd-kind-icon">Office<wbr>Division</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/opportunity.html" class="tsd-kind-icon">Opportunity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunityclienttype.html" class="tsd-kind-icon">Opportunity<wbr>Client<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitycontact.html" class="tsd-kind-icon">Opportunity<wbr>Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitydeliverymethod.html" class="tsd-kind-icon">Opportunity<wbr>Delivery<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunityprospecttype.html" class="tsd-kind-icon">Opportunity<wbr>Prospect<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunityrole.html" class="tsd-kind-icon">Opportunity<wbr>Role</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitystaffrole.html" class="tsd-kind-icon">Opportunity<wbr>Staff<wbr>Role</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitystaffteam.html" class="tsd-kind-icon">Opportunity<wbr>Staff<wbr>Team</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitystage.html" class="tsd-kind-icon">Opportunity<wbr>Stage</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitystagetype.html" class="tsd-kind-icon">Opportunity<wbr>Stage<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opportunitysubmittaltype.html" class="tsd-kind-icon">Opportunity<wbr>Submittal<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/personnel.html" class="tsd-kind-icon">Personnel</a>
@@ -326,6 +337,9 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/practicearea.html" class="tsd-kind-icon">Practice<wbr>Area</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/primarycategory.html" class="tsd-kind-icon">Primary<wbr>Category</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/project.html" class="tsd-kind-icon">Project</a>
@@ -341,6 +355,12 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/schema.html" class="tsd-kind-icon">Schema</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/secondarycategory.html" class="tsd-kind-icon">Secondary<wbr>Category</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/servicetype.html" class="tsd-kind-icon">Service<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/social.html" class="tsd-kind-icon">Social</a>
@@ -377,7 +397,6 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -426,7 +445,7 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
