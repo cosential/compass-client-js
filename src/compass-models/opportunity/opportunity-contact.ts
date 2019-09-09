@@ -1,5 +1,5 @@
 import { Contact } from '../contact/contact';
-import { OpportunityContactRole } from './opportunity-contact-role';
+import { OpportunityContactRole } from '../contact-role';
 
 /**
  * @example Read a Opportunities contacts

@@ -15,6 +15,8 @@ export { ContactMailingList } from './compass-models/contact/contact-mailinglist
 export { ContactRelationship } from './compass-models/contact/contact-relationship';
 export { ContactRelationshipOption } from './compass-models/contact/contact-relationship-option';
 export { ContactRelationshipStrength } from './compass-models/contact/contact-relationship-strength';
+export { ContactRoleType } from './compass-models/contact-role-type';
+export { ContactRole } from './compass-models/contact-role';
 export { ContactType } from './compass-models/contact/contact-type';
 export { Division } from './compass-models/division';
 export { Email } from './compass-models/email/email';
@@ -41,8 +43,7 @@ export { LeadStage } from './compass-models/lead/lead-stage';
 export { LeadType } from './compass-models/lead/lead-type';
 export { Office } from './compass-models/office';
 export { OpportunityClientType } from './compass-models/opportunity/opportunity-client-type';
-export { OpportunityContactRoleType } from './compass-models/opportunity/opportunity-contact-role-type';
-export { OpportunityContactRole } from './compass-models/opportunity/opportunity-contact-role';
+
 export { OpportunityContact } from './compass-models/opportunity/opportunity-contact';
 export { OpportunityDeliveryMethod } from './compass-models/opportunity/opportunity-delivery-method';
 export { OpportunityProspectType } from './compass-models/opportunity/opportunity-prospect-type';
