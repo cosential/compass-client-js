@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OpportunityContactRole | Cosential compass.js</title>
+	<title>ContactRole | Cosential compass.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="opportunitycontactrole.html">OpportunityContactRole</a>
+					<a href="contactrole.html">ContactRole</a>
 				</li>
 			</ul>
-			<h1>Interface OpportunityContactRole</h1>
+			<h1>Interface ContactRole</h1>
 		</div>
 	</div>
 </header>
@@ -67,13 +67,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the Opportunity Contact Role.</p>
+						<p>Represents the Contact Role.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Opportunity Contact Roles</p>
-							<pre><code>client.get&lt;OpportunityContactRole[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/consultantcontacts/contactrole'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity contact role elements</span>
+						<dd><p>Read all Contact Roles</p>
+							<pre><code>client.get&lt;ContactRole[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/consultantcontacts/contactrole'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact role elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactRoleId</span>); } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
@@ -86,7 +86,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">OpportunityContactRole</span>
+						<span class="target">ContactRole</span>
 					</li>
 				</ul>
 			</section>
@@ -97,10 +97,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunitycontactrole.html#contactroleid" class="tsd-kind-icon">Contact<wbr>Role<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunitycontactrole.html#contactrolename" class="tsd-kind-icon">Contact<wbr>Role<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunitycontactrole.html#contactroletype" class="tsd-kind-icon">Contact<wbr>Role<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="opportunitycontactrole.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactrole.html#contactroleid" class="tsd-kind-icon">Contact<wbr>Role<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactrole.html#contactrolename" class="tsd-kind-icon">Contact<wbr>Role<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactrole.html#contactroletype" class="tsd-kind-icon">Contact<wbr>Role<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contactrole.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,7 +114,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact-role.ts:17</li>
+							<li>Defined in compass-models/contact-role.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -124,17 +124,17 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact-role.ts:18</li>
+							<li>Defined in compass-models/contact-role.ts:18</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="contactroletype" class="tsd-anchor"></a>
 					<h3>Contact<wbr>Role<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="opportunitycontactroletype.html" class="tsd-signature-type">OpportunityContactRoleType</a></div>
+					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="contactroletype.html" class="tsd-signature-type">ContactRoleType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact-role.ts:20</li>
+							<li>Defined in compass-models/contact-role.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact-role.ts:19</li>
+							<li>Defined in compass-models/contact-role.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -163,19 +163,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="opportunitycontactrole.html" class="tsd-kind-icon">Opportunity<wbr>Contact<wbr>Role</a>
+						<a href="contactrole.html" class="tsd-kind-icon">Contact<wbr>Role</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="opportunitycontactrole.html#contactroleid" class="tsd-kind-icon">Contact<wbr>Role<wbr>Id</a>
+								<a href="contactrole.html#contactroleid" class="tsd-kind-icon">Contact<wbr>Role<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="opportunitycontactrole.html#contactrolename" class="tsd-kind-icon">Contact<wbr>Role<wbr>Name</a>
+								<a href="contactrole.html#contactrolename" class="tsd-kind-icon">Contact<wbr>Role<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="opportunitycontactrole.html#contactroletype" class="tsd-kind-icon">Contact<wbr>Role<wbr>Type</a>
+								<a href="contactrole.html#contactroletype" class="tsd-kind-icon">Contact<wbr>Role<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="opportunitycontactrole.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a>
+								<a href="contactrole.html#isdeleted" class="tsd-kind-icon">Is<wbr>Deleted</a>
 							</li>
 						</ul>
 					</li>

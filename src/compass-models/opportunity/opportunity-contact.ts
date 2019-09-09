@@ -1,5 +1,5 @@
 import { Contact } from '../contact/contact';
-import { OpportunityContactRole } from '../contact-role';
+import { ContactRole } from '../contact-role';
 
 /**
  * @example Read a Opportunities contacts
@@ -30,5 +30,5 @@ export interface OpportunityContact {
   PrimaryContact: boolean;
   Notes: string;
   Contact: Contact;
-  ContactRole: OpportunityContactRole;
+  ContactRole: ContactRole;
 }

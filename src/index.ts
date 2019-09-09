@@ -43,7 +43,6 @@ export { LeadStage } from './compass-models/lead/lead-stage';
 export { LeadType } from './compass-models/lead/lead-type';
 export { Office } from './compass-models/office';
 export { OpportunityClientType } from './compass-models/opportunity/opportunity-client-type';
-
 export { OpportunityContact } from './compass-models/opportunity/opportunity-contact';
 export { OpportunityDeliveryMethod } from './compass-models/opportunity/opportunity-delivery-method';
 export { OpportunityProspectType } from './compass-models/opportunity/opportunity-prospect-type';
