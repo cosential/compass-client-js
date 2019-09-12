@@ -567,7 +567,7 @@ module.exports = self.fetch.bind(self);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-//Service Models
+// Service Models
 var client_config_1 = __webpack_require__(3);
 exports.ClientConfig = client_config_1.ClientConfig;
 var client_1 = __webpack_require__(0);

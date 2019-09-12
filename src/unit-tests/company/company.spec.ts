@@ -28,14 +28,6 @@ describe("CompanyClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read companies for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/company', '/companiess', '/companys'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Company[] > = await client.get < Company[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read a company", async () => {
     let url = '/companies/' + aValidCompanyId;
     let res: ResponseData < Company > = await client.get < Company > (url);

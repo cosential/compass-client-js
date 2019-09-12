@@ -66,38 +66,29 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Opportunity Delivery Method.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Opportunity Delivery Methods</p>
-							<pre><code>client.get&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/clienttypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity delivery methods elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DeliveryMethodID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Opportunity DeliveryMethods</p>
+							<pre><code>client.get&lt;OpportunityDeliveryMethod[]&gt;(<span class="hljs-string">'/opportunities/clienttypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.DeliveryMethodID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s delivery methods</p>
-							<pre><code>client.get&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/deliverymethod'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DeliveryMethodID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Opportunity&#39;s DeliveryMethods</p>
+							<pre><code>client.get&lt;OpportunityDeliveryMethod[]&gt;(<span class="hljs-string">'/opportunities/12345/deliverymethod'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.DeliveryMethodID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add delivery method to a opportunity</p>
-							<pre><code><span class="hljs-comment">// payload is an array of OpportunityDeliveryMethod elements to be added</span>
-client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/deliverymethod', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DeliveryMethodID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add DeliveryMethod to a Opportunity</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunityDeliveryMethod elements to be added
+client.post&lt;OpportunityDeliveryMethod[]&gt;('/opportunities/12345/deliverymethod', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.DeliveryMethodID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -137,7 +128,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:39</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +138,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:42</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:35</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +148,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:41</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +158,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Delivery<wbr>MethodID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:36</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +168,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Delivery<wbr>Method<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:37</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +178,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Delivery<wbr>Method<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:40</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +188,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:38</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +198,7 @@ client.post&lt;OpportunityDeliveryMethod[]&gt;<span class="hljs-function">(<span
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:43</li>
+							<li>Defined in compass-models/opportunity/opportunity-delivery-method.ts:36</li>
 						</ul>
 					</aside>
 				</section>

@@ -72,17 +72,17 @@
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
 						<dd><p>Read a Contact&#39;s profile image</p>
-							<pre><code>contactClient.getContactImages&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params">'5556666', 2</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success //returns profile image as a base64 encoded string</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Data</span>);
+							<pre><code>contactClient.getContactImages&lt;Image&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-number">2</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) { <span class="hljs-comment">//success //returns profile image as a base64 encoded string</span>
+         <span class="hljs-built_in">console</span>.log(res.result.Data);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+         <span class="hljs-built_in">console</span>.log(res.message);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read all images for a Contact</p>
-							<pre><code>contactClient.getContactImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'5556666'</span>, <span class="hljs-number">1</span>).<span class="hljs-keyword">then</span>( res =&gt; {
-     <span class="hljs-keyword">if</span>(res.success) { //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
+							<pre><code>contactClient.getContactImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-number">1</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) { //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
          //<span class="hljs-keyword">return</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">is</span> the <span class="hljs-keyword">default</span> behavior <span class="hljs-keyword">in</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">no</span> image <span class="hljs-keyword">type</span>
          console.log(res.result);
      } <span class="hljs-keyword">else</span> { //something went wrong
@@ -92,8 +92,8 @@
 						<dt>example</dt>
 						<dd><p>Update a Contact&#39;s profile image</p>
 							<pre><code><span class="hljs-comment">// testImageData is a string containing raw base 64 encoded image data</span>
-contactClient.updateContactImage&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'5556666'</span>, <span class="hljs-string">'profilepicture'</span>, <span class="hljs-string">'image/jpeg'</span>, testImageData</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//success</span>
+contactClient.updateContactImage&lt;Image&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-string">'profilepicture'</span>, <span class="hljs-string">'image/jpeg'</span>, testImageData).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) { <span class="hljs-comment">//success</span>
          <span class="hljs-built_in">console</span>.log(res.result);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(res.message);
@@ -101,17 +101,17 @@ contactClient.updateContactImage&lt;Image&gt;<span class="hljs-function">(<span 
 });</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read primary image of a personnel</p>
-							<pre><code>personnelClient.getPersonnelImages&lt;Image&gt;<span class="hljs-function">(<span class="hljs-params">'5556666', <span class="hljs-literal">true</span></span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success //returns an image as a base64 encoded string</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Data</span>);
+							<pre><code>personnelClient.getPersonnelImages&lt;Image&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-literal">true</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) { <span class="hljs-comment">//success //returns an image as a base64 encoded string</span>
+         <span class="hljs-built_in">console</span>.log(res.result.Data);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+         <span class="hljs-built_in">console</span>.log(res.message);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read all images for a Personnel</p>
-							<pre><code>personnelClient.getPersonnelImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'5556666'</span>, <span class="hljs-keyword">false</span>).<span class="hljs-keyword">then</span>( res =&gt; {
-     <span class="hljs-keyword">if</span>(res.success) { //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
+							<pre><code>personnelClient.getPersonnelImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-keyword">false</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) { //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
          //<span class="hljs-keyword">return</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">is</span> the <span class="hljs-keyword">default</span> behavior <span class="hljs-keyword">in</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">primary</span> photo <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> requested
          console.log(res.result);
      } <span class="hljs-keyword">else</span> { //something went wrong

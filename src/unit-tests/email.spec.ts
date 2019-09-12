@@ -1,20 +1,20 @@
 import "jasmine";
-import { ResponseData } from "../..";
+import { ResponseData } from "../../lib";
 import { EmailContact } from '../compass-models/email/email-contact';
 import { Lead } from "../compass-models/lead/lead";
 import { Opportunity } from "../compass-models/opportunity/opportunity";
 import { Personnel } from "../compass-models/personnel";
 import { Project } from "../compass-models/project";
-import { Company } from './../compass-models/company/company';
-import { Contact } from './../compass-models/contact/contact';
-import { Email } from './../compass-models/email/email';
-import { EmailCompany } from './../compass-models/email/email-company';
-import { EmailLead } from './../compass-models/email/email-lead';
-import { EmailOpportunity } from './../compass-models/email/email-opportunity';
-import { EmailPersonnel } from './../compass-models/email/email-personnel';
-import { EmailProject } from './../compass-models/email/email-project';
-import { ClientConfig } from './../service-models/client-config';
-import { Client } from './../services/client';
+import { Company } from '../compass-models/company/company';
+import { Contact } from '../compass-models/contact/contact';
+import { Email } from '../compass-models/email/email';
+import { EmailCompany } from '../compass-models/email/email-company';
+import { EmailLead } from '../compass-models/email/email-lead';
+import { EmailOpportunity } from '../compass-models/email/email-opportunity';
+import { EmailPersonnel } from '../compass-models/email/email-personnel';
+import { EmailProject } from '../compass-models/email/email-project';
+import { ClientConfig } from '../service-models/client-config';
+import { Client } from '../services/client';
 import { TestClientConfig as c } from "./test-client-config";
 
 describe("EmailClient", () => {
@@ -39,14 +39,6 @@ describe("EmailClient", () => {
   it("Can read emails", async () => {
     let res: ResponseData < Email[] > = await client.get < Email[] > ("/emails");
     expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can read emails for incorrect url", async () => {
-    let mistypedUrls: string[] = ["/email", "/emailss", "/emalis"];
-    mistypedUrls.forEach(async index => {
-      let res: ResponseData < Email[] > = await client.get < Email[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
   });
 
   it("Can read an email", async () => {

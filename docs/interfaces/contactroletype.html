@@ -66,19 +66,14 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact Role types</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Contact Role Types</p>
-							<pre><code>client.get&lt;ContactRoleType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/consultantcontacts/contactrole/contactroletype'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact role type elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactRoleTypeId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all ContactRoleTypes</p>
+							<pre><code>client.get&lt;ContactRoleType[]&gt;(<span class="hljs-string">'/projects/consultantcontacts/contactrole/contactroletype'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactRoleTypeId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -114,7 +109,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:15</li>
+							<li>Defined in compass-models/contact-role-type.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -124,7 +119,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:16</li>
+							<li>Defined in compass-models/contact-role-type.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -134,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:18</li>
+							<li>Defined in compass-models/contact-role-type.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +139,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:17</li>
+							<li>Defined in compass-models/contact-role-type.ts:14</li>
 						</ul>
 					</aside>
 				</section>

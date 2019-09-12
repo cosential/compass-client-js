@@ -28,14 +28,6 @@ describe("ProjectClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read projects for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/project', '/projectss', '/proejcts'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Project[] > = await client.get < Project[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read a project", async () => {
     let url = '/projects/' + aValidProjectId;
     let res: ResponseData < Project > = await client.get < Project > (url);

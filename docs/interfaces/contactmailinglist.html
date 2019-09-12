@@ -66,47 +66,29 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact Mailing List.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Get all Mailing Lists values</p>
-							<pre><code>contactClient.get&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/Contact_MailingList'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
-         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.MailingLIstID</span>); }</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Contact Mailing Lists</p>
+							<pre><code>client.get&lt;ContactMailingList[]&gt;(<span class="hljs-string">'/contacts/Contact_MailingList'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.MailingListID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read Mailing Lists of a Contact</p>
-							<pre><code>contactClient.get&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/Contact_MailingList'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result[0].Id</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Contact&#39;s Contact Mailing Lists</p>
+							<pre><code>client.get&lt;ContactMailingList[]&gt;(<span class="hljs-string">'/contacts/12345/Contact_MailingList'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.MailingListID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Update a Contact&#39;s Mailing Lists
-							// Payload is an array containing one object with a property &quot;MailingListID&quot; corresponding to a valid Mailing Lists</p>
-							<pre><code>client.post&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/Contact_MailingList', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Set Contact to have Mailing List <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.MailingListId</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Call Log creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+						<dd><p>Add Mailing Lists to a Contact</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ContactMailingList elements to be added
+client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.Mailing<span class="hljs-class">ListID);</span> });
      }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Delete a Contact&#39;s Mailing Lists</p>
-							<pre><code>client.delete&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/Contact_MailingList'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Cleared Contact's Mailing Lists."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Call Log creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -144,7 +126,7 @@
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:49</li>
+							<li>Defined in compass-models/contact/contact-mailinglist.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +136,7 @@
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:50</li>
+							<li>Defined in compass-models/contact/contact-mailinglist.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">Default<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:51</li>
+							<li>Defined in compass-models/contact/contact-mailinglist.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:48</li>
+							<li>Defined in compass-models/contact/contact-mailinglist.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">Mailing<wbr>ListID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:46</li>
+							<li>Defined in compass-models/contact/contact-mailinglist.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -194,7 +176,7 @@
 					<div class="tsd-signature tsd-kind-icon">Mailing<wbr>List<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:47</li>
+							<li>Defined in compass-models/contact/contact-mailinglist.ts:30</li>
 						</ul>
 					</aside>
 				</section>

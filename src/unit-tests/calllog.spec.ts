@@ -28,14 +28,6 @@ describe("CallLogClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read call logs for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/calllog', '/calllogss', '/callogs'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < CallLog[] > = await client.get < CallLog[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read a call log", async () => {
     let url = '/calllogs/' + aValidCallLogId;
     let res: ResponseData < CallLog > = await client.get < CallLog > (url);

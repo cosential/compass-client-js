@@ -10,14 +10,13 @@
     "Akshay Prabhu <aprabhu@cosential.com>",
     "Damon Warren <dwarren@cosential.com>",
     "Dawson Turechek <dturechek@cosential.com>",
-    "Matt Butler <mbutler@cosential.com>",
     "Nathan Williamson <nwilliamson@cosential.com>"
   ],
   "license": "Apache-2.0",
   "scripts": {
     "clean": "shx rm -rf _bundles dist lib lib-esm",
     "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack",
-    "test": "ts-node node_modules/jasmine/bin/jasmine src/**/*.spec.ts"
+    "test": "ts-node node_modules/jasmine/bin/jasmine --reporter=../../../reporter.ts src/**/*.spec.ts"
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.0.4-rc.2",
@@ -36,6 +35,7 @@
     "@types/js-base64": "^2.3.1",
     "codelyzer": "^5.1.0",
     "jasmine": "^3.4.0",
+    "jasmine-spec-reporter": "^4.2.1",
     "ts-node": "^7.0.1",
     "tslint": "^5.20.0",
     "typedoc": "^0.15.0",

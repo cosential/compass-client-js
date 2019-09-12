@@ -66,76 +66,58 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
 						<dd><p>Read all Contacts</p>
-							<pre><code>client.get&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+							<pre><code>client.get&lt;Contact[]&gt;(<span class="hljs-string">'/contacts'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read a Contact</p>
-							<pre><code>client.get&lt;Contact&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.FirstName + ' ' + res.result.LastName</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+							<pre><code>client.get&lt;Contact&gt;(<span class="hljs-string">'/contacts/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success)
+         <span class="hljs-built_in">console</span>.log(res.result.ContactId);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add new Contact/s</p>
-							<pre><code><span class="hljs-comment">//payload is an array of Contact elements to be added</span>
-client.post&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Contact <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.ContactId</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Contact creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+						<dd><p>Add new Contact(s)</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Contact elements to be added
+client.post&lt;Contact[]&gt;('/contacts', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.ContactId) });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Update a Contact</p>
-							<pre><code><span class="hljs-comment">//payload is a Contact element containing new and existing values</span>
-<span class="hljs-comment">//note that the API client does not support under posting of data</span>
-client.put&lt;Contact&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns the updated element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated contact <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.ContactId</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Contact update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+							<pre><code>// payload <span class="hljs-built_in">is</span> a Contact element containing <span class="hljs-built_in">new</span> <span class="hljs-keyword">and</span> existing <span class="hljs-built_in">values</span>
+client.<span class="hljs-built_in">put</span>&lt;Contact&gt;('/contacts/<span class="hljs-number">12345</span>', payload).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         console.<span class="hljs-built_in">log</span>(res.result.ContactId);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Delete a Contact</p>
-							<pre><code>client.delete&lt;Contact&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//element marked as inactive</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;Contact&gt;(<span class="hljs-string">'/contacts/12345'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.result);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Search Contact/s with pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'BusinessEmailAddress:jdoe@cosential.com OR BusinessEmailAddress:johnd@cosential.com'</span>;
-client.search&lt;Contact[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/contacts'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+						<dd><p>Search Contact(s) with pagination</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'FirstName:John'</span>;
+client.search&lt;Contact[]&gt;(<span class="hljs-string">'/contacts'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactId) });
      }
 }</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Search Contact/s without pagination</p>
 							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'FirstName:John'</span>;
-client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/contacts'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+client.searchForAll&lt;Contact&gt;(<span class="hljs-string">'/contacts'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactId) });
      }
 }</code></pre></dd>
 					</dl>
@@ -237,7 +219,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:101</li>
+							<li>Defined in compass-models/contact/contact.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +229,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:98</li>
+							<li>Defined in compass-models/contact/contact.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +239,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:100</li>
+							<li>Defined in compass-models/contact/contact.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +249,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Assistant<wbr>Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:99</li>
+							<li>Defined in compass-models/contact/contact.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -277,7 +259,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Birthday<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:104</li>
+							<li>Defined in compass-models/contact/contact.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -287,7 +269,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>Email<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:97</li>
+							<li>Defined in compass-models/contact/contact.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -297,7 +279,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:81</li>
+							<li>Defined in compass-models/contact/contact.ts:65</li>
 						</ul>
 					</aside>
 				</section>
@@ -307,7 +289,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:82</li>
+							<li>Defined in compass-models/contact/contact.ts:66</li>
 						</ul>
 					</aside>
 				</section>
@@ -317,7 +299,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:80</li>
+							<li>Defined in compass-models/contact/contact.ts:64</li>
 						</ul>
 					</aside>
 				</section>
@@ -327,7 +309,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:138</li>
+							<li>Defined in compass-models/contact/contact.ts:122</li>
 						</ul>
 					</aside>
 				</section>
@@ -337,7 +319,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:139</li>
+							<li>Defined in compass-models/contact/contact.ts:123</li>
 						</ul>
 					</aside>
 				</section>
@@ -347,7 +329,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:95</li>
+							<li>Defined in compass-models/contact/contact.ts:79</li>
 						</ul>
 					</aside>
 				</section>
@@ -357,7 +339,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Department<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:103</li>
+							<li>Defined in compass-models/contact/contact.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -367,7 +349,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:91</li>
+							<li>Defined in compass-models/contact/contact.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -377,7 +359,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:107</li>
+							<li>Defined in compass-models/contact/contact.ts:91</li>
 						</ul>
 					</aside>
 				</section>
@@ -387,7 +369,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:84</li>
+							<li>Defined in compass-models/contact/contact.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -397,7 +379,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Formal<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:89</li>
+							<li>Defined in compass-models/contact/contact.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -407,7 +389,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">HomeEMail<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:96</li>
+							<li>Defined in compass-models/contact/contact.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -417,7 +399,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Imported<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:108</li>
+							<li>Defined in compass-models/contact/contact.ts:92</li>
 						</ul>
 					</aside>
 				</section>
@@ -427,7 +409,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Date1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:127</li>
+							<li>Defined in compass-models/contact/contact.ts:111</li>
 						</ul>
 					</aside>
 				</section>
@@ -437,7 +419,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Date2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:128</li>
+							<li>Defined in compass-models/contact/contact.ts:112</li>
 						</ul>
 					</aside>
 				</section>
@@ -447,7 +429,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:120</li>
+							<li>Defined in compass-models/contact/contact.ts:104</li>
 						</ul>
 					</aside>
 				</section>
@@ -457,7 +439,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:121</li>
+							<li>Defined in compass-models/contact/contact.ts:105</li>
 						</ul>
 					</aside>
 				</section>
@@ -467,7 +449,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:122</li>
+							<li>Defined in compass-models/contact/contact.ts:106</li>
 						</ul>
 					</aside>
 				</section>
@@ -477,7 +459,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:123</li>
+							<li>Defined in compass-models/contact/contact.ts:107</li>
 						</ul>
 					</aside>
 				</section>
@@ -487,7 +469,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Long<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:124</li>
+							<li>Defined in compass-models/contact/contact.ts:108</li>
 						</ul>
 					</aside>
 				</section>
@@ -497,7 +479,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Money1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:131</li>
+							<li>Defined in compass-models/contact/contact.ts:115</li>
 						</ul>
 					</aside>
 				</section>
@@ -507,7 +489,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Money2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:132</li>
+							<li>Defined in compass-models/contact/contact.ts:116</li>
 						</ul>
 					</aside>
 				</section>
@@ -517,7 +499,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Number1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:125</li>
+							<li>Defined in compass-models/contact/contact.ts:109</li>
 						</ul>
 					</aside>
 				</section>
@@ -527,7 +509,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Number2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:126</li>
+							<li>Defined in compass-models/contact/contact.ts:110</li>
 						</ul>
 					</aside>
 				</section>
@@ -537,7 +519,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:115</li>
+							<li>Defined in compass-models/contact/contact.ts:99</li>
 						</ul>
 					</aside>
 				</section>
@@ -547,7 +529,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:116</li>
+							<li>Defined in compass-models/contact/contact.ts:100</li>
 						</ul>
 					</aside>
 				</section>
@@ -557,7 +539,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:117</li>
+							<li>Defined in compass-models/contact/contact.ts:101</li>
 						</ul>
 					</aside>
 				</section>
@@ -567,7 +549,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:118</li>
+							<li>Defined in compass-models/contact/contact.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -577,7 +559,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Short<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:119</li>
+							<li>Defined in compass-models/contact/contact.ts:103</li>
 						</ul>
 					</aside>
 				</section>
@@ -587,7 +569,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Value<wbr>ListID1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:129</li>
+							<li>Defined in compass-models/contact/contact.ts:113</li>
 						</ul>
 					</aside>
 				</section>
@@ -597,7 +579,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Value<wbr>ListID2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:130</li>
+							<li>Defined in compass-models/contact/contact.ts:114</li>
 						</ul>
 					</aside>
 				</section>
@@ -607,7 +589,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Individual<wbr>Value<wbr>ListID3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:133</li>
+							<li>Defined in compass-models/contact/contact.ts:117</li>
 						</ul>
 					</aside>
 				</section>
@@ -617,7 +599,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:94</li>
+							<li>Defined in compass-models/contact/contact.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -627,7 +609,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Primary<wbr>Contact<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:92</li>
+							<li>Defined in compass-models/contact/contact.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -637,7 +619,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Private<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:93</li>
+							<li>Defined in compass-models/contact/contact.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -647,7 +629,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:143</li>
+							<li>Defined in compass-models/contact/contact.ts:127</li>
 						</ul>
 					</aside>
 				</section>
@@ -657,7 +639,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:142</li>
+							<li>Defined in compass-models/contact/contact.ts:126</li>
 						</ul>
 					</aside>
 				</section>
@@ -667,7 +649,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:141</li>
+							<li>Defined in compass-models/contact/contact.ts:125</li>
 						</ul>
 					</aside>
 				</section>
@@ -677,7 +659,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:140</li>
+							<li>Defined in compass-models/contact/contact.ts:124</li>
 						</ul>
 					</aside>
 				</section>
@@ -687,7 +669,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:86</li>
+							<li>Defined in compass-models/contact/contact.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -697,7 +679,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Mailing<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:135</li>
+							<li>Defined in compass-models/contact/contact.ts:119</li>
 						</ul>
 					</aside>
 				</section>
@@ -707,7 +689,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Middle<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:85</li>
+							<li>Defined in compass-models/contact/contact.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -717,7 +699,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Nick<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:90</li>
+							<li>Defined in compass-models/contact/contact.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -727,7 +709,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:102</li>
+							<li>Defined in compass-models/contact/contact.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -737,7 +719,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:83</li>
+							<li>Defined in compass-models/contact/contact.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -747,7 +729,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Profile<wbr>Image<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:146</li>
+							<li>Defined in compass-models/contact/contact.ts:130</li>
 						</ul>
 					</aside>
 				</section>
@@ -757,7 +739,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:147</li>
+							<li>Defined in compass-models/contact/contact.ts:131</li>
 						</ul>
 					</aside>
 				</section>
@@ -767,7 +749,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Same<wbr>AsCompany<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:109</li>
+							<li>Defined in compass-models/contact/contact.ts:93</li>
 						</ul>
 					</aside>
 				</section>
@@ -777,7 +759,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Spouse<wbr>Birth<wbr>Day<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:106</li>
+							<li>Defined in compass-models/contact/contact.ts:90</li>
 						</ul>
 					</aside>
 				</section>
@@ -787,7 +769,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Spouse<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:105</li>
+							<li>Defined in compass-models/contact/contact.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -797,7 +779,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Suffix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:87</li>
+							<li>Defined in compass-models/contact/contact.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -807,7 +789,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:88</li>
+							<li>Defined in compass-models/contact/contact.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -817,7 +799,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Webpage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:110</li>
+							<li>Defined in compass-models/contact/contact.ts:94</li>
 						</ul>
 					</aside>
 				</section>
@@ -827,7 +809,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:111</li>
+							<li>Defined in compass-models/contact/contact.ts:95</li>
 						</ul>
 					</aside>
 				</section>
@@ -837,7 +819,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:112</li>
+							<li>Defined in compass-models/contact/contact.ts:96</li>
 						</ul>
 					</aside>
 				</section>
@@ -847,7 +829,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:113</li>
+							<li>Defined in compass-models/contact/contact.ts:97</li>
 						</ul>
 					</aside>
 				</section>
@@ -857,7 +839,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Field4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:114</li>
+							<li>Defined in compass-models/contact/contact.ts:98</li>
 						</ul>
 					</aside>
 				</section>
@@ -867,7 +849,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">import<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:134</li>
+							<li>Defined in compass-models/contact/contact.ts:118</li>
 						</ul>
 					</aside>
 				</section>
@@ -877,7 +859,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">linkedinURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:137</li>
+							<li>Defined in compass-models/contact/contact.ts:121</li>
 						</ul>
 					</aside>
 				</section>
@@ -887,7 +869,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">twitterURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:136</li>
+							<li>Defined in compass-models/contact/contact.ts:120</li>
 						</ul>
 					</aside>
 				</section>
@@ -897,7 +879,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:144</li>
+							<li>Defined in compass-models/contact/contact.ts:128</li>
 						</ul>
 					</aside>
 				</section>
@@ -907,7 +889,7 @@ client.searchForAll&lt;Contact&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>user<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact.ts:145</li>
+							<li>Defined in compass-models/contact/contact.ts:129</li>
 						</ul>
 					</aside>
 				</section>

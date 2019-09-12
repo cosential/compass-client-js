@@ -66,25 +66,23 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact Relationships.</p>
-						<pre><code><span class="hljs-meta">@example</span> <span class="hljs-type">Read</span> a <span class="hljs-type">Contact</span><span class="hljs-symbol">'s</span> relationships</code></pre><p>client.get&lt;ContactRelationship[]&gt;(&#39;/contacts/5555999/relationships&#39;).then( res =&gt; {
-							if (res.success) {
-							res.result.forEach(nextRes =&gt; { console.log(index.ContactRelationshipId); } );
-							} else { //something went wrong
-							console.log(res.message);
-							}
-						});</p>
-						<pre><code><span class="hljs-symbol">@example</span> Add relationship <span class="hljs-keyword">to</span> a contact<span class="hljs-string">'s relationships</span></code></pre><p>// payload is an array of relationship elements to be added
-							client.post&lt;ContactRelationship[]&gt;(&#39;/contacts/5555999/relationships&#39;, payload).then( res =&gt; {
-							if (res.success) {
-							res.result.forEach(nextRes =&gt; { console.log(index.ContactRelationshipId); } );
-							} else { //something went wrong
-							console.log(res.message);
-							}
-							});
-						```</p>
-					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read a Contact&#39;s Contact Relationships</p>
+							<pre><code>client.get&lt;ContactRelationship[]&gt;(<span class="hljs-string">'/contacts/12345/relationships'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactRelationshipId); });
+     }
+});</code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add Relationships to a Contact</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ContactRelationship elements to be added
+client.post&lt;ContactRelationship[]&gt;('/contacts/12345/relationships', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.ContactRelationshipId); });
+     }
+});</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -124,7 +122,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:35</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -134,7 +132,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Relationship<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:27</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +142,7 @@
 					<div class="tsd-signature tsd-kind-icon">Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:34</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +152,7 @@
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:29</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:30</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +172,7 @@
 					<div class="tsd-signature tsd-kind-icon">Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:33</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">Relationship<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:31</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -194,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">Relationship<wbr>Strength<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:32</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +202,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship.ts:28</li>
+							<li>Defined in compass-models/contact/contact-relationship.ts:22</li>
 						</ul>
 					</aside>
 				</section>

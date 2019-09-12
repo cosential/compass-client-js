@@ -6,7 +6,7 @@ import { ClientConfig } from '../../service-models/client-config';
 import { CompanyClient } from '../../services/company-client';
 import { TestClientConfig as c } from '../test-client-config';
 
-describe("CompanyAddressClient", () => {
+fdescribe("CompanyAddressClient", () => {
 
   let companyClient: CompanyClient = new CompanyClient(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
   let aValidCompanyId: number;
@@ -24,29 +24,23 @@ describe("CompanyAddressClient", () => {
     if (companies.success) aValidCompanyId = companies.result[0].CompanyId;
   });
 
-  it("Can fetch addresses for a company", async () => {
+  it("should fetch addresses for a company", async () => {
     let addressesUrl: string = '/companies/' + aValidCompanyId + '/addresses';
     let res: ResponseData < CompanyAddress[] > = await companyClient.get < CompanyAddress[] > (addressesUrl);
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can fetch addresses for an invalid id", async () => {
-    let addressesUrl: string = '/companies/12345/addresses';
-    let res: ResponseData < CompanyAddress[] > = await companyClient.get < CompanyAddress[] > (addressesUrl);
-    expect(res.success).toBeFalsy(res.message);
-  });
-
-  it("Can fetch default/primary address associated to a company", async () => {
+  it("should fetch default/primary address associated to a company", async () => {
     let res: ResponseData < CompanyAddress > = await companyClient.getCompanyAddress(aValidCompanyId);
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can fetch address associated to a company", async () => {
+  it("should fetch address associated to a company", async () => {
     let res: ResponseData < CompanyAddress > = await companyClient.getCompanyAddress(aValidCompanyId);
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can fetch address associated to an invalid id", async () => {
+  it("should fetch address associated to an invalid id", async () => {
     let res: ResponseData < CompanyAddress > = await companyClient.getCompanyAddress(12345);
     expect(res.success).toBeTruthy(res.message);
   });

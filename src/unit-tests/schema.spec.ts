@@ -23,12 +23,4 @@ describe("SchemaClient", () => {
     let res: ResponseData < Schema[] > = await client.get < Schema[] > ('/contacts/schema');
     expect(res.success).toBeTruthy(res.message);
   });
-
-  it("Cannot read call logs for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/schema', '/contacts/shcema'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Schema[] > = await client.get < Schema[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
 });

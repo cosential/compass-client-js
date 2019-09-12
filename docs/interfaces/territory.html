@@ -66,66 +66,51 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Territories.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Contact territories</p>
-							<pre><code>client.get&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/Territories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of territory elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.TerritoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Contact Territories</p>
+							<pre><code>client.get&lt;Territory[]&gt;(<span class="hljs-string">'/contacts/Territories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.TerritoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s territory</p>
-							<pre><code>client.get&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/Territories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.TerritoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Contact&#39;s Territories</p>
+							<pre><code>client.get&lt;Territory[]&gt;(<span class="hljs-string">'/contacts/12345/Territories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.TerritoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add territories to a contact&#39;s territories</p>
-							<pre><code><span class="hljs-comment">// payload is an array of territory elements to be added</span>
-client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/Territories', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.TerritoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Territories to a Contact</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Territory elements to be added
+client.post&lt;Territory[]&gt;('/contacts/12345/Territories', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.TerritoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read all Company territories</p>
-							<pre><code>client.get&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/Territories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of territory elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.TerritoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Company Territories</p>
+							<pre><code>client.get&lt;Territory[]&gt;('/companies/Territories').then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) { //returns an<span class="hljs-built_in"> array </span>of territory elements
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.TerritoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Company&#39;s territory</p>
-							<pre><code>client.get&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/Territories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.TerritoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Company&#39;s Territories</p>
+							<pre><code>client.get&lt;Territory[]&gt;(<span class="hljs-string">'/companies/12345/Territories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.TerritoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add territories to a Company&#39;s territories</p>
-							<pre><code><span class="hljs-comment">// payload is an array of territory elements to be added</span>
-client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/Territories', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.TerritoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Territories to a Company</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Territory elements to be added
+client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.TerritoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -166,7 +151,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">FIPSCodes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:73</li>
+							<li>Defined in compass-models/territory.ts:60</li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +161,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:74</li>
+							<li>Defined in compass-models/territory.ts:61</li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +171,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">TerritoryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:67</li>
+							<li>Defined in compass-models/territory.ts:54</li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +181,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">Territory<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:68</li>
+							<li>Defined in compass-models/territory.ts:55</li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +191,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:75</li>
+							<li>Defined in compass-models/territory.ts:62</li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +201,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:70</li>
+							<li>Defined in compass-models/territory.ts:57</li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +211,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">deleterecord<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:71</li>
+							<li>Defined in compass-models/territory.ts:58</li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +221,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">states<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:72</li>
+							<li>Defined in compass-models/territory.ts:59</li>
 						</ul>
 					</aside>
 				</section>
@@ -246,7 +231,7 @@ client.post&lt;Territory[]&gt;<span class="hljs-function">(<span class="hljs-par
 					<div class="tsd-signature tsd-kind-icon">zip<wbr>Codes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:69</li>
+							<li>Defined in compass-models/territory.ts:56</li>
 						</ul>
 					</aside>
 				</section>

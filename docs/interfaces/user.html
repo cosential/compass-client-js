@@ -66,23 +66,14 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the User that has successfully authenticated into the Compass API.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><pre><code>client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-keyword">function</span>res{
+						<dd><p>Get current user</p>
+							<pre><code>// This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
+client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(functionres{
      <span class="hljs-keyword">if</span> (res.success) {
-         //The API <span class="hljs-keyword">call</span> was successful
-
-         //This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
          let <span class="hljs-keyword">user</span> = res.result[<span class="hljs-number">0</span>];
-
-         //Because <span class="hljs-keyword">user</span> <span class="hljs-keyword">is</span> an API response <span class="hljs-keyword">object</span>, properties are proper <span class="hljs-keyword">case</span>, <span class="hljs-keyword">not</span> camel <span class="hljs-keyword">case</span>.
-         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + <span class="hljs-keyword">user</span>.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *
-     } <span class="hljs-keyword">else</span> {
-         //Something went wrong
-         document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
+         console.log(<span class="hljs-keyword">user</span>.UserId);
      }
 });</code></pre></dd>
 					</dl>
@@ -125,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">Firm<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:27</li>
+							<li>Defined in compass-models/user.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -135,7 +126,7 @@
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:23</li>
+							<li>Defined in compass-models/user.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -145,7 +136,7 @@
 					<div class="tsd-signature tsd-kind-icon">Gender<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:28</li>
+							<li>Defined in compass-models/user.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:25</li>
+							<li>Defined in compass-models/user.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">MI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:24</li>
+							<li>Defined in compass-models/user.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">Nick<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:26</li>
+							<li>Defined in compass-models/user.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +176,7 @@
 					<div class="tsd-signature tsd-kind-icon">Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:22</li>
+							<li>Defined in compass-models/user.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -195,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:29</li>
+							<li>Defined in compass-models/user.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -205,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user.ts:30</li>
+							<li>Defined in compass-models/user.ts:22</li>
 						</ul>
 					</aside>
 				</section>

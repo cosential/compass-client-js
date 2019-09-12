@@ -71,61 +71,49 @@
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Contact studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of studio elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Contact Studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/contacts/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Contact&#39;s Studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/contacts/12345/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add studios to a contact&#39;s studios</p>
-							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/studios', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Studios to a Contact</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Studio elements to be added
+client.post&lt;Studio[]&gt;('/contacts/12345/studios', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.StudioId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read all Company studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of studio elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Company Studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/companies/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Company&#39;s studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/studios'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Company&#39;s Studios</p>
+							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/companies/12345/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add studios to a Company&#39;s studios</p>
-							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/studios', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StudioId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Studios to a Company</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Studio elements to be added
+client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.StudioId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -181,7 +169,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:88</li>
+							<li>Defined in compass-models/studio.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -191,7 +179,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Associated<wbr>Services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:89</li>
+							<li>Defined in compass-models/studio.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +189,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:83</li>
+							<li>Defined in compass-models/studio.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +199,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:80</li>
+							<li>Defined in compass-models/studio.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +209,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:82</li>
+							<li>Defined in compass-models/studio.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +219,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:87</li>
+							<li>Defined in compass-models/studio.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -241,7 +229,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:81</li>
+							<li>Defined in compass-models/studio.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +239,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:90</li>
+							<li>Defined in compass-models/studio.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -261,7 +249,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:69</li>
+							<li>Defined in compass-models/studio.ts:57</li>
 						</ul>
 					</aside>
 				</section>
@@ -271,7 +259,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:70</li>
+							<li>Defined in compass-models/studio.ts:58</li>
 						</ul>
 					</aside>
 				</section>
@@ -281,7 +269,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:71</li>
+							<li>Defined in compass-models/studio.ts:59</li>
 						</ul>
 					</aside>
 				</section>
@@ -291,7 +279,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:72</li>
+							<li>Defined in compass-models/studio.ts:60</li>
 						</ul>
 					</aside>
 				</section>
@@ -301,7 +289,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:75</li>
+							<li>Defined in compass-models/studio.ts:63</li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +299,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:78</li>
+							<li>Defined in compass-models/studio.ts:66</li>
 						</ul>
 					</aside>
 				</section>
@@ -321,7 +309,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:77</li>
+							<li>Defined in compass-models/studio.ts:65</li>
 						</ul>
 					</aside>
 				</section>
@@ -331,7 +319,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:67</li>
+							<li>Defined in compass-models/studio.ts:55</li>
 						</ul>
 					</aside>
 				</section>
@@ -341,7 +329,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:68</li>
+							<li>Defined in compass-models/studio.ts:56</li>
 						</ul>
 					</aside>
 				</section>
@@ -351,7 +339,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:76</li>
+							<li>Defined in compass-models/studio.ts:64</li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +349,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:86</li>
+							<li>Defined in compass-models/studio.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -371,7 +359,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:73</li>
+							<li>Defined in compass-models/studio.ts:61</li>
 						</ul>
 					</aside>
 				</section>
@@ -381,7 +369,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:79</li>
+							<li>Defined in compass-models/studio.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -391,7 +379,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:74</li>
+							<li>Defined in compass-models/studio.ts:62</li>
 						</ul>
 					</aside>
 				</section>
@@ -401,7 +389,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:84</li>
+							<li>Defined in compass-models/studio.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -411,7 +399,7 @@ client.post&lt;Studio[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>studioid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:85</li>
+							<li>Defined in compass-models/studio.ts:73</li>
 						</ul>
 					</aside>
 				</section>

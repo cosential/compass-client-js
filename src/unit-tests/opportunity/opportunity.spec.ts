@@ -28,14 +28,6 @@ describe("OpportunityClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read opportunities for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/opportunity', '/opportunitiess', '/opportuniites'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Opportunity[] > = await client.get < Opportunity[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read an opportunity", async () => {
     let url = '/opportunities/' + aValidOpportunityId;
     let res: ResponseData < Opportunity > = await client.get < Opportunity > (url);

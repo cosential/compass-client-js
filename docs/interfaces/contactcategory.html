@@ -66,38 +66,29 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact category.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Contacts categories</p>
-							<pre><code>client.get&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/Contact_Category'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact category elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactCategoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Contact Categories</p>
+							<pre><code>client.get&lt;ContactCategory[]&gt;(<span class="hljs-string">'/contacts/Contact_Category'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactCategoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s contact categories</p>
-							<pre><code>client.get&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/Contact_Category'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactCategoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Contact&#39;s Contact Categories</p>
+							<pre><code>client.get&lt;ContactCategory[]&gt;(<span class="hljs-string">'/contacts/12345/Contact_Category'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactCategoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add categories to a contact</p>
-							<pre><code><span class="hljs-comment">// payload is an array of ContactCategory elements to be added</span>
-client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/Contact_Category', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactCategoryID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Categories to a Contact</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ContactCategory elements to be added
+client.post&lt;ContactCategory[]&gt;('/contacts/12345/Contact_Category', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.ContactCategoryID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -137,7 +128,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:39</li>
+							<li>Defined in compass-models/contact/contact-category.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +138,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>CategoryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:36</li>
+							<li>Defined in compass-models/contact/contact-category.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +148,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:37</li>
+							<li>Defined in compass-models/contact/contact-category.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +158,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Category<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:40</li>
+							<li>Defined in compass-models/contact/contact-category.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +168,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:41</li>
+							<li>Defined in compass-models/contact/contact-category.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +178,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:42</li>
+							<li>Defined in compass-models/contact/contact-category.ts:35</li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +188,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:38</li>
+							<li>Defined in compass-models/contact/contact-category.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +198,7 @@ client.post&lt;ContactCategory[]&gt;<span class="hljs-function">(<span class="hl
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-category.ts:43</li>
+							<li>Defined in compass-models/contact/contact-category.ts:36</li>
 						</ul>
 					</aside>
 				</section>

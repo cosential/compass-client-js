@@ -66,19 +66,14 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the image metadata for a Personnel.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read images metadata for a Personnel</p>
-							<pre><code>client.get&lt;PersonnelImageMetadata[]&gt;<span class="hljs-function">(<span class="hljs-params">'/personnel/5556666/images'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
-         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ImageSizeKB</span>); }</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read Image Metadata for a Personnel</p>
+							<pre><code>client.get&lt;PersonnelImageMetadata[]&gt;(<span class="hljs-string">'/personnel/12345/images'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">(nextRes)</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ImageId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -130,7 +125,7 @@
 					<div class="tsd-signature tsd-kind-icon">CDRom<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:22</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +135,7 @@
 					<div class="tsd-signature tsd-kind-icon">Caption<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:18</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:24</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">Credit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:19</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">Device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:26</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:29</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:16</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:17</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">Image<wbr>SizeKB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:30</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">Keywords<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:20</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">Network<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:21</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +235,7 @@
 					<div class="tsd-signature tsd-kind-icon">Order<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:23</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">Original<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:31</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">Personnel<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:15</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">Primary<wbr>Photo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:34</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +275,7 @@
 					<div class="tsd-signature tsd-kind-icon">Thumbnail<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:33</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -290,7 +285,7 @@
 					<div class="tsd-signature tsd-kind-icon">Upload<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:25</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +295,7 @@
 					<div class="tsd-signature tsd-kind-icon">Website<wbr>Image<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:32</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -310,7 +305,7 @@
 					<div class="tsd-signature tsd-kind-icon">latitude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:27</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +315,7 @@
 					<div class="tsd-signature tsd-kind-icon">longitude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/personnel-image-metadata.ts:28</li>
+							<li>Defined in compass-models/images/personnel-image-metadata.ts:25</li>
 						</ul>
 					</aside>
 				</section>

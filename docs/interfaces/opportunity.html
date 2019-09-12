@@ -66,78 +66,60 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Opportunity.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
 						<dd><p>Read all Opportunities</p>
-							<pre><code>client.get&lt;Opportunity[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of Opportunity elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OpportunityId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+							<pre><code>client.get&lt;Opportunity[]&gt;(<span class="hljs-string">'/opportunities'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.OpportunityId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read an Opportunity</p>
-							<pre><code>client.get&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.OpportunityName + ' ' + res.result.OpportunityNumber</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+							<pre><code>client.get&lt;Opportunity&gt;(<span class="hljs-string">'/opportunities/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.result.OpportunityId);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add new Opportunity/s</p>
-							<pre><code><span class="hljs-comment">//payload is an array of Opportunity elements to be added</span>
-client.post&lt;Opportunity[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Opportunity <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.OpportunityId</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Opportunity creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+						<dd><p>Add new Opportunity(s)</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Opportunity elements to be added
+client.post&lt;Opportunity[]&gt;('/opportunities', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.OpportunityId) });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Update an Opportunity</p>
-							<pre><code><span class="hljs-comment">//payload is an Opportunity element containing new and existing values</span>
-<span class="hljs-comment">//note that the API client does not support under posting of data</span>
-client.put&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns the updated element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated opportunity <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.OpportunityId</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Opportunity update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+							<pre><code>// payload <span class="hljs-built_in">is</span> an Opportunity element containing <span class="hljs-built_in">new</span> <span class="hljs-keyword">and</span> existing <span class="hljs-built_in">values</span>
+client.<span class="hljs-built_in">put</span>&lt;Opportunity&gt;('/opportunities/<span class="hljs-number">12345</span>', payload).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         console.<span class="hljs-built_in">log</span>(res.result.OpportunityId);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Delete an Opportunity</p>
-							<pre><code>client.delete&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//element marked as inactive</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;Opportunity&gt;(<span class="hljs-string">'/opportunities/12345'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.status);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Search Opportunity/s with pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'OpportunityName:Sample Opportunity'</span>;
-client.search&lt;Opportunity[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/opportunities'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+						<dd><p>Search Opportunity(s) with pagination</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'OpportunityName:Sample'</span>;
+client.search&lt;Opportunity[]&gt;(<span class="hljs-string">'/opportunities'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.OpportunityId) });
      }
-}</code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Search Opportunity/s without pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ActiveInd:1'</span>;
-client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/opportunities'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+						<dd><p>Search Opportunity(s) without pagination</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'OpportunityName:Sample'</span>;
+client.searchForAll&lt;Opportunity&gt;(<span class="hljs-string">'/opportunities'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.OpportunityId) });
      }
-}</code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -289,7 +271,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Active<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:105</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:89</li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +281,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:107</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:91</li>
 						</ul>
 					</aside>
 				</section>
@@ -309,7 +291,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:108</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:92</li>
 						</ul>
 					</aside>
 				</section>
@@ -319,7 +301,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Auto<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:186</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:170</li>
 						</ul>
 					</aside>
 				</section>
@@ -329,7 +311,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:109</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:93</li>
 						</ul>
 					</aside>
 				</section>
@@ -339,7 +321,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Client<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:81</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:65</li>
 						</ul>
 					</aside>
 				</section>
@@ -349,7 +331,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Client<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:82</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:66</li>
 						</ul>
 					</aside>
 				</section>
@@ -359,7 +341,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Close<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:87</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -369,7 +351,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:101</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -379,7 +361,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Construction<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:158</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:142</li>
 						</ul>
 					</aside>
 				</section>
@@ -389,7 +371,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Construction<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:157</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:141</li>
 						</ul>
 					</aside>
 				</section>
@@ -399,7 +381,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:88</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -409,7 +391,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:112</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:96</li>
 						</ul>
 					</aside>
 				</section>
@@ -419,7 +401,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:165</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:149</li>
 						</ul>
 					</aside>
 				</section>
@@ -429,7 +411,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:166</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:150</li>
 						</ul>
 					</aside>
 				</section>
@@ -439,7 +421,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:106</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:90</li>
 						</ul>
 					</aside>
 				</section>
@@ -449,7 +431,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Design<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:156</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:140</li>
 						</ul>
 					</aside>
 				</section>
@@ -459,7 +441,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Design<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:155</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:139</li>
 						</ul>
 					</aside>
 				</section>
@@ -469,7 +451,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Completion<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:146</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:130</li>
 						</ul>
 					</aside>
 				</section>
@@ -479,7 +461,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Fee<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:171</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:155</li>
 						</ul>
 					</aside>
 				</section>
@@ -489,7 +471,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Management<wbr>Units<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:181</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:165</li>
 						</ul>
 					</aside>
 				</section>
@@ -499,7 +481,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Selection<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:86</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -509,7 +491,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:145</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:129</li>
 						</ul>
 					</aside>
 				</section>
@@ -519,7 +501,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">ExpectedRFPDate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:97</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -529,7 +511,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:114</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:98</li>
 						</ul>
 					</aside>
 				</section>
@@ -539,7 +521,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Factored<wbr>CostSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:176</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:160</li>
 						</ul>
 					</aside>
 				</section>
@@ -549,7 +531,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Factored<wbr>Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:172</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:156</li>
 						</ul>
 					</aside>
 				</section>
@@ -559,7 +541,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:91</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -569,7 +551,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">FeeCIDif<wbr>Volume<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:178</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:162</li>
 						</ul>
 					</aside>
 				</section>
@@ -579,7 +561,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">FeeCIPercent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:177</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:161</li>
 						</ul>
 					</aside>
 				</section>
@@ -589,7 +571,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Firm<wbr>Fee<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:147</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:131</li>
 						</ul>
 					</aside>
 				</section>
@@ -599,7 +581,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:182</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:166</li>
 						</ul>
 					</aside>
 				</section>
@@ -609,7 +591,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<wbr>DollarsSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:174</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:158</li>
 						</ul>
 					</aside>
 				</section>
@@ -619,7 +601,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<wbr>Percent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:183</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:167</li>
 						</ul>
 					</aside>
 				</section>
@@ -629,7 +611,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Gross<wbr>Margin<wbr>PercentSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:175</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:159</li>
 						</ul>
 					</aside>
 				</section>
@@ -639,7 +621,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Gross<wbr>RevenueSTD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:173</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:157</li>
 						</ul>
 					</aside>
 				</section>
@@ -649,7 +631,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Interviewed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:162</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:146</li>
 						</ul>
 					</aside>
 				</section>
@@ -659,7 +641,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Labor<wbr>Differential<wbr>Dollars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:179</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:163</li>
 						</ul>
 					</aside>
 				</section>
@@ -669,7 +651,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:170</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:154</li>
 						</ul>
 					</aside>
 				</section>
@@ -679,7 +661,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:169</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:153</li>
 						</ul>
 					</aside>
 				</section>
@@ -689,7 +671,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:168</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:152</li>
 						</ul>
 					</aside>
 				</section>
@@ -699,7 +681,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:167</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:151</li>
 						</ul>
 					</aside>
 				</section>
@@ -709,7 +691,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Marketing<wbr>Cost<wbr>Actual<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:103</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:87</li>
 						</ul>
 					</aside>
 				</section>
@@ -719,7 +701,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Marketing<wbr>Cost<wbr>Budget<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:102</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -729,7 +711,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Master<wbr>Opportunity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:184</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:168</li>
 						</ul>
 					</aside>
 				</section>
@@ -739,7 +721,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Next<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:93</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -749,7 +731,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Note<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:189</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:173</li>
 						</ul>
 					</aside>
 				</section>
@@ -759,7 +741,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Lat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:198</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:182</li>
 						</ul>
 					</aside>
 				</section>
@@ -769,7 +751,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Long<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:199</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:183</li>
 						</ul>
 					</aside>
 				</section>
@@ -779,7 +761,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Self<wbr>Perform<wbr>Hours<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:180</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:164</li>
 						</ul>
 					</aside>
 				</section>
@@ -789,7 +771,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:152</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:136</li>
 						</ul>
 					</aside>
 				</section>
@@ -799,7 +781,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Type<wbr>Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:185</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:169</li>
 						</ul>
 					</aside>
 				</section>
@@ -809,7 +791,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:125</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:109</li>
 						</ul>
 					</aside>
 				</section>
@@ -819,7 +801,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:126</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:110</li>
 						</ul>
 					</aside>
 				</section>
@@ -829,7 +811,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:127</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:111</li>
 						</ul>
 					</aside>
 				</section>
@@ -839,7 +821,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:128</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:112</li>
 						</ul>
 					</aside>
 				</section>
@@ -849,7 +831,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Date5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:129</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:113</li>
 						</ul>
 					</aside>
 				</section>
@@ -859,7 +841,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:113</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:97</li>
 						</ul>
 					</aside>
 				</section>
@@ -869,7 +851,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:80</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:64</li>
 						</ul>
 					</aside>
 				</section>
@@ -879,7 +861,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:191</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:175</li>
 						</ul>
 					</aside>
 				</section>
@@ -889,7 +871,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:192</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:176</li>
 						</ul>
 					</aside>
 				</section>
@@ -899,7 +881,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:193</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:177</li>
 						</ul>
 					</aside>
 				</section>
@@ -909,7 +891,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:194</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:178</li>
 						</ul>
 					</aside>
 				</section>
@@ -919,7 +901,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Long<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:195</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:179</li>
 						</ul>
 					</aside>
 				</section>
@@ -929,7 +911,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:135</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:119</li>
 						</ul>
 					</aside>
 				</section>
@@ -939,7 +921,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:136</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:120</li>
 						</ul>
 					</aside>
 				</section>
@@ -949,7 +931,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:137</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:121</li>
 						</ul>
 					</aside>
 				</section>
@@ -959,7 +941,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:138</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:122</li>
 						</ul>
 					</aside>
 				</section>
@@ -969,7 +951,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Money5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:139</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:123</li>
 						</ul>
 					</aside>
 				</section>
@@ -979,7 +961,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:85</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -989,7 +971,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:104</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:88</li>
 						</ul>
 					</aside>
 				</section>
@@ -999,7 +981,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:120</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:104</li>
 						</ul>
 					</aside>
 				</section>
@@ -1009,7 +991,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:121</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:105</li>
 						</ul>
 					</aside>
 				</section>
@@ -1019,7 +1001,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:122</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:106</li>
 						</ul>
 					</aside>
 				</section>
@@ -1029,7 +1011,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:123</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:107</li>
 						</ul>
 					</aside>
 				</section>
@@ -1039,7 +1021,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Number5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:124</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:108</li>
 						</ul>
 					</aside>
 				</section>
@@ -1049,7 +1031,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:140</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:124</li>
 						</ul>
 					</aside>
 				</section>
@@ -1059,7 +1041,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:141</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:125</li>
 						</ul>
 					</aside>
 				</section>
@@ -1069,7 +1051,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:142</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:126</li>
 						</ul>
 					</aside>
 				</section>
@@ -1079,7 +1061,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:143</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:127</li>
 						</ul>
 					</aside>
 				</section>
@@ -1089,7 +1071,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Percent5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:144</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:128</li>
 						</ul>
 					</aside>
 				</section>
@@ -1099,7 +1081,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:115</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:99</li>
 						</ul>
 					</aside>
 				</section>
@@ -1109,7 +1091,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:116</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:100</li>
 						</ul>
 					</aside>
 				</section>
@@ -1119,7 +1101,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:117</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:101</li>
 						</ul>
 					</aside>
 				</section>
@@ -1129,7 +1111,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:118</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -1139,7 +1121,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Short<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:119</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:103</li>
 						</ul>
 					</aside>
 				</section>
@@ -1149,7 +1131,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:130</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:114</li>
 						</ul>
 					</aside>
 				</section>
@@ -1159,7 +1141,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:131</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:115</li>
 						</ul>
 					</aside>
 				</section>
@@ -1169,7 +1151,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:132</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:116</li>
 						</ul>
 					</aside>
 				</section>
@@ -1179,7 +1161,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:133</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:117</li>
 						</ul>
 					</aside>
 				</section>
@@ -1189,7 +1171,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Value<wbr>ListID5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:134</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:118</li>
 						</ul>
 					</aside>
 				</section>
@@ -1199,7 +1181,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Owner<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:149</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:133</li>
 						</ul>
 					</aside>
 				</section>
@@ -1209,7 +1191,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Owner<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:150</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:134</li>
 						</ul>
 					</aside>
 				</section>
@@ -1219,7 +1201,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Postal<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:111</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:95</li>
 						</ul>
 					</aside>
 				</section>
@@ -1229,7 +1211,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Pre<wbr>Con<wbr>End<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:154</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:138</li>
 						</ul>
 					</aside>
 				</section>
@@ -1239,7 +1221,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Pre<wbr>Con<wbr>Start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:153</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:137</li>
 						</ul>
 					</aside>
 				</section>
@@ -1249,7 +1231,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Presentation<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:100</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -1259,7 +1241,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:92</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -1269,7 +1251,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Project<wbr>Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:148</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:132</li>
 						</ul>
 					</aside>
 				</section>
@@ -1279,7 +1261,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Due<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:96</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -1289,7 +1271,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:95</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:79</li>
 						</ul>
 					</aside>
 				</section>
@@ -1299,7 +1281,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Proposal<wbr>Submitted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:99</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -1309,7 +1291,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Quals<wbr>Due<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:98</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -1319,7 +1301,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">RFPRecieved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:94</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -1329,7 +1311,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:160</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:144</li>
 						</ul>
 					</aside>
 				</section>
@@ -1339,7 +1321,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Red<wbr>Zone<wbr>Score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:190</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:174</li>
 						</ul>
 					</aside>
 				</section>
@@ -1349,7 +1331,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">SF255<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:83</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -1359,7 +1341,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">SF330<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:84</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -1369,7 +1351,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:164</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:148</li>
 						</ul>
 					</aside>
 				</section>
@@ -1379,7 +1361,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Short<wbr>Listed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:161</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:145</li>
 						</ul>
 					</aside>
 				</section>
@@ -1389,7 +1371,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Short<wbr>Listed<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:163</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:147</li>
 						</ul>
 					</aside>
 				</section>
@@ -1399,7 +1381,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:89</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -1409,7 +1391,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Size<wbr>Unit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:90</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -1419,7 +1401,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Stage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:187</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:171</li>
 						</ul>
 					</aside>
 				</section>
@@ -1429,7 +1411,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:188</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:172</li>
 						</ul>
 					</aside>
 				</section>
@@ -1439,7 +1421,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:110</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:94</li>
 						</ul>
 					</aside>
 				</section>
@@ -1449,7 +1431,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Team<wbr>Opp<wbr>Firm<wbr>Org<wbr>Fee<wbr>Source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:151</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:135</li>
 						</ul>
 					</aside>
 				</section>
@@ -1459,7 +1441,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">approval<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:196</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:180</li>
 						</ul>
 					</aside>
 				</section>
@@ -1469,7 +1451,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">approval<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:197</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:181</li>
 						</ul>
 					</aside>
 				</section>
@@ -1479,7 +1461,7 @@ client.searchForAll&lt;Opportunity&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">fund<wbr>Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity.ts:159</li>
+							<li>Defined in compass-models/opportunity/opportunity.ts:143</li>
 						</ul>
 					</aside>
 				</section>

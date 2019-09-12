@@ -66,19 +66,13 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents a Cosential Feature.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><pre><code>client.get&lt;UserFeature[]&gt;(<span class="hljs-string">'/user/features'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">res</span>{</span>
+						<dd><p>Get all features</p>
+							<pre><code>client.get&lt;UserFeature<span class="hljs-literal">[]</span>&gt;('/user/features').<span class="hljs-keyword">then</span>(res{
      <span class="hljs-keyword">if</span> (res.success) {
-         let featurekey = res.result[<span class="hljs-number">0</span>].featureKey;
-         <span class="hljs-comment">//loop through result to find the desired feature</span>
-         <span class="hljs-comment">//featureKey is unique to the feature</span>
-         console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Total features: "</span> + res.result.<span class="hljs-built_in">length</span>);
-     } <span class="hljs-keyword">else</span> {
-         console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"Cound not fetch features. Error Message: "</span> + res.message)
+         <span class="hljs-comment">// loop through result to find the desired feature</span>
+         res.result.for<span class="hljs-constructor">Each(<span class="hljs-params">nextRes</span> =&gt; { <span class="hljs-params">console</span>.<span class="hljs-params">log</span>(<span class="hljs-params">nextRes</span>.<span class="hljs-params">featureKey</span>)</span>; });
      }
 });</code></pre></dd>
 					</dl>
@@ -130,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">Tags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:35</li>
+							<li>Defined in compass-models/user-feature.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +134,7 @@
 					<div class="tsd-signature tsd-kind-icon">addon<wbr>Category<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:28</li>
+							<li>Defined in compass-models/user-feature.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">addon<wbr>Ribbon<wbr>Label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:29</li>
+							<li>Defined in compass-models/user-feature.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:27</li>
+							<li>Defined in compass-models/user-feature.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:22</li>
+							<li>Defined in compass-models/user-feature.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">feature<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:18</li>
+							<li>Defined in compass-models/user-feature.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">feature<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:20</li>
+							<li>Defined in compass-models/user-feature.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">feature<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:19</li>
+							<li>Defined in compass-models/user-feature.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Addon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:25</li>
+							<li>Defined in compass-models/user-feature.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Admin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:31</li>
+							<li>Defined in compass-models/user-feature.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Available<wbr>ToUser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:21</li>
+							<li>Defined in compass-models/user-feature.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:32</li>
+							<li>Defined in compass-models/user-feature.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Metered<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:33</li>
+							<li>Defined in compass-models/user-feature.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +254,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Module<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:24</li>
+							<li>Defined in compass-models/user-feature.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Public<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:30</li>
+							<li>Defined in compass-models/user-feature.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +274,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:26</li>
+							<li>Defined in compass-models/user-feature.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -290,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:34</li>
+							<li>Defined in compass-models/user-feature.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +294,7 @@
 					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/user-feature.ts:23</li>
+							<li>Defined in compass-models/user-feature.ts:18</li>
 						</ul>
 					</aside>
 				</section>

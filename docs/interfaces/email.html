@@ -66,78 +66,60 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Email.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
 						<dd><p>Read all Emails</p>
-							<pre><code>client.get&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of email elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+							<pre><code>client.get&lt;Email[]&gt;(<span class="hljs-string">'/emails'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Read an Email</p>
-							<pre><code>client.get&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Subject + ' ' + res.result.Body</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+							<pre><code>client.get&lt;Email&gt;(<span class="hljs-string">'/emails/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.result.Id);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add new Email/s</p>
-							<pre><code><span class="hljs-comment">//payload is an array of Email elements to be added</span>
-client.post&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Email <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.Id</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Email creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+						<dd><p>Add new Email(s)</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Email elements to be added
+client.post&lt;Email[]&gt;('/emails', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.Id) });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Update an Email</p>
-							<pre><code><span class="hljs-comment">//payload is an Email element containing new and existing values</span>
-<span class="hljs-comment">//note that the API client does not support under posting of data</span>
-client.put&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns the updated element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated email <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.Id</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Email update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+							<pre><code>// payload <span class="hljs-built_in">is</span> an Email element containing <span class="hljs-built_in">new</span> <span class="hljs-keyword">and</span> existing <span class="hljs-built_in">values</span>
+client.<span class="hljs-built_in">put</span>&lt;Email&gt;('/emails/<span class="hljs-number">12345</span>', payload).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         console.<span class="hljs-built_in">log</span>(res.result.Id);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Delete an Email</p>
-							<pre><code>client.delete&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//element marked as inactive</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;Email&gt;(<span class="hljs-string">'/emails/12345'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.status);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Search Email/s with pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ExternalId:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'</span>;
-client.search&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/emails'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+						<dd><p>Search Email(s) with pagination</p>
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ExternalId:&lt;UAT.12345.55555123456.aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.4444444455555@Cosential.UAT&gt;'</span>;
+client.search&lt;Email[]&gt;(<span class="hljs-string">'/emails'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id) });
      }
-}</code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
 						<dd><p>Search Email/s without pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ExternalId:&lt;UAT.12345.5555555566666.aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.4444444455555@Cosential.UAT&gt;'</span>;
-client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/emails'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
+							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ExternalId:&lt;UAT.12345.55555123456.aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.4444444455555@Cosential.UAT&gt;'</span>;
+client.searchForAll&lt;Email&gt;(<span class="hljs-string">'/emails'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id) });
      }
-}</code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -191,7 +173,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Active<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:99</li>
+							<li>Defined in compass-models/email/email.ts:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +183,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Bcc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:88</li>
+							<li>Defined in compass-models/email/email.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +193,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:89</li>
+							<li>Defined in compass-models/email/email.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +203,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Body_<wbr><wbr>Email<wbr>Cc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:94</li>
+							<li>Defined in compass-models/email/email.ts:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +213,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Body_<wbr><wbr>Email<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:95</li>
+							<li>Defined in compass-models/email/email.ts:79</li>
 						</ul>
 					</aside>
 				</section>
@@ -241,7 +223,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Body_<wbr><wbr>Email<wbr>From<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:92</li>
+							<li>Defined in compass-models/email/email.ts:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +233,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Body_<wbr><wbr>Email<wbr>To<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:93</li>
+							<li>Defined in compass-models/email/email.ts:77</li>
 						</ul>
 					</aside>
 				</section>
@@ -261,7 +243,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Body_<wbr><wbr>Remaining<wbr>Emails<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:96</li>
+							<li>Defined in compass-models/email/email.ts:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -271,7 +253,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Cc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:87</li>
+							<li>Defined in compass-models/email/email.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -281,7 +263,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:100</li>
+							<li>Defined in compass-models/email/email.ts:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -291,7 +273,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Email<wbr>Guid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:82</li>
+							<li>Defined in compass-models/email/email.ts:66</li>
 						</ul>
 					</aside>
 				</section>
@@ -301,7 +283,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Email<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:81</li>
+							<li>Defined in compass-models/email/email.ts:65</li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +293,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:83</li>
+							<li>Defined in compass-models/email/email.ts:67</li>
 						</ul>
 					</aside>
 				</section>
@@ -321,7 +303,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">From<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:85</li>
+							<li>Defined in compass-models/email/email.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -331,7 +313,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">HTML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:98</li>
+							<li>Defined in compass-models/email/email.ts:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -341,7 +323,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:97</li>
+							<li>Defined in compass-models/email/email.ts:81</li>
 						</ul>
 					</aside>
 				</section>
@@ -351,7 +333,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:80</li>
+							<li>Defined in compass-models/email/email.ts:64</li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +343,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Opened<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:91</li>
+							<li>Defined in compass-models/email/email.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -371,7 +353,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Sent<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:90</li>
+							<li>Defined in compass-models/email/email.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -381,7 +363,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Subject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:84</li>
+							<li>Defined in compass-models/email/email.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -391,7 +373,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">To<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:86</li>
+							<li>Defined in compass-models/email/email.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -401,7 +383,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email.ts:101</li>
+							<li>Defined in compass-models/email/email.ts:85</li>
 						</ul>
 					</aside>
 				</section>

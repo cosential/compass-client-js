@@ -66,56 +66,36 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents a Contact associated to an Email.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read contacts associated to an Email</p>
-							<pre><code>client.get&lt;EmailContact[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/contacts'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
-         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactId</span>); }</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read Contacts associated to an Email</p>
+							<pre><code>client.get&lt;EmailContact[]&gt;(<span class="hljs-string">'/emails/12345/contacts'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">(nextRes)</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a contact associated to an Email</p>
-							<pre><code>client.get&lt;EmailContact&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/contacts/8889999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.FirstName + ' ' + res.result.LastName</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Contact associated to an Email</p>
+							<pre><code>client.get&lt;EmailContact&gt;(<span class="hljs-string">'/emails/12345/contacts/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.result.ContactId);
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Associate contacts to an Email</p>
-							<pre><code><span class="hljs-comment">//payload is an array of ContactId's to be added</span>
-client.post&lt;EmailContact[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/contacts', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Associated Contact <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.ContactId</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Contact association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+						<dd><p>Associate Contacts to an Email</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of EmailContact elements to be added
+client.post&lt;EmailContact[]&gt;('/emails/12345/contacts', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.ContactId });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Remove Email associated contacts. This removes the association.</p>
-							<pre><code>client.delete&lt;EmailContact[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/contacts'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//association removed</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Removal of association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
+						<dd><p>Remove Email associated Contacts. This removes the association.</p>
+							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;EmailContact[]&gt;(<span class="hljs-string">'/emails/12345/contacts'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
+     <span class="hljs-keyword">if</span> (res.success) {
+         <span class="hljs-built_in">console</span>.log(res.status);
      }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Remove Email associated contact. This removes the association.</p>
-							<pre><code>client.delete&lt;EmailContact&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/contacts/8889999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//association removed</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Removal of association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -150,7 +130,7 @@ client.post&lt;EmailContact[]&gt;<span class="hljs-function">(<span class="hljs-
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-contact.ts:56</li>
+							<li>Defined in compass-models/email/email-contact.ts:37</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +140,7 @@ client.post&lt;EmailContact[]&gt;<span class="hljs-function">(<span class="hljs-
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-contact.ts:57</li>
+							<li>Defined in compass-models/email/email-contact.ts:38</li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +150,7 @@ client.post&lt;EmailContact[]&gt;<span class="hljs-function">(<span class="hljs-
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-contact.ts:58</li>
+							<li>Defined in compass-models/email/email-contact.ts:39</li>
 						</ul>
 					</aside>
 				</section>

@@ -28,14 +28,6 @@ describe("LeadClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read leads for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/lead', '/leadss', '/leasd'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Lead[] > = await client.get < Lead[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read a lead", async () => {
     let url = '/leads/' + aValidLeadId;
     let res: ResponseData < Lead > = await client.get < Lead > (url);

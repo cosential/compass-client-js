@@ -66,19 +66,14 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Opportunity Stage Type.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Opportunity Stage Types</p>
-							<pre><code>client.get&lt;OpportunityStageType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/stage/stagetype'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity stage type elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StageTypeID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Opportunity StageTypes</p>
+							<pre><code>client.get&lt;OpportunityStageType[]&gt;(<span class="hljs-string">'/opportunities/stage/stagetype'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StageTypeID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -112,7 +107,7 @@
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage-type.ts:15</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage-type.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -122,7 +117,7 @@
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage-type.ts:16</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage-type.ts:13</li>
 						</ul>
 					</aside>
 				</section>

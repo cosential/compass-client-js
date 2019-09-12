@@ -66,38 +66,29 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Company type.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Company types</p>
-							<pre><code>client.get&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/companytypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact type elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.CompanyTypeID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Company Types</p>
+							<pre><code>client.get&lt;CompanyType[]&gt;(<span class="hljs-string">'/companies/companytypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyTypeID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Company&#39;s types</p>
-							<pre><code>client.get&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/companytypes'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.CompanyTypeID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Company&#39;s Types</p>
+							<pre><code>client.get&lt;CompanyType[]&gt;(<span class="hljs-string">'/companies/12345/companytypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyTypeID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add types to a Company</p>
-							<pre><code><span class="hljs-comment">// payload is an array of CompanyType elements to be added</span>
-client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/companytypes', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.CompanyTypeID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Types to a Company</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of CompanyType elements to be added
+client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.CompanyTypeID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -138,7 +129,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">AssociationID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:39</li>
+							<li>Defined in compass-models/company/company-type.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -148,7 +139,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:40</li>
+							<li>Defined in compass-models/company/company-type.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -158,7 +149,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:36</li>
+							<li>Defined in compass-models/company/company-type.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +159,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:37</li>
+							<li>Defined in compass-models/company/company-type.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +169,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Type<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:41</li>
+							<li>Defined in compass-models/company/company-type.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +179,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:43</li>
+							<li>Defined in compass-models/company/company-type.ts:36</li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +189,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:42</li>
+							<li>Defined in compass-models/company/company-type.ts:35</li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +199,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:38</li>
+							<li>Defined in compass-models/company/company-type.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +209,7 @@ client.post&lt;CompanyType[]&gt;<span class="hljs-function">(<span class="hljs-p
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:44</li>
+							<li>Defined in compass-models/company/company-type.ts:37</li>
 						</ul>
 					</aside>
 				</section>

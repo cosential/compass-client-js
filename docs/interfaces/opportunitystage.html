@@ -66,38 +66,29 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Opportunity Stage.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Opportunity stages</p>
-							<pre><code>client.get&lt;OpportunityStage[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/stage'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity stage elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StageID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Opportunity Stages</p>
+							<pre><code>client.get&lt;OpportunityStage[]&gt;(<span class="hljs-string">'/opportunities/stage'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StageID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s stage</p>
-							<pre><code>client.get&lt;OpportunityStage[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/stage'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StageID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Opportunity&#39;s Stages</p>
+							<pre><code>client.get&lt;OpportunityStage[]&gt;(<span class="hljs-string">'/opportunities/12345/stage'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StageID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add role to a opportunity</p>
-							<pre><code><span class="hljs-comment">// payload is an array of OpportunityStage elements to be added</span>
-client.post&lt;OpportunityStage[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/stage', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.StageID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Stage to an Opportunity</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunityStage elements to be added
+client.post&lt;OpportunityStage[]&gt;('/opportunities/12345/stage', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.StageID); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -132,7 +123,7 @@ client.post&lt;OpportunityStage[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">StageID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage.ts:38</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -142,7 +133,7 @@ client.post&lt;OpportunityStage[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage.ts:39</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -152,7 +143,7 @@ client.post&lt;OpportunityStage[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="opportunitystagetype.html" class="tsd-signature-type">OpportunityStageType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage.ts:40</li>
+							<li>Defined in compass-models/opportunity/opportunity-stage.ts:33</li>
 						</ul>
 					</aside>
 				</section>

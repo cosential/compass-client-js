@@ -28,14 +28,6 @@ describe("PersonnelClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read personnel for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/personne', '/personnels', '/perosnnel'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Personnel[] > = await client.get < Personnel[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read a personnel", async () => {
     let url = '/personnel/' + aValidPersonnelId;
     let res: ResponseData < Personnel > = await client.get < Personnel > (url);

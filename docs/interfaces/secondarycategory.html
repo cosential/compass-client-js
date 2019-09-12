@@ -66,66 +66,51 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the secondary Categories.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Opportunity secondary Categories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/secondarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity secondary categories elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Opportunity SecondaryCategories</p>
+							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/opportunities/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s secondary categories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/secondarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read an Opportunity&#39;s SecondaryCategories</p>
+							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/opportunities/12345/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add secondary category to a opportunity</p>
-							<pre><code><span class="hljs-comment">// payload is an array of secondary categories elements to be added</span>
-client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/secondarycategories', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add SecondaryCategory to an Opportunity</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of SecondaryCategories elements to be added
+client.post&lt;SecondaryCategory[]&gt;('/opportunities/12345/secondarycategories', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.SecondaryCategoryId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read all lead secondary Categories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/secondarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead secondary categories elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Lead SecondaryCategories</p>
+							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/leads/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a lead&#39;s secondary categories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/2178463/secondarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Lead&#39;s SecondaryCategories</p>
+							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/leads/12345/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add secondary category to a lead</p>
-							<pre><code><span class="hljs-comment">// payload is an array of secondary categories elements to be added</span>
-client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/2178463/secondarycategories', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add SecondaryCategory to a Lead</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of SecondaryCategories elements to be added
+client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.SecondaryCategoryId); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -165,7 +150,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:71</li>
+							<li>Defined in compass-models/secondary-category.ts:58</li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +160,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Default<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:74</li>
+							<li>Defined in compass-models/secondary-category.ts:61</li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +170,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:72</li>
+							<li>Defined in compass-models/secondary-category.ts:59</li>
 						</ul>
 					</aside>
 				</section>
@@ -195,7 +180,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Industry<wbr>Std<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:70</li>
+							<li>Defined in compass-models/secondary-category.ts:57</li>
 						</ul>
 					</aside>
 				</section>
@@ -205,7 +190,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:73</li>
+							<li>Defined in compass-models/secondary-category.ts:60</li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +200,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr><wbr>Cat<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:75</li>
+							<li>Defined in compass-models/secondary-category.ts:62</li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +210,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Secondary<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:68</li>
+							<li>Defined in compass-models/secondary-category.ts:55</li>
 						</ul>
 					</aside>
 				</section>
@@ -235,7 +220,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Secondary<wbr>Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:69</li>
+							<li>Defined in compass-models/secondary-category.ts:56</li>
 						</ul>
 					</aside>
 				</section>

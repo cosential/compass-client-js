@@ -66,38 +66,29 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Lead Record Source.</p>
-					</div>
 					<dl class="tsd-comment-tags">
 						<dt>example</dt>
-						<dd><p>Read all Leads Record Sources</p>
-							<pre><code>client.get&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/recordsource'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead Record Source elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read all Lead RecordSources</p>
+							<pre><code>client.get&lt;LeadRecordSource[]&gt;(<span class="hljs-string">'/leads/recordsource'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Read a Lead&#39;s lead Record Sources</p>
-							<pre><code>client.get&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/recordsource'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Read a Lead&#39;s Record Sources</p>
+							<pre><code>client.get&lt;LeadRecordSource[]&gt;(<span class="hljs-string">'/leads/12345/recordsource'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 						<dt>example</dt>
-						<dd><p>Add Record Sources to a lead</p>
-							<pre><code><span class="hljs-comment">// payload is an array of LeadRecordSource elements to be added</span>
-client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999/recordsource', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+						<dd><p>Add Record Sources to a Lead</p>
+							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of LeadRecordSource elements to be added
+client.post&lt;LeadRecordSource[]&gt;('/leads/12345/recordsource', payload).then(res =&gt; {
+    <span class="hljs-built_in"> if </span>(res.success) {
+         res.result.forEach(nextRes =&gt; { console.log(nextRes.Id); });
      }
-}</span>);</span></code></pre></dd>
+});</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -134,7 +125,7 @@ client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-record-source.ts:36</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +135,7 @@ client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-record-source.ts:39</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +145,7 @@ client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-record-source.ts:40</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +155,7 @@ client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-record-source.ts:38</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +165,7 @@ client.post&lt;LeadRecordSource[]&gt;<span class="hljs-function">(<span class="h
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead-record-source.ts:37</li>
+							<li>Defined in compass-models/lead/lead-record-source.ts:30</li>
 						</ul>
 					</aside>
 				</section>

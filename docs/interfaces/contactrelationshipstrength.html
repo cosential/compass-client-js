@@ -66,17 +66,15 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact Relationships strength.</p>
-						<pre><code><span class="hljs-meta">@example</span> <span class="hljs-keyword">get</span> all Contact relationships strengths</code></pre><p>client.get&lt;ContactRelationshipStrength[]&gt;(&#39;/contacts/relationships/relationshipstrength&#39;).then( res =&gt; {
-							if (res.success) {
-							res.result.forEach(nextRes =&gt; { console.log(index.Id); } );
-							} else { //something went wrong
-							console.log(res.message);
-							}
-							});
-						```</p>
-					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p>Read all Contact Relationship options</p>
+							<pre><code>client.get&lt;ContactMailingList[]&gt;(<span class="hljs-string">'/contacts/relationships/relationshipstrength'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+     <span class="hljs-keyword">if</span> (res.success) {
+         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id); });
+     }
+});</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -113,7 +111,7 @@
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship-strength.ts:16</li>
+							<li>Defined in compass-models/contact/contact-relationship-strength.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -123,7 +121,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship-strength.ts:18</li>
+							<li>Defined in compass-models/contact/contact-relationship-strength.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -133,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Viewable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship-strength.ts:19</li>
+							<li>Defined in compass-models/contact/contact-relationship-strength.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -143,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">Maximum<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship-strength.ts:21</li>
+							<li>Defined in compass-models/contact/contact-relationship-strength.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -153,7 +151,7 @@
 					<div class="tsd-signature tsd-kind-icon">Minimum<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship-strength.ts:20</li>
+							<li>Defined in compass-models/contact/contact-relationship-strength.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +161,7 @@
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-relationship-strength.ts:17</li>
+							<li>Defined in compass-models/contact/contact-relationship-strength.ts:13</li>
 						</ul>
 					</aside>
 				</section>

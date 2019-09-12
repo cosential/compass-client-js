@@ -38,14 +38,6 @@ describe("ContactClient", () => {
     expect(res.success).toBeTruthy(res.message);
   });
 
-  it("Can read contacts for incorrect url", async () => {
-    let mistypedUrls: string[] = ['/contact', '/contactss', '/contatcs'];
-    mistypedUrls.forEach(asyncnextRes => {
-      let res: ResponseData < Contact[] > = await client.get < Contact[] >nextRes;
-      expect(res.success).toBeFalsy(res.message);
-    });
-  });
-
   it("Can read a contact", async () => {
     let url = '/contacts/' + aValidContactId;
     let res: ResponseData < Contact > = await client.get < Contact > (url);
