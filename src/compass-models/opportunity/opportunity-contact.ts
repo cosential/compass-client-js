@@ -2,24 +2,20 @@ import { Contact } from '../contact/contact';
 import { ContactRole } from '../contact-role';
 
 /**
- * @example Read a Opportunities contacts
+ * @example Read an Opportunity's Contacts
  * ```
- * client.get<OpportunityContact[]>('/opportunities/2178463/contacts').then( (res) => {
+ * client.get<OpportunityContact[]>('/opportunities/12345/contacts').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.id); });
  *      }
  * });
  * ```
- * @example Add contact to a opportunity
+ * @example Add Contact to an Opportunity
  * ```
  * // payload is an array of OpportunityContact elements to be added
- * client.post<OpportunityContact[]>('/opportunities/2178463/contacts', payload).then( (res) => {
+ * client.post<OpportunityContact[]>('/opportunities/12345/contacts', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.id); });
  *      }
  * });
  * ```

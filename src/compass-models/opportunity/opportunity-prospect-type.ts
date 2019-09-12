@@ -1,33 +1,27 @@
 /**
- * Represents the Opportunity Prospect Type.
- * @example Read all Opportunity Prospect types
+ * Represents the Opportunity ProspectType.
+ * @example Read all Opportunity ProspectTypes
  * ```
- * client.get<OpportunityProspectType[]>('/opportunities/prospecttype').then( (res) => {
- *      if (res.success) { //returns an array of opportunity prospect type elements
- *          res.result.forEach( (index) => { console.log(index.ProspectTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Opportunity's delivery methods
- * ```
- * client.get<OpportunityProspectType[]>('/opportunities/2178463/deliverymethod').then( (res) => {
+ * client.get<OpportunityProspectType[]>('/opportunities/prospecttype').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.ProspectTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProspectTypeId); });
  *      }
  * });
  * ```
- * @example Add delivery method to a opportunity
+ * @example Read a Opportunity's ProspectTypes
+ * ```
+ * client.get<OpportunityProspectType[]>('/opportunities/12345/prospecttype').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProspectTypeId); });
+ *      }
+ * });
+ * ```
+ * @example Add ProspectType to a opportunity
  * ```
  * // payload is an array of OpportunityProspectType elements to be added
- * client.post<OpportunityProspectType[]>('/opportunities/2178463/deliverymethod', payload).then( (res) => {
+ * client.post<OpportunityProspectType[]>('/opportunities/12345/prospecttype', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.ProspectTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProspectTypeId); });
  *      }
  * });
  * ```

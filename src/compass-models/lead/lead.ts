@@ -1,77 +1,61 @@
 /**
- * Represents the Lead.
  * @example Read all Leads
  * ```
- * client.get<Lead[]>('/leads').then( (res) => {
- *      if (res.success) { //returns an array of lead elements
- *          res.result.forEach( (index) => { console.log(index.LeadId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Lead[]>('/leads').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.LeadId); });
  *      }
  * });
  * ```
  * @example Read a Lead
  * ```
- * client.get<Lead>('/leads/5555999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.Name + ' ' + res.result.Description);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Lead>('/leads/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.LeadId);
  *      }
  * });
  * ```
- * @example Add new Lead/s
+ * @example Add new Lead(s)
  * ```
- * //payload is an array of Lead elements to be added
- * client.post<Lead[]>('/leads', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Lead with id as " + index.LeadId) + "." } );
- *      } else { //something went wrong
- *          console.log("Lead creation failed. Error message: " + res.message);
+ * // payload is an array of Lead elements to be added
+ * client.post<Lead[]>('/leads', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.LeadId) });
  *      }
  * });
  * ```
  * @example Update a Lead
  * ```
- * //payload is a Lead element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<Lead>('/leads/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated lead with Id as: " + res.result.LeadId);
- *      } else { //something went wrong
- *          console.log("Lead update failed. Error message: " + res.message);
+ * // payload is a Lead element containing new and existing values
+ * client.put<Lead>('/leads/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.LeadId);
  *      }
  * });
  * ```
  * @example Delete a Lead
  * ```
- * client.delete<Lead>('/leads/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
+ * client.delete<Lead>('/leads/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```
- * @example Search Lead/s with pagination
+ * @example Search Lead(s) with pagination
  * ```
  * let searchQuery = 'Name:Victory';
- * client.search<Lead[]>('/leads', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * client.search<Lead[]>('/leads', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.LeadId) });
  *      }
  * }
  * ```
  * @example Search Lead/s without pagination
  * ```
- * let searchQuery = 'NumOfViews:20';
- * client.searchForAll<Lead>('/leads', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'Name:Victory';
+ * client.searchForAll<Lead>('/leads', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.LeadId) });
  *      }
  * }
  * ```

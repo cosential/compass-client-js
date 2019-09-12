@@ -1,79 +1,63 @@
 /**
- * Represents the Company.
  * @example Read all Companies
  * ```
- * client.get<Company[]>('/companies').then( (res) => {
- *      if (res.success) { //returns an array of company elements
- *          res.result.forEach( (index) => { console.log(index.CompanyId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Company[]>('/companies').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.CompanyId); });
  *      }
  * });
  * ```
  * @example Read a Company
  * ```
- * client.get<Company>('/companies/5555999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.FirstName + ' ' + res.result.Name);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Company>('/companies/12345').then(res => {
+ *      if (res.success) {res
+ *          console.log(res.result.CompanyId);
  *      }
  * });
  * ```
- * @example Add new Company/s
+ * @example Add new Company(s)
  * ```
- * //payload is an array of Company elements to be added
- * client.post<Company[]>('/companies', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Company with id as " + index.CompanyId) + "." } );
- *      } else { //something went wrong
- *          console.log("Company creation failed. Error message: " + res.message);
+ * // payload is an array of Company elements to be added
+ * client.post<Company[]>('/companies', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.CompanyId) });
  *      }
  * });
  * ```
  * @example Update a Company
  * ```
- * //payload is a Company element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<Company>('/companies/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated company with Id as: " + res.result.CompanyId);
- *      } else { //something went wrong
- *          console.log("Company update failed. Error message: " + res.message);
+ * // payload is a Company element containing new and existing values
+ * client.put<Company>('/companies/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.CompanyId);
  *      }
  * });
  * ```
  * @example Delete a Company
  * ```
- * client.delete<Company>('/companies/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
+ * client.delete<Company>('/companies/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```
- * @example Search Company/s with pagination
+ * @example Search Company(s) with pagination
  * ```
  * let searchQuery = 'Name:Cosential';
- * client.search<Company[]>('/companies', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * client.search<Company[]>('/companies', searchQuery).then(res => {
+ *      if (res.success) {
+  *          res.result.forEach(nextRes => { console.log(nextRes.CompanyId) });
  *      }
- * }
+ * });
  * ```
- * @example Search Company/s without pagination
+ * @example Search Company(s) without pagination
  * ```
- * let searchQuery = 'Country:Liechtenstein';
- * client.searchForAll<Company>('/companies', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'Name:Cosential';
+ * client.searchForAll<Company>('/companies', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.CompanyId) });
  *      }
- * }
+ * });
  * ```
  */
 export interface Company {

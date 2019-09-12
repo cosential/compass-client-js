@@ -1,24 +1,18 @@
 /**
- * Represents the Contact Relationships.
+ * @example Read a Contact's Contact Relationships
  * ```
- * @example Read a Contact's relationships
- * ```
- * client.get<ContactRelationship[]>('/contacts/5555999/relationships').then( (res) => {
+ * client.get<ContactRelationship[]>('/contacts/12345/relationships').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.ContactRelationshipId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactRelationshipId); });
  *      }
  * });
  * ```
- * @example Add relationship to a contact's relationships
+ * @example Add Relationships to a Contact
  * ```
- * // payload is an array of relationship elements to be added
- * client.post<ContactRelationship[]>('/contacts/5555999/relationships', payload).then( (res) => {
+ * // payload is an array of ContactRelationship elements to be added
+ * client.post<ContactRelationship[]>('/contacts/12345/relationships', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.ContactRelationshipId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactRelationshipId); });
  *      }
  * });
  * ```

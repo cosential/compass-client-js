@@ -1,33 +1,26 @@
 /**
- * Represents the Lead Source.
- * @example Read all Leads Sources
+ * @example Read all Lead Sources
  * ```
- * client.get<LeadSource[]>('/leads/source').then( (res) => {
- *      if (res.success) { //returns an array of lead Source elements
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Lead's lead Sources
- * ```
- * client.get<LeadSource[]>('/leads/5555999/source').then( (res) => {
+ * client.get<LeadSource[]>('/leads/source').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
- * @example Add Sources to a lead
+ * @example Read a Lead's Sources
+ * ```
+ * client.get<LeadSource[]>('/leads/12345/source').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
+ *      }
+ * });
+ * ```
+ * @example Add Sources to a Lead
  * ```
  * // payload is an array of LeadSource elements to be added
- * client.post<LeadSource[]>('/leads/5555999/source', payload).then( (res) => {
+ * client.post<LeadSource[]>('/leads/12345/source', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

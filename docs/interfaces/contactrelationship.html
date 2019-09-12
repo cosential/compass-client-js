@@ -68,22 +68,22 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Represents the Contact Relationships.</p>
-						<pre><code><span class="hljs-meta">@example</span> <span class="hljs-type">Read</span> a <span class="hljs-type">Contact</span><span class="hljs-symbol">'s</span> relationships</code></pre><p>client.get&lt;ContactRelationship[]&gt;(&#39;/contacts/5555999/relationships&#39;).then( (res) =&gt; {
+						<pre><code><span class="hljs-meta">@example</span> <span class="hljs-type">Read</span> a <span class="hljs-type">Contact</span><span class="hljs-symbol">'s</span> relationships</code></pre><p>client.get&lt;ContactRelationship[]&gt;(&#39;/contacts/5555999/relationships&#39;).then( res =&gt; {
 							if (res.success) {
-							res.result.forEach( (index) =&gt; { console.log(index.ContactRelationshipId); } );
+							res.result.forEach(nextRes =&gt; { console.log(index.ContactRelationshipId); } );
 							} else { //something went wrong
 							console.log(res.message);
 							}
 						});</p>
 						<pre><code><span class="hljs-symbol">@example</span> Add relationship <span class="hljs-keyword">to</span> a contact<span class="hljs-string">'s relationships</span></code></pre><p>// payload is an array of relationship elements to be added
-							client.post&lt;ContactRelationship[]&gt;(&#39;/contacts/5555999/relationships&#39;, payload).then( (res) =&gt; {
+							client.post&lt;ContactRelationship[]&gt;(&#39;/contacts/5555999/relationships&#39;, payload).then( res =&gt; {
 							if (res.success) {
-							res.result.forEach( (index) =&gt; { console.log(index.ContactRelationshipId); } );
+							res.result.forEach(nextRes =&gt; { console.log(index.ContactRelationshipId); } );
 							} else { //something went wrong
 							console.log(res.message);
 							}
 							});
-						<code>`</code></p>
+						```</p>
 					</div>
 				</div>
 			</section>
@@ -273,6 +273,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -321,7 +322,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

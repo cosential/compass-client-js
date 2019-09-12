@@ -1,64 +1,51 @@
 /**
- * Represents the Practice Areas.
  * @example Read all Contact PracticeAreas
  * ```
- * client.get<PracticeArea[]>('/contacts/PracticeAreas').then( (res) => {
- *      if (res.success) { //returns an array of division elements
- *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<PracticeArea[]>('/contacts/PracticeAreas').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PracticeAreaId); });
  *      }
  * });
  * ```
  * @example Read a Contact's PracticeAreas
  * ```
- * client.get<PracticeArea[]>('/contacts/5555999/PracticeAreas').then( (res) => {
+ * client.get<PracticeArea[]>('/contacts/12345/PracticeAreas').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PracticeAreaId); });
  *      }
  * });
  * ```
- * @example Add PracticeAreas to a contact's PracticeAreas
+ * @example Add PracticeAreas to a Contact's
  * ```
- * // payload is an array of Division elements to be added
- * client.post<PracticeArea[]>('/contacts/5555999/PracticeAreas', payload).then( (res) => {
+ * // payload is an array of PracticeArea elements to be added
+ * client.post<PracticeArea[]>('/contacts/12345/PracticeAreas', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PracticeAreaId); });
  *      }
  * });
  * ```
  * @example Read all Company PracticeAreas
  * ```
- * client.get<PracticeArea[]>('/companies/PracticeAreas').then( (res) => {
- *      if (res.success) { //returns an array of division elements
- *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<PracticeArea[]>('/companies/PracticeAreas').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PracticeAreaId); });
  *      }
  * });
  * ```
  * @example Read a Company's PracticeAreas
  * ```
- * client.get<PracticeArea[]>('/companies/5555999/PracticeAreas').then( (res) => {
+ * client.get<PracticeArea[]>('/companies/12345/PracticeAreas').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PracticeAreaId); });
  *      }
  * });
  * ```
- * @example Add PracticeAreas to a Company's PracticeAreas
+ * @example Add PracticeAreas to a Company
  * ```
- * // payload is an array of Division elements to be added
- * client.post<PracticeArea[]>('/companies/5555999/PracticeAreas', payload).then( (res) => {
+ * // payload is an array of PracticeArea elements to be added
+ * client.post<PracticeArea[]>('/companies/12345/PracticeAreas', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.PracticeAreaId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PracticeAreaId); });
  *      }
  * });
  * ```

@@ -68,14 +68,14 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Represents the Contact Relationships strength.</p>
-						<pre><code><span class="hljs-meta">@example</span> <span class="hljs-keyword">get</span> all Contact relationships strengths</code></pre><p>client.get&lt;ContactRelationshipStrength[]&gt;(&#39;/contacts/relationships/relationshipstrength&#39;).then( (res) =&gt; {
+						<pre><code><span class="hljs-meta">@example</span> <span class="hljs-keyword">get</span> all Contact relationships strengths</code></pre><p>client.get&lt;ContactRelationshipStrength[]&gt;(&#39;/contacts/relationships/relationshipstrength&#39;).then( res =&gt; {
 							if (res.success) {
-							res.result.forEach( (index) =&gt; { console.log(index.Id); } );
+							res.result.forEach(nextRes =&gt; { console.log(index.Id); } );
 							} else { //something went wrong
 							console.log(res.message);
 							}
 							});
-						<code>`</code></p>
+						```</p>
 					</div>
 				</div>
 			</section>
@@ -223,6 +223,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -271,7 +272,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

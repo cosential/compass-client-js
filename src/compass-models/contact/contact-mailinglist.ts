@@ -1,43 +1,26 @@
 /**
- * Represents the Contact Mailing List.
- * @example Get all Mailing Lists values
+ * @example Read all Contact Mailing Lists
  * ```
- * contactClient.get<ContactMailingList[]>('/contacts/Contact_MailingList').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.MailingLIstID); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<ContactMailingList[]>('/contacts/Contact_MailingList').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.MailingListID); });
  *      }
  * });
  * ```
- * @example Read Mailing Lists of a Contact
+ * @example Read a Contact's Contact Mailing Lists
  * ```
- * contactClient.get<ContactMailingList[]>('/contacts/123456/Contact_MailingList').then( (res) => {
- *      if(res.success){ //success
- *          console.log(res.result[0].Id);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<ContactMailingList[]>('/contacts/12345/Contact_MailingList').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.MailingListID); });
  *      }
  * });
  * ```
- * @example Update a Contact's Mailing Lists
- * // Payload is an array containing one object with a property "MailingListID" corresponding to a valid Mailing Lists
+ * @example Add Mailing Lists to a Contact
  * ```
- * client.post<ContactMailingList[]>('/contacts/123456/Contact_MailingList', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Set Contact to have Mailing List with id as " + index.MailingListId) + "." } );
- *      } else { //something went wrong
- *          console.log("Call Log creation failed. Error message: " + res.message);
- *      }
- * });
- * ```
- * @example Delete a Contact's Mailing Lists
- * ```
- * client.delete<ContactMailingList[]>('/contacts/123456/Contact_MailingList').then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          console.log("Cleared Contact's Mailing Lists.");
- *      } else { //something went wrong
- *          console.log("Call Log creation failed. Error message: " + res.message);
+ * // payload is an array of ContactMailingList elements to be added
+ * client.post<ContactMailingList[]>('/contacts/12345/Contact_MailingList', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.MailingListID); });
  *      }
  * });
  * ```

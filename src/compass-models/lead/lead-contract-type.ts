@@ -1,33 +1,26 @@
 /**
- * Represents the Lead ContractType.
- * @example Read all Leads ContractTypes
+ * @example Read all Lead ContractTypes
  * ```
- * client.get<LeadContractType[]>('/leads/contracttypes').then( (res) => {
- *      if (res.success) { //returns an array of lead ContractType elements
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Lead's lead ContractTypes
- * ```
- * client.get<LeadContractType[]>('/leads/5555999/contracttypes').then( (res) => {
+ * client.get<LeadContractType[]>('/leads/contracttypes').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
- * @example Add ContractTypes to a lead
+ * @example Read a Lead's ContractTypes
+ * ```
+ * client.get<LeadContractType[]>('/leads/12345/contracttypes').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
+ *      }
+ * });
+ * ```
+ * @example Add ContractTypes to a Lead
  * ```
  * // payload is an array of LeadContractType elements to be added
- * client.post<LeadContractType[]>('/leads/5555999/contracttypes', payload).then( (res) => {
+ * client.post<LeadContractType[]>('/leads/12345/contracttypes', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

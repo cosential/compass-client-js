@@ -1,77 +1,61 @@
 /**
- * Represents the Project.
  * @example Read all Projects
  * ```
- * client.get<Project[]>('/projects').then( (res) => {
- *      if (res.success) { //returns an array of project elements
- *          res.result.forEach( (index) => { console.log(index.ProjectId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Project[]>('/projects').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProjectId); });
  *      }
  * });
  * ```
  * @example Read a Project
  * ```
- * client.get<Project>('/projects/5555999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.FirstName + ' ' + res.result.LastName);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Project>('/projects/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.ProjectId);
  *      }
  * });
  * ```
- * @example Add new Project/s
+ * @example Add new Project(s)
  * ```
- * //payload is an array of Project elements to be added
- * client.post<Project[]>('/projects', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Project with id as " + index.ProjectId) + "." } );
- *      } else { //something went wrong
- *          console.log("Project creation failed. Error message: " + res.message);
+ * // payload is an array of Project elements to be added
+ * client.post<Project[]>('/projects', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProjectId) });
  *      }
  * });
  * ```
  * @example Update a Project
  * ```
- * //payload is a Project element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<Project>('/projects/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated project with Id as: " + res.result.ProjectId);
- *      } else { //something went wrong
- *          console.log("Project update failed. Error message: " + res.message);
+ * // payload is a Project element containing new and existing values
+ * client.put<Project>('/projects/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.ProjectId);
  *      }
  * });
  * ```
  * @example Delete a Project
  * ```
- * client.delete<Project>('/projects/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
+ * client.delete<Project>('/projects/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```
- * @example Search Project/s with pagination
+ * @example Search Project(s) with pagination
  * ```
- * let searchQuery = 'ProjectName:Sample Construction';
- * client.search<Project[]>('/projects', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'ProjectName:Sample';
+ * client.search<Project[]>('/projects', searchQuery).then(res => {
+ *      if (res.success) { //search successful
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProjectId) });
  *      }
  * }
  * ```
- * @example Search Project/s without pagination
+ * @example Search Project(s) without pagination
  * ```
- * let searchQuery = 'Prominent:true';
- * client.searchForAll<Project>('/projects', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'ProjectName:Sample';
+ * client.searchForAll<Project>('/projects', searchQuery).then(res => {
+ *      if (res.success) { //search successful
+ *          res.result.forEach(nextRes => { console.log(nextRes.ProjectId) });
  *      }
  * }
  * ```

@@ -1,27 +1,21 @@
 import { Personnel } from '../personnel';
 import { OpportunityStaffRole } from './opportunity-staff-role';
 
-
 /**
- * Represents the Opportunity STaff Team.
- * @example Read a Opportunity's staff team
+ * @example Read a Opportunity's StaffTeam
  * ```
- * client.get<OpportunityProspectType[]>('/opportunities/2178463/staffteam').then( (res) => {
+ * client.get<OpportunityProspectType[]>('/opportunities/12345/staffteam').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OppStaffTeamID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OppStaffTeamID); });
  *      }
  * });
  * ```
- * @example Add staff team to a opportunity
+ * @example Add StaffTeam to an Opportunity
  * ```
  * // payload is an array of OpportunityStaffTeam elements to be added
- * client.post<OpportunityStaffTeam[]>('/opportunities/2178463/staffteam', payload).then( (res) => {
+ * client.post<OpportunityStaffTeam[]>('/opportunities/12345/staffteam', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OppStaffTeamID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OppStaffTeamID); });
  *      }
  * });
  * ```

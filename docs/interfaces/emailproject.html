@@ -73,7 +73,7 @@
 						<dt>example</dt>
 						<dd><p>Read projects associated to an email</p>
 							<pre><code>client.get&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/projects'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
          res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ProjectId</span>); }</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
@@ -92,7 +92,7 @@
 						<dd><p>Associate projects to an Email</p>
 							<pre><code><span class="hljs-comment">//payload is an array of ProjectId's to be added</span>
 client.post&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/projects', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Associated Project <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.ProjectId</span>) + "." } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Project association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -101,7 +101,7 @@ client.post&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-
 						<dt>example</dt>
 						<dd><p>Remove Email associated projects. This removes the association.</p>
 							<pre><code>client.delete&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/projects'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//association removed</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//association removed</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Removal of association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -110,7 +110,7 @@ client.post&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-
 						<dt>example</dt>
 						<dd><p>Remove Email associated project. This removes the association.</p>
 							<pre><code>client.delete&lt;EmailProject&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/projects/8889999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//association removed</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//association removed</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Removal of association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -207,6 +207,7 @@ client.post&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -255,7 +256,7 @@ client.post&lt;EmailProject[]&gt;<span class="hljs-function">(<span class="hljs-
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

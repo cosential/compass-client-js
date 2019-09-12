@@ -1,22 +1,17 @@
 /**
- * Represents the Company Address.
  * @example Read all addresses associated to a Company
  * ```
- * companyClient.get<CompanyAddress[]>('/companies/5556666/addresses').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.AddressID); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * companyClient.get<CompanyAddress[]>('/companies/12345/addresses').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.AddressID); });
  *      }
  * });
  * ```
  * @example Read default address of a Company
  * ```
- * companyClient.getCompanyAddress<CompanyAddress>(5556666).then( (res) => {
- *      if(res.success){ //success
- *          console.log(res.result.Address1);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * companyClient.getCompanyAddress<CompanyAddress>(12345).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.AddressID);
  *      }
  * });
  * ```

@@ -1,33 +1,26 @@
 /**
- * Represents the Opportunity Client Types.
- * @example Read all Opportunity Client Types
+ * @example Read all Opportunity ClientTypes
  * ```
- * client.get<OpportunityClientType[]>('/opportunities/clienttypes').then( (res) => {
- *      if (res.success) { //returns an array of opportunity client type elements
- *          res.result.forEach( (index) => { console.log(index.ClientTypeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Opportunities client types
- * ```
- * client.get<OpportunityClientType[]>('/opportunities/2178463/clienttypes').then( (res) => {
+ * client.get<OpportunityClientType[]>('/opportunities/clienttypes').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.ClientTypeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.ClientTypeID); });
  *      }
  * });
  * ```
- * @example Add client type to a opportunity
+ * @example Read a Opportunities ClientTypes
+ * ```
+ * client.get<OpportunityClientType[]>('/opportunities/12345/clienttypes').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ClientTypeID); });
+ *      }
+ * });
+ * ```
+ * @example Add ClientType to a Opportunity
  * ```
  * // payload is an array of OpportunityClientType elements to be added
- * client.post<OpportunityClientType[]>('/opportunities/2178463/clienttypes', payload).then( (res) => {
+ * client.post<OpportunityClientType[]>('/opportunities/12345/clienttypes', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.ClientTypeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.ClientTypeID); });
  *      }
  * });
  * ```

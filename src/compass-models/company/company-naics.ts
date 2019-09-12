@@ -1,33 +1,26 @@
 /**
- * Represents the Company NAICS.
  * @example Read all Company NAICSs
  * ```
- * client.get<CompanyNAICS[]>('/companies/naics').then( (res) => {
- *      if (res.success) { //returns an array of contact NAICS elements
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<CompanyNAICS[]>('/companies/naics').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
  * @example Read a Company's NAICSs
  * ```
- * client.get<CompanyNAICS[]>('/companies/5555999/naics').then( (res) => {
+ * client.get<CompanyNAICS[]>('/companies/12345/naics').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
  * @example Add NAICSs to a Company
  * ```
  * // payload is an array of CompanyNAICS elements to be added
- * client.post<CompanyNAICS[]>('/companies/5555999/naics', payload).then( (res) => {
+ * client.post<CompanyNAICS[]>('/companies/12345/naics', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

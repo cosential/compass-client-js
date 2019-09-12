@@ -1,12 +1,9 @@
 /**
- * Represents the image metadata for a Personnel.
- * @example Read images metadata for a Personnel
+ * @example Read Image Metadata for a Personnel
  * ```
- * client.get<PersonnelImageMetadata[]>('/personnel/5556666/images').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.ImageSizeKB); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<PersonnelImageMetadata[]>('/personnel/12345/images').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach((nextRes) => { console.log(nextRes.ImageId); });
  *      }
  * });
  * ```

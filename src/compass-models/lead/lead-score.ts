@@ -1,33 +1,26 @@
 /**
- * Represents the Lead Score.
- * @example Read all Leads Scores
+ * @example Read all Lead Scores
  * ```
- * client.get<LeadScore[]>('/leads/score').then( (res) => {
- *      if (res.success) { //returns an array of lead Score elements
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<LeadScore[]>('/leads/score').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
  * @example Read a Lead's lead Scores
  * ```
- * client.get<LeadScore[]>('/leads/5555999/score').then( (res) => {
+ * client.get<LeadScore[]>('/leads/12345/score').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
- * @example Add Scores to a lead
+ * @example Add Scores to a Lead
  * ```
  * // payload is an array of LeadScore elements to be added
- * client.post<LeadScore[]>('/leads/5555999/score', payload).then( (res) => {
+ * client.post<LeadScore[]>('/leads/12345/score', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

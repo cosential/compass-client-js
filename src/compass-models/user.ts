@@ -1,19 +1,11 @@
 /**
- * Represents the User that has successfully authenticated into the Compass API.
- * @example
+ * @example Get current user
  * ```
- * client.get<User[]>('/user').then(function(res){ 
- *      if (res.success) { 
- *          //The API call was successful
- * 
- *          //This api endpoint always returns a single element array
+ * //This api endpoint always returns a single element array
+ * client.get<User[]>('/user').then(functionres{ 
+ *      if (res.success) {
  *          let user = res.result[0]; 
- * 
- *          //Because user is an API response object, properties are proper case, not camel case.
- *          document.write('<h2>Hi, ' + user.FirstName + '! You are authenticated</h2>'); *          
- *      } else {
- *          //Something went wrong
- *          document.write('<h2>Error</h2><div>' + res.message + '</div>');
+ *          console.log(user.UserId);      
  *      }
  * });
  * ```

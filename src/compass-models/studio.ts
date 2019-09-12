@@ -1,64 +1,52 @@
 /**
  * Represents the Studios.
- * @example Read all Contact studios
+ * @example Read all Contact Studios
  * ```
- * client.get<Studio[]>('/contacts/studios').then( (res) => {
- *      if (res.success) { //returns an array of studio elements
- *          res.result.forEach( (index) => { console.log(index.StudioId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Contact's studios
- * ```
- * client.get<Studio[]>('/contacts/5555999/studios').then( (res) => {
+ * client.get<Studio[]>('/contacts/studios').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.StudioId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.StudioId); });
  *      }
  * });
  * ```
- * @example Add studios to a contact's studios
+ * @example Read a Contact's Studios
  * ```
- * // payload is an array of Division elements to be added
- * client.post<Studio[]>('/contacts/5555999/studios', payload).then( (res) => {
+ * client.get<Studio[]>('/contacts/12345/studios').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.StudioId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.StudioId); });
  *      }
  * });
  * ```
- * @example Read all Company studios
+ * @example Add Studios to a Contact
  * ```
- * client.get<Studio[]>('/companies/studios').then( (res) => {
- *      if (res.success) { //returns an array of studio elements
- *          res.result.forEach( (index) => { console.log(index.StudioId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Company's studios
- * ```
- * client.get<Studio[]>('/companies/5555999/studios').then( (res) => {
+ * // payload is an array of Studio elements to be added
+ * client.post<Studio[]>('/contacts/12345/studios', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.StudioId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.StudioId); });
  *      }
  * });
  * ```
- * @example Add studios to a Company's studios
+ * @example Read all Company Studios
  * ```
- * // payload is an array of Division elements to be added
- * client.post<Studio[]>('/companies/5555999/studios', payload).then( (res) => {
+ * client.get<Studio[]>('/companies/studios').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.StudioId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.StudioId); });
+ *      }
+ * });
+ * ```
+ * @example Read a Company's Studios
+ * ```
+ * client.get<Studio[]>('/companies/12345/studios').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.StudioId); });
+ *      }
+ * });
+ * ```
+ * @example Add Studios to a Company
+ * ```
+ * // payload is an array of Studio elements to be added
+ * client.post<Studio[]>('/companies/12345/studios', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.StudioId); });
  *      }
  * });
  * ```

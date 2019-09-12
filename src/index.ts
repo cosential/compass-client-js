@@ -28,7 +28,7 @@ export { EmailLead } from './compass-models/email/email-lead';
 export { EmailOpportunity } from './compass-models/email/email-opportunity';
 export { EmailPersonnel } from './compass-models/email/email-personnel';
 export { EmailProject } from './compass-models/email/email-project';
-export { CompanyImageMetadata } from './compass-models/images/company-image-metadata';
+export { CompanyImageMetadata } from './compass-models/images/contact-image-metadata';
 export { ContactImageMetadata } from './compass-models/images/contact-image-metadata';
 export { Image } from './compass-models/images/image';
 export { PersonnelImageMetadata } from './compass-models/images/personnel-image-metadata';

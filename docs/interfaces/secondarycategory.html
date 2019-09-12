@@ -98,6 +98,34 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
 }</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read all lead secondary Categories</p>
+							<pre><code>client.get&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/secondarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead secondary categories elements</span>
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Read a lead&#39;s secondary categories</p>
+							<pre><code>client.get&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/2178463/secondarycategories'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
+						<dt>example</dt>
+						<dd><p>Add secondary category to a lead</p>
+							<pre><code><span class="hljs-comment">// payload is an array of secondary categories elements to be added</span>
+client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/2178463/secondarycategories', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
+     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
+         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.SecondaryCategoryId</span>); } </span>);
+     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
+         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
+     }
+}</span>);</span></code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -137,7 +165,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:39</li>
+							<li>Defined in compass-models/secondary-category.ts:71</li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +175,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Default<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:42</li>
+							<li>Defined in compass-models/secondary-category.ts:74</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +185,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:40</li>
+							<li>Defined in compass-models/secondary-category.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +195,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Industry<wbr>Std<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:38</li>
+							<li>Defined in compass-models/secondary-category.ts:70</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +205,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:41</li>
+							<li>Defined in compass-models/secondary-category.ts:73</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +215,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr><wbr>Cat<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:43</li>
+							<li>Defined in compass-models/secondary-category.ts:75</li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +225,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Secondary<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:36</li>
+							<li>Defined in compass-models/secondary-category.ts:68</li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +235,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 					<div class="tsd-signature tsd-kind-icon">Secondary<wbr>Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:37</li>
+							<li>Defined in compass-models/secondary-category.ts:69</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,6 +301,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -321,7 +350,7 @@ client.post&lt;SecondaryCategory[]&gt;<span class="hljs-function">(<span class="
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

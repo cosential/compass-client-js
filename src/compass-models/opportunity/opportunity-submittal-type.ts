@@ -1,33 +1,26 @@
 /**
- * Represents the Opportunity Submittal Type.
- * @example Read all Opportunity Submittal Types
+ * @example Read all Opportunity SubmittalTypes
  * ```
- * client.get<OpportunitySubmittalType[]>('/opportunities/submittaltype').then( (res) => {
- *      if (res.success) { //returns an array of opportunity submittal type elements
- *          res.result.forEach( (index) => { console.log(index.SubmittalTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Opportunity's submittal types
- * ```
- * client.get<OpportunitySubmittalType[]>('/opportunities/2178463/submittaltype').then( (res) => {
+ * client.get<OpportunitySubmittalType[]>('/opportunities/submittaltype').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.SubmittalTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.SubmittalTypeId); });
  *      }
  * });
  * ```
- * @example Add submittal type to a opportunity
+ * @example Read a Opportunity's SubmittalTypes
+ * ```
+ * client.get<OpportunitySubmittalType[]>('/opportunities/12345/submittaltype').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.SubmittalTypeId); });
+ *      }
+ * });
+ * ```
+ * @example Add SubmittalType to an Opportunity
  * ```
  * // payload is an array of OpportunitySubmittalType elements to be added
- * client.post<OpportunitySubmittalType[]>('/opportunities/2178463/submittaltype', payload).then( (res) => {
+ * client.post<OpportunitySubmittalType[]>('/opportunities/12345/submittaltype', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.SubmittalTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.SubmittalTypeId); });
  *      }
  * });
  * ```

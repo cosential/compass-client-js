@@ -1,56 +1,37 @@
 /**
- * Represents a Company associated to an Email.
- * @example Read companies associated to an Email
+ * @example Read Companies associated to an Email
  * ```
- * client.get<EmailCompany[]>('/emails/5556666/companies').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.CompanyId); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<EmailCompany[]>('/emails/12345/companies').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach((nextRes) => { console.log(nextRes.CompanyId); });
  *      }
  * });
  * ```
- * @example Read a company associated to an Email
+ * @example Read a Company associated to an Email
  * ```
- * client.get<EmailCompany>('/emails/5556666/companies/8889999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.Name);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<EmailCompany>('/emails/12345/companies/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.CompanyId);
  *      }
  * });
  * ```
- * @example Associate companies to an Email
+ * @example Associate Companies to an Email
  * ```
- * //payload is an array of CompanyId's to be added
- * client.post<EmailCompany[]>('/emails/5556666/companies', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Associated Company with id as " + index.CompanyId) + "." } );
- *      } else { //something went wrong
- *          console.log("Company association failed. Error message: " + res.message);
+ * // payload is an array of EmailCompany elements to be added
+ * client.post<EmailCompany[]>('/emails/12345/companies', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.CompanyId); });
  *      }
  * });
  * ```
- * @example Remove Email associated companies. This removes the association.
+ * @example Remove Email associated Companies. This removes the association.
  * ```
- * client.delete<EmailCompany[]>('/emails/5556666/companies').then( (res) => {
- *      if(res.success){ //association removed
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Removal of association failed. Error message: " + res.message);
+ * client.delete<EmailCompany[]>('/emails/12345/companies').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ``` 
- * @example Remove Email associated company. This removes the association.
- * ```
- * client.delete<EmailCompany>('/emails/5556666/companies/8889999').then( (res) => {
- *      if(res.success){ //association removed
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Removal of association failed. Error message: " + res.message);
- *      }
- * });
- * ```
  */
 export interface EmailCompany {
   CompanyId: number;

@@ -74,7 +74,7 @@
 						<dd><p>Read all Opportunity Office Divisions</p>
 							<pre><code>client.get&lt;OfficeDivision[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/officedivision'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of opportunity office division elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OffDivID</span>); } </span>);
+         <span class="hljs-comment">// do something with result</span>
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
@@ -83,7 +83,7 @@
 						<dd><p>Read a Opportunity&#39;s OfficeDivision</p>
 							<pre><code>client.get&lt;OfficeDivision[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/officedivision'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OffDivID</span>); } </span>);
+         <span class="hljs-comment">// do something with result</span>
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
@@ -93,7 +93,7 @@
 							<pre><code><span class="hljs-comment">// payload is an array of OfficeDivision elements to be added</span>
 client.post&lt;OfficeDivision[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/officedivision', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
      <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OffDivID</span>); } </span>);
+         <span class="hljs-comment">// do something with result</span>
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
      }
@@ -231,6 +231,7 @@ client.post&lt;OfficeDivision[]&gt;<span class="hljs-function">(<span class="hlj
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -279,7 +280,7 @@ client.post&lt;OfficeDivision[]&gt;<span class="hljs-function">(<span class="hlj
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

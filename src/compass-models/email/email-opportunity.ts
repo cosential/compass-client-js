@@ -1,53 +1,34 @@
 /**
- * Represents an Opportunity associated to an Email.
- * @example Read opportunities associated to an email
+ * @example Read Opportunities associated to an Email
  * ```
- * client.get<EmailOpportunity[]>('/emails/5556666/opportunities').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.OpportunityId); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<EmailOpportunity[]>('/emails/12345/opportunities').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach((nextRes) => { console.log(nextRes.OpportunityId); });
  *      }
  * });
  * ```
- * @example Read an opportunity associated to an Email
+ * @example Read a Opportunity associated to an Email
  * ```
- * client.get<EmailOpportunity>('/emails/5556666/opportunities/8889999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.OpportunityId + ' ' + res.result.OpportunityName);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<EmailOpportunity>('/emails/12345/opportunities/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.OpportunityId);
  *      }
  * });
  * ```
- * @example Associate opportunities to an Email
+ * @example Associate Opportunities to an Email
  * ```
- * //payload is an array of OpportunityId's to be added
- * client.post<EmailOpportunity[]>('/emails/5556666/opportunities', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Associated Opportunity with id as " + index.OpportunityId) + "." } );
- *      } else { //something went wrong
- *          console.log("Opportunity association failed. Error message: " + res.message);
+ * // payload is an array of EmailOpportunity elements to be added
+ * client.post<EmailOpportunity[]>('/emails/12345/opportunities', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OpportunityId });
  *      }
  * });
  * ```
- * @example Remove Email associated opportunities. This removes the association.
+ * @example Remove Email associated Opportunities. This removes the association.
  * ```
- * client.delete<EmailOpportunity[]>('/emails/5556666/opportunities').then( (res) => {
- *      if(res.success){ //association removed
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Removal of association failed. Error message: " + res.message);
- *      }
- * });
- * ```
- * @example Remove Email associated opportunity. This removes the association.
- * ```
- * client.delete<EmailOpportunity>('/emails/5556666/opportunities/8889999').then( (res) => {
- *      if(res.success){ //association removed
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Removal of association failed. Error message: " + res.message);
+ * client.delete<EmailOpportunity[]>('/emails/12345/opportunities').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```

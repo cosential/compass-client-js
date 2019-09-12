@@ -1,33 +1,51 @@
 /**
- * Represents the Office Divisions.
- * @example Read all Opportunity Office Divisions
+ * @example Read all Opportunity OfficeDivisions
  * ```
- * client.get<OfficeDivision[]>('/opportunities/officedivision').then( (res) => {
+ * client.get<OfficeDivision[]>('/opportunities/officedivision').then(res => {
  *      if (res.success) { //returns an array of opportunity office division elements
- *          res.result.forEach( (index) => { console.log(index.OffDivID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OffDivID); });
  *      }
  * });
  * ```
- * @example Read a Opportunity's OfficeDivision
+ * @example Read an Opportunity's OfficeDivisions
  * ```
- * client.get<OfficeDivision[]>('/opportunities/2178463/officedivision').then( (res) => {
+ * client.get<OfficeDivision[]>('/opportunities/12345/officedivision').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OffDivID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OffDivID); });
  *      }
  * });
  * ```
- * @example Add office division to a opportunity
+ * @example Add OfficeDivisions to an Opportunity
  * ```
  * // payload is an array of OfficeDivision elements to be added
- * client.post<OfficeDivision[]>('/opportunities/2178463/officedivision', payload).then( (res) => {
+ * client.post<OfficeDivision[]>('/opportunities/12345/officedivision', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OffDivID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OffDivID); });
+ *      }
+ * });
+ * ```
+ * @example Read all Lead OfficeDivisions
+ * ```
+ * client.get<OfficeDivision[]>('/leads/officedivisions').then(res => {
+ *      if (res.success) { //returns an array of opportunity office division elements
+ *          res.result.forEach(nextRes => { console.log(nextRes.OffDivID); });
+ *      }
+ * });
+ * ```
+ * @example Read a Lead's OfficeDivisions
+ * ```
+ * client.get<OfficeDivision[]>('/leads/12345/officedivisions').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OffDivID); });
+ *      }
+ * });
+ * ```
+ * @example Add OfficeDivisions to a Lead
+ * ```
+ * // payload is an array of OfficeDivision elements to be added
+ * client.post<OfficeDivision[]>('/leads/12345/officedivisions', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OffDivID); });
  *      }
  * });
  * ```

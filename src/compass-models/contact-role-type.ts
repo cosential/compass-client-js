@@ -1,12 +1,9 @@
 /**
- * Represents the Contact Role types
- * @example Read all Contact Role Types
+ * @example Read all ContactRoleTypes
  * ```
- * client.get<ContactRoleType[]>('/projects/consultantcontacts/contactrole/contactroletype').then( (res) => {
- *      if (res.success) { //returns an array of contact role type elements
- *          res.result.forEach( (index) => { console.log(index.ContactRoleTypeId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<ContactRoleType[]>('/projects/consultantcontacts/contactrole/contactroletype').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactRoleTypeId); });
  *      }
  * });
  * ```

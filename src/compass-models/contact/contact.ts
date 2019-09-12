@@ -1,77 +1,61 @@
 /**
- * Represents the Contact.
  * @example Read all Contacts
  * ```
- * client.get<Contact[]>('/contacts').then( (res) => {
- *      if (res.success) { //returns an array of contact elements
- *          res.result.forEach( (index) => { console.log(index.ContactId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Contact[]>('/contacts').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactId); });
  *      }
  * });
  * ```
  * @example Read a Contact
  * ```
- * client.get<Contact>('/contacts/5555999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.FirstName + ' ' + res.result.LastName);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Contact>('/contacts/12345').then(res => {
+ *      if (res.success)
+ *          console.log(res.result.ContactId);
  *      }
  * });
  * ```
- * @example Add new Contact/s
+ * @example Add new Contact(s)
  * ```
- * //payload is an array of Contact elements to be added
- * client.post<Contact[]>('/contacts', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Contact with id as " + index.ContactId) + "." } );
- *      } else { //something went wrong
- *          console.log("Contact creation failed. Error message: " + res.message);
+ * // payload is an array of Contact elements to be added
+ * client.post<Contact[]>('/contacts', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactId) });
  *      }
  * });
  * ```
  * @example Update a Contact
  * ```
- * //payload is a Contact element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<Contact>('/contacts/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated contact with Id as: " + res.result.ContactId);
- *      } else { //something went wrong
- *          console.log("Contact update failed. Error message: " + res.message);
+ * // payload is a Contact element containing new and existing values
+ * client.put<Contact>('/contacts/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.ContactId);
  *      }
  * });
  * ```
  * @example Delete a Contact
  * ```
- * client.delete<Contact>('/contacts/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
+ * client.delete<Contact>('/contacts/12345').then(res => {
+ *      if (res.success) {
  *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
  *      }
  * });
  * ```
- * @example Search Contact/s with pagination
+ * @example Search Contact(s) with pagination
  * ```
- * let searchQuery = 'BusinessEmailAddress:jdoe@cosential.com OR BusinessEmailAddress:johnd@cosential.com';
- * client.search<Contact[]>('/contacts', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'FirstName:John';
+ * client.search<Contact[]>('/contacts', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactId) });
  *      }
  * }
  * ```
  * @example Search Contact/s without pagination
  * ```
  * let searchQuery = 'FirstName:John';
- * client.searchForAll<Contact>('/contacts', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * client.searchForAll<Contact>('/contacts', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.ContactId) });
  *      }
  * }
  * ```

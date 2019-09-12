@@ -32,7 +32,7 @@ let client = new compass.Client({
     password: 'P@sSw0rd!'
 });
 
-client.get<User[]>('/user').then(function(res){ 
+client.get<User[]>('/user').then(res => { 
       if (res.success) { 
           //The API call was successful
  
@@ -72,7 +72,7 @@ Download the latest [compass.js](./dist/compass.zip)
         password: 'P@sSw0rd!'
     });
 
-    client.get<User[]>('/user').then(function(res){ 
+    client.get<User[]>('/user').then(res => { 
         if (res.success) { 
             //The API call was successful
     

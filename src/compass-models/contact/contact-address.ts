@@ -1,22 +1,17 @@
 /**
- * Represents the Contact Address.
  * @example Read all addresses associated to a Contact
  * ```
- * contactClient.get<ContactAddress[]>('/contacts/5556666/addresses').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.AddressID); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * contactClient.get<ContactAddress[]>('/contacts/12345/addresses').then(res => {
+ *      if (res.success) { //success
+ *          res.result.forEach(nextRes => { console.log(nextRes.AddressID); });
  *      }
  * });
  * ```
  * @example Read office address of a Contact
  * ```
- * contactClient.getContactAddress<ContactAddress>(5556666, 1).then( (res) => {
- *      if(res.success){ //success
- *          console.log(res.result.Address1);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * contactClient.getContactAddress(12345, 'office').then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.AddressID);
  *      }
  * });
  * ```

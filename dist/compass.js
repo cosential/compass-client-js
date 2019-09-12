@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -119,26 +119,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
-var js_base64_1 = __webpack_require__(9);
+var js_base64_1 = __webpack_require__(8);
 /**
- * Represents the Client service for the Cosential Compass API calls.
+ * The Client service for Cosential Compass API calls.
  */
 var Client = /** @class */ (function () {
     function Client(config) {
         this.config = config;
     }
     Object.defineProperty(Client.prototype, "config", {
-        /**
-         * Getter config
-         * @return {ClientConfig}
-         */
         get: function () {
             return this._config;
         },
-        /**
-         * Setter config
-         * @param {ClientConfig} value
-         */
         set: function (value) {
             this._config = value;
         },
@@ -146,48 +138,43 @@ var Client = /** @class */ (function () {
         configurable: true
     });
     /**
-     * Returns a response for the GET request.
-     * @param url - Compass API endpoint with/without a valid Id
+     * @param url - Compass API endpoint
      * @param opts - Optional request headers
      * @param from - Number of elements you would like to skip
      * @param size - Number of elements you would like to receive (max is 500)
      * @param includeDeleted - Include deleted records in GET
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     Client.prototype.get = function (url, opts, from, size, includeDeleted) {
-        if (opts === void 0) { opts = {
-            showErrors: true
-        }; }
+        if (opts === void 0) { opts = { showErrors: true }; }
         if (from === void 0) { from = 0; }
-        if (size === void 0) { size = 50; }
+        if (size === void 0) { size = 500; }
         if (includeDeleted === void 0) { includeDeleted = false; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, newUrl, paging, responseCode, responseText, responseUrl, response, message, data, e_1;
+            var headers, requestUrl, paging, responseCode, responseText, responseUrl, response, message, data, e_1, e_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         headers = {
-                            //Basic auth
                             'Authorization': 'Basic ' + js_base64_1.Base64.encode(this.config.username + ':' + this.config.password),
                             'x-compass-firm-id': this.config.firmId.toString(),
                             'x-compass-api-key': this.config.apiKey,
-                            //We're expecting json
                             'Accept': 'application/json'
                         };
-                        newUrl = this.config.compassUrl + url;
+                        requestUrl = this.config.compassUrl + url;
                         paging = 'from=' + from + '&size=' + size;
-                        newUrl += (url.indexOf('?q=') > -1) ? '&' + paging : '?' + paging;
-                        if (includeDeleted)
-                            newUrl += '&includedeleted=true';
-                        if (opts.showErrors)
+                        requestUrl += (url.indexOf('?q=') > -1) ? '&' + paging : '?' + paging;
+                        if (includeDeleted) {
+                            requestUrl += '&includedeleted=true';
+                        }
+                        if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
-                        responseCode = 0;
-                        responseText = '';
-                        responseUrl = '';
+                        }
                         _a.label = 1;
                     case 1:
-                        _a.trys.push([1, 5, , 6]);
-                        return [4 /*yield*/, fetch(newUrl, {
+                        _a.trys.push([1, 7, , 8]);
+                        return [4 /*yield*/, fetch(requestUrl, {
                                 method: 'GET',
                                 headers: headers
                             })];
@@ -197,49 +184,54 @@ var Client = /** @class */ (function () {
                         responseText = response.statusText;
                         responseUrl = response.url;
                         if (!response.ok) {
-                            throw new Error("Compass API call failed. [" + responseUrl + "] responded with: [" + responseCode + " " + responseText + "]");
+                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
                         }
-                        message = "Compass API call successful. [" + responseUrl + "] responded with: [" + responseCode + " " + responseText + "]";
-                        data = null;
-                        if (!(response.status == 200)) return [3 /*break*/, 4];
-                        return [4 /*yield*/, response.json()];
+                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
+                        data = void 0;
+                        if (!(response.status == 200)) return [3 /*break*/, 6];
+                        _a.label = 3;
                     case 3:
+                        _a.trys.push([3, 5, , 6]);
+                        return [4 /*yield*/, response.json()];
+                    case 4:
                         data = _a.sent();
-                        _a.label = 4;
-                    case 4: return [2 /*return*/, {
+                        return [3 /*break*/, 6];
+                    case 5:
+                        e_1 = _a.sent();
+                        data = null;
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/, {
                             success: true,
                             status: responseCode,
                             error: null,
                             message: message,
                             result: data
                         }];
-                    case 5:
-                        e_1 = _a.sent();
+                    case 7:
+                        e_2 = _a.sent();
                         return [2 /*return*/, {
                                 success: false,
                                 status: responseCode,
-                                error: e_1,
-                                message: e_1.message,
+                                error: e_2,
+                                message: e_2.message,
                                 result: null
                             }];
-                    case 6: return [2 /*return*/];
+                    case 8: return [2 /*return*/];
                 }
             });
         });
     };
     /**
-     * Returns a response for the POST request.
      * @param url - Compass API endpoint
      * @param payload - Array of elements
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     Client.prototype.post = function (url, payload, opts) {
-        if (opts === void 0) { opts = {
-            showErrors: true
-        }; }
+        if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, responseCode, responseText, responseUrl, response, data, e_2, e_3;
+            var headers, responseCode, responseText, responseUrl, response, message, data, e_3, e_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -250,11 +242,9 @@ var Client = /** @class */ (function () {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
                         };
-                        if (opts.showErrors)
+                        if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
-                        responseCode = 0;
-                        responseText = '';
-                        responseUrl = '';
+                        }
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 7, , 8]);
@@ -269,9 +259,11 @@ var Client = /** @class */ (function () {
                         responseText = response.statusText;
                         responseUrl = response.url;
                         if (!response.ok) {
-                            throw new Error("Compass API call failed. [" + responseUrl + "] responded with: [" + responseCode + " " + responseText + "]");
+                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
                         }
+                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
                         data = void 0;
+                        if (!(response.status == 200)) return [3 /*break*/, 6];
                         _a.label = 3;
                     case 3:
                         _a.trys.push([3, 5, , 6]);
@@ -280,23 +272,23 @@ var Client = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 6];
                     case 5:
-                        e_2 = _a.sent();
+                        e_3 = _a.sent();
                         data = null;
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/, {
                             success: true,
                             status: responseCode,
                             error: null,
-                            message: null,
+                            message: message,
                             result: data
                         }];
                     case 7:
-                        e_3 = _a.sent();
+                        e_4 = _a.sent();
                         return [2 /*return*/, {
                                 success: false,
                                 status: responseCode,
-                                error: e_3,
-                                message: e_3.message,
+                                error: e_4,
+                                message: e_4.message,
                                 result: null
                             }];
                     case 8: return [2 /*return*/];
@@ -305,18 +297,16 @@ var Client = /** @class */ (function () {
         });
     };
     /**
-     * Returns a response for the PUT request.
      * @param url - Compass API endpoint with a valid Id
      * @param payload - Updated element including new and existing values
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     Client.prototype.put = function (url, payload, opts) {
-        if (opts === void 0) { opts = {
-            showErrors: true
-        }; }
+        if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, responseCode, responseText, responseUrl, response, data, e_4, e_5;
+            var headers, responseCode, responseText, responseUrl, response, message, data, e_5, e_6;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -327,11 +317,9 @@ var Client = /** @class */ (function () {
                             'Accept': 'application/json',
                             'Content-Type': (opts.urlEncoded) ? 'application/x-www-form-urlencoded' : 'application/json'
                         };
-                        if (opts.showErrors)
+                        if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
-                        responseCode = 0;
-                        responseText = '';
-                        responseUrl = '';
+                        }
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 7, , 8]);
@@ -346,9 +334,11 @@ var Client = /** @class */ (function () {
                         responseText = response.statusText;
                         responseUrl = response.url;
                         if (!response.ok) {
-                            throw new Error("Compass API call failed. [" + responseUrl + "] responded with: [" + responseCode + " " + responseText + "]");
+                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
                         }
+                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
                         data = void 0;
+                        if (!(response.status == 200)) return [3 /*break*/, 6];
                         _a.label = 3;
                     case 3:
                         _a.trys.push([3, 5, , 6]);
@@ -357,23 +347,23 @@ var Client = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 6];
                     case 5:
-                        e_4 = _a.sent();
+                        e_5 = _a.sent();
                         data = null;
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/, {
                             success: true,
                             status: responseCode,
                             error: null,
-                            message: null,
+                            message: message,
                             result: data
                         }];
                     case 7:
-                        e_5 = _a.sent();
+                        e_6 = _a.sent();
                         return [2 /*return*/, {
                                 success: false,
                                 status: responseCode,
-                                error: e_5,
-                                message: e_5.message,
+                                error: e_6,
+                                message: e_6.message,
                                 result: null
                             }];
                     case 8: return [2 /*return*/];
@@ -382,17 +372,15 @@ var Client = /** @class */ (function () {
         });
     };
     /**
-     * Returns a response for the DELETE request.
      * @param url - Compass API endpoint with a valid Id
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     Client.prototype.delete = function (url, opts) {
-        if (opts === void 0) { opts = {
-            showErrors: true
-        }; }
+        if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, responseCode, responseText, responseUrl, response, data, e_6, e_7;
+            var headers, responseCode, responseText, responseUrl, response, message, data, e_7, e_8;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -401,11 +389,9 @@ var Client = /** @class */ (function () {
                             'x-compass-firm-id': this.config.firmId.toString(),
                             'x-compass-api-key': this.config.apiKey
                         };
-                        if (opts.showErrors)
+                        if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
-                        responseCode = 0;
-                        responseText = '';
-                        responseUrl = '';
+                        }
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 7, , 8]);
@@ -419,9 +405,11 @@ var Client = /** @class */ (function () {
                         responseText = response.statusText;
                         responseUrl = response.url;
                         if (!response.ok) {
-                            throw new Error("Compass API call failed. [" + responseUrl + "] responded with: [" + responseCode + " " + responseText + "]");
+                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
                         }
+                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
                         data = void 0;
+                        if (!(response.status == 200)) return [3 /*break*/, 6];
                         _a.label = 3;
                     case 3:
                         _a.trys.push([3, 5, , 6]);
@@ -430,23 +418,23 @@ var Client = /** @class */ (function () {
                         data = _a.sent();
                         return [3 /*break*/, 6];
                     case 5:
-                        e_6 = _a.sent();
+                        e_7 = _a.sent();
                         data = null;
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/, {
                             success: true,
                             status: responseCode,
                             error: null,
-                            message: null,
+                            message: message,
                             result: data
                         }];
                     case 7:
-                        e_7 = _a.sent();
+                        e_8 = _a.sent();
                         return [2 /*return*/, {
                                 success: false,
                                 status: responseCode,
-                                error: e_7,
-                                message: e_7.message,
+                                error: e_8,
+                                message: e_8.message,
                                 result: null
                             }];
                     case 8: return [2 /*return*/];
@@ -455,54 +443,52 @@ var Client = /** @class */ (function () {
         });
     };
     /**
-     * Returns top 50 search results based on query string unless otherwise specified.
      * @param url - Compass API endpoint
      * @param queryString - Complete search query
      * @param from - Number of elements you would like to skip
      * @param size - Number of elements you would like to receive (max is 500)
      * @param includeDeleted - Include deleted records in search
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     Client.prototype.search = function (url, queryString, fields, from, size, includeDeleted, opts) {
         if (fields === void 0) { fields = null; }
         if (from === void 0) { from = 0; }
-        if (size === void 0) { size = 50; }
+        if (size === void 0) { size = 500; }
         if (includeDeleted === void 0) { includeDeleted = false; }
-        if (opts === void 0) { opts = {
-            showErrors: true
-        }; }
+        if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var searchQuery, newUrl, searchDetails;
+            var searchQuery, requestUrl, searchParams;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         searchQuery = (queryString != null) ? queryString.trim() : queryString;
                         if (searchQuery == '' || searchQuery == null) {
-                            throw new Error("Compass API call failed. String to search '" + searchQuery + "' is Empty or Invalid.");
+                            throw new Error('Compass API call failed. String to search ' + searchQuery + ' is empty or invalid.');
                         }
-                        newUrl = url + '/search';
-                        searchDetails = {
+                        requestUrl = url + '/search';
+                        searchParams = {
                             queryString: searchQuery,
                             fields: fields,
                             includeDeleted: includeDeleted,
                             Size: size,
                             From: from
                         };
-                        return [4 /*yield*/, this.post(newUrl, searchDetails, opts)];
+                        return [4 /*yield*/, this.post(requestUrl, searchParams, opts)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });
     };
     /**
-     * Returns entire search result data set.
      * @param url - Compass API endpoint
      * @param queryString - Complete search query
      * @param includeDeleted - Include deleted records in search
      * @param fields - Comma-separated fields to return
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     Client.prototype.searchForAll = function (url, queryString, fields, includeDeleted, opts) {
         if (fields === void 0) { fields = null; }
@@ -537,14 +523,22 @@ var Client = /** @class */ (function () {
                             }
                         }
                         else {
-                            //something went wrong
-                            //do not return any data
-                            return [2 /*return*/, { success: res.success, status: res.status, error: res.error, message: res.message, result: null }];
+                            return [2 /*return*/, {
+                                    success: res.success,
+                                    status: res.status,
+                                    error: res.error,
+                                    message: res.message,
+                                    result: null
+                                }];
                         }
                         return [3 /*break*/, 1];
-                    case 3: 
-                    //all good
-                    return [2 /*return*/, { success: true, status: 200, error: null, message: null, result: data }];
+                    case 3: return [2 /*return*/, {
+                            success: true,
+                            status: 200,
+                            error: null,
+                            message: null,
+                            result: data
+                        }];
                 }
             });
         });
@@ -562,7 +556,7 @@ exports.Client = Client;
 // on the global object (window or self)
 //
 // Return that as the export for use in Webpack, Browserify etc.
-__webpack_require__(14);
+__webpack_require__(10);
 module.exports = self.fetch.bind(self);
 
 
@@ -595,16 +589,13 @@ exports.PersonnelClient = personnel_client_1.PersonnelClient;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = __webpack_require__(12);
 /**
- * Represents the Client configuration in order to authenticate a User.
+ * Represents the Client configuration used to authenticate the User.
  */
 var ClientConfig = /** @class */ (function () {
     function ClientConfig(firmId, username, password, apiKey, compassUrl) {
-        /* private properties */
         this.urlTest = /^(http|https):\/\/[^ "]+$/;
         this.apiKeyTest = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
-        /* properties */
         this._apiKey = '';
         this._compassUrl = 'https://compass.uat.cosential.com/api';
         this._firmId = 0;
@@ -617,89 +608,65 @@ var ClientConfig = /** @class */ (function () {
         this.password = password;
     }
     Object.defineProperty(ClientConfig.prototype, "apiKey", {
-        /* property accessors */
-        /**
-         * Getter _apiKey
-         * @return {_apiKey}
-         */
-        get: function () { return this._apiKey; },
-        /**
-         * Setter _apiKey
-         * @param {_apiKey} v
-         */
-        set: function (v) {
-            if (!util_1.isUndefined(v)) {
-                if (!this.apiKeyTest.test(v))
-                    throw new Error("apiKey config property value [" + v + "] is not valid.");
-                this._apiKey = v;
+        get: function () {
+            return this._apiKey;
+        },
+        set: function (value) {
+            if (!value || !this.apiKeyTest.test(value)) {
+                throw new Error('apiKey config property value [' + value + '] is not valid.');
+            }
+            else {
+                this._apiKey = value;
             }
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(ClientConfig.prototype, "compassUrl", {
-        /**
-         * Getter _compassUrl
-         * @return {_compassUrl}
-         */
-        get: function () { return this._compassUrl; },
-        /**
-         * Setter _compassUrl
-         * @param {_compassUrl} v
-         */
-        set: function (v) {
-            if (!util_1.isUndefined(v)) {
-                if (!this.urlTest.test(v))
-                    throw new Error("compassUrl config property value [" + v + "] is not valid.");
-                this._compassUrl = v;
+        get: function () {
+            return this._compassUrl;
+        },
+        set: function (value) {
+            if (!value || !this.urlTest.test(value)) {
+                throw new Error('compassUrl config property value [' + value + '] is not valid.');
+            }
+            else {
+                this._compassUrl = value;
             }
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(ClientConfig.prototype, "firmId", {
-        /**
-         * Getter _firmId
-         * @return {_firmId}
-         */
         get: function () { return this._firmId; },
-        /**
-         * Setter _firmId
-         * @param {_firmId} v
-         */
-        set: function (v) {
-            if (!util_1.isUndefined(v)) {
-                this._firmId = v;
+        set: function (value) {
+            if (!value) {
+                throw new Error('Please use a valid firmId.');
+            }
+            else {
+                this._firmId = value;
             }
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(ClientConfig.prototype, "username", {
-        /**
-         * Getter _username
-         * @return {_username}
-         */
-        get: function () { return this._username; },
-        /**
-         * Setter _username
-         * @param {_username} v
-         */
-        set: function (v) { this._username = v; },
+        get: function () {
+            return this._username;
+        },
+        set: function (value) {
+            this._username = value;
+        },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(ClientConfig.prototype, "password", {
-        /**
-         * Getter _password
-         * @return {_password}
-         */
-        get: function () { return this._password; },
-        /**
-         * Setter _password
-         * @param {_password} v
-         */
-        set: function (v) { this._password = v; },
+        get: function () {
+            return this._password;
+        },
+        set: function (value) {
+            this._password = value;
+        },
         enumerable: true,
         configurable: true
     });
@@ -763,7 +730,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
 var client_1 = __webpack_require__(0);
 /**
- * Represents the client service for Companies.
+ * The client service for any Company-specific requests with special logic.
  */
 var CompanyClient = /** @class */ (function (_super) {
     __extends(CompanyClient, _super);
@@ -771,15 +738,15 @@ var CompanyClient = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns Company Address.
      * @param companyId - Cosential company id
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object containing a CompanyAddress as a Promise
      */
     CompanyClient.prototype.getCompanyAddress = function (companyId, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var addressUrl, allAddresses, message, result, address, resultUrl, data;
+            var addressUrl, allAddresses, message, result, address, resultUrl, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -788,65 +755,73 @@ var CompanyClient = /** @class */ (function (_super) {
                     case 1:
                         allAddresses = _a.sent();
                         message = '';
-                        result = null;
                         if (!(allAddresses.result != null && allAddresses.result.length > 0)) return [3 /*break*/, 4];
                         address = this.findAddress(allAddresses.result);
-                        if (!(address[0] != 0)) return [3 /*break*/, 3];
-                        resultUrl = addressUrl + '/' + address[0];
+                        if (!address.addressId) return [3 /*break*/, 3];
+                        resultUrl = addressUrl + '/' + address.addressId;
                         return [4 /*yield*/, this.get(resultUrl, opts)];
                     case 2:
-                        data = _a.sent();
-                        result = data.result;
+                        response = _a.sent();
+                        if (!response.success) {
+                            return [2 /*return*/, response];
+                        }
+                        else {
+                            result = response.result;
+                        }
                         _a.label = 3;
                     case 3:
-                        message = address[1];
+                        message = address.message;
                         return [3 /*break*/, 5];
                     case 4:
                         message = 'No associated addresses';
                         _a.label = 5;
-                    case 5: return [2 /*return*/, { success: true, status: 200, error: null, message: message, result: result }];
+                    case 5: return [2 /*return*/, {
+                            success: true,
+                            status: 200,
+                            error: null,
+                            message: message,
+                            result: result
+                        }];
                 }
             });
         });
     };
     /**
-     * Returns an address id of the resultant address.
-     * @param allAddresses - Array of all addresses associated to a Contact
-     * @param requestedAddress - Requested address type
-     * @param otherAddress - Not requested address type
-     * @returns An address id as a number
+     * @param allAddresses - Array of all addresses associated to a Company
+     *
+     * @returns - An address id and a message indicating success/failure details
      */
     CompanyClient.prototype.findAddress = function (allAddresses) {
         var _this = this;
         var addressId = 0;
         var message = '';
         var primaryAddress = allAddresses.find(function (index) { return index.defaultInd && !index.deleterecord; });
-        if (primaryAddress == undefined) {
+        if (!primaryAddress) {
             var secondaryAddress = allAddresses.find(function (index) { return (new Date(index.createdate).toString() == _this.mostRecentDate(allAddresses)); });
-            if (secondaryAddress == undefined) {
-                message = "Default address or a non deleted recent address not found.";
+            if (!secondaryAddress) {
+                message = 'Default address or a non-deleted recent address not found.';
             }
             else {
                 addressId = secondaryAddress.AddressID;
-                message = "Default address not found. Returning " + secondaryAddress.AddressTypeName + " address which is the most recent non deleted address.";
+                message = 'Default address not found. Returning ' + secondaryAddress.AddressTypeName + ' address which is the most recent non-deleted address.';
             }
         }
         else {
             addressId = primaryAddress.AddressID;
-            message = "Default " + primaryAddress.AddressTypeName + " address found and returned.";
+            message = 'Default ' + primaryAddress.AddressTypeName + ' address found and returned.';
         }
-        return [addressId, message];
+        return { addressId: addressId, message: message };
     };
     /**
-     * Returns most recent date.
      * @param allAddresses - Array of all addresses associated to a Company
-     * @returns Most recent date for an address type as a string
+     *
+     * @returns - Most recent date for an address type as a string
      */
     CompanyClient.prototype.mostRecentDate = function (allAddresses) {
         var dates = [];
-        allAddresses.forEach(function (index) {
-            if (!index.deleterecord) {
-                dates.push(new Date(index.createdate));
+        allAddresses.forEach(function (address) {
+            if (!address.deleterecord) {
+                dates.push(new Date(address.createdate));
             }
         });
         return new Date(Math.max.apply(null, dates)).toString();
@@ -911,7 +886,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
 var client_1 = __webpack_require__(0);
 /**
- * Represents the client service for Contacts.
+ * The client service for Contact-specific requests with special logic.
  */
 var ContactClient = /** @class */ (function (_super) {
     __extends(ContactClient, _super);
@@ -919,78 +894,47 @@ var ContactClient = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns Contact Image/s.
      * @param contactId - Cosential contact id
-     * @param imageType - Required image type. [1 = All (default), 2 = ProfilePicture, 3 = CardFront, 4 = CardBack]
+     * @param imageType - Required image type. ['profilepicture', 'cardfront', 'cardback']
      * @param opts - Optional request headers
      *
-     * @returns - A detailed response object as a Promise
+     * @returns - A detailed response object containing an Image as a Promise
      */
     ContactClient.prototype.getContactImages = function (contactId, imageType, opts) {
-        if (imageType === void 0) { imageType = 1; }
+        if (imageType === void 0) { imageType = 'profilepicture'; }
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var metadataUrl, res, imageTypes, actualImageUrl, images, index, actualImageUrl, imgUrl, response, imageType_1, imageBase64;
+            var metadataUrl, metadataResponse, imageUrl;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         metadataUrl = '/contacts/' + contactId + '/images';
                         return [4 /*yield*/, this.get(metadataUrl, opts)];
                     case 1:
-                        res = _a.sent();
-                        if (!(res.result != null && res.result.length > 0)) return [3 /*break*/, 9];
-                        imageTypes = [2, 3, 4];
-                        if (!(imageTypes.indexOf(imageType) > -1)) return [3 /*break*/, 3];
-                        actualImageUrl = '/images/contact/' + contactId + '/';
-                        switch (imageType) {
-                            case (2):
-                                actualImageUrl += 'profilepicture';
-                                break;
-                            case (3):
-                                actualImageUrl += 'cardfront';
-                                break;
-                            case (4):
-                                actualImageUrl += 'cardback';
-                                break;
-                        }
-                        return [4 /*yield*/, this.get(actualImageUrl, opts)];
+                        metadataResponse = _a.sent();
+                        if (!(metadataResponse.result != null && metadataResponse.result.length > 0)) return [3 /*break*/, 3];
+                        imageUrl = '/images/contact/' + contactId + '/' + imageType;
+                        return [4 /*yield*/, this.get(imageUrl, opts)];
                     case 2: return [2 /*return*/, _a.sent()];
-                    case 3:
-                        images = {};
-                        index = 0;
-                        _a.label = 4;
-                    case 4:
-                        if (!(index < res.result.length)) return [3 /*break*/, 7];
-                        actualImageUrl = res.result[index].ImageUrl;
-                        imgUrl = actualImageUrl.substring(actualImageUrl.indexOf('/images/contact/'));
-                        return [4 /*yield*/, this.get(imgUrl, opts)];
-                    case 5:
-                        response = _a.sent();
-                        imageType_1 = res.result[index].ImageType;
-                        imageBase64 = response.result.Data;
-                        images[imageType_1] = imageBase64;
-                        _a.label = 6;
-                    case 6:
-                        index++;
-                        return [3 /*break*/, 4];
-                    case 7: return [2 /*return*/, { success: true, status: 200, error: null, message: null, result: images }];
-                    case 8: return [3 /*break*/, 10];
-                    case 9: return [2 /*return*/, { success: true, status: res.status, error: null, message: 'No associated image metadata', result: null }];
-                    case 10: return [2 /*return*/];
+                    case 3: return [2 /*return*/, {
+                            success: true,
+                            status: metadataResponse.status,
+                            error: null,
+                            message: 'No associated image metadata',
+                            result: null
+                        }];
                 }
             });
         });
     };
     /**
-     * Sets a Contact's image
-     *
      * @param contactId - The Contact's Id
      * @param imageType - Which image should be set. Either 'profilepicture', 'cardfront', or 'cardback'
      * @param contentType - 'image/gif', image/jpeg', 'image/png', or 'image/tiff'
      * @param imageData - The raw base 64 encoded image data
      * @param opts - Optional request headers
      *
-     * @returns - A response object
+     * @returns - A detailed response object containing an Image as a Promise
      */
     ContactClient.prototype.updateContactImage = function (contactId, imageType, contentType, imageData, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
@@ -1011,16 +955,16 @@ var ContactClient = /** @class */ (function (_super) {
         });
     };
     /**
-     * Returns Contact Address.
      * @param contactId - Cosential contact id
-     * @param addressType - Required address type. [1 = Office, 2 = Home]
+     * @param addressType - Required address type. ['office', 'home']
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns A detailed response object containing a ContactAddress as a Promise
      */
     ContactClient.prototype.getContactAddress = function (contactId, addressType, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var addressUrl, allAddresses, message, result, addressTypes, address, resultUrl, data;
+            var addressUrl, allAddresses, message, result, address, resultUrl, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -1029,79 +973,86 @@ var ContactClient = /** @class */ (function (_super) {
                     case 1:
                         allAddresses = _a.sent();
                         message = '';
-                        result = null;
-                        if (!(allAddresses.result != null && allAddresses.result.length > 0)) return [3 /*break*/, 5];
-                        addressTypes = [1, 2];
-                        if (!(addressTypes.indexOf(addressType) > -1)) return [3 /*break*/, 3];
-                        address = (addressType == 1) ? this.findAddress(allAddresses.result, 'office', 'home') : this.findAddress(allAddresses.result, 'home', 'office');
-                        resultUrl = addressUrl + '/' + address[0];
+                        if (!(allAddresses.result != null && allAddresses.result.length > 0)) return [3 /*break*/, 4];
+                        address = this.findAddress(allAddresses.result, addressType);
+                        if (!address.addressId) return [3 /*break*/, 3];
+                        resultUrl = addressUrl + '/' + address.addressId;
                         return [4 /*yield*/, this.get(resultUrl, opts)];
                     case 2:
-                        data = _a.sent();
-                        message = address[1];
-                        result = data.result;
-                        return [3 /*break*/, 4];
+                        response = _a.sent();
+                        if (!response.success) {
+                            return [2 /*return*/, response];
+                        }
+                        else {
+                            result = response.result;
+                        }
+                        _a.label = 3;
                     case 3:
-                        message = 'Not a valid address type';
-                        _a.label = 4;
-                    case 4: return [3 /*break*/, 6];
-                    case 5:
+                        message = address.message;
+                        return [3 /*break*/, 5];
+                    case 4:
                         message = 'No associated addresses';
-                        _a.label = 6;
-                    case 6: return [2 /*return*/, { success: true, status: 200, error: null, message: message, result: result }];
+                        _a.label = 5;
+                    case 5: return [2 /*return*/, {
+                            success: true,
+                            status: 200,
+                            error: null,
+                            message: message,
+                            result: result
+                        }];
                 }
             });
         });
     };
     /**
-     * Returns an address id of the resultant address.
      * @param allAddresses - Array of all addresses associated to a Contact
      * @param requestedAddress - Requested address type
-     * @param otherAddress - Not requested address type
-     * @returns An address id as a number
+     *
+     * @returns - An address id and a message indicating success/failure details
      */
-    ContactClient.prototype.findAddress = function (allAddresses, requestedAddress, otherAddress) {
+    ContactClient.prototype.findAddress = function (allAddresses, requestedAddress) {
         var _this = this;
         var addressId = 0;
         var message = '';
+        var otherAddress = requestedAddress === 'office' ? 'home' : 'office';
         var primaryAddress = allAddresses.find(function (index) { return (index.AddressType.toLowerCase() == requestedAddress) && (index.DefaultInd == true); });
-        if (primaryAddress == undefined) {
+        if (!primaryAddress) {
             var secondaryAddress = allAddresses.find(function (index) { return (new Date(index.CreateDate).toString() == _this.mostRecentDate(allAddresses, requestedAddress)); });
-            if (secondaryAddress == undefined) {
+            if (!secondaryAddress) {
                 var tertiaryAddress = allAddresses.find(function (index) { return (index.AddressType.toLowerCase() == otherAddress) && (index.DefaultInd == true); });
-                if (tertiaryAddress == undefined) {
+                if (!tertiaryAddress) {
                     var quaternaryAddress = allAddresses.find(function (index) { return (new Date(index.CreateDate).toString() == _this.mostRecentDate(allAddresses, otherAddress)); });
                     ;
                     addressId = quaternaryAddress.AddressID;
-                    message = "No " + requestedAddress + " address found. No default " + otherAddress + " address found. Returning the most recent " + otherAddress + " address.";
+                    message = 'No ' + requestedAddress + ' address found. No default ' + otherAddress + ' address found. Returning the most recent ' + otherAddress + ' address.';
                 }
                 else {
                     addressId = tertiaryAddress.AddressID;
-                    message = "No " + requestedAddress + " address found. Returning the default " + otherAddress + " address.";
+                    message = 'No ' + requestedAddress + ' address found. Returning the default ' + otherAddress + ' address.';
                 }
             }
             else {
                 addressId = secondaryAddress.AddressID;
-                message = "Default " + requestedAddress + " address not found. Returning the most recent " + requestedAddress + " address.";
+                message = 'Default ' + requestedAddress + ' address not found. Returning the most recent ' + requestedAddress + ' address.';
             }
         }
         else {
             addressId = primaryAddress.AddressID;
-            message = "Default " + requestedAddress + " address found and returned.";
+            message = 'Default ' + requestedAddress + ' address found and returned.';
         }
-        return [addressId, message];
+        return { addressId: addressId, message: message };
     };
     /**
-     * Returns most recent date for an address type.
      * @param allAddresses - Array of all addresses associated to a Contact
      * @param addressType - Address type to be looked up for most recent date
-     * @returns Most recent date for an address type as a string
+     *
+     * @returns - Most recent date for an address type as a string
      */
     ContactClient.prototype.mostRecentDate = function (allAddresses, addressType) {
         var dates = [];
-        allAddresses.forEach(function (index) {
-            if (index.AddressType.toLowerCase() == addressType) {
-                dates.push(new Date(index.CreateDate));
+        allAddresses.forEach(function (address) {
+            if (address.AddressType.toLowerCase() == addressType) {
+                dates.push(new Date(address.CreateDate));
             }
         });
         return new Date(Math.max.apply(null, dates)).toString();
@@ -1166,7 +1117,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
 var client_1 = __webpack_require__(0);
 /**
- * Represents the client service for Emails.
+ * The client service for any Email-specific requests with special logic.
  */
 var EmailClient = /** @class */ (function (_super) {
     __extends(EmailClient, _super);
@@ -1174,58 +1125,80 @@ var EmailClient = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Associate an attachment to an Email.
      * @param emailId - Cosential email id
      * @param attachments - An array of attachments (Octet string preferred)
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
     EmailClient.prototype.addAttachment = function (emailId, attachments, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var createMetadataUrl, payload, attachmentNumber, metadataUrls, index, idx, endpoint, attachment;
+            var createMetadataUrl, payload, metadataUrls;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         createMetadataUrl = '/emails/' + emailId + '/attachments';
                         payload = [];
-                        attachmentNumber = 0;
-                        if (!(attachments.length > 0)) return [3 /*break*/, 8];
-                        attachments.forEach(function (attachment) {
-                            attachmentNumber++;
+                        if (!(attachments.length > 0)) return [3 /*break*/, 2];
+                        attachments.forEach(function (attachment, index) {
                             payload.push({
                                 Id: 0,
-                                FileName: "AttachmentViaAddIn " + attachmentNumber,
+                                FileName: "AttachmentViaAddIn " + index,
                                 DeleteRecord: false,
                                 AttachmentEndpoint: null
                             });
                         });
-                        return [4 /*yield*/, this.post(createMetadataUrl, payload)];
+                        return [4 /*yield*/, this.post(createMetadataUrl, payload, opts)];
                     case 1:
                         metadataUrls = _a.sent();
-                        if (!(metadataUrls.result != null && metadataUrls.result.length > 0)) return [3 /*break*/, 6];
-                        index = 0;
-                        idx = 0;
-                        _a.label = 2;
-                    case 2:
-                        if (!(idx < metadataUrls.result.length)) return [3 /*break*/, 5];
-                        endpoint = metadataUrls.result[idx].AttachmentEndpoint;
-                        attachment = {
-                            data: attachments[index]
-                        };
-                        return [4 /*yield*/, this.put(endpoint.substring(endpoint.indexOf('/emails')), attachment)];
-                    case 3:
-                        _a.sent();
-                        index++;
-                        _a.label = 4;
-                    case 4:
-                        idx++;
-                        return [3 /*break*/, 2];
-                    case 5: return [2 /*return*/, { success: true, status: 200, error: null, message: 'Attachments created successfully.', result: null }];
-                    case 6: return [2 /*return*/, { success: false, status: metadataUrls.status, error: null, message: 'Metadata creation failed. No attachments created.', result: null }];
-                    case 7: return [3 /*break*/, 9];
-                    case 8: return [2 /*return*/, { success: true, status: 204, error: null, message: 'No attachments found.', result: null }];
-                    case 9: return [2 /*return*/];
+                        if (metadataUrls.result != null && metadataUrls.result.length > 0) {
+                            metadataUrls.result.forEach(function (metadataResult, index) { return __awaiter(_this, void 0, void 0, function () {
+                                var endpoint, attachment, response;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            endpoint = metadataResult.AttachmentEndpoint;
+                                            attachment = {
+                                                data: attachments[index]
+                                            };
+                                            return [4 /*yield*/, this.put(endpoint.substring(endpoint.indexOf('/emails')), attachment)];
+                                        case 1:
+                                            response = _a.sent();
+                                            if (!response.success) {
+                                                return [2 /*return*/, response];
+                                            }
+                                            return [2 /*return*/];
+                                    }
+                                });
+                            }); });
+                            return [2 /*return*/, {
+                                    success: true,
+                                    status: 200,
+                                    error: null,
+                                    message: 'Attachments created successfully.',
+                                    result: null
+                                }];
+                        }
+                        else {
+                            return [2 /*return*/, {
+                                    success: false,
+                                    status: metadataUrls.status,
+                                    error: null,
+                                    message: 'Metadata creation failed. No attachments added.',
+                                    result: null
+                                }];
+                        }
+                        return [3 /*break*/, 3];
+                    case 2: return [2 /*return*/, {
+                            success: true,
+                            status: 204,
+                            error: null,
+                            message: 'No attachments found.',
+                            result: null
+                        }];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
@@ -1290,7 +1263,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
 var client_1 = __webpack_require__(0);
 /**
- * Represents the client service for Personnel.
+ * The client service for Personnel-specific requests with special logic.
  */
 var PersonnelClient = /** @class */ (function (_super) {
     __extends(PersonnelClient, _super);
@@ -1298,68 +1271,40 @@ var PersonnelClient = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns Personnel Image/s.
      * @param personnelId - Cosential personnel id
-     * @param primaryPhoto - If true, returns primary photo. Else, all images (default).
      * @param opts - Optional request headers
-     * @returns A detailed response object as a Promise
+     *
+     * @returns - A detailed response object as a Promise
      */
-    PersonnelClient.prototype.getPersonnelImages = function (personnelId, primaryPhoto, opts) {
-        if (primaryPhoto === void 0) { primaryPhoto = false; }
+    PersonnelClient.prototype.getPersonnelImage = function (personnelId, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var metadataUrl, metadata, searchQuery, response, imageUrl, actualImageUrl, images, index, imageUrl, actualImageUrl, response, imageName, imageBase64;
+            var metadataUrl, metadataResponse, response, imageUrl;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         metadataUrl = '/personnel/' + personnelId + '/images';
                         return [4 /*yield*/, this.get(metadataUrl, opts)];
                     case 1:
-                        metadata = _a.sent();
-                        if (!(metadata.result != null && metadata.result.length > 0)) return [3 /*break*/, 8];
-                        if (!primaryPhoto) return [3 /*break*/, 3];
-                        searchQuery = 'PrimaryPhoto:true';
-                        return [4 /*yield*/, this.search(metadataUrl, searchQuery)];
+                        metadataResponse = _a.sent();
+                        if (!(metadataResponse.result != null && metadataResponse.result.length > 0)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.search(metadataUrl, 'PrimaryPhoto:true')];
                     case 2:
                         response = _a.sent();
                         if (response.result.length > 0) {
                             imageUrl = response.result[0].OriginalImageEndpoint;
-                            actualImageUrl = imageUrl.substring(imageUrl.indexOf('/images/personnel/'));
-                            return [2 /*return*/, this.get(actualImageUrl, opts)];
+                            imageUrl = imageUrl.substring(imageUrl.indexOf('/images/personnel/'));
+                            return [2 /*return*/, this.get(imageUrl, opts)];
                         }
-                        _a.label = 3;
-                    case 3:
-                        images = {};
-                        index = 0;
-                        _a.label = 4;
-                    case 4:
-                        if (!(index < metadata.result.length)) return [3 /*break*/, 7];
-                        imageUrl = metadata.result[index].OriginalImageEndpoint;
-                        actualImageUrl = imageUrl.substring(imageUrl.indexOf('/images/personnel/'));
-                        return [4 /*yield*/, this.get(actualImageUrl, opts)];
-                    case 5:
-                        response = _a.sent();
-                        imageName = metadata.result[index].ImageName;
-                        imageBase64 = response.result.Data;
-                        images[imageName] = imageBase64;
-                        _a.label = 6;
-                    case 6:
-                        index++;
                         return [3 /*break*/, 4];
-                    case 7: return [2 /*return*/, {
-                            success: true,
-                            status: 200,
-                            error: null,
-                            message: null,
-                            result: images
-                        }];
-                    case 8: return [2 /*return*/, {
-                            success: true,
-                            status: metadata.status,
-                            error: null,
-                            message: 'No associated image metadata',
+                    case 3: return [2 /*return*/, {
+                            success: metadataResponse.success,
+                            status: metadataResponse.status,
+                            error: metadataResponse.error,
+                            message: metadataResponse.message,
                             result: null
                         }];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -1371,35 +1316,6 @@ exports.PersonnelClient = PersonnelClient;
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -1639,921 +1555,10 @@ if (typeof Object.create === 'function') {
     return {Base64: global.Base64}
 }));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = function isBuffer(arg) {
-  return arg && typeof arg === 'object'
-    && typeof arg.copy === 'function'
-    && typeof arg.fill === 'function'
-    && typeof arg.readUInt8 === 'function';
-}
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors ||
-  function getOwnPropertyDescriptors(obj) {
-    var keys = Object.keys(obj);
-    var descriptors = {};
-    for (var i = 0; i < keys.length; i++) {
-      descriptors[keys[i]] = Object.getOwnPropertyDescriptor(obj, keys[i]);
-    }
-    return descriptors;
-  };
-
-var formatRegExp = /%[sdj%]/g;
-exports.format = function(f) {
-  if (!isString(f)) {
-    var objects = [];
-    for (var i = 0; i < arguments.length; i++) {
-      objects.push(inspect(arguments[i]));
-    }
-    return objects.join(' ');
-  }
-
-  var i = 1;
-  var args = arguments;
-  var len = args.length;
-  var str = String(f).replace(formatRegExp, function(x) {
-    if (x === '%%') return '%';
-    if (i >= len) return x;
-    switch (x) {
-      case '%s': return String(args[i++]);
-      case '%d': return Number(args[i++]);
-      case '%j':
-        try {
-          return JSON.stringify(args[i++]);
-        } catch (_) {
-          return '[Circular]';
-        }
-      default:
-        return x;
-    }
-  });
-  for (var x = args[i]; i < len; x = args[++i]) {
-    if (isNull(x) || !isObject(x)) {
-      str += ' ' + x;
-    } else {
-      str += ' ' + inspect(x);
-    }
-  }
-  return str;
-};
-
-
-// Mark that a method should not be used.
-// Returns a modified function which warns once by default.
-// If --no-deprecation is set, then it is a no-op.
-exports.deprecate = function(fn, msg) {
-  if (typeof process !== 'undefined' && process.noDeprecation === true) {
-    return fn;
-  }
-
-  // Allow for deprecating things in the process of starting up.
-  if (typeof process === 'undefined') {
-    return function() {
-      return exports.deprecate(fn, msg).apply(this, arguments);
-    };
-  }
-
-  var warned = false;
-  function deprecated() {
-    if (!warned) {
-      if (process.throwDeprecation) {
-        throw new Error(msg);
-      } else if (process.traceDeprecation) {
-        console.trace(msg);
-      } else {
-        console.error(msg);
-      }
-      warned = true;
-    }
-    return fn.apply(this, arguments);
-  }
-
-  return deprecated;
-};
-
-
-var debugs = {};
-var debugEnviron;
-exports.debuglog = function(set) {
-  if (isUndefined(debugEnviron))
-    debugEnviron = process.env.NODE_DEBUG || '';
-  set = set.toUpperCase();
-  if (!debugs[set]) {
-    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
-      var pid = process.pid;
-      debugs[set] = function() {
-        var msg = exports.format.apply(exports, arguments);
-        console.error('%s %d: %s', set, pid, msg);
-      };
-    } else {
-      debugs[set] = function() {};
-    }
-  }
-  return debugs[set];
-};
-
-
-/**
- * Echos the value of a value. Trys to print the value out
- * in the best way possible given the different types.
- *
- * @param {Object} obj The object to print out.
- * @param {Object} opts Optional options object that alters the output.
- */
-/* legacy: obj, showHidden, depth, colors*/
-function inspect(obj, opts) {
-  // default options
-  var ctx = {
-    seen: [],
-    stylize: stylizeNoColor
-  };
-  // legacy...
-  if (arguments.length >= 3) ctx.depth = arguments[2];
-  if (arguments.length >= 4) ctx.colors = arguments[3];
-  if (isBoolean(opts)) {
-    // legacy...
-    ctx.showHidden = opts;
-  } else if (opts) {
-    // got an "options" object
-    exports._extend(ctx, opts);
-  }
-  // set default options
-  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
-  if (isUndefined(ctx.depth)) ctx.depth = 2;
-  if (isUndefined(ctx.colors)) ctx.colors = false;
-  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
-  if (ctx.colors) ctx.stylize = stylizeWithColor;
-  return formatValue(ctx, obj, ctx.depth);
-}
-exports.inspect = inspect;
-
-
-// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
-inspect.colors = {
-  'bold' : [1, 22],
-  'italic' : [3, 23],
-  'underline' : [4, 24],
-  'inverse' : [7, 27],
-  'white' : [37, 39],
-  'grey' : [90, 39],
-  'black' : [30, 39],
-  'blue' : [34, 39],
-  'cyan' : [36, 39],
-  'green' : [32, 39],
-  'magenta' : [35, 39],
-  'red' : [31, 39],
-  'yellow' : [33, 39]
-};
-
-// Don't use 'blue' not visible on cmd.exe
-inspect.styles = {
-  'special': 'cyan',
-  'number': 'yellow',
-  'boolean': 'yellow',
-  'undefined': 'grey',
-  'null': 'bold',
-  'string': 'green',
-  'date': 'magenta',
-  // "name": intentionally not styling
-  'regexp': 'red'
-};
-
-
-function stylizeWithColor(str, styleType) {
-  var style = inspect.styles[styleType];
-
-  if (style) {
-    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
-           '\u001b[' + inspect.colors[style][1] + 'm';
-  } else {
-    return str;
-  }
-}
-
-
-function stylizeNoColor(str, styleType) {
-  return str;
-}
-
-
-function arrayToHash(array) {
-  var hash = {};
-
-  array.forEach(function(val, idx) {
-    hash[val] = true;
-  });
-
-  return hash;
-}
-
-
-function formatValue(ctx, value, recurseTimes) {
-  // Provide a hook for user-specified inspect functions.
-  // Check that value is an object with an inspect function on it
-  if (ctx.customInspect &&
-      value &&
-      isFunction(value.inspect) &&
-      // Filter out the util module, it's inspect function is special
-      value.inspect !== exports.inspect &&
-      // Also filter out any prototype objects using the circular check.
-      !(value.constructor && value.constructor.prototype === value)) {
-    var ret = value.inspect(recurseTimes, ctx);
-    if (!isString(ret)) {
-      ret = formatValue(ctx, ret, recurseTimes);
-    }
-    return ret;
-  }
-
-  // Primitive types cannot have properties
-  var primitive = formatPrimitive(ctx, value);
-  if (primitive) {
-    return primitive;
-  }
-
-  // Look up the keys of the object.
-  var keys = Object.keys(value);
-  var visibleKeys = arrayToHash(keys);
-
-  if (ctx.showHidden) {
-    keys = Object.getOwnPropertyNames(value);
-  }
-
-  // IE doesn't make error fields non-enumerable
-  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
-  if (isError(value)
-      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
-    return formatError(value);
-  }
-
-  // Some type of object without properties can be shortcutted.
-  if (keys.length === 0) {
-    if (isFunction(value)) {
-      var name = value.name ? ': ' + value.name : '';
-      return ctx.stylize('[Function' + name + ']', 'special');
-    }
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    }
-    if (isDate(value)) {
-      return ctx.stylize(Date.prototype.toString.call(value), 'date');
-    }
-    if (isError(value)) {
-      return formatError(value);
-    }
-  }
-
-  var base = '', array = false, braces = ['{', '}'];
-
-  // Make Array say that they are Array
-  if (isArray(value)) {
-    array = true;
-    braces = ['[', ']'];
-  }
-
-  // Make functions say that they are functions
-  if (isFunction(value)) {
-    var n = value.name ? ': ' + value.name : '';
-    base = ' [Function' + n + ']';
-  }
-
-  // Make RegExps say that they are RegExps
-  if (isRegExp(value)) {
-    base = ' ' + RegExp.prototype.toString.call(value);
-  }
-
-  // Make dates with properties first say the date
-  if (isDate(value)) {
-    base = ' ' + Date.prototype.toUTCString.call(value);
-  }
-
-  // Make error with message first say the error
-  if (isError(value)) {
-    base = ' ' + formatError(value);
-  }
-
-  if (keys.length === 0 && (!array || value.length == 0)) {
-    return braces[0] + base + braces[1];
-  }
-
-  if (recurseTimes < 0) {
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    } else {
-      return ctx.stylize('[Object]', 'special');
-    }
-  }
-
-  ctx.seen.push(value);
-
-  var output;
-  if (array) {
-    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
-  } else {
-    output = keys.map(function(key) {
-      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
-    });
-  }
-
-  ctx.seen.pop();
-
-  return reduceToSingleString(output, base, braces);
-}
-
-
-function formatPrimitive(ctx, value) {
-  if (isUndefined(value))
-    return ctx.stylize('undefined', 'undefined');
-  if (isString(value)) {
-    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
-                                             .replace(/'/g, "\\'")
-                                             .replace(/\\"/g, '"') + '\'';
-    return ctx.stylize(simple, 'string');
-  }
-  if (isNumber(value))
-    return ctx.stylize('' + value, 'number');
-  if (isBoolean(value))
-    return ctx.stylize('' + value, 'boolean');
-  // For some reason typeof null is "object", so special case here.
-  if (isNull(value))
-    return ctx.stylize('null', 'null');
-}
-
-
-function formatError(value) {
-  return '[' + Error.prototype.toString.call(value) + ']';
-}
-
-
-function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
-  var output = [];
-  for (var i = 0, l = value.length; i < l; ++i) {
-    if (hasOwnProperty(value, String(i))) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          String(i), true));
-    } else {
-      output.push('');
-    }
-  }
-  keys.forEach(function(key) {
-    if (!key.match(/^\d+$/)) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          key, true));
-    }
-  });
-  return output;
-}
-
-
-function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
-  var name, str, desc;
-  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
-  if (desc.get) {
-    if (desc.set) {
-      str = ctx.stylize('[Getter/Setter]', 'special');
-    } else {
-      str = ctx.stylize('[Getter]', 'special');
-    }
-  } else {
-    if (desc.set) {
-      str = ctx.stylize('[Setter]', 'special');
-    }
-  }
-  if (!hasOwnProperty(visibleKeys, key)) {
-    name = '[' + key + ']';
-  }
-  if (!str) {
-    if (ctx.seen.indexOf(desc.value) < 0) {
-      if (isNull(recurseTimes)) {
-        str = formatValue(ctx, desc.value, null);
-      } else {
-        str = formatValue(ctx, desc.value, recurseTimes - 1);
-      }
-      if (str.indexOf('\n') > -1) {
-        if (array) {
-          str = str.split('\n').map(function(line) {
-            return '  ' + line;
-          }).join('\n').substr(2);
-        } else {
-          str = '\n' + str.split('\n').map(function(line) {
-            return '   ' + line;
-          }).join('\n');
-        }
-      }
-    } else {
-      str = ctx.stylize('[Circular]', 'special');
-    }
-  }
-  if (isUndefined(name)) {
-    if (array && key.match(/^\d+$/)) {
-      return str;
-    }
-    name = JSON.stringify('' + key);
-    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
-      name = name.substr(1, name.length - 2);
-      name = ctx.stylize(name, 'name');
-    } else {
-      name = name.replace(/'/g, "\\'")
-                 .replace(/\\"/g, '"')
-                 .replace(/(^"|"$)/g, "'");
-      name = ctx.stylize(name, 'string');
-    }
-  }
-
-  return name + ': ' + str;
-}
-
-
-function reduceToSingleString(output, base, braces) {
-  var numLinesEst = 0;
-  var length = output.reduce(function(prev, cur) {
-    numLinesEst++;
-    if (cur.indexOf('\n') >= 0) numLinesEst++;
-    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
-  }, 0);
-
-  if (length > 60) {
-    return braces[0] +
-           (base === '' ? '' : base + '\n ') +
-           ' ' +
-           output.join(',\n  ') +
-           ' ' +
-           braces[1];
-  }
-
-  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
-}
-
-
-// NOTE: These type checking functions intentionally don't use `instanceof`
-// because it is fragile and can be easily faked with `Object.create()`.
-function isArray(ar) {
-  return Array.isArray(ar);
-}
-exports.isArray = isArray;
-
-function isBoolean(arg) {
-  return typeof arg === 'boolean';
-}
-exports.isBoolean = isBoolean;
-
-function isNull(arg) {
-  return arg === null;
-}
-exports.isNull = isNull;
-
-function isNullOrUndefined(arg) {
-  return arg == null;
-}
-exports.isNullOrUndefined = isNullOrUndefined;
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-exports.isNumber = isNumber;
-
-function isString(arg) {
-  return typeof arg === 'string';
-}
-exports.isString = isString;
-
-function isSymbol(arg) {
-  return typeof arg === 'symbol';
-}
-exports.isSymbol = isSymbol;
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-exports.isUndefined = isUndefined;
-
-function isRegExp(re) {
-  return isObject(re) && objectToString(re) === '[object RegExp]';
-}
-exports.isRegExp = isRegExp;
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-exports.isObject = isObject;
-
-function isDate(d) {
-  return isObject(d) && objectToString(d) === '[object Date]';
-}
-exports.isDate = isDate;
-
-function isError(e) {
-  return isObject(e) &&
-      (objectToString(e) === '[object Error]' || e instanceof Error);
-}
-exports.isError = isError;
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-exports.isFunction = isFunction;
-
-function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
-}
-exports.isPrimitive = isPrimitive;
-
-exports.isBuffer = __webpack_require__(11);
-
-function objectToString(o) {
-  return Object.prototype.toString.call(o);
-}
-
-
-function pad(n) {
-  return n < 10 ? '0' + n.toString(10) : n.toString(10);
-}
-
-
-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-              'Oct', 'Nov', 'Dec'];
-
-// 26 Feb 16:19:34
-function timestamp() {
-  var d = new Date();
-  var time = [pad(d.getHours()),
-              pad(d.getMinutes()),
-              pad(d.getSeconds())].join(':');
-  return [d.getDate(), months[d.getMonth()], time].join(' ');
-}
-
-
-// log is just a thin wrapper to console.log that prepends a timestamp
-exports.log = function() {
-  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
-};
-
-
-/**
- * Inherit the prototype methods from one constructor into another.
- *
- * The Function.prototype.inherits from lang.js rewritten as a standalone
- * function (not on Function.prototype). NOTE: If this file is to be loaded
- * during bootstrapping this function needs to be rewritten using some native
- * functions as prototype setup using normal JavaScript does not work as
- * expected during bootstrapping (see mirror.js in r114903).
- *
- * @param {function} ctor Constructor function which needs to inherit the
- *     prototype.
- * @param {function} superCtor Constructor function to inherit prototype from.
- */
-exports.inherits = __webpack_require__(8);
-
-exports._extend = function(origin, add) {
-  // Don't do anything if add isn't an object
-  if (!add || !isObject(add)) return origin;
-
-  var keys = Object.keys(add);
-  var i = keys.length;
-  while (i--) {
-    origin[keys[i]] = add[keys[i]];
-  }
-  return origin;
-};
-
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-var kCustomPromisifiedSymbol = typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
-
-exports.promisify = function promisify(original) {
-  if (typeof original !== 'function')
-    throw new TypeError('The "original" argument must be of type Function');
-
-  if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
-    var fn = original[kCustomPromisifiedSymbol];
-    if (typeof fn !== 'function') {
-      throw new TypeError('The "util.promisify.custom" argument must be of type Function');
-    }
-    Object.defineProperty(fn, kCustomPromisifiedSymbol, {
-      value: fn, enumerable: false, writable: false, configurable: true
-    });
-    return fn;
-  }
-
-  function fn() {
-    var promiseResolve, promiseReject;
-    var promise = new Promise(function (resolve, reject) {
-      promiseResolve = resolve;
-      promiseReject = reject;
-    });
-
-    var args = [];
-    for (var i = 0; i < arguments.length; i++) {
-      args.push(arguments[i]);
-    }
-    args.push(function (err, value) {
-      if (err) {
-        promiseReject(err);
-      } else {
-        promiseResolve(value);
-      }
-    });
-
-    try {
-      original.apply(this, args);
-    } catch (err) {
-      promiseReject(err);
-    }
-
-    return promise;
-  }
-
-  Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
-
-  if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
-    value: fn, enumerable: false, writable: false, configurable: true
-  });
-  return Object.defineProperties(
-    fn,
-    getOwnPropertyDescriptors(original)
-  );
-}
-
-exports.promisify.custom = kCustomPromisifiedSymbol
-
-function callbackifyOnRejected(reason, cb) {
-  // `!reason` guard inspired by bluebird (Ref: https://goo.gl/t5IS6M).
-  // Because `null` is a special error value in callbacks which means "no error
-  // occurred", we error-wrap so the callback consumer can distinguish between
-  // "the promise rejected with null" or "the promise fulfilled with undefined".
-  if (!reason) {
-    var newReason = new Error('Promise was rejected with a falsy value');
-    newReason.reason = reason;
-    reason = newReason;
-  }
-  return cb(reason);
-}
-
-function callbackify(original) {
-  if (typeof original !== 'function') {
-    throw new TypeError('The "original" argument must be of type Function');
-  }
-
-  // We DO NOT return the promise as it gives the user a false sense that
-  // the promise is actually somehow related to the callback's execution
-  // and that the callback throwing will reject the promise.
-  function callbackified() {
-    var args = [];
-    for (var i = 0; i < arguments.length; i++) {
-      args.push(arguments[i]);
-    }
-
-    var maybeCb = args.pop();
-    if (typeof maybeCb !== 'function') {
-      throw new TypeError('The last argument must be of type Function');
-    }
-    var self = this;
-    var cb = function() {
-      return maybeCb.apply(self, arguments);
-    };
-    // In true node style we process the callback on `nextTick` with all the
-    // implications (stack, `uncaughtException`, `async_hooks`)
-    original.apply(this, args)
-      .then(function(ret) { process.nextTick(cb, null, ret) },
-            function(rej) { process.nextTick(callbackifyOnRejected, rej, cb) });
-  }
-
-  Object.setPrototypeOf(callbackified, Object.getPrototypeOf(original));
-  Object.defineProperties(callbackified,
-                          getOwnPropertyDescriptors(original));
-  return callbackified;
-}
-exports.callbackify = callbackify;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
-
-/***/ }),
-/* 13 */
+/* 9 */
 /***/ (function(module, exports) {
 
 var g;
@@ -2580,7 +1585,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 14 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3109,7 +2114,7 @@ if (!self.fetch) {
 
 
 /***/ }),
-/* 15 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);

@@ -1,79 +1,63 @@
 /**
- * Represents the Opportunity.
  * @example Read all Opportunities
  * ```
- * client.get<Opportunity[]>('/opportunities').then( (res) => {
- *      if (res.success) { //returns an array of Opportunity elements
- *          res.result.forEach( (index) => { console.log(index.OpportunityId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Opportunity[]>('/opportunities').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OpportunityId); });
  *      }
  * });
  * ```
  * @example Read an Opportunity
  * ```
- * client.get<Opportunity>('/opportunities/5555999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.OpportunityName + ' ' + res.result.OpportunityNumber);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<Opportunity>('/opportunities/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.OpportunityId);
  *      }
  * });
  * ```
- * @example Add new Opportunity/s
+ * @example Add new Opportunity(s)
  * ```
- * //payload is an array of Opportunity elements to be added
- * client.post<Opportunity[]>('/opportunities', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Opportunity with id as " + index.OpportunityId) + "." } );
- *      } else { //something went wrong
- *          console.log("Opportunity creation failed. Error message: " + res.message);
+ * // payload is an array of Opportunity elements to be added
+ * client.post<Opportunity[]>('/opportunities', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OpportunityId) });
  *      }
  * });
  * ```
  * @example Update an Opportunity
  * ```
- * //payload is an Opportunity element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<Opportunity>('/opportunities/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated opportunity with Id as: " + res.result.OpportunityId);
- *      } else { //something went wrong
- *          console.log("Opportunity update failed. Error message: " + res.message);
+ * // payload is an Opportunity element containing new and existing values
+ * client.put<Opportunity>('/opportunities/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.OpportunityId);
  *      }
  * });
  * ```
  * @example Delete an Opportunity
  * ```
- * client.delete<Opportunity>('/opportunities/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
+ * client.delete<Opportunity>('/opportunities/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```
- * @example Search Opportunity/s with pagination
+ * @example Search Opportunity(s) with pagination
  * ```
- * let searchQuery = 'OpportunityName:Sample Opportunity';
- * client.search<Opportunity[]>('/opportunities', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'OpportunityName:Sample';
+ * client.search<Opportunity[]>('/opportunities', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OpportunityId) });
  *      }
- * }
+ * });
  * ```
- * @example Search Opportunity/s without pagination
+ * @example Search Opportunity(s) without pagination
  * ```
- * let searchQuery = 'ActiveInd:1';
- * client.searchForAll<Opportunity>('/opportunities', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'OpportunityName:Sample';
+ * client.searchForAll<Opportunity>('/opportunities', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.OpportunityId) });
  *      }
- * }
+ * });
  * ```
  */
 export interface Opportunity {

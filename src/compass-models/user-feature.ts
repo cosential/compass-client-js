@@ -1,15 +1,10 @@
 /**
- * Represents a Cosential Feature.
- * @example
+ * @example Get all features
  * ```
- * client.get<UserFeature[]>('/user/features').then(function(res){
+ * client.get<UserFeature[]>('/user/features').then(res{
  *      if (res.success) {
- *          let featurekey = res.result[0].featureKey;
- *          //loop through result to find the desired feature
- *          //featureKey is unique to the feature
- *          console.log("Total features: " + res.result.length);
- *      } else {
- *          console.log("Cound not fetch features. Error Message: " + res.message)
+ *          // loop through result to find the desired feature
+ *          res.result.forEach(nextRes => { console.log(nextRes.featureKey); });
  *      }
  * });
  * ```

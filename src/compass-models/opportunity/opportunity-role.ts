@@ -1,33 +1,27 @@
 /**
  * Represents the Opportunity Role.
- * @example Read all Opportunity roles
+ * @example Read all Opportunity Roles
  * ```
- * client.get<OpportunityRole[]>('/opportunities/role').then( (res) => {
- *      if (res.success) { //returns an array of opportunity role elements
- *          res.result.forEach( (index) => { console.log(index.RoleId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Opportunity's role
- * ```
- * client.get<OpportunityRole[]>('/opportunities/2178463/role').then( (res) => {
+ * client.get<OpportunityRole[]>('/opportunities/role').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.RoleId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.RoleId); });
  *      }
  * });
  * ```
- * @example Add role to a opportunity
+ * @example Read a Opportunity's Roles
+ * ```
+ * client.get<OpportunityRole[]>('/opportunities/12345/role').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.RoleId); });
+ *      }
+ * });
+ * ```
+ * @example Add Role to a opportunity
  * ```
  * // payload is an array of OpportunityRole elements to be added
- * client.post<OpportunityRole[]>('/opportunities/2178463/role', payload).then( (res) => {
+ * client.post<OpportunityRole[]>('/opportunities/12345/role', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.RoleId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.RoleId); });
  *      }
  * });
  * ```

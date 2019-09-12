@@ -1,13 +1,9 @@
 /**
- * Represents the Contact Relationships options.
+ * @example Read all Contact Relationship options
  * ```
- * @example get all Contact relationships options
- * ```
- * client.get<ContactRelationshipOptions[]>('/contacts/relationships/relationship').then( (res) => {
+ * client.get<ContactMailingList[]>('/contacts/relationships/relationship').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

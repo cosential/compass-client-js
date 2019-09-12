@@ -1,77 +1,61 @@
 /**
- * Represents the Personnel.
  * @example Read all Personnel
  * ```
- * client.get<Personnel[]>('/personnel').then( (res) => {
+ * client.get<Personnel[]>('/personnel').then(res => {
  *      if (res.success) { //returns an array of personnel elements
- *          res.result.forEach( (index) => { console.log(index.PersonnelId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PersonnelId); });
  *      }
  * });
  * ```
  * @example Read a Personnel
  * ```
- * client.get<Personnel>('/personnel/5555999').then( (res) => {
+ * client.get<Personnel>('/personnel/12345').then(res => {
  *      if (res.success) { //returns a single element
- *          console.log(res.result.FirstName + ' ' + res.result.LastName);
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          console.log(res.result.PersonnelId);
  *      }
  * });
  * ```
  * @example Add new Personnel
  * ```
- * //payload is an array of Personnel elements to be added
- * client.post<Personnel[]>('/personnel', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Personnel with id as " + index.PersonnelId) + "." } );
- *      } else { //something went wrong
- *          console.log("Personnel creation failed. Error message: " + res.message);
+ * // payload is an array of Personnel elements to be added
+ * client.post<Personnel[]>('/personnel', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PersonnelId) });
  *      }
  * });
  * ```
  * @example Update a Personnel
  * ```
- * //payload is a Personnel element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<Personnel>('/personnel/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated personnel with Id as: " + res.result.PersonnelId);
- *      } else { //something went wrong
- *          console.log("Personnel update failed. Error message: " + res.message);
+ * // payload is a Personnel element containing new and existing values
+ * client.put<Personnel>('/personnel/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.PersonnelId);
  *      }
  * });
  * ```
  * @example Delete a Personnel
  * ```
- * client.delete<Personnel>('/personnel/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
+ * client.delete<Personnel>('/personnel/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```
  * @example Search Personnel with pagination
  * ```
- * let searchQuery = 'OfficeEmail:jdoe@cosential.com AND FirstName:John';
- * client.search<Personnel[]>('/personnel', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'OfficeEmail:jdoe@cosential.com';
+ * client.search<Personnel[]>('/personnel', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PersonnelId) });
  *      }
  * }
  * ```
  * @example Search Personnel without pagination
  * ```
- * let searchQuery = 'Title:Architect';
- * client.searchForAll<Personnel>('/personnel', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'OfficeEmail:jdoe@cosential.com';
+ * client.searchForAll<Personnel>('/personnel', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PersonnelId) });
  *      }
  * }
  * ```

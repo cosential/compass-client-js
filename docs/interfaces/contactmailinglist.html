@@ -73,7 +73,7 @@
 						<dt>example</dt>
 						<dd><p>Get all Mailing Lists values</p>
 							<pre><code>contactClient.get&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/Contact_MailingList'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
          res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.MailingLIstID</span>); }</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
@@ -82,7 +82,7 @@
 						<dt>example</dt>
 						<dd><p>Read Mailing Lists of a Contact</p>
 							<pre><code>contactClient.get&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/Contact_MailingList'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//success</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result[0].Id</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
@@ -92,7 +92,7 @@
 						<dd><p>Update a Contact&#39;s Mailing Lists
 							// Payload is an array containing one object with a property &quot;MailingListID&quot; corresponding to a valid Mailing Lists</p>
 							<pre><code>client.post&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/Contact_MailingList', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Set Contact to have Mailing List <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.MailingListId</span>) + "." } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Call Log creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -101,7 +101,7 @@
 						<dt>example</dt>
 						<dd><p>Delete a Contact&#39;s Mailing Lists</p>
 							<pre><code>client.delete&lt;ContactMailingList[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/123456/Contact_MailingList'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Cleared Contact's Mailing Lists."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Call Log creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -254,6 +254,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -302,7 +303,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

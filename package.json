@@ -30,12 +30,14 @@
     "webpack": "^2.2.1"
   },
   "devDependencies": {
-    "@microsoft/tsdoc": "^0.12.9",
+    "@microsoft/tsdoc": "^0.12.14",
     "@types/isomorphic-fetch": "0.0.34",
-    "@types/jasmine": "^3.3.12",
+    "@types/jasmine": "^3.4.0",
     "@types/js-base64": "^2.3.1",
+    "codelyzer": "^5.1.0",
     "jasmine": "^3.4.0",
     "ts-node": "^7.0.1",
+    "tslint": "^5.20.0",
     "typedoc": "^0.15.0",
     "typedoc-webpack-plugin": "^1.1.4",
     "webpack-archive-plugin": "^3.0.0"

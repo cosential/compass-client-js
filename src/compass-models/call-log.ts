@@ -1,77 +1,61 @@
 /**
- * Represents the Call Log.
- * @example Read all Call Logs
+ * @example Read all CallLogs
  * ```
- * client.get<CallLog[]>('/calllogs').then( (res) => {
- *      if (res.success) { //returns an array of call log elements
- *          res.result.forEach( (index) => { console.log(index.id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<CallLog[]>('/calllogs').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.id); });
  *      }
  * });
  * ```
- * @example Read a Call Log
+ * @example Read a CallLog
  * ```
- * client.get<CallLog>('/calllogs/5555999').then( (res) => {
- *      if (res.success) { //returns a single element
- *          console.log(res.result.CallType + ' ' + res.result.subject);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<CallLog>('/calllogs/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.id);
  *      }
  * });
  * ```
- * @example Add new Call Log/s
+ * @example Add new CallLog(s)
  * ```
- * //payload is an array of Call Log elements to be added
- * client.post<CallLog[]>('/calllogs', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Added Call Log with id as " + index.id) + "." } );
- *      } else { //something went wrong
- *          console.log("Call Log creation failed. Error message: " + res.message);
+ * // payload is an array of CallLog elements to be added
+ * client.post<CallLog[]>('/calllogs', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.id) });
  *      }
  * });
  * ```
- * @example Update a Call Log
+ * @example Update a CallLog
  * ```
- * //payload is a Call Log element containing new and existing values
- * //note that the API client does not support under posting of data
- * client.put<CallLog>('/calllogs/5555999', payload).then( (res) => {
- *      if(res.success){ //returns the updated element
- *          console.log("Updated call log with Id as: " + res.result.id);
- *      } else { //something went wrong
- *          console.log("Call Log update failed. Error message: " + res.message);
+ * // payload is a Call Log element containing new and existing values
+ * client.put<CallLog>('/calllogs/12345', payload).then(res => {
+ *      if (res.success) {
+ *          console.log(res.result.id);
  *      }
  * });
  * ```
- * @example Delete a Call Log
+ * @example Delete a CallLog
  * ```
- * client.delete<CallLog>('/calllogs/5555999').then( (res) => {
- *      if(res.success){ //element marked as inactive
- *          console.log(res.result);
- *      } else { //something went wrong
- *          console.log("Delete unsuccessful. Error message: " + res.message);
+ * client.delete<CallLog>('/calllogs/12345').then(res => {
+ *      if (res.success) {
+ *          console.log(res.status);
  *      }
  * });
  * ```
- * @example Search Call Log/s with pagination
+ * @example Search CallLog(s) with pagination
  * ```
- * let searchQuery = 'subject:Any Random Subject';
- * client.search<CallLog[]>('/calllogs', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'subject:Example';
+ * client.search<CallLog[]>('/calllogs', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.id) });
  *      }
  * }
  * ```
  * @example Search Call Log/s without pagination
  * ```
- * let searchQuery = 'isFollowup:true';
- * client.searchForAll<CallLog>('/calllogs', searchQuery).then( (res) => {
- *      if(res.success){ //search successful
- *          console.log("Your search returned " + res.result.length + " result/s.");
- *      } else { //something went wrong
- *          console.log("Search failed. Error Message: " + res.message)
+ * let searchQuery = 'subject:Example';
+ * client.searchForAll<CallLog>('/calllogs', searchQuery).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.id) });
  *      }
  * }
  * ```

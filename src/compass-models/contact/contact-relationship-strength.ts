@@ -1,13 +1,9 @@
 /**
- * Represents the Contact Relationships strength.
+ * @example Read all Contact Relationship options
  * ```
- * @example get all Contact relationships strengths
- * ```
- * client.get<ContactRelationshipStrength[]>('/contacts/relationships/relationshipstrength').then( (res) => {
+ * client.get<ContactMailingList[]>('/contacts/relationships/relationshipstrength').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.Id); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

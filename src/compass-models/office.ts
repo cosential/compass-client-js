@@ -1,64 +1,52 @@
 /**
  * Represents the Offices.
- * @example Read all Contact offices
+ * @example Read all Contact Offices
  * ```
- * client.get<Office[]>('/contacts/offices').then( (res) => {
+ * client.get<Office[]>('/contacts/offices').then(res => {
  *      if (res.success) { //returns an array of office elements
- *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OfficeID); });
  *      }
  * });
  * ```
- * @example Read a Contact's offices
+ * @example Read a Contact's Offices
  * ```
- * client.get<Office[]>('/contacts/5555999/offices').then( (res) => {
+ * client.get<Office[]>('/contacts/12345/offices').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OfficeID); });
  *      }
  * });
  * ```
- * @example Add offices to a contact
+ * @example Add Offices to a Contact
  * ```
  * // payload is an array of Offices elements to be added
- * client.post<Office[]>('/contacts/5555999/offices', payload).then( (res) => {
+ * client.post<Office[]>('/contacts/12345/offices', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OfficeID); });
  *      }
  * });
  * ```
- * @example Read all Company offices
+ * @example Read all Company Offices
  * ```
- * client.get<Office[]>('/companies/offices').then( (res) => {
+ * client.get<Office[]>('/companies/offices').then(res => {
  *      if (res.success) { //returns an array of office elements
- *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OfficeID); });
  *      }
  * });
  * ```
- * @example Read a Company's offices
+ * @example Read a Company's Offices
  * ```
- * client.get<Office[]>('/companies/5555999/offices').then( (res) => {
+ * client.get<Office[]>('/companies/12345/offices').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OfficeID); });
  *      }
  * });
  * ```
- * @example Add offices to a Company
+ * @example Add Offices to a Company
  * ```
  * // payload is an array of Offices elements to be added
- * client.post<Office[]>('/companies/5555999/offices', payload).then( (res) => {
+ * client.post<Office[]>('/companies/12345/offices', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OfficeID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.OfficeID); });
  *      }
  * });
  * ```

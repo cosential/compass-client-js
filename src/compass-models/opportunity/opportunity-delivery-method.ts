@@ -1,33 +1,26 @@
 /**
- * Represents the Opportunity Delivery Method.
- * @example Read all Opportunity Delivery Methods
+ * @example Read all Opportunity DeliveryMethods
  * ```
- * client.get<OpportunityDeliveryMethod[]>('/opportunities/clienttypes').then( (res) => {
- *      if (res.success) { //returns an array of opportunity delivery methods elements
- *          res.result.forEach( (index) => { console.log(index.DeliveryMethodID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Opportunity's delivery methods
- * ```
- * client.get<OpportunityDeliveryMethod[]>('/opportunities/2178463/deliverymethod').then( (res) => {
+ * client.get<OpportunityDeliveryMethod[]>('/opportunities/clienttypes').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.DeliveryMethodID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.DeliveryMethodID); });
  *      }
  * });
  * ```
- * @example Add delivery method to a opportunity
+ * @example Read a Opportunity's DeliveryMethods
+ * ```
+ * client.get<OpportunityDeliveryMethod[]>('/opportunities/12345/deliverymethod').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.DeliveryMethodID); });
+ *      }
+ * });
+ * ```
+ * @example Add DeliveryMethod to a Opportunity
  * ```
  * // payload is an array of OpportunityDeliveryMethod elements to be added
- * client.post<OpportunityDeliveryMethod[]>('/opportunities/2178463/deliverymethod', payload).then( (res) => {
+ * client.post<OpportunityDeliveryMethod[]>('/opportunities/12345/deliverymethod', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.DeliveryMethodID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.DeliveryMethodID); });
  *      }
  * });
  * ```

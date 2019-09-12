@@ -1,33 +1,52 @@
 /**
- * Represents the secondary Categories.
- * @example Read all Opportunity secondary Categories
+ * @example Read all Opportunity SecondaryCategories
  * ```
- * client.get<SecondaryCategory[]>('/opportunities/secondarycategories').then( (res) => {
- *      if (res.success) { //returns an array of opportunity secondary categories elements
- *          res.result.forEach( (index) => { console.log(index.SecondaryCategoryId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<SecondaryCategory[]>('/opportunities/secondarycategories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.SecondaryCategoryId); });
  *      }
  * });
  * ```
- * @example Read a Opportunity's secondary categories
+ * @example Read an Opportunity's SecondaryCategories
  * ```
- * client.get<SecondaryCategory[]>('/opportunities/2178463/secondarycategories').then( (res) => {
+ * client.get<SecondaryCategory[]>('/opportunities/12345/secondarycategories').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.SecondaryCategoryId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.SecondaryCategoryId); });
  *      }
  * });
  * ```
- * @example Add secondary category to a opportunity
+ * @example Add SecondaryCategory to an Opportunity
  * ```
- * // payload is an array of secondary categories elements to be added
- * client.post<SecondaryCategory[]>('/opportunities/2178463/secondarycategories', payload).then( (res) => {
+ * // payload is an array of SecondaryCategories elements to be added
+ * client.post<SecondaryCategory[]>('/opportunities/12345/secondarycategories', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.SecondaryCategoryId); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.SecondaryCategoryId); });
+ *      }
+ * });
+ * ```
+ *
+ * @example Read all Lead SecondaryCategories
+ * ```
+ * client.get<SecondaryCategory[]>('/leads/secondarycategories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.SecondaryCategoryId); });
+ *      }
+ * });
+ * ```
+ * @example Read a Lead's SecondaryCategories
+ * ```
+ * client.get<SecondaryCategory[]>('/leads/12345/secondarycategories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.SecondaryCategoryId); });
+ *      }
+ * });
+ * ```
+ * @example Add SecondaryCategory to a Lead
+ * ```
+ * // payload is an array of SecondaryCategories elements to be added
+ * client.post<SecondaryCategory[]>('/leads/12345/secondarycategories', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.SecondaryCategoryId); });
  *      }
  * });
  * ```

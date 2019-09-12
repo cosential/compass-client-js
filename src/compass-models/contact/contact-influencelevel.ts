@@ -1,43 +1,26 @@
 /**
- * Represents the Contact Influence Level.
- * @example Get all Influence Level values
+ * @example Read all Contact Influence Levels
  * ```
- * contactClient.get<ContactInfluenceLevel[]>('/contacts/influencelevel').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.Id); });
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<ContactInfluenceLevel[]>('/contacts/influencelevel').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
- * @example Read Influence Level of a Contact
+ * @example Read a Contact's Contact Influence Levels
  * ```
- * contactClient.get<ContactInfluenceLevel>('/contacts/123456/influencelevel').then( (res) => {
- *      if(res.success){ //success
- *          console.log(res.result[0].Id);
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<ContactInfluenceLevel[]>('/contacts/12345/influencelevel').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```
- * @example Update a Contact's Influence Level
- * // Payload is an array containing one object with a property "Id" corresponding to a valid Influence Level
+ * @example Add Influence Levels to a Contact
  * ```
- * client.post<ContactInfluenceLevel[]>('/contacts/123456/influencelevel', payload).then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          res.result.forEach( (index) => { console.log("Set Contact to have Influence Level with id as " + index.Id) + "." } );
- *      } else { //something went wrong
- *          console.log("Call Log creation failed. Error message: " + res.message);
- *      }
- * });
- * ```
- * @example Delete a Contact's Influence Level
- * ```
- * client.delete<ContactInfluenceLevel[]>('/contacts/123456/influencelevel').then( (res) => {
- *      if(res.success){ //returns an array of newly added elements
- *          console.log("Cleared Contact's Influence Level.");
- *      } else { //something went wrong
- *          console.log("Call Log creation failed. Error message: " + res.message);
+ * // payload is an array of ContactInfluenceLevel elements to be added
+ * client.post<ContactInfluenceLevel[]>('/contacts/12345/influencelevel', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.Id); });
  *      }
  * });
  * ```

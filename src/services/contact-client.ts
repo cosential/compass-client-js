@@ -2,76 +2,51 @@ import 'isomorphic-fetch';
 import { RequestOptions, ResponseData } from '..';
 import { ContactAddress } from '../compass-models/contact/contact-address';
 import { ContactImageMetadata } from '../compass-models/images/contact-image-metadata';
-import { Image } from './../compass-models/images/image';
+import { Image } from '../compass-models/images/image';
 import { Client } from './client';
 
 /**
- * Represents the client service for Contacts.
+ * The client service for Contact-specific requests with special logic.
  */
 export class ContactClient extends Client {
 
   /**
-   * Returns Contact Image/s.
    * @param contactId - Cosential contact id
-   * @param imageType - Required image type. [1 = All (default), 2 = ProfilePicture, 3 = CardFront, 4 = CardBack]
+   * @param imageType - Required image type. ['profilepicture', 'cardfront', 'cardback']
    * @param opts - Optional request headers
    *
-   * @returns - A detailed response object as a Promise
+   * @returns - A detailed response object containing an Image as a Promise
    */
-  public async getContactImages < T > (contactId: number, imageType: number = 1, opts: RequestOptions = { showErrors: true }): Promise < ResponseData < T >> {
+  public async getContactImages(
+    contactId: number,
+    imageType: string = 'profilepicture',
+    opts: RequestOptions = { showErrors: true }
+  ): Promise < ResponseData < Image > > {
     let metadataUrl: string = '/contacts/' + contactId + '/images';
-    let res: ResponseData < ContactImageMetadata[] > = await this.get < ContactImageMetadata[] > (metadataUrl, opts);
+    let metadataResponse: ResponseData < ContactImageMetadata[] > = await this.get < ContactImageMetadata[] > (metadataUrl, opts);
 
-    if (res.result != null && res.result.length > 0) {
-      //return specific image
-      let imageTypes: number[] = [2, 3, 4];
-      if (imageTypes.indexOf(imageType) > -1) {
-
-        let actualImageUrl: string = '/images/contact/' + contactId + '/';
-        switch (imageType) {
-          case (2):
-            actualImageUrl += 'profilepicture';
-            break;
-          case (3):
-            actualImageUrl += 'cardfront';
-            break;
-          case (4):
-            actualImageUrl += 'cardback';
-            break;
-        }
-        return await this.get < T > (actualImageUrl, opts);
-
-      } else {
-        //return all images
-        let images: any = {};
-
-        for (let index = 0; index < res.result.length; index++) {
-          let actualImageUrl: string = res.result[index].ImageUrl;
-          let imgUrl: string = actualImageUrl.substring(actualImageUrl.indexOf('/images/contact/'));
-          let response: ResponseData < Image > = await this.get < Image > (imgUrl, opts);
-
-          let imageType: string = res.result[index].ImageType;
-          let imageBase64: string = response.result.Data;
-
-          images[imageType] = imageBase64;
-        }
-        return { success: true, status: 200, error: null, message: null, result: images };
-      }
+    if (metadataResponse.result != null && metadataResponse.result.length > 0) {
+      let imageUrl: string = '/images/contact/' + contactId + '/' + imageType
+      return await this.get < Image > (imageUrl, opts);
     } else {
-      return { success: true, status: res.status, error: null, message: 'No associated image metadata', result: null };
+      return {
+        success: true,
+        status: metadataResponse.status,
+        error: null,
+        message: 'No associated image metadata',
+        result: null
+      };
     }
   }
 
   /**
-   * Sets a Contact's image
-   *
    * @param contactId - The Contact's Id
    * @param imageType - Which image should be set. Either 'profilepicture', 'cardfront', or 'cardback'
    * @param contentType - 'image/gif', image/jpeg', 'image/png', or 'image/tiff'
    * @param imageData - The raw base 64 encoded image data
    * @param opts - Optional request headers
    * 
-   * @returns - A response object
+   * @returns - A detailed response object containing an Image as a Promise
    */
   public async updateContactImage(
     contactId: number,
@@ -80,7 +55,6 @@ export class ContactClient extends Client {
     imageData: string,
     opts: RequestOptions = { showErrors: true }
   ): Promise < ResponseData < Image > > {
-
     let url: string = '/images/contact/' + contactId + '/' + imageType;
     let payload: Image = {
       ContentType: contentType,
@@ -91,80 +65,96 @@ export class ContactClient extends Client {
   }
 
   /**
-   * Returns Contact Address.
    * @param contactId - Cosential contact id
-   * @param addressType - Required address type. [1 = Office, 2 = Home]
+   * @param addressType - Required address type. ['office', 'home']
    * @param opts - Optional request headers
-   * @returns A detailed response object as a Promise
+   *
+   * @returns A detailed response object containing a ContactAddress as a Promise
    */
-  public async getContactAddress < T > (contactId: number, addressType: number, opts: RequestOptions = { showErrors: true }): Promise < ResponseData < T >> {
+  public async getContactAddress(
+    contactId: number,
+    addressType: string,
+    opts: RequestOptions = { showErrors: true }
+  ): Promise < ResponseData < ContactAddress > > {
     let addressUrl: string = '/contacts/' + contactId + '/addresses';
     let allAddresses: ResponseData < ContactAddress[] > = await this.get < ContactAddress[] > (addressUrl, opts);
     let message: string = '';
-    let result: T = null;
+    let result: ContactAddress;
 
     if (allAddresses.result != null && allAddresses.result.length > 0) {
-      //return specific address
-      let addressTypes: number[] = [1, 2];
-      if (addressTypes.indexOf(addressType) > -1) {
-        let address: [number, string] = (addressType == 1) ? this.findAddress(allAddresses.result, 'office', 'home') : this.findAddress(allAddresses.result, 'home', 'office');
-        let resultUrl: string = addressUrl + '/' + address[0];
-        let data: ResponseData < T > = await this.get < T > (resultUrl, opts);
+      let address: { addressId: number, message: string } = this.findAddress(allAddresses.result, addressType);
 
-        message = address[1];
-        result = data.result;
-      } else { message = 'Not a valid address type'; }
-    } else { message = 'No associated addresses'; }
+      if (address.addressId) {
+        let resultUrl: string = addressUrl + '/' + address.addressId;
+        let response: ResponseData < ContactAddress > = await this.get < ContactAddress > (resultUrl, opts);
 
-    return { success: true, status: 200, error: null, message: message, result: result };
+        if (!response.success) {
+          return response;
+        } else {
+          result = response.result;
+        }
+      }
+
+      message = address.message;
+    } else {
+      message = 'No associated addresses';
+    }
+
+    return {
+      success: true,
+      status: 200,
+      error: null,
+      message: message,
+      result: result
+    };
   }
 
   /**
-   * Returns an address id of the resultant address.
    * @param allAddresses - Array of all addresses associated to a Contact
    * @param requestedAddress - Requested address type
-   * @param otherAddress - Not requested address type
-   * @returns An address id as a number
+   *
+   * @returns - An address id and a message indicating success/failure details
    */
-  private findAddress < T > (allAddresses: ContactAddress[], requestedAddress: string, otherAddress: string): [number, string] {
+  private findAddress(allAddresses: ContactAddress[], requestedAddress: string): { addressId: number, message: string } {
     let addressId: number = 0;
     let message: string = '';
+    let otherAddress: string = requestedAddress === 'office' ? 'home' : 'office';
 
     let primaryAddress: ContactAddress = allAddresses.find(index => (index.AddressType.toLowerCase() == requestedAddress) && (index.DefaultInd == true));
-    if (primaryAddress == undefined) {
+    if (!primaryAddress) {
       let secondaryAddress: ContactAddress = allAddresses.find(index => (new Date(index.CreateDate).toString() == this.mostRecentDate(allAddresses, requestedAddress)));
-      if (secondaryAddress == undefined) {
+      if (!secondaryAddress) {
         let tertiaryAddress: ContactAddress = allAddresses.find(index => (index.AddressType.toLowerCase() == otherAddress) && (index.DefaultInd == true));
-        if (tertiaryAddress == undefined) {
+        if (!tertiaryAddress) {
           let quaternaryAddress: ContactAddress = allAddresses.find(index => (new Date(index.CreateDate).toString() == this.mostRecentDate(allAddresses, otherAddress)));;
           addressId = quaternaryAddress.AddressID;
-          message = `No ${requestedAddress} address found. No default ${otherAddress} address found. Returning the most recent ${otherAddress} address.`;
+          message = 'No ' + requestedAddress + ' address found. No default ' + otherAddress + ' address found. Returning the most recent ' + otherAddress + ' address.';
         } else {
           addressId = tertiaryAddress.AddressID;
-          message = `No ${requestedAddress} address found. Returning the default ${otherAddress} address.`;
+          message = 'No ' + requestedAddress + ' address found. Returning the default ' + otherAddress + ' address.';
         }
       } else {
         addressId = secondaryAddress.AddressID;
-        message = `Default ${requestedAddress} address not found. Returning the most recent ${requestedAddress} address.`;
+        message = 'Default ' + requestedAddress + ' address not found. Returning the most recent ' + requestedAddress + ' address.';
       }
     } else {
       addressId = primaryAddress.AddressID;
-      message = `Default ${requestedAddress} address found and returned.`;
+      message = 'Default ' + requestedAddress + ' address found and returned.';
     }
-    return [addressId, message];
+    return { addressId: addressId, message: message };
   }
 
   /**
-   * Returns most recent date for an address type.
    * @param allAddresses - Array of all addresses associated to a Contact
    * @param addressType - Address type to be looked up for most recent date
-   * @returns Most recent date for an address type as a string
+   *
+   * @returns - Most recent date for an address type as a string
    */
   private mostRecentDate < T > (allAddresses: ContactAddress[], addressType: string): string {
     let dates: Date[] = [];
-    allAddresses.forEach(index => {
-      if (index.AddressType.toLowerCase() == addressType) {
-        dates.push(new Date(index.CreateDate));
+    allAddresses.forEach(address => {
+      if (address.AddressType.toLowerCase() == addressType) {
+        dates.push(new Date(address.CreateDate));
       }
     });
     return new Date(Math.max.apply(null, dates)).toString();

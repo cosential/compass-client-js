@@ -1,64 +1,51 @@
 /**
- * Represents the Territories.
- * @example Read all Contact territories
+ * @example Read all Contact Territories
  * ```
- * client.get<Territory[]>('/contacts/Territories').then( (res) => {
+ * client.get<Territory[]>('/contacts/Territories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.TerritoryID); });
+ *      }
+ * });
+ * ```
+ * @example Read a Contact's Territories
+ * ```
+ * client.get<Territory[]>('/contacts/12345/Territories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.TerritoryID); });
+ *      }
+ * });
+ * ```
+ * @example Add Territories to a Contact
+ * ```
+ * // payload is an array of Territory elements to be added
+ * client.post<Territory[]>('/contacts/12345/Territories', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.TerritoryID); });
+ *      }
+ * });
+ * ```
+ * @example Read all Company Territories
+ * ```
+ * client.get<Territory[]>('/companies/Territories').then(res => {
  *      if (res.success) { //returns an array of territory elements
- *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.TerritoryID); });
  *      }
  * });
  * ```
- * @example Read a Contact's territory
+ * @example Read a Company's Territories
  * ```
- * client.get<Territory[]>('/contacts/5555999/Territories').then( (res) => {
+ * client.get<Territory[]>('/companies/12345/Territories').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.TerritoryID); });
  *      }
  * });
  * ```
- * @example Add territories to a contact's territories
+ * @example Add Territories to a Company
  * ```
- * // payload is an array of territory elements to be added
- * client.post<Territory[]>('/contacts/5555999/Territories', payload).then( (res) => {
+ * // payload is an array of Territory elements to be added
+ * client.post<Territory[]>('/companies/12345/Territories', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read all Company territories
- * ```
- * client.get<Territory[]>('/companies/Territories').then( (res) => {
- *      if (res.success) { //returns an array of territory elements
- *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read a Company's territory
- * ```
- * client.get<Territory[]>('/companies/5555999/Territories').then( (res) => {
- *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Add territories to a Company's territories
- * ```
- * // payload is an array of territory elements to be added
- * client.post<Territory[]>('/companies/5555999/Territories', payload).then( (res) => {
- *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.TerritoryID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.TerritoryID); });
  *      }
  * });
  * ```

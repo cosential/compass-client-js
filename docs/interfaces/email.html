@@ -92,7 +92,7 @@
 						<dd><p>Add new Email/s</p>
 							<pre><code><span class="hljs-comment">//payload is an array of Email elements to be added</span>
 client.post&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of newly added elements</span>
          res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Email <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.Id</span>) + "." } </span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Email creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -103,7 +103,7 @@ client.post&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-params"
 							<pre><code><span class="hljs-comment">//payload is an Email element containing new and existing values</span>
 <span class="hljs-comment">//note that the API client does not support under posting of data</span>
 client.put&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns the updated element</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns the updated element</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated email <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.Id</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Email update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -112,7 +112,7 @@ client.put&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/
 						<dt>example</dt>
 						<dd><p>Delete an Email</p>
 							<pre><code>client.delete&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//element marked as inactive</span>
+     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//element marked as inactive</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
@@ -122,7 +122,7 @@ client.put&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params">'/
 						<dd><p>Search Email/s with pagination</p>
 							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ExternalId:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'</span>;
 client.search&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/emails'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
+     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
@@ -132,7 +132,7 @@ client.search&lt;Email[]&gt;<span class="hljs-function">(<span class="hljs-param
 						<dd><p>Search Email/s without pagination</p>
 							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'ExternalId:&lt;UAT.12345.5555555566666.aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.4444444455555@Cosential.UAT&gt;'</span>;
 client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/emails'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
+     <span class="hljs-keyword">if</span>(res.success) { <span class="hljs-comment">//search successful</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
@@ -509,6 +509,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -557,7 +558,7 @@ client.searchForAll&lt;Email&gt;<span class="hljs-function">(<span class="hljs-p
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

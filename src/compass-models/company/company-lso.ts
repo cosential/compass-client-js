@@ -1,33 +1,26 @@
 /**
- * Represents the Company LSO.
  * @example Read all Company LSOs
  * ```
- * client.get<CompanyLSO[]>('/companies/legalstructure').then( (res) => {
- *      if (res.success) { //returns an array of contact LSO elements
- *          res.result.forEach( (index) => { console.log(index.LSOID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<CompanyLSO[]>('/companies/legalstructure').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.LSOID); });
  *      }
  * });
  * ```
  * @example Read a Company's LSOs
  * ```
- * client.get<CompanyLSO[]>('/companies/5555999/legalstructure').then( (res) => {
+ * client.get<CompanyLSO[]>('/companies/12345/legalstructure').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.LSOID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.LSOID); });
  *      }
  * });
  * ```
  * @example Add LSOs to a Company
  * ```
  * // payload is an array of CompanyLSO elements to be added
- * client.post<CompanyLSO[]>('/companies/5555999/legalstructure', payload).then( (res) => {
+ * client.post<CompanyLSO[]>('/companies/12345/legalstructure', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.LSOID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.LSOID); });
  *      }
  * });
  * ```

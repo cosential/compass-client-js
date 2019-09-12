@@ -1,33 +1,52 @@
 /**
- * Represents the Primary Categories.
- * @example Read all Opportunity Primary Categories
+ * @example Read all Opportunity PrimaryCategories
  * ```
- * client.get<PrimaryCategory[]>('/opportunities/primarycategories').then( (res) => {
- *      if (res.success) { //returns an array of opportunity primary categories elements
- *          res.result.forEach( (index) => { console.log(index.OffDivID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ * client.get<PrimaryCategory[]>('/opportunities/primarycategories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PrimaryCategoryId); });
  *      }
  * });
  * ```
- * @example Read a Opportunity's primary categories
+ * @example Read an Opportunity's PrimaryCategories
  * ```
- * client.get<PrimaryCategory[]>('/opportunities/2178463/primarycategories').then( (res) => {
+ * client.get<PrimaryCategory[]>('/opportunities/12345/primarycategories').then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OffDivID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PrimaryCategoryId); });
  *      }
  * });
  * ```
- * @example Add primary category to a opportunity
+ * @example Add PrimaryCategory to an Opportunity
  * ```
- * // payload is an array of primary categories elements to be added
- * client.post<PrimaryCategory[]>('/opportunities/2178463/primarycategories', payload).then( (res) => {
+ * // payload is an array of PrimaryCategories elements to be added
+ * client.post<PrimaryCategory[]>('/opportunities/12345/primarycategories', payload).then(res => {
  *      if (res.success) {
- *          res.result.forEach( (index) => { console.log(index.OffDivID); } );
- *      } else { //something went wrong
- *          console.log(res.message);
+ *          res.result.forEach(nextRes => { console.log(nextRes.PrimaryCategoryId); });
+ *      }
+ * });
+ * ```
+ *
+ * @example Read all Lead PrimaryCategories
+ * ```
+ * client.get<PrimaryCategory[]>('/leads/primarycategories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PrimaryCategoryId); });
+ *      }
+ * });
+ * ```
+ * @example Read a Lead's PrimaryCategories
+ * ```
+ * client.get<PrimaryCategory[]>('/leads/12345/primarycategories').then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PrimaryCategoryId); });
+ *      }
+ * });
+ * ```
+ * @example Add PrimaryCategory to a Lead
+ * ```
+ * // payload is an array of PrimaryCategories elements to be added
+ * client.post<PrimaryCategory[]>('/leads/12345/primarycategories', payload).then(res => {
+ *      if (res.success) {
+ *          res.result.forEach(nextRes => { console.log(nextRes.PrimaryCategoryId); });
  *      }
  * });
  * ```
