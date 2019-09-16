@@ -64,41 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read Contacts associated to an Email</p>
-							<pre><code>client.get&lt;EmailContact[]&gt;(<span class="hljs-string">'/emails/12345/contacts'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">(nextRes)</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact associated to an Email</p>
-							<pre><code>client.get&lt;EmailContact&gt;(<span class="hljs-string">'/emails/12345/contacts/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         <span class="hljs-built_in">console</span>.log(res.result.ContactId);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Associate Contacts to an Email</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of EmailContact elements to be added
-client.post&lt;EmailContact[]&gt;('/emails/12345/contacts', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.ContactId });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Remove Email associated Contacts. This removes the association.</p>
-							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;EmailContact[]&gt;(<span class="hljs-string">'/emails/12345/contacts'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         <span class="hljs-built_in">console</span>.log(res.status);
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -130,7 +95,7 @@ client.post&lt;EmailContact[]&gt;('/emails/12345/contacts', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-contact.ts:37</li>
+							<li>Defined in src/compass-models/email/email-contact.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +105,7 @@ client.post&lt;EmailContact[]&gt;('/emails/12345/contacts', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-contact.ts:38</li>
+							<li>Defined in src/compass-models/email/email-contact.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +115,7 @@ client.post&lt;EmailContact[]&gt;('/emails/12345/contacts', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-contact.ts:39</li>
+							<li>Defined in src/compass-models/email/email-contact.ts:4</li>
 						</ul>
 					</aside>
 				</section>

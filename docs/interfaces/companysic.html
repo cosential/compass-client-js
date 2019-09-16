@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Company SICs</p>
-							<pre><code>client.get&lt;CompanySIC[]&gt;(<span class="hljs-string">'/companies/sic'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s SICs</p>
-							<pre><code>client.get&lt;CompanySIC[]&gt;(<span class="hljs-string">'/companies/12345/sic'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.Id); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add SICs to a Company</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of CompanySIC elements to be added
-client.post&lt;CompanySIC[]&gt;('/companies/12345/sic', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.Id); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -123,7 +95,7 @@ client.post&lt;CompanySIC[]&gt;('/companies/12345/sic', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sic.ts:30</li>
+							<li>Defined in src/compass-models/company/company-sic.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -133,7 +105,7 @@ client.post&lt;CompanySIC[]&gt;('/companies/12345/sic', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sic.ts:31</li>
+							<li>Defined in src/compass-models/company/company-sic.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -143,7 +115,7 @@ client.post&lt;CompanySIC[]&gt;('/companies/12345/sic', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-sic.ts:29</li>
+							<li>Defined in src/compass-models/company/company-sic.ts:2</li>
 						</ul>
 					</aside>
 				</section>

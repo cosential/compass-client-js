@@ -64,59 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Divisions.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;(<span class="hljs-string">'/contacts/divisions'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.DivisionID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;(<span class="hljs-string">'/contacts/12345/divisions'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.DivisionID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Divisions to a Contact</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Division elements to be added
-client.post&lt;Division[]&gt;('/contacts/12345/divisions', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.DivisionID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Company Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;(<span class="hljs-string">'/companies/divisions'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.DivisionID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;(<span class="hljs-string">'/companies/12345/divisions'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.DivisionID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Divisions to a Company</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Division elements to be added
-client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.DivisionID); });
-});
-     }</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -177,7 +124,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:85</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +134,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:80</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +144,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>License<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:70</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +154,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:71</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +164,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:77</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +174,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:79</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +184,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Accronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:57</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +194,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:58</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +204,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:59</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +214,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:60</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -277,7 +224,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:63</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -287,7 +234,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:66</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -297,7 +244,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:65</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -307,7 +254,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">DivisionID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:55</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -317,7 +264,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:56</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -327,7 +274,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:64</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -337,7 +284,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:61</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -347,7 +294,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">DivisionURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:67</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -357,7 +304,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:62</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -367,7 +314,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:68</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -377,7 +324,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:84</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -387,7 +334,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:78</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -397,7 +344,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">OwnershipID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:69</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -407,7 +354,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Division<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:74</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -417,7 +364,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Division_<wbr><wbr>DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:76</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -427,7 +374,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Division_<wbr><wbr>Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:75</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -437,7 +384,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:86</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -447,7 +394,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Total<wbr>Staff<wbr>Num<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:73</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -457,7 +404,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:81</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -467,7 +414,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:72</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -477,7 +424,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">division<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:83</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -487,7 +434,7 @@ client.post&lt;Division[]&gt;('/companies/12345/divisions', payload).then(res =&
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>divisionid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:82</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:29</li>
 						</ul>
 					</aside>
 				</section>

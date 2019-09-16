@@ -64,27 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s StaffTeam</p>
-							<pre><code>client.get&lt;OpportunityProspectType[]&gt;(<span class="hljs-string">'/opportunities/12345/staffteam'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.OppStaffTeamID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add StaffTeam to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunityStaffTeam elements to be added
-client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.OppStaffTeamID); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -120,7 +99,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:27</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -130,7 +109,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Staff<wbr>TeamID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:24</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +119,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">Percent<wbr>Involved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:25</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +129,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">Personnel<span class="tsd-signature-symbol">:</span> <a href="personnel.html" class="tsd-signature-type">Personnel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:29</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +139,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">SF330_<wbr><wbr>Team<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:28</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +149,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">Sales<wbr>Credit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:26</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +159,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;('/opportunities/12345/staffteam', payl
 					<div class="tsd-signature tsd-kind-icon">Staff<wbr>Role<span class="tsd-signature-symbol">:</span> <a href="opportunitystaffrole.html" class="tsd-signature-type">OpportunityStaffRole</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:30</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:11</li>
 						</ul>
 					</aside>
 				</section>

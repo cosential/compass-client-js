@@ -64,63 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents an Image.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s profile image</p>
-							<pre><code>contactClient.getContactImages&lt;Image&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-number">2</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) { <span class="hljs-comment">//success //returns profile image as a base64 encoded string</span>
-         <span class="hljs-built_in">console</span>.log(res.result.Data);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(res.message);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all images for a Contact</p>
-							<pre><code>contactClient.getContactImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-number">1</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) { //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
-         //<span class="hljs-keyword">return</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">is</span> the <span class="hljs-keyword">default</span> behavior <span class="hljs-keyword">in</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">no</span> image <span class="hljs-keyword">type</span>
-         console.log(res.result);
-     } <span class="hljs-keyword">else</span> { //something went wrong
-         console.log(res.message);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Update a Contact&#39;s profile image</p>
-							<pre><code><span class="hljs-comment">// testImageData is a string containing raw base 64 encoded image data</span>
-contactClient.updateContactImage&lt;Image&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-string">'profilepicture'</span>, <span class="hljs-string">'image/jpeg'</span>, testImageData).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) { <span class="hljs-comment">//success</span>
-         <span class="hljs-built_in">console</span>.log(res.result);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(res.message);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read primary image of a personnel</p>
-							<pre><code>personnelClient.getPersonnelImages&lt;Image&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-literal">true</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) { <span class="hljs-comment">//success //returns an image as a base64 encoded string</span>
-         <span class="hljs-built_in">console</span>.log(res.result.Data);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(res.message);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all images for a Personnel</p>
-							<pre><code>personnelClient.getPersonnelImages&lt;<span class="hljs-keyword">any</span>&gt;(<span class="hljs-string">'12345'</span>, <span class="hljs-keyword">false</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) { //success //<span class="hljs-keyword">returns</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">as</span> an <span class="hljs-keyword">object</span> containing base64 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span>
-         //<span class="hljs-keyword">return</span> <span class="hljs-keyword">all</span> images <span class="hljs-keyword">is</span> the <span class="hljs-keyword">default</span> behavior <span class="hljs-keyword">in</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">primary</span> photo <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> requested
-         console.log(res.result);
-     } <span class="hljs-keyword">else</span> { //something went wrong
-         console.log(res.message);
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -151,7 +94,7 @@ contactClient.updateContactImage&lt;Image&gt;(<span class="hljs-string">'12345'<
 					<div class="tsd-signature tsd-kind-icon">Content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/image.ts:58</li>
+							<li>Defined in src/compass-models/images/image.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -161,7 +104,7 @@ contactClient.updateContactImage&lt;Image&gt;(<span class="hljs-string">'12345'<
 					<div class="tsd-signature tsd-kind-icon">Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/images/image.ts:59</li>
+							<li>Defined in src/compass-models/images/image.ts:3</li>
 						</ul>
 					</aside>
 				</section>

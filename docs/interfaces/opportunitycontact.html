@@ -64,27 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read an Opportunity&#39;s Contacts</p>
-							<pre><code>client.get&lt;OpportunityContact<span class="hljs-literal">[]</span>&gt;('/opportunities/<span class="hljs-number">12345</span>/contacts').<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.for<span class="hljs-constructor">Each(<span class="hljs-params">nextRes</span> =&gt; { <span class="hljs-params">console</span>.<span class="hljs-params">log</span>(<span class="hljs-params">nextRes</span>.<span class="hljs-params">id</span>)</span>; });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Contact to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunityContact elements to be added
-client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.id); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -119,7 +98,7 @@ client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload
 					<div class="tsd-signature tsd-kind-icon">Association<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact.ts:25</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-contact.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -129,7 +108,7 @@ client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload
 					<div class="tsd-signature tsd-kind-icon">Contact<span class="tsd-signature-symbol">:</span> <a href="contact.html" class="tsd-signature-type">Contact</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact.ts:28</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-contact.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -139,7 +118,7 @@ client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<span class="tsd-signature-symbol">:</span> <a href="contactrole.html" class="tsd-signature-type">ContactRole</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact.ts:29</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-contact.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -149,7 +128,7 @@ client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload
 					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact.ts:27</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-contact.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -159,7 +138,7 @@ client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload
 					<div class="tsd-signature tsd-kind-icon">Primary<wbr>Contact<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact.ts:26</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-contact.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -169,7 +148,7 @@ client.post&lt;OpportunityContact[]&gt;('/opportunities/12345/contacts', payload
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-contact.ts:24</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-contact.ts:5</li>
 						</ul>
 					</aside>
 				</section>

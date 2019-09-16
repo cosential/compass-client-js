@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Types</p>
-							<pre><code>client.get&lt;ContactType[]&gt;(<span class="hljs-string">'/contacts/Contact_Types'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactTypeID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s Contact Types</p>
-							<pre><code>client.get&lt;ContactType[]&gt;(<span class="hljs-string">'/contacts/12345/Contact_Types'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactTypeID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Types to a Contact</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ContactType elements to be added
-client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.ContactTypeID); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -128,7 +100,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:32</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -138,7 +110,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:29</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -148,7 +120,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:30</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -158,7 +130,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Type<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:33</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +140,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:35</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +150,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:34</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +160,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:31</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +170,7 @@ client.post&lt;ContactType[]&gt;('/contacts/12345/Contact_Types', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-type.ts:36</li>
+							<li>Defined in src/compass-models/contact/contact-type.ts:9</li>
 						</ul>
 					</aside>
 				</section>

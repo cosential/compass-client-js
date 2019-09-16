@@ -64,41 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read Opportunities associated to an Email</p>
-							<pre><code>client.get&lt;EmailOpportunity[]&gt;(<span class="hljs-string">'/emails/12345/opportunities'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">(nextRes)</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.OpportunityId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Opportunity associated to an Email</p>
-							<pre><code>client.get&lt;EmailOpportunity&gt;(<span class="hljs-string">'/emails/12345/opportunities/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         <span class="hljs-built_in">console</span>.log(res.result.OpportunityId);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Associate Opportunities to an Email</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of EmailOpportunity elements to be added
-client.post&lt;EmailOpportunity[]&gt;('/emails/12345/opportunities', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.OpportunityId });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Remove Email associated Opportunities. This removes the association.</p>
-							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;EmailOpportunity[]&gt;(<span class="hljs-string">'/emails/12345/opportunities'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         <span class="hljs-built_in">console</span>.log(res.status);
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -129,7 +94,7 @@ client.post&lt;EmailOpportunity[]&gt;('/emails/12345/opportunities', payload).th
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-opportunity.ts:37</li>
+							<li>Defined in src/compass-models/email/email-opportunity.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -139,7 +104,7 @@ client.post&lt;EmailOpportunity[]&gt;('/emails/12345/opportunities', payload).th
 					<div class="tsd-signature tsd-kind-icon">Opportunity<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-opportunity.ts:38</li>
+							<li>Defined in src/compass-models/email/email-opportunity.ts:3</li>
 						</ul>
 					</aside>
 				</section>

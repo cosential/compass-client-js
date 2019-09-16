@@ -64,56 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Opportunity SecondaryCategories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/opportunities/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read an Opportunity&#39;s SecondaryCategories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/opportunities/12345/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add SecondaryCategory to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of SecondaryCategories elements to be added
-client.post&lt;SecondaryCategory[]&gt;('/opportunities/12345/secondarycategories', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.SecondaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Lead SecondaryCategories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/leads/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Lead&#39;s SecondaryCategories</p>
-							<pre><code>client.get&lt;SecondaryCategory[]&gt;(<span class="hljs-string">'/leads/12345/secondarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SecondaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add SecondaryCategory to a Lead</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of SecondaryCategories elements to be added
-client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.SecondaryCategoryId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -150,7 +100,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:58</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +110,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Default<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:61</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +120,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Cat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:59</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +130,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Industry<wbr>Std<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:57</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +140,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:60</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +150,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr><wbr>Cat<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:62</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +160,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Secondary<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:55</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +170,7 @@ client.post&lt;SecondaryCategory[]&gt;('/leads/12345/secondarycategories', paylo
 					<div class="tsd-signature tsd-kind-icon">Secondary<wbr>Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/secondary-category.ts:56</li>
+							<li>Defined in src/compass-models/shared-subitems/secondary-category.ts:3</li>
 						</ul>
 					</aside>
 				</section>

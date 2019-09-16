@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Mailing Lists</p>
-							<pre><code>client.get&lt;ContactMailingList[]&gt;(<span class="hljs-string">'/contacts/Contact_MailingList'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.MailingListID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s Contact Mailing Lists</p>
-							<pre><code>client.get&lt;ContactMailingList[]&gt;(<span class="hljs-string">'/contacts/12345/Contact_MailingList'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.MailingListID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Mailing Lists to a Contact</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ContactMailingList elements to be added
-client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.Mailing<span class="hljs-class">ListID);</span> });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -126,7 +98,7 @@ client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', p
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:32</li>
+							<li>Defined in src/compass-models/contact/contact-mailinglist.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -136,7 +108,7 @@ client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', p
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:33</li>
+							<li>Defined in src/compass-models/contact/contact-mailinglist.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -146,7 +118,7 @@ client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', p
 					<div class="tsd-signature tsd-kind-icon">Default<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:34</li>
+							<li>Defined in src/compass-models/contact/contact-mailinglist.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +128,7 @@ client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', p
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:31</li>
+							<li>Defined in src/compass-models/contact/contact-mailinglist.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +138,7 @@ client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', p
 					<div class="tsd-signature tsd-kind-icon">Mailing<wbr>ListID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:29</li>
+							<li>Defined in src/compass-models/contact/contact-mailinglist.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +148,7 @@ client.post&lt;ContactMailingList[]&gt;('/contacts/12345/Contact_MailingList', p
 					<div class="tsd-signature tsd-kind-icon">Mailing<wbr>List<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact/contact-mailinglist.ts:30</li>
+							<li>Defined in src/compass-models/contact/contact-mailinglist.ts:3</li>
 						</ul>
 					</aside>
 				</section>

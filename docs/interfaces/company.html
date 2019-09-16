@@ -64,65 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Companies</p>
-							<pre><code>client.get&lt;Company[]&gt;(<span class="hljs-string">'/companies'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company</p>
-							<pre><code>client.get&lt;Company&gt;(<span class="hljs-string">'/companies/12345'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {res
-         <span class="hljs-built_in">console</span>.log(res.result.CompanyId);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add new Company(s)</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Company elements to be added
-client.post&lt;Company[]&gt;('/companies', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.CompanyId) });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Update a Company</p>
-							<pre><code>// payload <span class="hljs-built_in">is</span> a Company element containing <span class="hljs-built_in">new</span> <span class="hljs-keyword">and</span> existing <span class="hljs-built_in">values</span>
-client.<span class="hljs-built_in">put</span>&lt;Company&gt;('/companies/<span class="hljs-number">12345</span>', payload).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         console.<span class="hljs-built_in">log</span>(res.CompanyId);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Delete a Company</p>
-							<pre><code>client.<span class="hljs-keyword">delete</span>&lt;Company&gt;(<span class="hljs-string">'/companies/12345'</span>).<span class="hljs-keyword">then</span>(res =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) {
-         <span class="hljs-built_in">console</span>.log(res.status);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Search Company(s) with pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'Name:Cosential'</span>;
-client.search&lt;Company[]&gt;(<span class="hljs-string">'/companies'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyId) });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Search Company(s) without pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'Name:Cosential'</span>;
-client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>, searchQuery).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyId) });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -210,7 +151,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:66</li>
+							<li>Defined in src/compass-models/company/company.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +161,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Annual<wbr>Revenue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:73</li>
+							<li>Defined in src/compass-models/company/company.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +171,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:64</li>
+							<li>Defined in src/compass-models/company/company.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +181,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Date1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:91</li>
+							<li>Defined in src/compass-models/company/company.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +191,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Date2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:92</li>
+							<li>Defined in src/compass-models/company/company.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +201,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Date3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:93</li>
+							<li>Defined in src/compass-models/company/company.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +211,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Date4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:94</li>
+							<li>Defined in src/compass-models/company/company.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +221,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Date5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:95</li>
+							<li>Defined in src/compass-models/company/company.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -290,7 +231,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Long<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:81</li>
+							<li>Defined in src/compass-models/company/company.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +241,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Long<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:82</li>
+							<li>Defined in src/compass-models/company/company.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -310,7 +251,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Long<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:83</li>
+							<li>Defined in src/compass-models/company/company.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +261,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Long<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:84</li>
+							<li>Defined in src/compass-models/company/company.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -330,7 +271,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Long<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:85</li>
+							<li>Defined in src/compass-models/company/company.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -340,7 +281,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Money1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:96</li>
+							<li>Defined in src/compass-models/company/company.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -350,7 +291,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Money2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:97</li>
+							<li>Defined in src/compass-models/company/company.ts:35</li>
 						</ul>
 					</aside>
 				</section>
@@ -360,7 +301,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Money3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:98</li>
+							<li>Defined in src/compass-models/company/company.ts:36</li>
 						</ul>
 					</aside>
 				</section>
@@ -370,7 +311,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Money4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:99</li>
+							<li>Defined in src/compass-models/company/company.ts:37</li>
 						</ul>
 					</aside>
 				</section>
@@ -380,7 +321,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Money5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:100</li>
+							<li>Defined in src/compass-models/company/company.ts:38</li>
 						</ul>
 					</aside>
 				</section>
@@ -390,7 +331,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Number1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:86</li>
+							<li>Defined in src/compass-models/company/company.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -400,7 +341,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Number2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:87</li>
+							<li>Defined in src/compass-models/company/company.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -410,7 +351,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Number3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:88</li>
+							<li>Defined in src/compass-models/company/company.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -420,7 +361,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Number4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:89</li>
+							<li>Defined in src/compass-models/company/company.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -430,7 +371,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Number5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:90</li>
+							<li>Defined in src/compass-models/company/company.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -440,7 +381,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Percent1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:101</li>
+							<li>Defined in src/compass-models/company/company.ts:39</li>
 						</ul>
 					</aside>
 				</section>
@@ -450,7 +391,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Percent2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:102</li>
+							<li>Defined in src/compass-models/company/company.ts:40</li>
 						</ul>
 					</aside>
 				</section>
@@ -460,7 +401,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Percent3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:103</li>
+							<li>Defined in src/compass-models/company/company.ts:41</li>
 						</ul>
 					</aside>
 				</section>
@@ -470,7 +411,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Percent4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:104</li>
+							<li>Defined in src/compass-models/company/company.ts:42</li>
 						</ul>
 					</aside>
 				</section>
@@ -480,7 +421,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Percent5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:105</li>
+							<li>Defined in src/compass-models/company/company.ts:43</li>
 						</ul>
 					</aside>
 				</section>
@@ -490,7 +431,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Short<wbr>Text1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:76</li>
+							<li>Defined in src/compass-models/company/company.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -500,7 +441,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Short<wbr>Text2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:77</li>
+							<li>Defined in src/compass-models/company/company.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -510,7 +451,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Short<wbr>Text3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:78</li>
+							<li>Defined in src/compass-models/company/company.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -520,7 +461,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Short<wbr>Text4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:79</li>
+							<li>Defined in src/compass-models/company/company.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -530,7 +471,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Firms<wbr>Short<wbr>Text5<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:80</li>
+							<li>Defined in src/compass-models/company/company.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -540,7 +481,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:111</li>
+							<li>Defined in src/compass-models/company/company.ts:49</li>
 						</ul>
 					</aside>
 				</section>
@@ -550,7 +491,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:112</li>
+							<li>Defined in src/compass-models/company/company.ts:50</li>
 						</ul>
 					</aside>
 				</section>
@@ -560,7 +501,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">DUNSNumber<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:106</li>
+							<li>Defined in src/compass-models/company/company.ts:44</li>
 						</ul>
 					</aside>
 				</section>
@@ -570,7 +511,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Division<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:108</li>
+							<li>Defined in src/compass-models/company/company.ts:46</li>
 						</ul>
 					</aside>
 				</section>
@@ -580,7 +521,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:68</li>
+							<li>Defined in src/compass-models/company/company.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -590,7 +531,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">FPISImport<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:69</li>
+							<li>Defined in src/compass-models/company/company.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -600,7 +541,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:109</li>
+							<li>Defined in src/compass-models/company/company.ts:47</li>
 						</ul>
 					</aside>
 				</section>
@@ -610,7 +551,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Headquarters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:75</li>
+							<li>Defined in src/compass-models/company/company.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -620,7 +561,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:116</li>
+							<li>Defined in src/compass-models/company/company.ts:54</li>
 						</ul>
 					</aside>
 				</section>
@@ -630,7 +571,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Deleted<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:115</li>
+							<li>Defined in src/compass-models/company/company.ts:53</li>
 						</ul>
 					</aside>
 				</section>
@@ -640,7 +581,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:114</li>
+							<li>Defined in src/compass-models/company/company.ts:52</li>
 						</ul>
 					</aside>
 				</section>
@@ -650,7 +591,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modified<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:113</li>
+							<li>Defined in src/compass-models/company/company.ts:51</li>
 						</ul>
 					</aside>
 				</section>
@@ -660,7 +601,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:65</li>
+							<li>Defined in src/compass-models/company/company.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -670,7 +611,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:110</li>
+							<li>Defined in src/compass-models/company/company.ts:48</li>
 						</ul>
 					</aside>
 				</section>
@@ -680,7 +621,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Number<wbr>OfEmployees<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:74</li>
+							<li>Defined in src/compass-models/company/company.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -690,7 +631,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Other<wbr>Company<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:107</li>
+							<li>Defined in src/compass-models/company/company.ts:45</li>
 						</ul>
 					</aside>
 				</section>
@@ -700,7 +641,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Parent<wbr>Company<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:117</li>
+							<li>Defined in src/compass-models/company/company.ts:55</li>
 						</ul>
 					</aside>
 				</section>
@@ -710,7 +651,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Parent<wbr>Company<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:70</li>
+							<li>Defined in src/compass-models/company/company.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -720,7 +661,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:120</li>
+							<li>Defined in src/compass-models/company/company.ts:58</li>
 						</ul>
 					</aside>
 				</section>
@@ -730,7 +671,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Sales<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:72</li>
+							<li>Defined in src/compass-models/company/company.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -740,7 +681,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Sector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:119</li>
+							<li>Defined in src/compass-models/company/company.ts:57</li>
 						</ul>
 					</aside>
 				</section>
@@ -750,7 +691,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:118</li>
+							<li>Defined in src/compass-models/company/company.ts:56</li>
 						</ul>
 					</aside>
 				</section>
@@ -760,7 +701,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Ticker<wbr>Symbol<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:71</li>
+							<li>Defined in src/compass-models/company/company.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -770,7 +711,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">Website<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:67</li>
+							<li>Defined in src/compass-models/company/company.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -780,7 +721,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:122</li>
+							<li>Defined in src/compass-models/company/company.ts:60</li>
 						</ul>
 					</aside>
 				</section>
@@ -790,7 +731,7 @@ client.searchForAll&lt;Company&gt;(<span class="hljs-string">'/companies'</span>
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>user<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company.ts:121</li>
+							<li>Defined in src/compass-models/company/company.ts:59</li>
 						</ul>
 					</aside>
 				</section>

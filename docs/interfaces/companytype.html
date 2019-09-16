@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Company Types</p>
-							<pre><code>client.get&lt;CompanyType[]&gt;(<span class="hljs-string">'/companies/companytypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyTypeID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s Types</p>
-							<pre><code>client.get&lt;CompanyType[]&gt;(<span class="hljs-string">'/companies/12345/companytypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.CompanyTypeID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Types to a Company</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of CompanyType elements to be added
-client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.CompanyTypeID); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -129,7 +101,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">AssociationID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:32</li>
+							<li>Defined in src/compass-models/company/company-type.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -139,7 +111,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:33</li>
+							<li>Defined in src/compass-models/company/company-type.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -149,7 +121,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>TypeID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:29</li>
+							<li>Defined in src/compass-models/company/company-type.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -159,7 +131,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:30</li>
+							<li>Defined in src/compass-models/company/company-type.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -169,7 +141,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Type<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:34</li>
+							<li>Defined in src/compass-models/company/company-type.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +151,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:36</li>
+							<li>Defined in src/compass-models/company/company-type.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +161,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:35</li>
+							<li>Defined in src/compass-models/company/company-type.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +171,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:31</li>
+							<li>Defined in src/compass-models/company/company-type.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -209,7 +181,7 @@ client.post&lt;CompanyType[]&gt;('/companies/12345/companytypes', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Old_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-type.ts:37</li>
+							<li>Defined in src/compass-models/company/company-type.ts:10</li>
 						</ul>
 					</aside>
 				</section>

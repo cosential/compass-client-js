@@ -64,56 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Territories</p>
-							<pre><code>client.get&lt;Territory[]&gt;(<span class="hljs-string">'/contacts/Territories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.TerritoryID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s Territories</p>
-							<pre><code>client.get&lt;Territory[]&gt;(<span class="hljs-string">'/contacts/12345/Territories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.TerritoryID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Territories to a Contact</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Territory elements to be added
-client.post&lt;Territory[]&gt;('/contacts/12345/Territories', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.TerritoryID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Company Territories</p>
-							<pre><code>client.get&lt;Territory[]&gt;('/companies/Territories').then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) { //returns an<span class="hljs-built_in"> array </span>of territory elements
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.TerritoryID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s Territories</p>
-							<pre><code>client.get&lt;Territory[]&gt;(<span class="hljs-string">'/companies/12345/Territories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.TerritoryID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Territories to a Company</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Territory elements to be added
-client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.TerritoryID); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -151,7 +101,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">FIPSCodes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:60</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -161,7 +111,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:61</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +121,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">TerritoryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:54</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -181,7 +131,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">Territory<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:55</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -191,7 +141,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:62</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +151,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:57</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +161,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">deleterecord<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:58</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +171,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">states<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:59</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +181,7 @@ client.post&lt;Territory[]&gt;('/companies/12345/Territories', payload).then(res
 					<div class="tsd-signature tsd-kind-icon">zip<wbr>Codes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/territory.ts:56</li>
+							<li>Defined in src/compass-models/firmorgs/territory.ts:4</li>
 						</ul>
 					</aside>
 				</section>

@@ -64,59 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Studios.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/contacts/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s Studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/contacts/12345/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Studios to a Contact</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Studio elements to be added
-client.post&lt;Studio[]&gt;('/contacts/12345/studios', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.StudioId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Company Studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/companies/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s Studios</p>
-							<pre><code>client.get&lt;Studio[]&gt;(<span class="hljs-string">'/companies/12345/studios'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StudioId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Studios to a Company</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of Studio elements to be added
-client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.StudioId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -169,7 +116,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:76</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +126,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Associated<wbr>Services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:77</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +136,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:71</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +146,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:68</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -209,7 +156,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:70</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -219,7 +166,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:75</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -229,7 +176,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:69</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +186,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:78</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -249,7 +196,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:57</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +206,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:58</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +216,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:59</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -279,7 +226,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:60</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -289,7 +236,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:63</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +246,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:66</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -309,7 +256,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:65</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -319,7 +266,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:55</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -329,7 +276,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:56</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -339,7 +286,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:64</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -349,7 +296,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:74</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -359,7 +306,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:61</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -369,7 +316,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:67</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -379,7 +326,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">Studio<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:62</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -389,7 +336,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:72</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -399,7 +346,7 @@ client.post&lt;Studio[]&gt;('/companies/12345/studios', payload).then(res =&gt; 
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>studioid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/studio.ts:73</li>
+							<li>Defined in src/compass-models/firmorgs/studio.ts:20</li>
 						</ul>
 					</aside>
 				</section>

@@ -64,56 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Opportunity PrimaryCategories</p>
-							<pre><code>client.get&lt;PrimaryCategory[]&gt;(<span class="hljs-string">'/opportunities/primarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PrimaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read an Opportunity&#39;s PrimaryCategories</p>
-							<pre><code>client.get&lt;PrimaryCategory[]&gt;(<span class="hljs-string">'/opportunities/12345/primarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PrimaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add PrimaryCategory to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of PrimaryCategories elements to be added
-client.post&lt;PrimaryCategory[]&gt;('/opportunities/12345/primarycategories', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.PrimaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Lead PrimaryCategories</p>
-							<pre><code>client.get&lt;PrimaryCategory[]&gt;(<span class="hljs-string">'/leads/primarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PrimaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Lead&#39;s PrimaryCategories</p>
-							<pre><code>client.get&lt;PrimaryCategory[]&gt;(<span class="hljs-string">'/leads/12345/primarycategories'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PrimaryCategoryId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add PrimaryCategory to a Lead</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of PrimaryCategories elements to be added
-client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.PrimaryCategoryId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -151,7 +101,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Category<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:56</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -161,7 +111,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">External<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:62</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +121,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:58</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -181,7 +131,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:61</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -191,7 +141,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:59</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +151,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Industry<wbr>Standard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:57</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +161,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:60</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +171,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Primary<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:55</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +181,7 @@ client.post&lt;PrimaryCategory[]&gt;('/leads/12345/primarycategories', payload).
 					<div class="tsd-signature tsd-kind-icon">Project<wbr>Type<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/primary-category.ts:63</li>
+							<li>Defined in src/compass-models/shared-subitems/primary-category.ts:10</li>
 						</ul>
 					</aside>
 				</section>

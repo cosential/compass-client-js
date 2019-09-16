@@ -64,56 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Opportunity ServiceTypes</p>
-							<pre><code>client.get&lt;ServiceType[]&gt;(<span class="hljs-string">'/opportunities/servicetypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ServiceTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read an Opportunity&#39;s ServiceTypes</p>
-							<pre><code>client.get&lt;ServiceType[]&gt;(<span class="hljs-string">'/opportunities/12345/servicetypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ServiceTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add ServiceTypes to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ServiceTypes elements to be added
-client.post&lt;ServiceType[]&gt;('/opportunities/12345/servicetypes', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.ServiceTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Lead ServiceTypes</p>
-							<pre><code>client.get&lt;ServiceType[]&gt;(<span class="hljs-string">'/leads/servicetypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ServiceTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Lead&#39;s ServiceTypes</p>
-							<pre><code>client.get&lt;ServiceType[]&gt;(<span class="hljs-string">'/leads/12345/servicetypes'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ServiceTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add ServiceTypes to a Lead</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of ServiceTypes elements to be added
-client.post&lt;ServiceType[]&gt;('/leads/12345/servicetypes', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.ServiceTypeId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -147,7 +97,7 @@ client.post&lt;ServiceType[]&gt;('/leads/12345/servicetypes', payload).then(res 
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/service-type.ts:57</li>
+							<li>Defined in src/compass-models/shared-subitems/service-type.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +107,7 @@ client.post&lt;ServiceType[]&gt;('/leads/12345/servicetypes', payload).then(res 
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/service-type.ts:56</li>
+							<li>Defined in src/compass-models/shared-subitems/service-type.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +117,7 @@ client.post&lt;ServiceType[]&gt;('/leads/12345/servicetypes', payload).then(res 
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Viewable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/service-type.ts:58</li>
+							<li>Defined in src/compass-models/shared-subitems/service-type.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +127,7 @@ client.post&lt;ServiceType[]&gt;('/leads/12345/servicetypes', payload).then(res 
 					<div class="tsd-signature tsd-kind-icon">Service<wbr>Type<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/service-type.ts:54</li>
+							<li>Defined in src/compass-models/shared-subitems/service-type.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +137,7 @@ client.post&lt;ServiceType[]&gt;('/leads/12345/servicetypes', payload).then(res 
 					<div class="tsd-signature tsd-kind-icon">Service<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/service-type.ts:55</li>
+							<li>Defined in src/compass-models/shared-subitems/service-type.ts:3</li>
 						</ul>
 					</aside>
 				</section>

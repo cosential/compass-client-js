@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Opportunity Stages</p>
-							<pre><code>client.get&lt;OpportunityStage[]&gt;(<span class="hljs-string">'/opportunities/stage'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StageID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s Stages</p>
-							<pre><code>client.get&lt;OpportunityStage[]&gt;(<span class="hljs-string">'/opportunities/12345/stage'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.StageID); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Stage to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunityStage elements to be added
-client.post&lt;OpportunityStage[]&gt;('/opportunities/12345/stage', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.StageID); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -123,7 +95,7 @@ client.post&lt;OpportunityStage[]&gt;('/opportunities/12345/stage', payload).the
 					<div class="tsd-signature tsd-kind-icon">StageID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage.ts:31</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-stage.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -133,7 +105,7 @@ client.post&lt;OpportunityStage[]&gt;('/opportunities/12345/stage', payload).the
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage.ts:32</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-stage.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -143,7 +115,7 @@ client.post&lt;OpportunityStage[]&gt;('/opportunities/12345/stage', payload).the
 					<div class="tsd-signature tsd-kind-icon">Stage<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="opportunitystagetype.html" class="tsd-signature-type">OpportunityStageType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-stage.ts:33</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-stage.ts:6</li>
 						</ul>
 					</aside>
 				</section>

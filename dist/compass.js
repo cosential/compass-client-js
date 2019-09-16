@@ -152,7 +152,7 @@ var Client = /** @class */ (function () {
         if (size === void 0) { size = 500; }
         if (includeDeleted === void 0) { includeDeleted = false; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, requestUrl, paging, responseCode, responseText, responseUrl, response, message, data, e_1, e_2;
+            var headers, requestUrl, paging, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -162,61 +162,22 @@ var Client = /** @class */ (function () {
                             'x-compass-api-key': this.config.apiKey,
                             'Accept': 'application/json'
                         };
+                        if (opts.showErrors) {
+                            headers['x-compass-show-errors'] = 'true';
+                        }
                         requestUrl = this.config.compassUrl + url;
                         paging = 'from=' + from + '&size=' + size;
                         requestUrl += (url.indexOf('?q=') > -1) ? '&' + paging : '?' + paging;
                         if (includeDeleted) {
                             requestUrl += '&includedeleted=true';
                         }
-                        if (opts.showErrors) {
-                            headers['x-compass-show-errors'] = 'true';
-                        }
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 7, , 8]);
                         return [4 /*yield*/, fetch(requestUrl, {
                                 method: 'GET',
                                 headers: headers
                             })];
-                    case 2:
+                    case 1:
                         response = _a.sent();
-                        responseCode = response.status;
-                        responseText = response.statusText;
-                        responseUrl = response.url;
-                        if (!response.ok) {
-                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
-                        }
-                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
-                        data = void 0;
-                        if (!(response.status == 200)) return [3 /*break*/, 6];
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, response.json()];
-                    case 4:
-                        data = _a.sent();
-                        return [3 /*break*/, 6];
-                    case 5:
-                        e_1 = _a.sent();
-                        data = null;
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/, {
-                            success: true,
-                            status: responseCode,
-                            error: null,
-                            message: message,
-                            result: data
-                        }];
-                    case 7:
-                        e_2 = _a.sent();
-                        return [2 /*return*/, {
-                                success: false,
-                                status: responseCode,
-                                error: e_2,
-                                message: e_2.message,
-                                result: null
-                            }];
-                    case 8: return [2 /*return*/];
+                        return [2 /*return*/, this.handleResponse('GET', response)];
                 }
             });
         });
@@ -231,7 +192,7 @@ var Client = /** @class */ (function () {
     Client.prototype.post = function (url, payload, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, responseCode, responseText, responseUrl, response, message, data, e_3, e_4;
+            var headers, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -245,53 +206,14 @@ var Client = /** @class */ (function () {
                         if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
                         }
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 7, , 8]);
                         return [4 /*yield*/, fetch(this.config.compassUrl + url, {
                                 method: 'POST',
                                 headers: headers,
                                 body: JSON.stringify(payload)
                             })];
-                    case 2:
+                    case 1:
                         response = _a.sent();
-                        responseCode = response.status;
-                        responseText = response.statusText;
-                        responseUrl = response.url;
-                        if (!response.ok) {
-                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
-                        }
-                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
-                        data = void 0;
-                        if (!(response.status == 200)) return [3 /*break*/, 6];
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, response.json()];
-                    case 4:
-                        data = _a.sent();
-                        return [3 /*break*/, 6];
-                    case 5:
-                        e_3 = _a.sent();
-                        data = null;
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/, {
-                            success: true,
-                            status: responseCode,
-                            error: null,
-                            message: message,
-                            result: data
-                        }];
-                    case 7:
-                        e_4 = _a.sent();
-                        return [2 /*return*/, {
-                                success: false,
-                                status: responseCode,
-                                error: e_4,
-                                message: e_4.message,
-                                result: null
-                            }];
-                    case 8: return [2 /*return*/];
+                        return [2 /*return*/, this.handleResponse('POST', response)];
                 }
             });
         });
@@ -306,7 +228,7 @@ var Client = /** @class */ (function () {
     Client.prototype.put = function (url, payload, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, responseCode, responseText, responseUrl, response, message, data, e_5, e_6;
+            var headers, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -315,58 +237,19 @@ var Client = /** @class */ (function () {
                             'x-compass-firm-id': this.config.firmId.toString(),
                             'x-compass-api-key': this.config.apiKey,
                             'Accept': 'application/json',
-                            'Content-Type': (opts.urlEncoded) ? 'application/x-www-form-urlencoded' : 'application/json'
+                            'Content-Type': 'application/json'
                         };
                         if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
                         }
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 7, , 8]);
                         return [4 /*yield*/, fetch(this.config.compassUrl + url, {
                                 method: 'PUT',
                                 headers: headers,
                                 body: JSON.stringify(payload)
                             })];
-                    case 2:
+                    case 1:
                         response = _a.sent();
-                        responseCode = response.status;
-                        responseText = response.statusText;
-                        responseUrl = response.url;
-                        if (!response.ok) {
-                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
-                        }
-                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
-                        data = void 0;
-                        if (!(response.status == 200)) return [3 /*break*/, 6];
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, response.json()];
-                    case 4:
-                        data = _a.sent();
-                        return [3 /*break*/, 6];
-                    case 5:
-                        e_5 = _a.sent();
-                        data = null;
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/, {
-                            success: true,
-                            status: responseCode,
-                            error: null,
-                            message: message,
-                            result: data
-                        }];
-                    case 7:
-                        e_6 = _a.sent();
-                        return [2 /*return*/, {
-                                success: false,
-                                status: responseCode,
-                                error: e_6,
-                                message: e_6.message,
-                                result: null
-                            }];
-                    case 8: return [2 /*return*/];
+                        return [2 /*return*/, this.handleResponse('PUT', response)];
                 }
             });
         });
@@ -380,7 +263,7 @@ var Client = /** @class */ (function () {
     Client.prototype.delete = function (url, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
-            var headers, responseCode, responseText, responseUrl, response, message, data, e_7, e_8;
+            var headers, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -392,52 +275,13 @@ var Client = /** @class */ (function () {
                         if (opts.showErrors) {
                             headers['x-compass-show-errors'] = 'true';
                         }
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 7, , 8]);
                         return [4 /*yield*/, fetch(this.config.compassUrl + url, {
                                 method: 'DELETE',
                                 headers: headers
                             })];
-                    case 2:
+                    case 1:
                         response = _a.sent();
-                        responseCode = response.status;
-                        responseText = response.statusText;
-                        responseUrl = response.url;
-                        if (!response.ok) {
-                            throw new Error('Compass API call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']');
-                        }
-                        message = 'Compass API call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
-                        data = void 0;
-                        if (!(response.status == 200)) return [3 /*break*/, 6];
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, response.json()];
-                    case 4:
-                        data = _a.sent();
-                        return [3 /*break*/, 6];
-                    case 5:
-                        e_7 = _a.sent();
-                        data = null;
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/, {
-                            success: true,
-                            status: responseCode,
-                            error: null,
-                            message: message,
-                            result: data
-                        }];
-                    case 7:
-                        e_8 = _a.sent();
-                        return [2 /*return*/, {
-                                success: false,
-                                status: responseCode,
-                                error: e_8,
-                                message: e_8.message,
-                                result: null
-                            }];
-                    case 8: return [2 /*return*/];
+                        return [2 /*return*/, this.handleResponse('DELETE', response)];
                 }
             });
         });
@@ -476,6 +320,35 @@ var Client = /** @class */ (function () {
                             From: from
                         };
                         return [4 /*yield*/, this.post(requestUrl, searchParams, opts)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Note: This function should only be used to search endpoints which do not have
+     * search via POST implemented, e.g. /emails. All other searches should be performed
+     * via the above search function.
+     *
+     * @param url - Compass API endpoint
+     * @param queryString - Complete search query
+     * @param opts - Optional request headers
+     *
+     * @returns - A detailed response object as a Promise
+     */
+    Client.prototype.getSearch = function (url, queryString, opts) {
+        if (opts === void 0) { opts = { showErrors: true }; }
+        return __awaiter(this, void 0, void 0, function () {
+            var searchQuery, requestUrl;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        searchQuery = (queryString != null) ? queryString.trim() : queryString;
+                        if (searchQuery == '' || searchQuery == null) {
+                            throw new Error('Compass API call failed. String to search ' + searchQuery + ' is empty or invalid.');
+                        }
+                        requestUrl = url + '/search?q=' + searchQuery;
+                        return [4 /*yield*/, this.get(requestUrl, opts)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -543,6 +416,62 @@ var Client = /** @class */ (function () {
             });
         });
     };
+    /**
+     * @param responseType - An HTTP verb
+     * @param response - The response object
+     *
+     * @returns - A detailed response object as a Promise
+     */
+    Client.prototype.handleResponse = function (responseType, response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var responseCode, responseText, responseUrl, message, data, error, e_1, e_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        responseCode = response.status;
+                        responseText = response.statusText;
+                        responseUrl = response.url;
+                        data = null;
+                        error = null;
+                        if (!!response.ok) return [3 /*break*/, 5];
+                        message = 'Compass ' + responseType + ' call failed. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + '] + \n' + response.body;
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, response.json()];
+                    case 2:
+                        error = _a.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        e_1 = _a.sent();
+                        error = null;
+                        return [3 /*break*/, 4];
+                    case 4: return [3 /*break*/, 9];
+                    case 5:
+                        message = 'Compass ' + responseType + ' call successful. [' + responseUrl + '] responded with: [' + responseCode + ' ' + responseText + ']';
+                        if (!(response.status == 200)) return [3 /*break*/, 9];
+                        _a.label = 6;
+                    case 6:
+                        _a.trys.push([6, 8, , 9]);
+                        return [4 /*yield*/, response.json()];
+                    case 7:
+                        data = _a.sent();
+                        return [3 /*break*/, 9];
+                    case 8:
+                        e_2 = _a.sent();
+                        error = 'Error parsing response.';
+                        return [3 /*break*/, 9];
+                    case 9: return [2 /*return*/, {
+                            success: response.status >= 200 && response.status <= 300,
+                            status: responseCode,
+                            error: error,
+                            message: message,
+                            result: data
+                        }];
+                }
+            });
+        });
+    };
     return Client;
 }());
 exports.Client = Client;
@@ -590,7 +519,7 @@ exports.PersonnelClient = personnel_client_1.PersonnelClient;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Represents the Client configuration used to authenticate the User.
+ * The Client configuration used to authenticate the User.
  */
 var ClientConfig = /** @class */ (function () {
     function ClientConfig(firmId, username, password, apiKey, compassUrl) {
@@ -900,7 +829,7 @@ var ContactClient = /** @class */ (function (_super) {
      *
      * @returns - A detailed response object containing an Image as a Promise
      */
-    ContactClient.prototype.getContactImages = function (contactId, imageType, opts) {
+    ContactClient.prototype.getContactImage = function (contactId, imageType, opts) {
         if (imageType === void 0) { imageType = 'profilepicture'; }
         if (opts === void 0) { opts = { showErrors: true }; }
         return __awaiter(this, void 0, void 0, function () {
@@ -974,7 +903,7 @@ var ContactClient = /** @class */ (function (_super) {
                         allAddresses = _a.sent();
                         message = '';
                         if (!(allAddresses.result != null && allAddresses.result.length > 0)) return [3 /*break*/, 4];
-                        address = this.findAddress(allAddresses.result, addressType);
+                        address = this.findAddress(allAddresses.result, addressType.toUpperCase());
                         if (!address.addressId) return [3 /*break*/, 3];
                         resultUrl = addressUrl + '/' + address.addressId;
                         return [4 /*yield*/, this.get(resultUrl, opts)];
@@ -1014,12 +943,12 @@ var ContactClient = /** @class */ (function (_super) {
         var _this = this;
         var addressId = 0;
         var message = '';
-        var otherAddress = requestedAddress === 'office' ? 'home' : 'office';
-        var primaryAddress = allAddresses.find(function (index) { return (index.AddressType.toLowerCase() == requestedAddress) && (index.DefaultInd == true); });
+        var otherAddress = requestedAddress === 'OFFICE' ? 'HOME' : 'OFFICE';
+        var primaryAddress = allAddresses.find(function (index) { return (index.AddressType.toUpperCase() == requestedAddress) && (index.DefaultInd == true); });
         if (!primaryAddress) {
             var secondaryAddress = allAddresses.find(function (index) { return (new Date(index.CreateDate).toString() == _this.mostRecentDate(allAddresses, requestedAddress)); });
             if (!secondaryAddress) {
-                var tertiaryAddress = allAddresses.find(function (index) { return (index.AddressType.toLowerCase() == otherAddress) && (index.DefaultInd == true); });
+                var tertiaryAddress = allAddresses.find(function (index) { return (index.AddressType.toUpperCase() == otherAddress) && (index.DefaultInd == true); });
                 if (!tertiaryAddress) {
                     var quaternaryAddress = allAddresses.find(function (index) { return (new Date(index.CreateDate).toString() == _this.mostRecentDate(allAddresses, otherAddress)); });
                     ;
@@ -1051,7 +980,7 @@ var ContactClient = /** @class */ (function (_super) {
     ContactClient.prototype.mostRecentDate = function (allAddresses, addressType) {
         var dates = [];
         allAddresses.forEach(function (address) {
-            if (address.AddressType.toLowerCase() == addressType) {
+            if (address.AddressType.toUpperCase() == addressType) {
                 dates.push(new Date(address.CreateDate));
             }
         });
@@ -1185,7 +1114,7 @@ var EmailClient = /** @class */ (function (_super) {
                             return [2 /*return*/, {
                                     success: false,
                                     status: metadataUrls.status,
-                                    error: null,
+                                    error: metadataUrls.error,
                                     message: 'Metadata creation failed. No attachments added.',
                                     result: null
                                 }];
@@ -1274,7 +1203,7 @@ var PersonnelClient = /** @class */ (function (_super) {
      * @param personnelId - Cosential personnel id
      * @param opts - Optional request headers
      *
-     * @returns - A detailed response object as a Promise
+     * @returns - A detailed response object containing an Image as a Promise
      */
     PersonnelClient.prototype.getPersonnelImage = function (personnelId, opts) {
         if (opts === void 0) { opts = { showErrors: true }; }

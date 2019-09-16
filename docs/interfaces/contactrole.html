@@ -64,19 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Roles</p>
-							<pre><code>client.get&lt;ContactRole[]&gt;(<span class="hljs-string">'/projects/consultantcontacts/contactrole'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.ContactRoleId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -109,7 +96,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role.ts:14</li>
+							<li>Defined in src/compass-models/contact/contact-role.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -119,7 +106,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role.ts:15</li>
+							<li>Defined in src/compass-models/contact/contact-role.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -129,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="contactroletype.html" class="tsd-signature-type">ContactRoleType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role.ts:17</li>
+							<li>Defined in src/compass-models/contact/contact-role.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -139,7 +126,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role.ts:16</li>
+							<li>Defined in src/compass-models/contact/contact-role.ts:6</li>
 						</ul>
 					</aside>
 				</section>

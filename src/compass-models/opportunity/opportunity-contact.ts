@@ -1,5 +1,5 @@
 import { Contact } from '../contact/contact';
-import { ContactRole } from '../contact-role';
+import { ContactRole } from './../contact/contact-role';
 
 export interface OpportunityContact {
   id: number;

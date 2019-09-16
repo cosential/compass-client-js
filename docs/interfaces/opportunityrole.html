@@ -64,37 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Opportunity Role.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Opportunity Roles</p>
-							<pre><code>client.get&lt;OpportunityRole[]&gt;(<span class="hljs-string">'/opportunities/role'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.RoleId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s Roles</p>
-							<pre><code>client.get&lt;OpportunityRole[]&gt;(<span class="hljs-string">'/opportunities/12345/role'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.RoleId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Role to a opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunityRole elements to be added
-client.post&lt;OpportunityRole[]&gt;('/opportunities/12345/role', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.RoleId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -126,7 +95,7 @@ client.post&lt;OpportunityRole[]&gt;('/opportunities/12345/role', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Available<wbr>Role<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-role.ts:32</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-role.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -136,7 +105,7 @@ client.post&lt;OpportunityRole[]&gt;('/opportunities/12345/role', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Role<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-role.ts:30</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-role.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -146,7 +115,7 @@ client.post&lt;OpportunityRole[]&gt;('/opportunities/12345/role', payload).then(
 					<div class="tsd-signature tsd-kind-icon">Role<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-role.ts:31</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-role.ts:3</li>
 						</ul>
 					</aside>
 				</section>

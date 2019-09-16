@@ -64,56 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact PracticeAreas</p>
-							<pre><code>client.get&lt;PracticeArea[]&gt;(<span class="hljs-string">'/contacts/PracticeAreas'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PracticeAreaId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s PracticeAreas</p>
-							<pre><code>client.get&lt;PracticeArea[]&gt;(<span class="hljs-string">'/contacts/12345/PracticeAreas'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PracticeAreaId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add PracticeAreas to a Contact&#39;s</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of PracticeArea elements to be added
-client.post&lt;PracticeArea[]&gt;('/contacts/12345/PracticeAreas', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.PracticeAreaId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Company PracticeAreas</p>
-							<pre><code>client.get&lt;PracticeArea[]&gt;(<span class="hljs-string">'/companies/PracticeAreas'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PracticeAreaId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s PracticeAreas</p>
-							<pre><code>client.get&lt;PracticeArea[]&gt;(<span class="hljs-string">'/companies/12345/PracticeAreas'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.PracticeAreaId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add PracticeAreas to a Company</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of PracticeArea elements to be added
-client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.PracticeAreaId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -165,7 +115,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:75</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +125,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:70</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +135,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:67</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -195,7 +145,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:69</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -205,7 +155,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:74</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +165,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:68</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +175,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Acronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:56</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -235,7 +185,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:57</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +195,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:58</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -255,7 +205,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:59</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -265,7 +215,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:62</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -275,7 +225,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:65</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -285,7 +235,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:64</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -295,7 +245,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:54</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -305,7 +255,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:55</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -315,7 +265,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:63</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -325,7 +275,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:60</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -335,7 +285,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:66</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -345,7 +295,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">Practice<wbr>Area<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:61</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -355,7 +305,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:76</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -365,7 +315,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:71</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -375,7 +325,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>practiceareaid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:72</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -385,7 +335,7 @@ client.post&lt;PracticeArea[]&gt;('/companies/12345/PracticeAreas', payload).the
 					<div class="tsd-signature tsd-kind-icon">practicearea<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/practice-area.ts:73</li>
+							<li>Defined in src/compass-models/firmorgs/practice-area.ts:21</li>
 						</ul>
 					</aside>
 				</section>

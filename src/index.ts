@@ -7,7 +7,7 @@ export { CompanyNAICS } from './compass-models/company/company-naics';
 export { CompanySDBT } from './compass-models/company/company-sdbt';
 export { CompanySIC } from './compass-models/company/company-sic';
 export { CompanyType } from './compass-models/company/company-type';
-export { ContactRole } from './compass-models/contact-role';
+export { ContactRole } from './compass-models/contact/contact-role';
 export { ContactRoleType } from './compass-models/contact/contact-role-type';
 export { Contact } from './compass-models/contact/contact';
 export { ContactAddress } from './compass-models/contact/contact-address';

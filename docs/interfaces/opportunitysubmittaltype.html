@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Opportunity SubmittalTypes</p>
-							<pre><code>client.get&lt;OpportunitySubmittalType[]&gt;(<span class="hljs-string">'/opportunities/submittaltype'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SubmittalTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s SubmittalTypes</p>
-							<pre><code>client.get&lt;OpportunitySubmittalType[]&gt;(<span class="hljs-string">'/opportunities/12345/submittaltype'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
-     <span class="hljs-keyword">if</span> (res.success) {
-         res.result.forEach(<span class="hljs-function"><span class="hljs-params">nextRes</span> =&gt;</span> { <span class="hljs-built_in">console</span>.log(nextRes.SubmittalTypeId); });
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add SubmittalType to an Opportunity</p>
-							<pre><code>// payload is an<span class="hljs-built_in"> array </span>of OpportunitySubmittalType elements to be added
-client.post&lt;OpportunitySubmittalType[]&gt;('/opportunities/12345/submittaltype', payload).then(res =&gt; {
-    <span class="hljs-built_in"> if </span>(res.success) {
-         res.result.forEach(nextRes =&gt; { console.log(nextRes.SubmittalTypeId); });
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -122,7 +94,7 @@ client.post&lt;OpportunitySubmittalType[]&gt;('/opportunities/12345/submittaltyp
 					<div class="tsd-signature tsd-kind-icon">Submittal<wbr>Type<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-submittal-type.ts:29</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-submittal-type.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -132,7 +104,7 @@ client.post&lt;OpportunitySubmittalType[]&gt;('/opportunities/12345/submittaltyp
 					<div class="tsd-signature tsd-kind-icon">Submittal<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-submittal-type.ts:30</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-submittal-type.ts:3</li>
 						</ul>
 					</aside>
 				</section>
