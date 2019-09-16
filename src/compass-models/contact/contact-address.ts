@@ -1,26 +1,3 @@
-/**
- * Represents the Contact Address.
- * @example Read all addresses associated to a Contact
- * ```
- * contactClient.get<ContactAddress[]>('/contacts/5556666/addresses').then( (res) => {
- *      if(res.success){ //success
- *          res.result.forEach((index) => { console.log(index.AddressID); });
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- * @example Read office address of a Contact
- * ```
- * contactClient.getContactAddress<ContactAddress>(5556666, 1).then( (res) => {
- *      if(res.success){ //success
- *          console.log(res.result.Address1);
- *      } else { //something went wrong
- *          console.log(res.message);
- *      }
- * });
- * ```
- */
 export interface ContactAddress {
   AddressID: number;
   ContactId: number;

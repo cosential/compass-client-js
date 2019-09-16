@@ -64,83 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Lead.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Leads</p>
-							<pre><code>client.get&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of lead elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.LeadId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Lead</p>
-							<pre><code>client.get&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Name + ' ' + res.result.Description</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add new Lead/s</p>
-							<pre><code><span class="hljs-comment">//payload is an array of Lead elements to be added</span>
-client.post&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params">'/leads', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Added Lead <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.LeadId</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Lead creation failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Update a Lead</p>
-							<pre><code><span class="hljs-comment">//payload is a Lead element containing new and existing values</span>
-<span class="hljs-comment">//note that the API client does not support under posting of data</span>
-client.put&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns the updated element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated lead <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.LeadId</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Lead update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Delete a Lead</p>
-							<pre><code>client.delete&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-params">'/leads/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//element marked as inactive</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Search Lead/s with pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'Name:Victory'</span>;
-client.search&lt;Lead[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/leads'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
-     }
-}</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Search Lead/s without pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'NumOfViews:20'</span>;
-client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/leads'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
-     }
-}</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -193,7 +116,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Bid<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:97</li>
+							<li>Defined in src/compass-models/lead/lead.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +126,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:95</li>
+							<li>Defined in src/compass-models/lead/lead.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +136,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>First<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:90</li>
+							<li>Defined in src/compass-models/lead/lead.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +146,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Last<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:91</li>
+							<li>Defined in src/compass-models/lead/lead.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +156,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:96</li>
+							<li>Defined in src/compass-models/lead/lead.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +166,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:86</li>
+							<li>Defined in src/compass-models/lead/lead.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +176,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:103</li>
+							<li>Defined in src/compass-models/lead/lead.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +186,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:84</li>
+							<li>Defined in src/compass-models/lead/lead.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +196,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Deliverable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:100</li>
+							<li>Defined in src/compass-models/lead/lead.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -283,7 +206,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:82</li>
+							<li>Defined in src/compass-models/lead/lead.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +216,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:88</li>
+							<li>Defined in src/compass-models/lead/lead.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +226,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Estimated<wbr>Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:93</li>
+							<li>Defined in src/compass-models/lead/lead.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -313,7 +236,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:87</li>
+							<li>Defined in src/compass-models/lead/lead.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +246,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Lead<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:80</li>
+							<li>Defined in src/compass-models/lead/lead.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +256,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Legacy<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:98</li>
+							<li>Defined in src/compass-models/lead/lead.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -343,7 +266,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:99</li>
+							<li>Defined in src/compass-models/lead/lead.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -353,7 +276,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:81</li>
+							<li>Defined in src/compass-models/lead/lead.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -363,7 +286,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Next<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:83</li>
+							<li>Defined in src/compass-models/lead/lead.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -373,7 +296,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:101</li>
+							<li>Defined in src/compass-models/lead/lead.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -383,7 +306,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Num<wbr>OfViews<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:92</li>
+							<li>Defined in src/compass-models/lead/lead.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -393,7 +316,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:89</li>
+							<li>Defined in src/compass-models/lead/lead.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -403,7 +326,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:102</li>
+							<li>Defined in src/compass-models/lead/lead.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -413,7 +336,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:94</li>
+							<li>Defined in src/compass-models/lead/lead.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -423,7 +346,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 					<div class="tsd-signature tsd-kind-icon">Tick<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/lead/lead.ts:85</li>
+							<li>Defined in src/compass-models/lead/lead.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -537,6 +460,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -585,7 +509,7 @@ client.searchForAll&lt;Lead&gt;<span class="hljs-function">(<span class="hljs-pa
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

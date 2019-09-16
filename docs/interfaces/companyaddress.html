@@ -64,33 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Company Address.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all addresses associated to a Company</p>
-							<pre><code>companyClient.get&lt;CompanyAddress[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5556666/addresses'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
-         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.AddressID</span>); }</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read default address of a Company</p>
-							<pre><code>companyClient.getCompanyAddress&lt;CompanyAddress&gt;<span class="hljs-function">(<span class="hljs-params">5556666</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.Address1</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -147,7 +120,7 @@
 					<div class="tsd-signature tsd-kind-icon">Addr<wbr>Lat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:44</li>
+							<li>Defined in src/compass-models/company/company-address.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +130,7 @@
 					<div class="tsd-signature tsd-kind-icon">Addr<wbr>Long<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:45</li>
+							<li>Defined in src/compass-models/company/company-address.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +140,7 @@
 					<div class="tsd-signature tsd-kind-icon">Addr<wbr>Verified<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:42</li>
+							<li>Defined in src/compass-models/company/company-address.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +150,7 @@
 					<div class="tsd-signature tsd-kind-icon">Addr<wbr>Verified<wbr>Method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:43</li>
+							<li>Defined in src/compass-models/company/company-address.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +160,7 @@
 					<div class="tsd-signature tsd-kind-icon">Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:30</li>
+							<li>Defined in src/compass-models/company/company-address.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:31</li>
+							<li>Defined in src/compass-models/company/company-address.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">Address3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:32</li>
+							<li>Defined in src/compass-models/company/company-address.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">AddressID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:25</li>
+							<li>Defined in src/compass-models/company/company-address.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">Address<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:27</li>
+							<li>Defined in src/compass-models/company/company-address.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">Carrier<wbr>Route<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:48</li>
+							<li>Defined in src/compass-models/company/company-address.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:33</li>
+							<li>Defined in src/compass-models/company/company-address.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">Comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:37</li>
+							<li>Defined in src/compass-models/company/company-address.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">Company<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:26</li>
+							<li>Defined in src/compass-models/company/company-address.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -277,7 +250,7 @@
 					<div class="tsd-signature tsd-kind-icon">Congress<wbr>District<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:47</li>
+							<li>Defined in src/compass-models/company/company-address.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -287,7 +260,7 @@
 					<div class="tsd-signature tsd-kind-icon">Country<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:36</li>
+							<li>Defined in src/compass-models/company/company-address.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -297,7 +270,7 @@
 					<div class="tsd-signature tsd-kind-icon">County<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:46</li>
+							<li>Defined in src/compass-models/company/company-address.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -307,7 +280,7 @@
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:40</li>
+							<li>Defined in src/compass-models/company/company-address.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -317,7 +290,7 @@
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:39</li>
+							<li>Defined in src/compass-models/company/company-address.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -327,7 +300,7 @@
 					<div class="tsd-signature tsd-kind-icon">Office<wbr>Sec<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:49</li>
+							<li>Defined in src/compass-models/company/company-address.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -337,7 +310,7 @@
 					<div class="tsd-signature tsd-kind-icon">Postal<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:34</li>
+							<li>Defined in src/compass-models/company/company-address.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -347,7 +320,7 @@
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:52</li>
+							<li>Defined in src/compass-models/company/company-address.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -357,7 +330,7 @@
 					<div class="tsd-signature tsd-kind-icon">State<wbr>Abrv<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:35</li>
+							<li>Defined in src/compass-models/company/company-address.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -367,7 +340,7 @@
 					<div class="tsd-signature tsd-kind-icon">createdate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:29</li>
+							<li>Defined in src/compass-models/company/company-address.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -377,7 +350,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:28</li>
+							<li>Defined in src/compass-models/company/company-address.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -387,7 +360,7 @@
 					<div class="tsd-signature tsd-kind-icon">deleterecord<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:38</li>
+							<li>Defined in src/compass-models/company/company-address.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -397,7 +370,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Address<wbr>Verified<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:41</li>
+							<li>Defined in src/compass-models/company/company-address.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -407,7 +380,7 @@
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:51</li>
+							<li>Defined in src/compass-models/company/company-address.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -417,7 +390,7 @@
 					<div class="tsd-signature tsd-kind-icon">version_<wbr>user<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/company/company-address.ts:50</li>
+							<li>Defined in src/compass-models/company/company-address.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -543,6 +516,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -591,7 +565,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

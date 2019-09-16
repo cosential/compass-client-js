@@ -64,24 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Contact Role types</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Role Types</p>
-							<pre><code>client.get&lt;ContactRoleType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/projects/consultantcontacts/contactrole/contactroletype'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of contact role type elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.ContactRoleTypeId</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -114,7 +96,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:15</li>
+							<li>Defined in src/compass-models/contact/contact-role-type.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -124,7 +106,7 @@
 					<div class="tsd-signature tsd-kind-icon">Contact<wbr>Role<wbr>Type<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:16</li>
+							<li>Defined in src/compass-models/contact/contact-role-type.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -134,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:18</li>
+							<li>Defined in src/compass-models/contact/contact-role-type.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +126,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/contact-role-type.ts:17</li>
+							<li>Defined in src/compass-models/contact/contact-role-type.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -198,6 +180,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -246,7 +229,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

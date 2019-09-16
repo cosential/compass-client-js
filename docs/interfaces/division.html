@@ -64,71 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Divisions.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Contact Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/divisions'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of division elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/divisions'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add divisions to a contact&#39;s divisions</p>
-							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/divisions', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read all Company Divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/divisions'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of division elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s divisions</p>
-							<pre><code>client.get&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/divisions'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add divisions to a Company&#39;s divisions</p>
-							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/divisions', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.DivisionID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -189,7 +124,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Assessment<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:97</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:32</li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +134,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:92</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:27</li>
 						</ul>
 					</aside>
 				</section>
@@ -209,7 +144,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>License<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:82</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -219,7 +154,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Business<wbr>StatusID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:83</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -229,7 +164,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:89</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:24</li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +174,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:91</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -249,7 +184,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Accronym<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:69</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +194,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Address1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:70</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +204,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Address2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:71</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -279,7 +214,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>City<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:72</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -289,7 +224,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>CountryID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:75</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +234,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:78</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -309,7 +244,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Fax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:77</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -319,7 +254,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">DivisionID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:67</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -329,7 +264,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:68</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -339,7 +274,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:76</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -349,7 +284,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>StateID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:73</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -359,7 +294,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">DivisionURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:79</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -369,7 +304,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Division<wbr>Zip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:74</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -379,7 +314,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:80</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -389,7 +324,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Margin<wbr>Percentage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:96</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:31</li>
 						</ul>
 					</aside>
 				</section>
@@ -399,7 +334,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Modify<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:90</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:25</li>
 						</ul>
 					</aside>
 				</section>
@@ -409,7 +344,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">OwnershipID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:81</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -419,7 +354,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Division<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:86</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -429,7 +364,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Division_<wbr><wbr>DunsID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:88</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -439,7 +374,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Division_<wbr><wbr>Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:87</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:22</li>
 						</ul>
 					</aside>
 				</section>
@@ -449,7 +384,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">ROW_<wbr>VERSION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:98</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:33</li>
 						</ul>
 					</aside>
 				</section>
@@ -459,7 +394,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Total<wbr>Staff<wbr>Num<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:85</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -469,7 +404,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:93</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -479,7 +414,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">Year<wbr>Founded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:84</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -489,7 +424,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">division<wbr>Sales<wbr>Goal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:95</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -499,7 +434,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 					<div class="tsd-signature tsd-kind-icon">old_<wbr>divisionid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/division.ts:94</li>
+							<li>Defined in src/compass-models/firmorgs/division.ts:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -637,6 +572,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -685,7 +621,7 @@ client.post&lt;Division[]&gt;<span class="hljs-function">(<span class="hljs-para
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
