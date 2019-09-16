@@ -64,53 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Social Platform options.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read a Contact&#39;s Socials</p>
-							<pre><code>client.get&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/social'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Socials to a contact&#39;s Socials</p>
-							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params">'/contacts/5555999/social', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Company&#39;s Socials</p>
-							<pre><code>client.get&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/social'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add Socials to a Company&#39;s Socials</p>
-							<pre><code><span class="hljs-comment">// payload is an array of Division elements to be added</span>
-client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params">'/companies/5555999/social', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.Id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -143,7 +96,7 @@ client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:47</li>
+							<li>Defined in src/compass-models/shared-subitems/social.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -153,7 +106,7 @@ client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Social<wbr>Network<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:48</li>
+							<li>Defined in src/compass-models/shared-subitems/social.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +116,7 @@ client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Social<wbr>Network<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:49</li>
+							<li>Defined in src/compass-models/shared-subitems/social.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +126,7 @@ client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params
 					<div class="tsd-signature tsd-kind-icon">Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/social.ts:50</li>
+							<li>Defined in src/compass-models/shared-subitems/social.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -227,6 +180,7 @@ client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -275,7 +229,7 @@ client.post&lt;Social[]&gt;<span class="hljs-function">(<span class="hljs-params
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

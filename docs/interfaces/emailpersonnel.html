@@ -64,61 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents a Personnel associated to an Email.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read personnel associated to an email</p>
-							<pre><code>client.get&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/personnel'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//success</span>
-         res.result.forEach(<span class="hljs-params">(<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.PersonnelId</span>); }</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a personnel associated to an Email</p>
-							<pre><code>client.get&lt;EmailPersonnel&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/personnel/8889999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.FirstName + ' ' + res.result.LastName</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Associate personnel to an Email</p>
-							<pre><code><span class="hljs-comment">//payload is an array of PersonnelId's to be added</span>
-client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/personnel', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns an array of newly added elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Associated Personnel <span class="hljs-keyword">with</span> id <span class="hljs-keyword">as</span> " + index.ContactId</span>) + "." } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Personnel association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Remove Email associated personnel. This removes the association.</p>
-							<pre><code>client.delete&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/personnel'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//association removed</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Removal of association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Remove Email associated personnel. This removes the association.</p>
-							<pre><code>client.delete&lt;EmailPersonnel&gt;<span class="hljs-function">(<span class="hljs-params">'/emails/5556666/personnel/8889999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//association removed</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Removal of association failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -154,7 +99,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">First<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:58</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +109,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">Last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:60</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +119,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">MI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:59</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +129,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">Personnel<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:56</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -194,7 +139,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:57</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +149,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">Suffix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:61</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +159,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 					<div class="tsd-signature tsd-kind-icon">Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/email/email-personnel.ts:62</li>
+							<li>Defined in src/compass-models/email/email-personnel.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -277,6 +222,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -325,7 +271,7 @@ client.post&lt;EmailPersonnel[]&gt;<span class="hljs-function">(<span class="hlj
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

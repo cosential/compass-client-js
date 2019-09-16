@@ -62,15 +62,26 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="cosential-compass-js">Cosential compass.js</h1>
+				<a href="#cosential-compassjs" id="cosential-compassjs" style="color: inherit; text-decoration: none;">
+					<h1>Cosential compass.js</h1>
+				</a>
 				<p>Author: <a href="https://www.cosential.com/">Cosential, Inc.</a></p>
 				<p>Description: A Client library written in JS for Compass (Cosential&#39;s general purpose RESTful API).</p>
 				<p>It is highly recommended to test the library on the UAT Environment before moving to our production environment.</p>
-				<h2 id="getting-started-install-using-npm-">Getting Started (Install using npm)</h2>
-				<pre><code>npm <span class="hljs-keyword">install</span> compass-<span class="hljs-keyword">client</span>-js <span class="hljs-comment">--save</span></code></pre><h6 id="https-www-npmjs-com-package-compass-client-js"><a href="https://www.npmjs.com/package/compass-client-js">https://www.npmjs.com/package/compass-client-js</a></h6>
-				<h2 id="full-library-reference">Full Library Reference</h2>
+				<a href="#getting-started-install-using-npm" id="getting-started-install-using-npm" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started (Install using npm)</h2>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">install</span> compass-<span class="hljs-keyword">client</span>-js <span class="hljs-comment">--save</span></code></pre>
+				<a href="#a-hrefhttpswwwnpmjscompackagecompass-client-jshttpswwwnpmjscompackagecompass-client-jsa" id="a-hrefhttpswwwnpmjscompackagecompass-client-jshttpswwwnpmjscompackagecompass-client-jsa" style="color: inherit; text-decoration: none;">
+					<h6><a href="https://www.npmjs.com/package/compass-client-js">https://www.npmjs.com/package/compass-client-js</a></h6>
+				</a>
+				<a href="#full-library-reference" id="full-library-reference" style="color: inherit; text-decoration: none;">
+					<h2>Full Library Reference</h2>
+				</a>
 				<p><a href="https://cosential.github.io/compass-client-js">https://cosential.github.io/compass-client-js</a></p>
-				<h2 id="initialize-the-client-and-get-the-authenticated-user">Initialize the client and get the authenticated user</h2>
+				<a href="#initialize-the-client-and-get-the-authenticated-user" id="initialize-the-client-and-get-the-authenticated-user" style="color: inherit; text-decoration: none;">
+					<h2>Initialize the client and get the authenticated user</h2>
+				</a>
 				<pre><code><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> compass <span class="hljs-keyword">from</span> <span class="hljs-string">'compass-client-js'</span>;
 
 let client = <span class="hljs-built_in">new</span> compass.Client({
@@ -81,61 +92,43 @@ let client = <span class="hljs-built_in">new</span> compass.Client({
     <span class="hljs-keyword">password</span>: <span class="hljs-string">'P@sSw0rd!'</span>
 });
 
-client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(<span class="hljs-keyword">function</span>(res){ 
+client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User</span>[]&gt;(<span class="hljs-string">'/user'</span>).<span class="hljs-keyword">then</span>(res =&gt; { 
       <span class="hljs-keyword">if</span> (res.success) { 
-          //The API <span class="hljs-keyword">call</span> was successful
+          // The API <span class="hljs-keyword">call</span> was successful
 
-          //This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
+          // This api endpoint <span class="hljs-keyword">always</span> <span class="hljs-keyword">returns</span> a single element <span class="hljs-keyword">array</span>
           let <span class="hljs-keyword">user</span> = res.result[<span class="hljs-number">0</span>]; 
 
-          //Because <span class="hljs-keyword">user</span> <span class="hljs-keyword">is</span> an API response <span class="hljs-keyword">object</span>, properties are proper <span class="hljs-keyword">case</span>, <span class="hljs-keyword">not</span> camel <span class="hljs-keyword">case</span>.
+          // Because <span class="hljs-keyword">user</span> <span class="hljs-keyword">is</span> an API response <span class="hljs-keyword">object</span>, properties are proper <span class="hljs-keyword">case</span>, <span class="hljs-keyword">not</span> camel <span class="hljs-keyword">case</span>.
           document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + <span class="hljs-keyword">user</span>.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *          
       } <span class="hljs-keyword">else</span> {
-          //Something went wrong
+          // Something went wrong
           document.<span class="hljs-keyword">write</span>(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
       }
- });</code></pre><h2 id="reconfigure-the-client-with-a-new-user-pass">Reconfigure the client with a new user / pass</h2>
+ });</code></pre>
+				<a href="#reconfigure-the-client-with-a-new-user--pass" id="reconfigure-the-client-with-a-new-user--pass" style="color: inherit; text-decoration: none;">
+					<h2>Reconfigure the client with a new user / pass</h2>
+				</a>
 				<pre><code>client.<span class="hljs-built_in">config</span>.username = <span class="hljs-string">'Jane'</span>;
 client.<span class="hljs-built_in">config</span>.password = <span class="hljs-string">'0th3Rp@Ss!'</span>;
 
-client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre><h2 id="using-compass-js-from-html">Using compass.js from HTML</h2>
-				<p>Download the latest <a href="./dist/compass.zip">compass.js</a></p>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"compass.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">let</span> client = <span class="hljs-keyword">new</span> compass.Client({
-        <span class="hljs-attr">apiKey</span>: <span class="hljs-string">'68BC02D5-5C17-4A40-8043-942B79DA34B7'</span>,
-        <span class="hljs-attr">compassUrl</span>: <span class="hljs-string">'https://compass.uat.cosential.com/api'</span>,
-        <span class="hljs-attr">firmId</span>: <span class="hljs-number">1234</span>,
-        <span class="hljs-attr">username</span>: <span class="hljs-string">'john'</span>,
-        <span class="hljs-attr">password</span>: <span class="hljs-string">'P@sSw0rd!'</span>
-    });
-
-    client.get&lt;User[]&gt;(<span class="hljs-string">'/user'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>)</span>{ 
-        <span class="hljs-keyword">if</span> (res.success) { 
-            <span class="hljs-comment">//The API call was successful</span>
-
-            <span class="hljs-comment">//This api endpoint always returns a single element array</span>
-            <span class="hljs-keyword">let</span> user = res.result[<span class="hljs-number">0</span>]; 
-
-            <span class="hljs-comment">//Because user is an API response object, properties are proper case, not camel case.</span>
-            <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Hi, '</span> + user.FirstName + <span class="hljs-string">'! You are authenticated&lt;/h2&gt;'</span>); *          
-        } <span class="hljs-keyword">else</span> {
-            <span class="hljs-comment">//Something went wrong</span>
-            <span class="hljs-built_in">document</span>.write(<span class="hljs-string">'&lt;h2&gt;Error&lt;/h2&gt;&lt;div&gt;'</span> + res.message + <span class="hljs-string">'&lt;/div&gt;'</span>);
-        }
-    });
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h2 id="building-compass-js-">Building compass.js:</h2>
+client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre>
+				<a href="#building-compassjs" id="building-compassjs" style="color: inherit; text-decoration: none;">
+					<h2>Building compass.js:</h2>
+				</a>
 				<ul>
 					<li>Clone the project.</li>
 					<li>From within the project folder run the command &#39;<strong>npm install</strong>&#39;.</li>
 					<li>Rename the file &#39;<strong>test-client-config.ts.example</strong>&#39; to &#39;<strong>test-client-config.ts</strong>&#39; in the &#39;<strong>./src/services</strong>&#39; folder.</li>
-					<li>Open file &#39;<strong>test-client-config.ts</strong>&#39; from the &#39;<strong>./src/services</strong>&#39; folder. Enter your API Key, and credentials for a test firm and <strong>save</strong> the file.</li>
+					<li>Open file &#39;<strong>test-client-config.ts</strong>&#39; from the &#39;<strong>./src/unit-tests</strong>&#39; folder. Enter your API Key, and credentials for a test firm and <strong>save</strong> the file.</li>
 					<li>From within the project folder run the command &#39;<strong>npm run build</strong>&#39;.</li>
 					<li>From within the project folder run the command &#39;<strong>npm run test</strong>&#39;.</li>
-					<li>To run an individual unit test, from within the project folder run the command &#39;<strong>npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-test-cases/schema.spec.ts</strong>&#39;.</li>
+					<li>To run an individual unit test, from within the project folder run the command &#39;<strong>npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-tests/schema.spec.ts</strong>&#39;.</li>
 				</ul>
 				<p><strong>If</strong> tests pass, authentication and comunication with Compass was successful.</p>
-				<h2 id="folder-structure-">Folder Structure:</h2>
+				<a href="#folder-structure" id="folder-structure" style="color: inherit; text-decoration: none;">
+					<h2>Folder Structure:</h2>
+				</a>
 				<p><strong>./src</strong> - Contains the source code (<strong>.ts</strong>) and unit test spec (<strong>.spec.ts</strong>) files. This is where developers should work.</p>
 				<p><strong>./dist</strong> - Contains the compiled (<strong>.js</strong>) files (UMD Bundles). These files will be used for consumption. </p>
 				<p><strong>./lib</strong> - Contains the compiled (<strong>.js</strong>) files (ES5 commonjs), along with typescript definitions.</p>
@@ -164,6 +157,9 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					<li class=" tsd-kind-class">
 						<a href="classes/contactclient.html" class="tsd-kind-icon">Contact<wbr>Client</a>
 					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/customprocessor.html" class="tsd-kind-icon">Custom<wbr>Processor</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/emailclient.html" class="tsd-kind-icon">Email<wbr>Client</a>
 					</li>
@@ -178,9 +174,6 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/companyaddress.html" class="tsd-kind-icon">Company<wbr>Address</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/companyimagemetadata.html" class="tsd-kind-icon">Company<wbr>Image<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/companylso.html" class="tsd-kind-icon">CompanyLSO</a>
@@ -345,9 +338,6 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 						<a href="interfaces/project.html" class="tsd-kind-icon">Project</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/projectimagemetadata.html" class="tsd-kind-icon">Project<wbr>Image<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
@@ -377,6 +367,9 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/userfeature.html" class="tsd-kind-icon">User<wbr>Feature</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#config" class="tsd-kind-icon">config</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#testimage" class="tsd-kind-icon">test<wbr>Image</a>
 					</li>
@@ -397,6 +390,7 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -445,7 +439,7 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>

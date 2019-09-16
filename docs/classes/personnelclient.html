@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents the client service for Personnel.</p>
+						<p>The client service for Personnel-specific requests with special logic.</p>
 					</div>
 				</div>
 			</section>
@@ -105,7 +105,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="personnelclient.html#delete" class="tsd-kind-icon">delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="personnelclient.html#get" class="tsd-kind-icon">get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="personnelclient.html#getpersonnelimages" class="tsd-kind-icon">get<wbr>Personnel<wbr>Images</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="personnelclient.html#getpersonnelimage" class="tsd-kind-icon">get<wbr>Personnel<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="personnelclient.html#getsearch" class="tsd-kind-icon">get<wbr>Search</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="personnelclient.html#post" class="tsd-kind-icon">post</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="personnelclient.html#put" class="tsd-kind-icon">put</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="personnelclient.html#search" class="tsd-kind-icon">search</a></li>
@@ -128,7 +129,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in services/client.ts:28</li>
+									<li>Defined in src/services/client.ts:20</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -156,36 +157,22 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#config">config</a></p>
 								<ul>
-									<li>Defined in services/client.ts:18</li>
+									<li>Defined in src/services/client.ts:14</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Getter config</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <a href="clientconfig.html" class="tsd-signature-type">ClientConfig</a></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#config">config</a></p>
 								<ul>
-									<li>Defined in services/client.ts:26</li>
+									<li>Defined in src/services/client.ts:18</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Setter config</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <a href="clientconfig.html" class="tsd-signature-type">ClientConfig</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-										</div>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -206,13 +193,10 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in services/client.ts:250</li>
+									<li>Defined in src/services/client.ts:147</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a response for the DELETE request.</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -229,14 +213,16 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional request headers</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -251,12 +237,113 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#get">get</a></p>
 								<ul>
-									<li>Defined in services/client.ts:43</li>
+									<li>Defined in src/services/client.ts:35</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Compass API endpoint</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional request headers</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> from: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of elements you would like to skip</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;500</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of elements you would like to receive (max is 500)</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> includeDeleted: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Include deleted records in GET</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getpersonnelimage" class="tsd-anchor"></a>
+					<h3>get<wbr>Personnel<wbr>Image</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Personnel<wbr>Image<span class="tsd-signature-symbol">(</span>personnelId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/image.html" class="tsd-signature-type">Image</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/services/personnel-client.ts:18</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>personnelId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Cosential personnel id</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional request headers</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/image.html" class="tsd-signature-type">Image</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>A detailed response object containing an Image as a Promise</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="getsearch" class="tsd-anchor"></a>
+					<h3>get<wbr>Search</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Search&lt;T&gt;<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, queryString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#getsearch">getSearch</a></p>
+								<ul>
+									<li>Defined in src/services/client.ts:220</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a response for the GET request.</p>
+									<p>Note: This function should only be used to search endpoints which do not have
+										search via POST implemented, e.g. /emails. All other searches should be performed
+									via the above search function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -270,75 +357,13 @@
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Compass API endpoint with/without a valid Id</p>
+										<p>Compass API endpoint</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<h5>queryString: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional request headers</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> from: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Number of elements you would like to skip</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;50</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Number of elements you would like to receive (max is 500)</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> includeDeleted: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Include deleted records in GET</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="getpersonnelimages" class="tsd-anchor"></a>
-					<h3>get<wbr>Personnel<wbr>Images</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Personnel<wbr>Images&lt;T&gt;<span class="tsd-signature-symbol">(</span>personnelId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, primaryPhoto<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in services/personnel-client.ts:19</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns Personnel Image/s.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>personnelId: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Cosential personnel id</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> primaryPhoto: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>If true, returns primary photo. Else, all images (default).</p>
+										<p>Complete search query</p>
 									</div>
 								</li>
 								<li>
@@ -349,7 +374,9 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -364,13 +391,10 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#post">post</a></p>
 								<ul>
-									<li>Defined in services/client.ts:115</li>
+									<li>Defined in src/services/client.ts:78</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a response for the POST request.</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -393,14 +417,16 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional request headers</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -415,13 +441,10 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#put">put</a></p>
 								<ul>
-									<li>Defined in services/client.ts:183</li>
+									<li>Defined in src/services/client.ts:113</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a response for the PUT request.</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -444,14 +467,16 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional request headers</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -466,13 +491,10 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#search">search</a></p>
 								<ul>
-									<li>Defined in services/client.ts:318</li>
+									<li>Defined in src/services/client.ts:181</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns top 50 search results based on query string unless otherwise specified.</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -504,7 +526,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;50</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> size: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;500</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Number of elements you would like to receive (max is 500)</p>
 									</div>
@@ -516,14 +538,16 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{showErrors: true}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/requestoptions.html" class="tsd-signature-type">RequestOptions</a><span class="tsd-signature-symbol"> =&nbsp;{ showErrors: true }</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional request headers</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -538,13 +562,10 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#searchforall">searchForAll</a></p>
 								<ul>
-									<li>Defined in services/client.ts:349</li>
+									<li>Defined in src/services/client.ts:244</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns entire search result data set.</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -586,7 +607,9 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/responsedata.html" class="tsd-signature-type">ResponseData</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A detailed response object as a Promise</p>
+							<ul>
+								<li>A detailed response object as a Promise</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -619,8 +642,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="personnelclient.html#get" class="tsd-kind-icon">get</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="personnelclient.html#getpersonnelimages" class="tsd-kind-icon">get<wbr>Personnel<wbr>Images</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="personnelclient.html#getpersonnelimage" class="tsd-kind-icon">get<wbr>Personnel<wbr>Image</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="personnelclient.html#getsearch" class="tsd-kind-icon">get<wbr>Search</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="personnelclient.html#post" class="tsd-kind-icon">post</a>
@@ -655,6 +681,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -703,7 +730,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

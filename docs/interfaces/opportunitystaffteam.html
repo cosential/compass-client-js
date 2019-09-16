@@ -64,34 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Opportunity STaff Team.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read a Opportunity&#39;s staff team</p>
-							<pre><code>client.get&lt;OpportunityProspectType[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/staffteam'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OppStaffTeamID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add staff team to a opportunity</p>
-							<pre><code><span class="hljs-comment">// payload is an array of OpportunityStaffTeam elements to be added</span>
-client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span class="hljs-params">'/opportunities/2178463/staffteam', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) {
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.OppStaffTeamID</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -127,7 +99,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:33</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -137,7 +109,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">Opp<wbr>Staff<wbr>TeamID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:30</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +119,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">Percent<wbr>Involved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:31</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +129,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">Personnel<span class="tsd-signature-symbol">:</span> <a href="personnel.html" class="tsd-signature-type">Personnel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:35</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +139,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">SF330_<wbr><wbr>Team<wbr>Ind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:34</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +149,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">Sales<wbr>Credit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:32</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +159,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 					<div class="tsd-signature tsd-kind-icon">Staff<wbr>Role<span class="tsd-signature-symbol">:</span> <a href="opportunitystaffrole.html" class="tsd-signature-type">OpportunityStaffRole</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/opportunity/opportunity-staff-team.ts:36</li>
+							<li>Defined in src/compass-models/opportunity/opportunity-staff-team.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -250,6 +222,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -298,7 +271,7 @@ client.post&lt;OpportunityStaffTeam[]&gt;<span class="hljs-function">(<span clas
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

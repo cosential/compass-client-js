@@ -64,24 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Schema</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read an endpoint&#39;s schema</p>
-							<pre><code>client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">Schema</span>[]&gt;(<span class="hljs-string">'/contacts/schema'</span>).<span class="hljs-keyword">then</span>( (res) =&gt; {
-     <span class="hljs-keyword">if</span> (res.success) { //<span class="hljs-keyword">returns</span> an <span class="hljs-keyword">array</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">call</span> <span class="hljs-keyword">log</span> elements
-         res.result.<span class="hljs-keyword">forEach</span>((<span class="hljs-keyword">index</span>) =&gt; { console.log(<span class="hljs-keyword">index</span>); });
-     } <span class="hljs-keyword">else</span> { //something went wrong
-         console.log(res.message);
-     }
-});</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -127,7 +109,7 @@
 					<div class="tsd-signature tsd-kind-icon">Array<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:27</li>
+							<li>Defined in src/compass-models/schema.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -137,7 +119,7 @@
 					<div class="tsd-signature tsd-kind-icon">Data<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:23</li>
+							<li>Defined in src/compass-models/schema.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">Default<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:22</li>
+							<li>Defined in src/compass-models/schema.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -157,7 +139,7 @@
 					<div class="tsd-signature tsd-kind-icon">Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:18</li>
+							<li>Defined in src/compass-models/schema.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:19</li>
+							<li>Defined in src/compass-models/schema.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +159,7 @@
 					<div class="tsd-signature tsd-kind-icon">Group<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:16</li>
+							<li>Defined in src/compass-models/schema.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>External<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:29</li>
+							<li>Defined in src/compass-models/schema.ts:16</li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +179,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:31</li>
+							<li>Defined in src/compass-models/schema.ts:18</li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">Is<wbr>Primary<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:28</li>
+							<li>Defined in src/compass-models/schema.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +199,7 @@
 					<div class="tsd-signature tsd-kind-icon">Label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:17</li>
+							<li>Defined in src/compass-models/schema.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +209,7 @@
 					<div class="tsd-signature tsd-kind-icon">Max<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:24</li>
+							<li>Defined in src/compass-models/schema.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +219,7 @@
 					<div class="tsd-signature tsd-kind-icon">Object<wbr>Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:30</li>
+							<li>Defined in src/compass-models/schema.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">Property<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:15</li>
+							<li>Defined in src/compass-models/schema.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +239,7 @@
 					<div class="tsd-signature tsd-kind-icon">Read<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:20</li>
+							<li>Defined in src/compass-models/schema.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -267,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:21</li>
+							<li>Defined in src/compass-models/schema.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -277,7 +259,7 @@
 					<div class="tsd-signature tsd-kind-icon">Searchable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:26</li>
+							<li>Defined in src/compass-models/schema.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -287,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">Unicode<wbr>Supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/schema.ts:25</li>
+							<li>Defined in src/compass-models/schema.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -380,6 +362,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -428,7 +411,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

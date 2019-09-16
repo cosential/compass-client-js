@@ -64,83 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Represents the Call Log.</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p>Read all Call Logs</p>
-							<pre><code>client.get&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-params">'/calllogs'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns an array of call log elements</span>
-         res.result.forEach(<span class="hljs-params"> (<span class="hljs-params">index</span>) =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-params">index.id</span>); } </span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Read a Call Log</p>
-							<pre><code>client.get&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs-params">'/calllogs/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span> (<span class="hljs-params">res.success</span>) { <span class="hljs-comment">//returns a single element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result.CallType + ' ' + res.result.subject</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Add new Call Log/s</p>
-							<pre><code>//payload <span class="hljs-keyword">is</span> an <span class="hljs-keyword">array</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">Call</span> <span class="hljs-keyword">Log</span> elements <span class="hljs-keyword">to</span> be added
-client.post&lt;CallLog[]&gt;(<span class="hljs-string">'/calllogs'</span>, payload).<span class="hljs-keyword">then</span>( (res) =&gt; {
-     <span class="hljs-keyword">if</span>(res.success){ //<span class="hljs-keyword">returns</span> an <span class="hljs-keyword">array</span> <span class="hljs-keyword">of</span> newly added elements
-         res.result.<span class="hljs-keyword">forEach</span>( (<span class="hljs-keyword">index</span>) =&gt; { console.log("Added Call Log with id as " + <span class="hljs-keyword">index</span>.id) + "." } );
-     } <span class="hljs-keyword">else</span> { //something went wrong
-         console.log("Call Log creation failed. Error message: " + res.message);
-     }
-});</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Update a Call Log</p>
-							<pre><code><span class="hljs-comment">//payload is a Call Log element containing new and existing values</span>
-<span class="hljs-comment">//note that the API client does not support under posting of data</span>
-client.put&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs-params">'/calllogs/5555999', payload</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//returns the updated element</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Updated call log <span class="hljs-keyword">with</span> Id <span class="hljs-keyword">as</span>: " + res.result.id</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Call Log update failed. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Delete a Call Log</p>
-							<pre><code>client.delete&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs-params">'/calllogs/5555999'</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (<span class="hljs-params">res</span>) =&gt; {
-     <span class="hljs-keyword">if</span>(<span class="hljs-params">res.success</span>){ <span class="hljs-comment">//element marked as inactive</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.result</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-params">"Delete unsuccessful. <span class="hljs-built_in">Error</span> message: " + res.message</span>);
-     }
-}</span>);</span></code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Search Call Log/s with pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'subject:Any Random Subject'</span>;
-client.search&lt;CallLog[]&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/calllogs'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
-     }
-}</code></pre></dd>
-						<dt>example</dt>
-						<dd><p>Search Call Log/s without pagination</p>
-							<pre><code><span class="hljs-keyword">let</span> searchQuery = <span class="hljs-string">'isFollowup:true'</span>;
-client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-string">'/calllogs'</span>, searchQuery</span>).<span class="hljs-params">then</span>(<span class="hljs-params"> (res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span>(res.success){ <span class="hljs-comment">//search successful</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Your search returned "</span> + res.result.length + <span class="hljs-string">" result/s."</span>);
-     } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//something went wrong</span>
-         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Search failed. Error Message: "</span> + res.message)
-     }
-}</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -182,7 +105,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Call<wbr>Disposition<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:87</li>
+							<li>Defined in src/compass-models/call-log.ts:9</li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +115,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Call<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:83</li>
+							<li>Defined in src/compass-models/call-log.ts:5</li>
 						</ul>
 					</aside>
 				</section>
@@ -202,7 +125,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Create<wbr>Date<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:92</li>
+							<li>Defined in src/compass-models/call-log.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -212,7 +135,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:90</li>
+							<li>Defined in src/compass-models/call-log.ts:12</li>
 						</ul>
 					</aside>
 				</section>
@@ -222,7 +145,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">Created<wbr>ByUser<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:91</li>
+							<li>Defined in src/compass-models/call-log.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -232,7 +155,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">comments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:85</li>
+							<li>Defined in src/compass-models/call-log.ts:7</li>
 						</ul>
 					</aside>
 				</section>
@@ -242,7 +165,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">delete<wbr>Record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:89</li>
+							<li>Defined in src/compass-models/call-log.ts:11</li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +175,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">end<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:82</li>
+							<li>Defined in src/compass-models/call-log.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -262,7 +185,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:80</li>
+							<li>Defined in src/compass-models/call-log.ts:2</li>
 						</ul>
 					</aside>
 				</section>
@@ -272,7 +195,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Followup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:86</li>
+							<li>Defined in src/compass-models/call-log.ts:8</li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +205,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:81</li>
+							<li>Defined in src/compass-models/call-log.ts:3</li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +215,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:88</li>
+							<li>Defined in src/compass-models/call-log.ts:10</li>
 						</ul>
 					</aside>
 				</section>
@@ -302,7 +225,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 					<div class="tsd-signature tsd-kind-icon">subject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in compass-models/call-log.ts:84</li>
+							<li>Defined in src/compass-models/call-log.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -383,6 +306,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -431,7 +355,7 @@ client.searchForAll&lt;CallLog&gt;<span class="hljs-function">(<span class="hljs
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
