@@ -34,12 +34,14 @@ describe('EmailClient', () => {
   );
   let url: string;
   let company: Company;
+  let contactCompany: Company;
   let contact: Contact;
   let lead: Lead;
   let opportunity: Opportunity;
   let personnel: Personnel;
   let project: Project;
   let email: Email;
+  let companyEmail: Email;
 
   beforeAll(async () => {
     company = < Company > {
@@ -54,8 +56,23 @@ describe('EmailClient', () => {
 
     company = companyCreateRes.result[0];
 
+    // Associating an email to a Contact automatically associates it to the Contact's Company, hence
+    // we need two companies to test with: one for testing direct EmailCompany association, and one
+    // for testing EmailCompany association via EmailContact association
+    contactCompany = < Company > {
+      Name: 'UTCompany ' + uuid()
+    };
+    url = '/companies';
+    let contactCompanyCreateRes: ResponseData < Company[] > = await client.post < Company[] > (url, [contactCompany]);
+    expect(contactCompanyCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(contactCompanyCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(contactCompanyCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(contactCompanyCreateRes.result[0].Name).withContext('correct data in create result').toEqual(contactCompany.Name);
+
+    contactCompany = contactCompanyCreateRes.result[0];
+
     contact = < Contact > {
-      CompanyId: company.CompanyId,
+      CompanyId: contactCompany.CompanyId,
       FirstName: 'UTContact ' + uuid(),
       LastName: 'McCoy'
     };
@@ -132,13 +149,32 @@ describe('EmailClient', () => {
     expect(emailCreateRes.result[0].ExternalId).withContext('correct data in create result').toEqual(email.ExternalId);
 
     email = emailCreateRes.result[0];
+
+    companyEmail = < Email > {
+      From: 'Vince Young',
+      EmailGuid: uuid(),
+      ExternalId: 'UTEmail ' + uuid(),
+      SentDate: (new Date()).toISOString()
+    };
+    url = '/emails';
+    let companyEmailCreateRes: ResponseData < Email[] > = await client.post < Email[] > (url, [companyEmail]);
+    expect(companyEmailCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(companyEmailCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(companyEmailCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(companyEmailCreateRes.result[0].ExternalId).withContext('correct data in create result').toEqual(companyEmail.ExternalId);
+
+    companyEmail = companyEmailCreateRes.result[0];
   })
 
   afterAll(async () => {
     url = '/emails/' + email.Id;
     let deleteEmailRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteEmailRes.success).withContext('successful delete ' + url).toBe(true);
-
+    
+    url = '/emails/' + companyEmail.Id;
+    let deleteCompanyEmailRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteCompanyEmailRes.success).withContext('successful delete ' + url).toBe(true);
+    
     url = '/companies/' + company.CompanyId;
     let deleteCompanyRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteCompanyRes.success).withContext('successful delete ' + url).toBe(true);
@@ -146,6 +182,10 @@ describe('EmailClient', () => {
     url = '/contacts/' + contact.ContactId;
     let deleteContactRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteContactRes.success).withContext('successful delete ' + url).toBe(true);
+    
+    url = '/companies/' + contactCompany.CompanyId;
+    let deleteContactCompanyRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteContactCompanyRes.success).withContext('successful delete ' + url).toBe(true);
 
     url = '/leads/' + lead.LeadId;
     let deleteLeadRes: ResponseData < any > = await client.delete < any > (url);
@@ -167,10 +207,6 @@ describe('EmailClient', () => {
   // Main type
 
   it('should perform Email CRUD', async () => {
-    url = '/emails/' + email.Id + '/_updatesearchindex';
-    let updateSearchIndexRes: ResponseData < any > = await client.get < Email > (url);
-    expect(updateSearchIndexRes.success).withContext('successful search index update ' + url).toBe(true);
-
     url = '/emails';
     let readAllRes: ResponseData < Email[] > = await client.get < Email[] > (url);
     expect(readAllRes.success).withContext('successful read all ' + url).toBe(true);
@@ -203,20 +239,19 @@ describe('EmailClient', () => {
     let emailCompany: EmailCompany = < EmailCompany > {
       CompanyId: company.CompanyId
     };
-    url = '/emails/' + email.Id + '/companies';
+    url = '/emails/' + companyEmail.Id + '/companies';
     let associateRes: ResponseData < EmailCompany[] > = await client.post < EmailCompany[] > (url, [emailCompany]);
     expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
     expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
-    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result.length).withContext('correct associate result size').toBeGreaterThan(0);
     expect(associateRes.result[0].CompanyId).withContext('correct associate result data').toEqual(company.CompanyId);
 
     let readRes: ResponseData < EmailCompany[] > = await client.get < EmailCompany[] > (url);
     expect(readRes.success).withContext('successful read ' + url).toBe(true);
     expect(readRes.result).withContext('non-null read result').not.toBeNull();
-    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
-    expect(readRes.result[0].CompanyId).withContext('correct read result data').toEqual(company.CompanyId);
+    expect(readRes.result.length).withContext('correct read result size').toBeGreaterThan(0);
 
-    url = '/emails/' + email.Id + '/companies/' + company.CompanyId;
+    url = '/emails/' + companyEmail.Id + '/companies/' + company.CompanyId;
     let disassociateRes: ResponseData < any > = await client.delete < any > (url);
     expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
@@ -232,11 +267,11 @@ describe('EmailClient', () => {
     expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
     expect(associateRes.result[0].ContactId).withContext('correct associate result data').toEqual(contact.ContactId);
 
-    let readRes: ResponseData < EmailContact[] > = await client.get < EmailContact[] > (url);
-    expect(readRes.success).withContext('successful read ' + url).toBe(true);
-    expect(readRes.result).withContext('non-null read result').not.toBeNull();
-    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
-    expect(readRes.result[0].ContactId).withContext('correct read result data').toEqual(contact.ContactId);
+    let readContactRes: ResponseData < EmailContact[] > = await client.get < EmailContact[] > (url);
+    expect(readContactRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readContactRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readContactRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readContactRes.result[0].ContactId).withContext('correct read result data').toEqual(contact.ContactId);
 
     url = '/emails/' + email.Id + '/contacts/' + contact.ContactId;
     let disassociateRes: ResponseData < any > = await client.delete < any > (url);

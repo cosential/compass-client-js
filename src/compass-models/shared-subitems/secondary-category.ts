@@ -1,5 +1,5 @@
 export interface SecondaryCategory {
-  SecondaryCategoryId: number;
+  SecondaryCategoryID: number;
   SecondaryCategoryName: string;
   IndustryStd: boolean;
   AvailableCat: boolean;

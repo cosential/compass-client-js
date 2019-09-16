@@ -313,40 +313,6 @@ describe('ContactClient', () => {
     expect(readRes.result.length).withContext('correct read result size').toEqual(1);
   })
 
-  it('should perform ContactRole CRUD', async () => {
-    url = '/contacts/role/roletype';
-    let readContactRoleTypeRes: ResponseData < ContactRoleType[] > = await client.get < ContactRoleType[] > (url);
-    expect(readContactRoleTypeRes.success).withContext('successful read all ' + url).toBe(true);
-    expect(readContactRoleTypeRes.result).withContext('non-null read all result').not.toBeNull();
-    expect(readContactRoleTypeRes.result.length).withContext('correct read all result size').toBeGreaterThan(0);
-    let contactRoleTypeOptions: ContactRoleType[] = readContactRoleTypeRes.result;
-
-    url = '/contacts/role';
-    let readRoleOptionsRes: ResponseData < ContactRole[] > = await client.get < ContactRole[] > (url);
-    expect(readRoleOptionsRes.success).withContext('successful read all ' + url).toBe(true);
-    expect(readRoleOptionsRes.result).withContext('non-null read all result').not.toBeNull();
-    expect(readRoleOptionsRes.result.length).withContext('correct read all result size').toBeGreaterThan(0);
-    let contactRoleOptions: ContactRole[] = readRoleOptionsRes.result;
-
-    url = '/contacts/' + contact.ContactId + '/role';
-    let role: ContactRole = < ContactRole > {
-      ContactRoleId: contactRoleOptions[0].ContactRoleId,
-      ContactRoleType: contactRoleTypeOptions[0]
-    };
-    let addRes: ResponseData < ContactRole > = await client.post < ContactRole > (url, role);
-    expect(addRes.success).withContext('successful add ' + url).toBe(true);
-    expect(addRes.result).withContext('non-null add result').not.toBeNull();
-    expect(addRes.result.ContactRoleId).withContext('correct add result data').toEqual(contactRoleOptions[0].ContactRoleId);
-
-    let readRes: ResponseData < ContactRole[] > = await client.get < ContactRole[] > (url);
-    expect(readRes.success).withContext('successful read ' + url).toBe(true);
-    expect(readRes.result).withContext('non-null read result').not.toBeNull();
-    //expect(readRes.result.ContactRoleId).withContext('correct read result data').toEqual(contactRoleOptions[0].ContactRoleId);
-
-    let deleteRes: ResponseData < any > = await client.delete < any > (url);
-    expect(deleteRes.success).withContext('successful delete ' + url).toBe(true);
-  });
-
   // Firm Orgs
 
   it('should perform Contact Division CRUD', async () => {

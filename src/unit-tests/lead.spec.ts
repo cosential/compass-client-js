@@ -310,7 +310,7 @@ describe('LeadClient', () => {
     expect(readRes.result).withContext('non-null read result').not.toBeNull();
     expect(readRes.result.length).withContext('correct read result size').toEqual(leadSecondaryCategories.length);
 
-    url = url + '/' + leadSecondaryCategories[0].SecondaryCategoryId;
+    url = url + '/' + leadSecondaryCategories[0].SecondaryCategoryID;
     let deleteRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteRes.success).withContext('successful delete ' + url).toBe(true);
 

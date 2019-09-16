@@ -98,7 +98,6 @@ describe('ProjectClient', () => {
     // TODO: Project ServiceTypes is currently read only. Uncomment the rest of this test
     // once this is writable.
     // let addRes: ResponseData < PrimaryCategory[] > = await client.post < PrimaryCategory[] > (url, projectPrimaryCategories);
-    // console.log(addRes.error);
     // expect(addRes.success).withContext('successful add ' + url).toBe(true);
     // expect(addRes.result).withContext('non-null add result').not.toBeNull();
     // expect(addRes.result.length).withContext('correct add result size').toEqual(projectPrimaryCategories.length);
@@ -135,7 +134,7 @@ describe('ProjectClient', () => {
     expect(readRes.result).withContext('non-null read result').not.toBeNull();
     expect(readRes.result.length).withContext('correct read result size').toEqual(projectSecondaryCategories.length);
 
-    url = url + '/' + projectSecondaryCategories[0].SecondaryCategoryId;
+    url = url + '/' + projectSecondaryCategories[0].SecondaryCategoryID;
     let deleteRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteRes.success).withContext('successful delete ' + url).toBe(true);
 
@@ -156,7 +155,6 @@ describe('ProjectClient', () => {
     // TODO: Project ServiceTypes is currently read only. Uncomment the rest of this test
     // once this is writable.
     // let addRes: ResponseData < ServiceType[] > = await client.post < ServiceType[] > (url, projectServiceTypes);
-    // console.log(addRes.error);
     // expect(addRes.success).withContext('successful add ' + url).toBe(true);
     // expect(addRes.result).withContext('non-null add result').not.toBeNull();
     // expect(addRes.result.length).withContext('correct add result size').toEqual(projectServiceTypes.length);

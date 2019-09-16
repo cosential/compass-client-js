@@ -333,9 +333,6 @@ describe('OpportunityClient', () => {
     expect(readRes.success).withContext('successful read ' + url).toBe(true);
     expect(readRes.result).withContext('non-null read result').not.toBeNull();
     expect(( < any > readRes.result).StageId).withContext('correct read result data').toEqual(opportunityStageOptions[0].StageID);
-
-    let deleteRes: ResponseData < any > = await client.delete < any > (url);
-    expect(deleteRes.success).withContext('successful delete ' + url).toBe(true);
   });
 
 
@@ -386,7 +383,7 @@ describe('OpportunityClient', () => {
     expect(readRes.result).withContext('non-null read result').not.toBeNull();
     expect(readRes.result.length).withContext('correct read result size').toEqual(opportunitySecondaryCategories.length);
 
-    url = url + '/' + opportunitySecondaryCategories[0].SecondaryCategoryId;
+    url = url + '/' + opportunitySecondaryCategories[0].SecondaryCategoryID;
     let deleteRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteRes.success).withContext('successful delete ' + url).toBe(true);
 
