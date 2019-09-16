@@ -7,7 +7,7 @@ import { Client } from '../services/client';
 import { Contact } from './../compass-models/contact/contact';
 import { TestClientConfig as c } from './test-client-config';
 
-fdescribe("CompassClient", () => {
+describe("CompassClient", () => {
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
