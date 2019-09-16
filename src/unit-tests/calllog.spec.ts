@@ -1,91 +1,75 @@
 import 'jasmine';
-import { CallLog } from '../compass-models/call-log';
+import * as uuid from 'uuid/v4';
 import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
-import { Client } from '../services/client';
+import { CallLog } from './../compass-models/call-log';
+import { Client } from './../services/client';
 import { TestClientConfig as c } from './test-client-config';
 
-describe("CallLogClient", () => {
+describe('CallLogClient', () => {
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
-  let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
-  let aValidCallLogId: number;
+  let client: Client = new Client(
+    new ClientConfig(
+      c.firmId,
+      c.username,
+      c.password,
+      c.apiKey,
+      c.compassUrl
+    )
+  );
+  let url: string;
+  let calllog: CallLog;
 
-  beforeEach(async () => {
-    client.config.firmId = c.firmId;
-    client.config.username = c.username;
-    client.config.password = c.password;
-    client.config.apiKey = c.apiKey;
-    client.config.compassUrl = c.compassUrl;
+  beforeAll(async () => {
+    calllog = < CallLog > {
+      subject: 'UTCallLog ' + uuid()
+    };
+    url = '/calllogs';
+    let calllogCreateRes: ResponseData < CallLog[] > = await client.post < CallLog[] > (url, [calllog]);
+    expect(calllogCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(calllogCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(calllogCreateRes.result[0].subject).withContext('correct data in create result').toEqual(calllog.subject);
 
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+    calllog = calllogCreateRes.result[0];
+  })
 
-    let res: ResponseData < CallLog[] > = await client.get < CallLog[] > ('/calllogs');
-    if (res.success) aValidCallLogId = res.result[0].id;
-  });
+  afterAll(async () => {
+    url = '/calllogs/' + calllog.id;
+    let deleteRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteRes.success).withContext('successful delete ' + url).toBe(true);
+  })
 
-  it("Can read call logs", async () => {
-    let res: ResponseData < CallLog[] > = await client.get < CallLog[] > ('/calllogs');
-    expect(res.success).toBeTruthy(res.message);
-  });
+  // Main type
 
-  it("Can read a call log", async () => {
-    let url = '/calllogs/' + aValidCallLogId;
-    let res: ResponseData < CallLog > = await client.get < CallLog > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
+  it('should perform CallLog CRUD', async () => {
+    url = '/calllogs/' + calllog.id + '/_updatesearchindex';
+    let updateSearchIndexRes: ResponseData < any > = await client.get < CallLog > (url);
+    expect(updateSearchIndexRes.success).withContext('successful search index update ' + url).toBe(true);
 
-  it("Can read a call log for invalid id", async () => {
-    let url: string = '/calllogs/5555444';
-    let res: ResponseData < CallLog > = await client.get < CallLog > (url);
-    expect(res.result).toBeNull(res.message);
-  });
+    url = '/calllogs';
+    let readAllRes: ResponseData < CallLog[] > = await client.get < CallLog[] > (url);
+    expect(readAllRes.success).withContext('successful read all ' + url).toBe(true);
+    expect(readAllRes.result).withContext('non-null read all result').not.toBeNull();
+    expect(readAllRes.result.length).withContext('correct read all result size').toBeGreaterThan(0);
 
-  it("Can add call log/s with valid data", async () => {
-    let url = '/calllogs/' + aValidCallLogId;
-    let resGet: ResponseData < CallLog > = await client.get < CallLog > (url);
+    url = '/calllogs/' + calllog.id;
+    let readRes: ResponseData < CallLog > = await client.get < CallLog > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result.subject).withContext('correct read result data').toEqual(calllog.subject);
 
-    resGet.result.status = 'Completed';
-    let exCallLog: CallLog[] = [resGet.result];
+    url = '/calllogs';
+    let searchQuery = 'subject:' + calllog.subject;
+    let searchRes: ResponseData < CallLog[] > = await client.search < CallLog[] > (url, searchQuery);
+    expect(searchRes.success).withContext('successful search ' + url + ' ' + searchQuery).toBe(true);
+    expect(searchRes.result).withContext('non-null search result').not.toBeNull();
+    expect(searchRes.result.length).withContext('correct search result size').toEqual(1);
+    expect(searchRes.result[0].id).withContext('correct search result data').toEqual(calllog.id);
 
-    let resPost: ResponseData < CallLog[] > = await client.post < CallLog[] > ('/calllogs', exCallLog);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  it("Can update call log with valid data", async () => {
-    let urlGet = '/calllogs/' + aValidCallLogId;
-    let resGet: ResponseData < CallLog > = await client.get < CallLog > (urlGet);
-
-    resGet.result.subject = 'My new subject';
-
-    let exCallLog: CallLog = resGet.result;
-    let urlPut = '/calllogs/' + resGet.result.id;
-
-    let resPut: ResponseData < CallLog > = await client.put < CallLog > (urlPut, exCallLog);
-    expect(resPut.success).toBeTruthy(resPut.message);
-  });
-
-  it("Can delete a call log with valid id", async () => {
-    let url = '/calllogs/' + aValidCallLogId;
-    let res: ResponseData < CallLog > = await client.delete < CallLog > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can delete a call log with invalid id", async () => {
-    let url: string = '/calllogs/12345';
-    let res: ResponseData < CallLog > = await client.delete < CallLog > (url);
-    expect(res.success).toBeFalsy(res.message);
-  });
-
-  it("Search calllog/s using valid params", async () => {
-    let searchQuery = 'status:Completed';
-    let res: ResponseData < CallLog[] > = await client.search < CallLog[] > ('/calllogs', searchQuery);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Search call log/s for invalid params", async () => {
-    let searchQuery = 'test:abc';
-    let res: ResponseData < CallLog[] > = await client.search < CallLog[] > ('/calllogs', searchQuery);
-    //return all or none on empty or invalid params
-    expect(res.success).toBeTruthy(res.message);
+    url = '/calllogs/' + calllog.id;
+    calllog.comments = 'alright alright alright';
+    let updateRes: ResponseData < CallLog > = await client.put < CallLog > (url, calllog);
+    expect(updateRes.success).withContext('successful update ' + url).toBe(true);
+    expect(updateRes.result.comments).withContext('correct update result data').toEqual(calllog.comments);
   });
 });

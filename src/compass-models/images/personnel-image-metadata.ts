@@ -1,13 +1,3 @@
-/**
- * @example Read Image Metadata for a Personnel
- * ```
- * client.get<PersonnelImageMetadata[]>('/personnel/12345/images').then(res => {
- *      if (res.success) {
- *          res.result.forEach((nextRes) => { console.log(nextRes.ImageId); });
- *      }
- * });
- * ```
- */
 export interface PersonnelImageMetadata {
   PersonnelId: number;
   ImageId: number;

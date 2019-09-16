@@ -1,13 +1,3 @@
-/**
- * @example Read an endpoint's schema
- * ```
- * client.get<Schema[]>('/contacts/schema').then(res => {
- *      if (res.success) {
- *          res.result.forEach((nextRes) => { console.log(nextRes.PropertyName); });
- *      }
- * });
- * ```
- */
 export interface Schema {
   PropertyName: string,
   Group: string,

@@ -1,14 +1,3 @@
-/**
- * @example Get all features
- * ```
- * client.get<UserFeature[]>('/user/features').then(res{
- *      if (res.success) {
- *          // loop through result to find the desired feature
- *          res.result.forEach(nextRes => { console.log(nextRes.featureKey); });
- *      }
- * });
- * ```
- */
 export interface UserFeature {
   featureId: number;
   featureName: string;

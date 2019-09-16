@@ -17,7 +17,7 @@ export class ContactClient extends Client {
    *
    * @returns - A detailed response object containing an Image as a Promise
    */
-  public async getContactImages(
+  public async getContactImage(
     contactId: number,
     imageType: string = 'profilepicture',
     opts: RequestOptions = { showErrors: true }
@@ -82,7 +82,7 @@ export class ContactClient extends Client {
     let result: ContactAddress;
 
     if (allAddresses.result != null && allAddresses.result.length > 0) {
-      let address: { addressId: number, message: string } = this.findAddress(allAddresses.result, addressType);
+      let address: { addressId: number, message: string } = this.findAddress(allAddresses.result, addressType.toUpperCase());
 
       if (address.addressId) {
         let resultUrl: string = addressUrl + '/' + address.addressId;
@@ -118,13 +118,13 @@ export class ContactClient extends Client {
   private findAddress(allAddresses: ContactAddress[], requestedAddress: string): { addressId: number, message: string } {
     let addressId: number = 0;
     let message: string = '';
-    let otherAddress: string = requestedAddress === 'office' ? 'home' : 'office';
+    let otherAddress: string = requestedAddress === 'OFFICE' ? 'HOME' : 'OFFICE';
 
-    let primaryAddress: ContactAddress = allAddresses.find(index => (index.AddressType.toLowerCase() == requestedAddress) && (index.DefaultInd == true));
+    let primaryAddress: ContactAddress = allAddresses.find(index => (index.AddressType.toUpperCase() == requestedAddress) && (index.DefaultInd == true));
     if (!primaryAddress) {
       let secondaryAddress: ContactAddress = allAddresses.find(index => (new Date(index.CreateDate).toString() == this.mostRecentDate(allAddresses, requestedAddress)));
       if (!secondaryAddress) {
-        let tertiaryAddress: ContactAddress = allAddresses.find(index => (index.AddressType.toLowerCase() == otherAddress) && (index.DefaultInd == true));
+        let tertiaryAddress: ContactAddress = allAddresses.find(index => (index.AddressType.toUpperCase() == otherAddress) && (index.DefaultInd == true));
         if (!tertiaryAddress) {
           let quaternaryAddress: ContactAddress = allAddresses.find(index => (new Date(index.CreateDate).toString() == this.mostRecentDate(allAddresses, otherAddress)));;
           addressId = quaternaryAddress.AddressID;
@@ -153,7 +153,7 @@ export class ContactClient extends Client {
   private mostRecentDate < T > (allAddresses: ContactAddress[], addressType: string): string {
     let dates: Date[] = [];
     allAddresses.forEach(address => {
-      if (address.AddressType.toLowerCase() == addressType) {
+      if (address.AddressType.toUpperCase() == addressType) {
         dates.push(new Date(address.CreateDate));
       }
     });

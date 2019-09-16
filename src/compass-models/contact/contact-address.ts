@@ -1,21 +1,3 @@
-/**
- * @example Read all addresses associated to a Contact
- * ```
- * contactClient.get<ContactAddress[]>('/contacts/12345/addresses').then(res => {
- *      if (res.success) { //success
- *          res.result.forEach(nextRes => { console.log(nextRes.AddressID); });
- *      }
- * });
- * ```
- * @example Read office address of a Contact
- * ```
- * contactClient.getContactAddress(12345, 'office').then(res => {
- *      if (res.success) {
- *          console.log(res.result.AddressID);
- *      }
- * });
- * ```
- */
 export interface ContactAddress {
   AddressID: number;
   ContactId: number;

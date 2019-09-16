@@ -1,272 +1,344 @@
-import "jasmine";
-import { ResponseData } from "../../lib";
-import { EmailContact } from '../compass-models/email/email-contact';
-import { Lead } from "../compass-models/lead/lead";
-import { Opportunity } from "../compass-models/opportunity/opportunity";
-import { Personnel } from "../compass-models/personnel";
-import { Project } from "../compass-models/project";
-import { Company } from '../compass-models/company/company';
-import { Contact } from '../compass-models/contact/contact';
-import { Email } from '../compass-models/email/email';
-import { EmailCompany } from '../compass-models/email/email-company';
-import { EmailLead } from '../compass-models/email/email-lead';
-import { EmailOpportunity } from '../compass-models/email/email-opportunity';
-import { EmailPersonnel } from '../compass-models/email/email-personnel';
-import { EmailProject } from '../compass-models/email/email-project';
+import 'jasmine';
+import * as uuid from 'uuid/v4';
+import { Personnel } from '../compass-models/personnel';
+import { Project } from '../compass-models/project';
+import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
-import { Client } from '../services/client';
-import { TestClientConfig as c } from "./test-client-config";
+import { Company } from './../compass-models/company/company';
+import { Contact } from './../compass-models/contact/contact';
+import { Email } from './../compass-models/email/email';
+import { EmailAttachment } from './../compass-models/email/email-attachment';
+import { EmailCompany } from './../compass-models/email/email-company';
+import { EmailContact } from './../compass-models/email/email-contact';
+import { EmailLead } from './../compass-models/email/email-lead';
+import { EmailOpportunity } from './../compass-models/email/email-opportunity';
+import { EmailPersonnel } from './../compass-models/email/email-personnel';
+import { EmailProject } from './../compass-models/email/email-project';
+import { Lead } from './../compass-models/lead/lead';
+import { Opportunity } from './../compass-models/opportunity/opportunity';
+import { EmailClient } from './../services/email-client';
+import { TestClientConfig as c } from './test-client-config';
 
-describe("EmailClient", () => {
-  let client: Client = new Client(
-    new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl)
+describe('EmailClient', () => {
+
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+
+  let client: EmailClient = new EmailClient(
+    new ClientConfig(
+      c.firmId,
+      c.username,
+      c.password,
+      c.apiKey,
+      c.compassUrl
+    )
   );
-  let aValidEmailId: number;
+  let url: string;
+  let company: Company;
+  let contact: Contact;
+  let lead: Lead;
+  let opportunity: Opportunity;
+  let personnel: Personnel;
+  let project: Project;
+  let email: Email;
 
-  beforeEach(async () => {
-    client.config.firmId = c.firmId;
-    client.config.username = c.username;
-    client.config.password = c.password;
-    client.config.apiKey = c.apiKey;
-    client.config.compassUrl = c.compassUrl;
+  beforeAll(async () => {
+    company = < Company > {
+      Name: 'UTCompany ' + uuid()
+    };
+    url = '/companies';
+    let companyCreateRes: ResponseData < Company[] > = await client.post < Company[] > (url, [company]);
+    expect(companyCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(companyCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(companyCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(companyCreateRes.result[0].Name).withContext('correct data in create result').toEqual(company.Name);
 
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
+    company = companyCreateRes.result[0];
 
-    let res: ResponseData < Email[] > = await client.get < Email[] > ("/emails");
-    if (res.success) aValidEmailId = res.result[0].Id;
+    contact = < Contact > {
+      CompanyId: company.CompanyId,
+      FirstName: 'UTContact ' + uuid(),
+      LastName: 'McCoy'
+    };
+    url = '/contacts';
+    let contactCreateRes: ResponseData < Contact[] > = await client.post < Contact[] > (url, [contact]);
+    expect(contactCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(contactCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(contactCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(contactCreateRes.result[0].FirstName).withContext('correct data in create result').toEqual(contact.FirstName);
+
+    contact = contactCreateRes.result[0];
+
+    lead = < Lead > {
+      Name: 'UTLead ' + uuid()
+    };
+    url = '/leads';
+    let leadCreateRes: ResponseData < Lead[] > = await client.post < Lead[] > (url, [lead]);
+    expect(leadCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(leadCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(leadCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(leadCreateRes.result[0].Name).withContext('correct data in create result').toEqual(lead.Name);
+
+    lead = leadCreateRes.result[0];
+
+    opportunity = < Opportunity > {
+      ClientId: company.CompanyId,
+      OpportunityName: 'UTOpportunity ' + uuid()
+    };
+    url = '/opportunities';
+    let opportunityCreateRes: ResponseData < Opportunity[] > = await client.post < Opportunity[] > (url, [opportunity]);
+    expect(opportunityCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(opportunityCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(opportunityCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(opportunityCreateRes.result[0].OpportunityName).withContext('correct data in create result').toEqual(opportunity.OpportunityName);
+
+    opportunity = opportunityCreateRes.result[0];
+
+    personnel = < Personnel > {
+      FirstName: 'UTPersonnel ' + uuid(),
+      LastName: 'Young'
+    };
+    url = '/personnel';
+    let personnelCreateRes: ResponseData < Personnel[] > = await client.post < Personnel[] > (url, [personnel]);
+    expect(personnelCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(personnelCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(personnelCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(personnelCreateRes.result[0].FirstName).withContext('correct data in create result').toEqual(personnel.FirstName);
+
+    personnel = personnelCreateRes.result[0];
+
+    project = < Project > {
+      ProjectName: 'UTProject ' + uuid()
+    };
+    url = '/projects';
+    let projectCreateRes: ResponseData < Project[] > = await client.post < Project[] > (url, [project]);
+    expect(projectCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(projectCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(projectCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(projectCreateRes.result[0].ProjectName).withContext('correct data in create result').toEqual(project.ProjectName);
+
+    project = projectCreateRes.result[0];
+
+    email = < Email > {
+      From: 'Mack Brown',
+      EmailGuid: uuid(),
+      ExternalId: 'UTEmail ' + uuid(),
+      SentDate: (new Date()).toISOString()
+    };
+    url = '/emails';
+    let emailCreateRes: ResponseData < Email[] > = await client.post < Email[] > (url, [email]);
+    expect(emailCreateRes.success).withContext('successful create ' + url).toBe(true);
+    expect(emailCreateRes.result).withContext('non-null create result').not.toBeNull();
+    expect(emailCreateRes.result.length).withContext('correct create result size').toEqual(1);
+    expect(emailCreateRes.result[0].ExternalId).withContext('correct data in create result').toEqual(email.ExternalId);
+
+    email = emailCreateRes.result[0];
+  })
+
+  afterAll(async () => {
+    url = '/emails/' + email.Id;
+    let deleteEmailRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteEmailRes.success).withContext('successful delete ' + url).toBe(true);
+
+    url = '/companies/' + company.CompanyId;
+    let deleteCompanyRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteCompanyRes.success).withContext('successful delete ' + url).toBe(true);
+
+    url = '/contacts/' + contact.ContactId;
+    let deleteContactRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteContactRes.success).withContext('successful delete ' + url).toBe(true);
+
+    url = '/leads/' + lead.LeadId;
+    let deleteLeadRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteLeadRes.success).withContext('successful delete ' + url).toBe(true);
+
+    url = '/opportunities/' + opportunity.OpportunityId;
+    let deleteOpportunityRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteOpportunityRes.success).withContext('successful delete ' + url).toBe(true);
+
+    url = '/personnel/' + personnel.PersonnelId;
+    let deletePersonnelRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deletePersonnelRes.success).withContext('successful delete ' + url).toBe(true);
+
+    url = '/projects/' + project.ProjectId;
+    let deleteProjectRes: ResponseData < any > = await client.delete < any > (url);
+    expect(deleteProjectRes.success).withContext('successful delete ' + url).toBe(true);
+  })
+
+  // Main type
+
+  it('should perform Email CRUD', async () => {
+    url = '/emails/' + email.Id + '/_updatesearchindex';
+    let updateSearchIndexRes: ResponseData < any > = await client.get < Email > (url);
+    expect(updateSearchIndexRes.success).withContext('successful search index update ' + url).toBe(true);
+
+    url = '/emails';
+    let readAllRes: ResponseData < Email[] > = await client.get < Email[] > (url);
+    expect(readAllRes.success).withContext('successful read all ' + url).toBe(true);
+    expect(readAllRes.result).withContext('non-null read all result').not.toBeNull();
+    expect(readAllRes.result.length).withContext('correct read all result size').toBeGreaterThan(0);
+
+    url = '/emails/' + email.Id;
+    let readRes: ResponseData < Email > = await client.get < Email > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result.ExternalId).withContext('correct read result data').toEqual(email.ExternalId);
+
+    url = '/emails';
+    let searchQuery = 'ExternalId:' + email.ExternalId;
+    let searchRes: ResponseData < Email[] > = await client.getSearch < Email[] > (url, searchQuery);
+    expect(searchRes.success).withContext('successful search ' + url + ' ' + searchQuery).toBe(true);
+    expect(searchRes.result).withContext('non-null search result').not.toBeNull();
+    expect(searchRes.result.length).withContext('correct search result size').toEqual(1);
+    expect(searchRes.result[0].Id).withContext('correct search result data').toEqual(email.Id);
+
+    url = '/emails/' + email.Id;
+    email.Subject = 'Bevo';
+    let updateRes: ResponseData < Email > = await client.put < Email > (url, email);
+    expect(updateRes.success).withContext('successful update ' + url).toBe(true);
+    expect(updateRes.result.Subject).withContext('correct update result data').toEqual(email.Subject);
   });
 
-  it("Can read emails", async () => {
-    let res: ResponseData < Email[] > = await client.get < Email[] > ("/emails");
-    expect(res.success).toBeTruthy(res.message);
+  // Associations
+
+  it('should perform EmailCompany association', async () => {
+    let emailCompany: EmailCompany = < EmailCompany > {
+      CompanyId: company.CompanyId
+    };
+    url = '/emails/' + email.Id + '/companies';
+    let associateRes: ResponseData < EmailCompany[] > = await client.post < EmailCompany[] > (url, [emailCompany]);
+    expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
+    expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
+    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result[0].CompanyId).withContext('correct associate result data').toEqual(company.CompanyId);
+
+    let readRes: ResponseData < EmailCompany[] > = await client.get < EmailCompany[] > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readRes.result[0].CompanyId).withContext('correct read result data').toEqual(company.CompanyId);
+
+    url = '/emails/' + email.Id + '/companies/' + company.CompanyId;
+    let disassociateRes: ResponseData < any > = await client.delete < any > (url);
+    expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
 
-  it("Can read an email", async () => {
-    let url = "/emails/" + aValidEmailId;
-    let res: ResponseData < Email > = await client.get < Email > (url);
-    expect(res.success).toBeTruthy(res.message);
+  it('should perform EmailContact association', async () => {
+    let emailContact: EmailContact = < EmailContact > {
+      ContactId: contact.ContactId
+    };
+    url = '/emails/' + email.Id + '/contacts';
+    let associateRes: ResponseData < EmailContact[] > = await client.post < EmailContact[] > (url, [emailContact]);
+    expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
+    expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
+    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result[0].ContactId).withContext('correct associate result data').toEqual(contact.ContactId);
+
+    let readRes: ResponseData < EmailContact[] > = await client.get < EmailContact[] > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readRes.result[0].ContactId).withContext('correct read result data').toEqual(contact.ContactId);
+
+    url = '/emails/' + email.Id + '/contacts/' + contact.ContactId;
+    let disassociateRes: ResponseData < any > = await client.delete < any > (url);
+    expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
 
-  it("Can read an email for invalid id", async () => {
-    let url: string = "/emails/5555444";
-    let res: ResponseData < Email > = await client.get < Email > (url);
-    expect(res.result).toBeNull(res.message);
+  it('should perform EmailLead association', async () => {
+    let emailLead: EmailLead = < EmailLead > {
+      LeadId: lead.LeadId
+    };
+    url = '/emails/' + email.Id + '/leads';
+    let associateRes: ResponseData < EmailLead[] > = await client.post < EmailLead[] > (url, [emailLead]);
+    expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
+    expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
+    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result[0].LeadId).withContext('correct associate result data').toEqual(lead.LeadId);
+
+    let readRes: ResponseData < EmailLead[] > = await client.get < EmailLead[] > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readRes.result[0].LeadId).withContext('correct read result data').toEqual(lead.LeadId);
+
+    url = '/emails/' + email.Id + '/leads/' + lead.LeadId;
+    let disassociateRes: ResponseData < any > = await client.delete < any > (url);
+    expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
 
-  it("Can add email/s with valid data", async () => {
-    let url = "/emails/" + aValidEmailId;
-    let resGet: ResponseData < Email > = await client.get < Email > (url);
+  it('should perform EmailOpportunity association', async () => {
+    let emailOpportunity: EmailOpportunity = < EmailOpportunity > {
+      OpportunityId: opportunity.OpportunityId
+    };
+    url = '/emails/' + email.Id + '/opportunities';
+    let associateRes: ResponseData < EmailOpportunity[] > = await client.post < EmailOpportunity[] > (url, [emailOpportunity]);
+    expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
+    expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
+    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result[0].OpportunityId).withContext('correct associate result data').toEqual(opportunity.OpportunityId);
 
-    resGet.result.Subject = "In reference to our conversation";
-    let exEmail: Email[] = [resGet.result];
+    let readRes: ResponseData < EmailOpportunity[] > = await client.get < EmailOpportunity[] > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readRes.result[0].OpportunityId).withContext('correct read result data').toEqual(opportunity.OpportunityId);
 
-    let resPost: ResponseData < Email[] > = await client.post < Email[] > (
-      "/emails",
-      exEmail
-    );
-    expect(resPost.success).toBeTruthy(resPost.message);
+    url = '/emails/' + email.Id + '/opportunities/' + opportunity.OpportunityId;
+    let disassociateRes: ResponseData < any > = await client.delete < any > (url);
+    expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
 
-  it("Can add email/s with invalid data", async () => {
-    let url = "/emails/" + aValidEmailId;
-    let resGet: ResponseData < Email > = await client.get < Email > (url);
+  it('should perform EmailPersonnel association', async () => {
+    let emailPersonnel: EmailPersonnel = < EmailPersonnel > {
+      PersonnelId: personnel.PersonnelId
+    };
+    url = '/emails/' + email.Id + '/personnel';
+    let associateRes: ResponseData < EmailPersonnel[] > = await client.post < EmailPersonnel[] > (url, [emailPersonnel]);
+    expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
+    expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
+    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result[0].PersonnelId).withContext('correct associate result data').toEqual(personnel.PersonnelId);
 
-    //not providing a mandatory field
-    resGet.result.From = null;
-    resGet.result.Body = "Some Random Body Text";
-    let exEmail: Email[] = [resGet.result];
+    let readRes: ResponseData < EmailPersonnel[] > = await client.get < EmailPersonnel[] > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readRes.result[0].PersonnelId).withContext('correct read result data').toEqual(personnel.PersonnelId);
 
-    let resPost: ResponseData < Email[] > = await client.post < Email[] > (
-      "/emails",
-      exEmail
-    );
-    expect(resPost.success).toBeFalsy(resPost.message);
+    url = '/emails/' + email.Id + '/personnel/' + personnel.PersonnelId;
+    let disassociateRes: ResponseData < any > = await client.delete < any > (url);
+    expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
 
-  it("Can update email with valid data", async () => {
-    let urlGet = "/emails/" + aValidEmailId;
-    let resGet: ResponseData < Email > = await client.get < Email > (urlGet);
+  it('should perform EmailProject association', async () => {
+    let emailProject: EmailProject = < EmailProject > {
+      ProjectId: project.ProjectId
+    };
+    url = '/emails/' + email.Id + '/projects';
+    let associateRes: ResponseData < EmailProject[] > = await client.post < EmailProject[] > (url, [emailProject]);
+    expect(associateRes.success).withContext('successful associate ' + url).toBe(true);
+    expect(associateRes.result).withContext('non-null associate result').not.toBeNull();
+    expect(associateRes.result.length).withContext('correct associate result size').toEqual(1);
+    expect(associateRes.result[0].ProjectId).withContext('correct associate result data').toEqual(project.ProjectId);
 
-    resGet.result.Body = "Please find attached";
+    let readRes: ResponseData < EmailProject[] > = await client.get < EmailProject[] > (url);
+    expect(readRes.success).withContext('successful read ' + url).toBe(true);
+    expect(readRes.result).withContext('non-null read result').not.toBeNull();
+    expect(readRes.result.length).withContext('correct read result size').toEqual(1);
+    expect(readRes.result[0].ProjectId).withContext('correct read result data').toEqual(project.ProjectId);
 
-    let exEmail: Email = resGet.result;
-    let urlPut = "/emails/" + resGet.result.Id;
-
-    let resPut: ResponseData < Email > = await client.put < Email > (urlPut, exEmail);
-    expect(resPut.success).toBeTruthy(resPut.message);
+    url = '/emails/' + email.Id + '/projects/' + project.ProjectId;
+    let disassociateRes: ResponseData < any > = await client.delete < any > (url);
+    expect(disassociateRes.success).withContext('successful disassociate ' + url).toBe(true);
   });
 
-  it("Can delete an email with valid id", async () => {
-    let url = "/emails/" + aValidEmailId;
-    let res: ResponseData < Email > = await client.delete < Email > (url);
-    expect(res.success).toBeTruthy(res.message);
+  // Attachments
+
+  it('should add EmailAttachments', async () => {
+    let emailAttachment: EmailAttachment = < EmailAttachment > {
+      data: 'DKR'
+    };
+    let addRes: ResponseData < EmailAttachment > = await client.addAttachment(email.Id, [emailAttachment]);
+    expect(addRes.success).withContext('successful add via addAttachment').toBe(true);
+    expect(addRes.message).withContext('correct add message').toEqual('Attachments created successfully.');
   });
-
-  it("Can delete an email with invalid id", async () => {
-    let url: string = "/emails/12345";
-    let res: ResponseData < Email > = await client.delete < Email > (url);
-    expect(res.success).toBeFalsy(res.message);
-  });
-
-  it("Can fetch contacts associated to an Email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/contacts";
-    let res: ResponseData < EmailContact[] > = await client.get < EmailContact[] > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can fetch personnel associated to an Email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/personnel";
-    let res: ResponseData < EmailPersonnel[] > = await client.get < EmailPersonnel[] > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can fetch leads associated to an Email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/leads";
-    let res: ResponseData < EmailLead[] > = await client.get < EmailLead[] > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can fetch opportunities associated to an Email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/opportunities";
-    let res: ResponseData < EmailOpportunity[] > = await client.get < EmailOpportunity[] > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can fetch projects associated to an Email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/projects";
-    let res: ResponseData < EmailProject[] > = await client.get < EmailProject[] > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can fetch companies associated to an Email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/companies";
-    let res: ResponseData < EmailCompany[] > = await client.get < EmailCompany[] > (url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can associate contact/s to an email", async () => {
-    let urlGet = '/contacts';
-    let urlPost = '/emails/' + aValidEmailId + '/contacts';
-
-    let resGet: ResponseData < Contact[] > = await client.get < Contact[] > (urlGet);
-    let exEmailContact: EmailContact[] = [{
-      ContactId: resGet.result[0].ContactId,
-      FirstName: resGet.result[0].FirstName,
-      LastName: resGet.result[0].LastName
-    }];
-
-    let resPost: ResponseData < EmailContact[] > = await client.post < EmailContact[] > (urlPost, exEmailContact);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  it("Can associate personnel to an email", async () => {
-    let urlGet = '/personnel';
-    let urlPost = '/emails/' + aValidEmailId + '/personnel';
-
-    let resGet: ResponseData < Personnel[] > = await client.get < Personnel[] > (urlGet);
-    let exEmailPersonnel: EmailPersonnel[] = [{
-      PersonnelId: resGet.result[0].PersonnelId,
-      FirstName: resGet.result[0].FirstName,
-      MI: resGet.result[0].MI,
-      LastName: resGet.result[0].LastName,
-      Prefix: resGet.result[0].Prefix,
-      Suffix: resGet.result[0].Suffix,
-      Title: resGet.result[0].Title
-    }];
-
-    let resPost: ResponseData < EmailPersonnel[] > = await client.post < EmailPersonnel[] > (urlPost, exEmailPersonnel);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  it("Can associate lead/s to an email", async () => {
-    let urlGet = '/leads';
-    let urlPost = '/emails/' + aValidEmailId + '/leads';
-
-    let resGet: ResponseData < Lead[] > = await client.get < Lead[] > (urlGet);
-    let exEmailLead: EmailLead[] = [{
-      LeadId: resGet.result[0].LeadId,
-      LeadName: resGet.result[0].Name
-    }];
-
-    let resPost: ResponseData < EmailLead[] > = await client.post < EmailLead[] > (urlPost, exEmailLead);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  it("Can associate opportunity/s to an email", async () => {
-    let urlGet = '/opportunities';
-    let urlPost = '/emails/' + aValidEmailId + '/opportunities';
-
-    let resGet: ResponseData < Opportunity[] > = await client.get < Opportunity[] > (urlGet);
-    let exEmailOpportunity: EmailOpportunity[] = [{
-      OpportunityId: resGet.result[0].OpportunityId,
-      OpportunityName: resGet.result[0].OpportunityName
-    }];
-
-    let resPost: ResponseData < EmailOpportunity[] > = await client.post < EmailOpportunity[] > (urlPost, exEmailOpportunity);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  it("Can associate project/s to an email", async () => {
-    let urlGet = '/projects';
-    let urlPost = '/emails/' + aValidEmailId + '/projects';
-
-    let resGet: ResponseData < Project[] > = await client.get < Project[] > (urlGet);
-    let exEmailProject: EmailProject[] = [{
-      ProjectId: resGet.result[0].ProjectId,
-      ProjectName: resGet.result[0].ProjectName
-    }];
-
-    let resPost: ResponseData < EmailProject[] > = await client.post < EmailProject[] > (urlPost, exEmailProject);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  it("Can associate company/s to an email", async () => {
-    let urlGet = '/companies';
-    let urlPost = '/emails/' + aValidEmailId + '/companies';
-
-    let resGet: ResponseData < Company[] > = await client.get < Company[] > (urlGet);
-    let exEmailCompany: EmailCompany[] = [{
-      CompanyId: resGet.result[0].CompanyId,
-      Name: resGet.result[0].Name
-    }];
-
-    let resPost: ResponseData < EmailCompany[] > = await client.post < EmailCompany[] > (urlPost, exEmailCompany);
-    expect(resPost.success).toBeTruthy(resPost.message);
-  });
-
-  /*it("Can remove contacts asscociated to an email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/contacts";
-    let res: ResponseData<EmailContact[]> = await client.delete<EmailContact[]>(url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can remove personnel asscociated to an email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/personnel";
-    let res: ResponseData<EmailPersonnel[]> = await client.delete<EmailPersonnel[]>(url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can remove leads asscociated to an email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/leads";
-    let res: ResponseData<EmailLead[]> = await client.delete<EmailLead[]>(url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can remove opportunities asscociated to an email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/opportunities";
-    let res: ResponseData<EmailOpportunity[]> = await client.delete<EmailOpportunity[]>(url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can remove projects asscociated to an email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/projects";
-    let res: ResponseData<EmailProject[]> = await client.delete<EmailProject[]>(url);
-    expect(res.success).toBeTruthy(res.message);
-  });
-  
-  it("Can remove companies asscociated to an email", async () => {
-    let url: string = "/emails/" + aValidEmailId + "/companies";
-    let res: ResponseData<EmailCompany[]> = await client.delete<EmailCompany[]>(url);
-    expect(res.success).toBeTruthy(res.message);
-  });*/
 });

@@ -13,7 +13,7 @@ export class PersonnelClient extends Client {
    * @param personnelId - Cosential personnel id
    * @param opts - Optional request headers
    *
-   * @returns - A detailed response object as a Promise
+   * @returns - A detailed response object containing an Image as a Promise
    */
   public async getPersonnelImage(
     personnelId: number,

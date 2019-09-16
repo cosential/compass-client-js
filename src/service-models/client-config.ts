@@ -1,5 +1,5 @@
 /**
- * Represents the Client configuration used to authenticate the User.
+ * The Client configuration used to authenticate the User.
  */
 export class ClientConfig {
 

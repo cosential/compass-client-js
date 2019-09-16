@@ -1,21 +1,3 @@
-/**
- * @example Read all addresses associated to a Company
- * ```
- * companyClient.get<CompanyAddress[]>('/companies/12345/addresses').then(res => {
- *      if (res.success) {
- *          res.result.forEach(nextRes => { console.log(nextRes.AddressID); });
- *      }
- * });
- * ```
- * @example Read default address of a Company
- * ```
- * companyClient.getCompanyAddress<CompanyAddress>(12345).then(res => {
- *      if (res.success) {
- *          console.log(res.result.AddressID);
- *      }
- * });
- * ```
- */
 export interface CompanyAddress {
   AddressID: number;
   CompanyId: number;

@@ -60,7 +60,7 @@ export class EmailClient extends Client {
         return {
           success: false,
           status: metadataUrls.status,
-          error: null,
+          error: metadataUrls.error,
           message: 'Metadata creation failed. No attachments added.',
           result: null
         }

@@ -1,3 +1,4 @@
+import { Contact } from './../compass-models/contact/contact';
 import 'jasmine';
 import { User } from '../compass-models/user';
 import { UserFeature } from '../compass-models/user-feature';
@@ -6,51 +7,74 @@ import { ClientConfig } from '../service-models/client-config';
 import { Client } from '../services/client';
 import { TestClientConfig as c } from './test-client-config';
 
-describe("CompassClient", () => {
+fdescribe("CompassClient", () => {
 
-  let client: Client = new Client(new ClientConfig(c.firmId, c.username, c.password, c.apiKey, c.compassUrl));
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
-  beforeEach(() => {
-    client.config.firmId = c.firmId;
-    client.config.username = c.username;
-    client.config.password = c.password;
-    client.config.apiKey = c.apiKey;
-    client.config.compassUrl = c.compassUrl;
+  let client: Client = new Client(
+    new ClientConfig(
+      c.firmId,
+      c.username,
+      c.password,
+      c.apiKey,
+      c.compassUrl
+    )
+  );
+  let url: string;
 
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
-  });
+  it('should validate ClientConfig values', async () => {
+    let clientConfig: ClientConfig = new ClientConfig(
+      c.firmId,
+      c.username,
+      c.password,
+      c.apiKey,
+      c.compassUrl
+    );
 
-  it("Can connect to compass and read a user", async () => {
-    let res: ResponseData < User[] > = await client.get < User[] > ('/user');
-    expect(res.success).toBeTruthy(res.message);
-  });
-
-  it("Can be reconfigured", async () => {
-    client.config.username = c.username + 'FAIL';
-    let res: ResponseData < User[] > = await client.get < User[] > ('/user');
-    expect(res.success).toBeFalsy();
-  });
-
-  it("Can validate the CompassURL when reconfigured", async () => {
     try {
-      client.config.compassUrl = "This is not a valid URL";
-      fail("Call to reconfigure should have failed and didn't");
+      clientConfig.apiKey = 'invalidkey';
     } catch (e) {
-      expect(e.message).toBeTruthy;
+      expect(e.message).withContext('correct apiKey error message').toEqual('apiKey config property value [invalidkey] is not valid.');
+    }
+
+    try {
+      clientConfig.compassUrl = 'invalidurl';
+    } catch (e) {
+      expect(e.message).withContext('correct compassUrl error message').toEqual('compassUrl config property value [invalidurl] is not valid.')
+    }
+
+    try {
+      clientConfig.firmId = null;
+    } catch (e) {
+      expect(e.message).withContext('correct firmId error message').toEqual('Please use a valid firmId.');
     }
   });
 
-  it("Can validate the ApiKey when reconfigured", async () => {
-    try {
-      client.config.apiKey = "This is not a valid apiKey";
-      fail("Call to reconfigure should have failed and didn't");
-    } catch (e) {
-      expect(e.message).toBeTruthy;
-    }
+  it('should get User and UserFeatures', async () => {
+    url = '/user';
+    let userRes: ResponseData < User > = await client.get < User > (url);
+    expect(userRes.success).withContext('successful read result ' + url).toBe(true);
+
+    url = '/user/features';
+    let userFeaturesRes: ResponseData < UserFeature[] > = await client.get < UserFeature[] > (url);
+    expect(userFeaturesRes.success).withContext('successful read result ' + url).toBe(true);
+    expect(userFeaturesRes.result).withContext('non-null read result').not.toBeNull();
+    expect(userFeaturesRes.result.length).withContext('correct read result size').toBeGreaterThan(0);
   });
 
-  it("Read user features", async () => {
-    let res: ResponseData < UserFeature[] > = await client.get < UserFeature[] > ('/user/features');
-    expect(res.success).toBeTruthy(res.message);
+  it('should return correct response data from server for invalid API calls', async () => {
+    url = '/invalid';
+    let invalidUrlRes: ResponseData < any > = await client.get < any > (url);
+    expect(invalidUrlRes.success).withContext('unsuccessful invalid url result ' + url).toBe(false);
+    expect(invalidUrlRes.status).withContext('correct invalid url status').toEqual(404);
+
+    url = '/contacts';
+    let payload: any = {
+      InvalidProp: 'InvalidData'
+    };
+    let invalidPayloadRes: ResponseData < Contact[] > = await client.post < Contact[] > (url, [payload]);
+    expect(invalidPayloadRes.success).withContext('unsuccessful invalid payload result ' + url).toBe(false);
+    expect(invalidPayloadRes.status).withContext('correct invalid payload result status').toBe(500);
+    expect(invalidPayloadRes.error).withContext('correct invalid payload result error').not.toBeNull();
   });
 });
