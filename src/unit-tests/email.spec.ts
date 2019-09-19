@@ -1,22 +1,22 @@
 import 'jasmine';
 import * as uuid from 'uuid/v4';
+import { Company } from '../compass-models/company/company';
+import { Contact } from '../compass-models/contact/contact';
+import { Email } from '../compass-models/email/email';
+import { EmailAttachment } from '../compass-models/email/email-attachment';
+import { EmailCompany } from '../compass-models/email/email-company';
+import { EmailContact } from '../compass-models/email/email-contact';
+import { EmailLead } from '../compass-models/email/email-lead';
+import { EmailOpportunity } from '../compass-models/email/email-opportunity';
+import { EmailPersonnel } from '../compass-models/email/email-personnel';
+import { EmailProject } from '../compass-models/email/email-project';
+import { Lead } from '../compass-models/lead/lead';
+import { Opportunity } from '../compass-models/opportunity/opportunity';
 import { Personnel } from '../compass-models/personnel';
 import { Project } from '../compass-models/project';
 import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
-import { Company } from './../compass-models/company/company';
-import { Contact } from './../compass-models/contact/contact';
-import { Email } from './../compass-models/email/email';
-import { EmailAttachment } from './../compass-models/email/email-attachment';
-import { EmailCompany } from './../compass-models/email/email-company';
-import { EmailContact } from './../compass-models/email/email-contact';
-import { EmailLead } from './../compass-models/email/email-lead';
-import { EmailOpportunity } from './../compass-models/email/email-opportunity';
-import { EmailPersonnel } from './../compass-models/email/email-personnel';
-import { EmailProject } from './../compass-models/email/email-project';
-import { Lead } from './../compass-models/lead/lead';
-import { Opportunity } from './../compass-models/opportunity/opportunity';
-import { EmailClient } from './../services/email-client';
+import { EmailClient } from '../services/email-client';
 import { TestClientConfig as c } from './test-client-config';
 
 describe('EmailClient', () => {
@@ -170,11 +170,11 @@ describe('EmailClient', () => {
     url = '/emails/' + email.Id;
     let deleteEmailRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteEmailRes.success).withContext('successful delete ' + url).toBe(true);
-    
+
     url = '/emails/' + companyEmail.Id;
     let deleteCompanyEmailRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteCompanyEmailRes.success).withContext('successful delete ' + url).toBe(true);
-    
+
     url = '/companies/' + company.CompanyId;
     let deleteCompanyRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteCompanyRes.success).withContext('successful delete ' + url).toBe(true);
@@ -182,7 +182,7 @@ describe('EmailClient', () => {
     url = '/contacts/' + contact.ContactId;
     let deleteContactRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteContactRes.success).withContext('successful delete ' + url).toBe(true);
-    
+
     url = '/companies/' + contactCompany.CompanyId;
     let deleteContactCompanyRes: ResponseData < any > = await client.delete < any > (url);
     expect(deleteContactCompanyRes.success).withContext('successful delete ' + url).toBe(true);
