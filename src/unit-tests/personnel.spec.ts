@@ -1,12 +1,12 @@
 import 'jasmine';
 import * as uuid from 'uuid/v4';
+import { Company } from '../compass-models/company/company';
+import { Image } from '../compass-models/images/image';
 import { PersonnelImageMetadata } from '../compass-models/images/personnel-image-metadata';
 import { Personnel } from '../compass-models/personnel';
 import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
-import { Company } from './../compass-models/company/company';
-import { Image } from './../compass-models/images/image';
-import { PersonnelClient } from './../services/personnel-client';
+import { PersonnelClient } from '../services/personnel-client';
 import { TestClientConfig as c } from './test-client-config';
 
 describe('PersonnelClient', () => {

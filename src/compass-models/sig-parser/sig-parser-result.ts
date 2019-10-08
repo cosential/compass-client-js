@@ -1,0 +1,43 @@
+export interface SigParserResult {
+    Data: {
+        ContactIds: number[];
+        PersonnelIds: number[];
+        FirstName: string;
+        MiddleName: string;
+        LastName: string;
+        FirstName_Sender: string;
+        MiddleName_Sender: string;
+        LastName_Sender: string;
+        NameAbbrev_Sender: string;
+        Position: string;
+        Department: string;
+        Company: string;
+        Company_From_Website: string;
+        Company_From_Parsed_Email: string;
+        Company_From_Email_Sender: string;
+        Phone_TimeZone: string;
+        Direct_Office_1: string;
+        Direct_Office_2: string;
+        Direct_Office_3: string;
+        Mobile_1: string;
+        Mobile_2: string;
+        Mobile_3: string;
+        Phone_1: string;
+        Phone_2: string;
+        Phone_3: string;
+        Fax_1: string;
+        Fax_2: string;
+        Fax_3: string;
+        Email_1: string;
+        Email_2: string;
+        Email_3: string;
+        Email_From_Email_Sender: string;
+        Website: string;
+        LinkedIn: string;
+        Street: string;
+        Suite: string;
+        City: string;
+        State: string;
+        Zip: string;
+    }[];
+}

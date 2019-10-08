@@ -1,9 +1,9 @@
 import 'jasmine';
 import * as uuid from 'uuid/v4';
+import { CallLog } from '../compass-models/call-log';
 import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
-import { CallLog } from './../compass-models/call-log';
-import { Client } from './../services/client';
+import { Client } from '../services/client';
 import { TestClientConfig as c } from './test-client-config';
 
 describe('CallLogClient', () => {

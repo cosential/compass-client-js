@@ -1,23 +1,23 @@
 import 'jasmine';
 import * as uuid from 'uuid/v4';
-import { Lead } from '../compass-models/lead/lead';
-import { LeadType } from '../compass-models/lead/lead-type';
+import { Division } from '../compass-models/firmorgs/division';
 import { Office } from '../compass-models/firmorgs/office';
 import { PracticeArea } from '../compass-models/firmorgs/practice-area';
-import { ServiceType } from '../compass-models/shared-subitems/service-type';
 import { Studio } from '../compass-models/firmorgs/studio';
 import { Territory } from '../compass-models/firmorgs/territory';
-import { ResponseData } from '../interfaces/response-data';
-import { ClientConfig } from '../service-models/client-config';
-import { Division } from '../compass-models/firmorgs/division';
-import { LeadContractType } from './../compass-models/lead/lead-contract-type';
-import { LeadRecordSource } from './../compass-models/lead/lead-record-source';
-import { LeadRiskProfile } from './../compass-models/lead/lead-risk-profile';
-import { LeadScore } from './../compass-models/lead/lead-score';
-import { LeadSource } from './../compass-models/lead/lead-source';
+import { Lead } from '../compass-models/lead/lead';
+import { LeadContractType } from '../compass-models/lead/lead-contract-type';
+import { LeadRecordSource } from '../compass-models/lead/lead-record-source';
+import { LeadRiskProfile } from '../compass-models/lead/lead-risk-profile';
+import { LeadScore } from '../compass-models/lead/lead-score';
+import { LeadSource } from '../compass-models/lead/lead-source';
+import { LeadType } from '../compass-models/lead/lead-type';
 import { PrimaryCategory } from '../compass-models/shared-subitems/primary-category';
 import { SecondaryCategory } from '../compass-models/shared-subitems/secondary-category';
-import { Client } from './../services/client';
+import { ServiceType } from '../compass-models/shared-subitems/service-type';
+import { ResponseData } from '../interfaces/response-data';
+import { ClientConfig } from '../service-models/client-config';
+import { Client } from '../services/client';
 import { TestClientConfig as c } from './test-client-config';
 
 describe('LeadClient', () => {
