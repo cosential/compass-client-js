@@ -65,6 +65,8 @@ export { Territory } from './compass-models/firmorgs/territory';
 export { User } from './compass-models/user';
 export { UserFeature } from './compass-models/user-feature';
 export { RequestOptions } from './interfaces/request-options';
+export { SigParserRequest } from './compass-models/sig-parser/sig-parser-request';
+export { SigParserResult } from './compass-models/sig-parser/sig-parser-result';
 // Interfaces
 export { ResponseData } from './interfaces/response-data';
 // Service Models
