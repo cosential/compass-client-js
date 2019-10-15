@@ -1089,9 +1089,7 @@ var EmailClient = /** @class */ (function (_super) {
                                     switch (_a.label) {
                                         case 0:
                                             endpoint = metadataResult.AttachmentEndpoint;
-                                            attachment = {
-                                                data: attachments[index]
-                                            };
+                                            attachment = attachments[index];
                                             return [4 /*yield*/, this.put(endpoint.substring(endpoint.indexOf('/emails')), attachment)];
                                         case 1:
                                             response = _a.sent();
