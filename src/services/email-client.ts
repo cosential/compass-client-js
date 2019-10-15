@@ -40,9 +40,7 @@ export class EmailClient extends Client {
         metadataUrls.result.forEach(async (metadataResult, index) => {
           let endpoint: string = metadataResult.AttachmentEndpoint;
 
-          let attachment: EmailAttachment = {
-            data: attachments[index]
-          }
+          let attachment: EmailAttachment = attachments[index];
 
           let response: ResponseData < EmailAttachment > = await this.put < EmailAttachment > (endpoint.substring(endpoint.indexOf('/emails')), attachment);
           if (!response.success) {
