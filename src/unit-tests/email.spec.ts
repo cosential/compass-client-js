@@ -18,8 +18,6 @@ import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
 import { EmailClient } from '../services/email-client';
 import { TestClientConfig as c } from './test-client-config';
-import { EmailAttachmentMetadata } from '../compass-models/email/email-attachment-metadata';
-import { Client } from '../services/client';
 
 describe('EmailClient', () => {
 
