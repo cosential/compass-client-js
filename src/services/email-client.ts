@@ -25,10 +25,10 @@ export class EmailClient extends Client {
     let payload: EmailAttachmentMetadata[] = [];
 
     if (attachments.length > 0) {
-      attachments.forEach((attachment, index) => {
+      attachments.forEach(attachment => {
         payload.push({
           Id: 0,
-          FileName: "AttachmentViaAddIn " + index,
+          FileName: attachment.filename,
           DeleteRecord: false,
           AttachmentEndpoint: null
         });
