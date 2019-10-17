@@ -1071,10 +1071,10 @@ var EmailClient = /** @class */ (function (_super) {
                         createMetadataUrl = '/emails/' + emailId + '/attachments';
                         payload = [];
                         if (!(attachments.length > 0)) return [3 /*break*/, 2];
-                        attachments.forEach(function (attachment, index) {
+                        attachments.forEach(function (attachment) {
                             payload.push({
                                 Id: 0,
-                                FileName: "AttachmentViaAddIn " + index,
+                                FileName: attachment.filename,
                                 DeleteRecord: false,
                                 AttachmentEndpoint: null
                             });
