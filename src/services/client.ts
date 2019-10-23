@@ -53,7 +53,7 @@ export class Client {
     let requestUrl: string = this.config.compassUrl + url;
     let paging: string = 'from=' + from + '&size=' + size;
 
-    requestUrl += (url.indexOf('?q=') > -1) ? '&' + paging : '?' + paging;
+    requestUrl += (url.indexOf('?') > -1) ? '&' + paging : '?' + paging;
     if (includeDeleted) {
       requestUrl += '&includedeleted=true';
     }
