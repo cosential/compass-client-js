@@ -2,6 +2,7 @@
 export { CallLog } from './compass-models/call-log';
 export { Company } from './compass-models/company/company';
 export { CompanyAddress } from './compass-models/company/company-address';
+export { CompanyEnrichment } from './compass-models/company/company-enrichment';
 export { CompanyLSO } from './compass-models/company/company-lso';
 export { CompanyNAICS } from './compass-models/company/company-naics';
 export { CompanySDBT } from './compass-models/company/company-sdbt';
@@ -12,6 +13,7 @@ export { ContactRoleType } from './compass-models/contact/contact-role-type';
 export { Contact } from './compass-models/contact/contact';
 export { ContactAddress } from './compass-models/contact/contact-address';
 export { ContactCategory } from './compass-models/contact/contact-category';
+export { ContactEnrichment } from './compass-models/contact/contact-enrichment';
 export { ContactInfluenceLevel } from './compass-models/contact/contact-influencelevel';
 export { ContactMailingList } from './compass-models/contact/contact-mailinglist';
 export { ContactRelationship } from './compass-models/contact/contact-relationship';
