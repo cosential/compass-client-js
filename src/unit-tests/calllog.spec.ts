@@ -5,6 +5,7 @@ import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
 import { Client } from '../services/client';
 import { TestClientConfig as c } from './test-client-config';
+import { MeetingPlan } from '../compass-models/meeting-plan';
 
 describe('CallLogClient', () => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
@@ -71,5 +72,31 @@ describe('CallLogClient', () => {
     let updateRes: ResponseData < CallLog > = await client.put < CallLog > (url, calllog);
     expect(updateRes.success).withContext('successful update ' + url).toBe(true);
     expect(updateRes.result.comments).withContext('correct update result data').toEqual(calllog.comments);
+  });
+
+  it('Should perform Meeting Plan CRUD', async () => {
+    url = '/calllogs/' + calllog.id + '/meetingplan';
+    const dummyMeetingPlan = < MeetingPlan > {};
+    dummyMeetingPlan.PayoffsForMe = 'test';
+    let response = await client.post < MeetingPlan > (url, dummyMeetingPlan);
+    expect(response.success).withContext('successful post to call log meeting plan').toBe(true);
+    expect(response.result).withContext('non-null post result').not.toBeNull();
+    expect(response.result.PayoffsForMe).withContext('meeting plan property saved correctly on post').toEqual('test');
+
+    dummyMeetingPlan.PayoffsForYou = 'test';
+    response = await client.put < MeetingPlan > (url, dummyMeetingPlan);
+    expect(response.success).withContext('successful put to call log meeting plan').toBe(true);
+    expect(response.result).withContext('non-null put result').not.toBeNull();
+    expect(response.result.PayoffsForYou).withContext('meeting plan property saved correctly on put').toEqual('test');
+
+    response = await client.get < MeetingPlan > (url);
+    expect(response.success).withContext('successful get to call log meeting plan').toBe(true);
+    expect(response.result).withContext('non-null get result').not.toBeNull();
+    expect(response.result.PayoffsForYou).withContext('meeting plan property read correctly on get').toEqual('test');
+    expect(response.result.PayoffsForMe).withContext('meeting plan property read correctly on get').toEqual('test');
+
+    response = await client.delete < MeetingPlan > (url);
+    expect(response.success).withContext('successful delete to call log meeting plan').toBe(true);
+    expect(response.result).withContext('null get result').toBeNull();
   });
 });
