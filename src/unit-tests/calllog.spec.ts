@@ -5,7 +5,7 @@ import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
 import { Client } from '../services/client';
 import { TestClientConfig as c } from './test-client-config';
-import { MeetingPlan } from '../compass-models/meeting-plan';
+import { MeetingPlan } from '../compass-models/call-log/meeting-plan';
 
 describe('CallLogClient', () => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;

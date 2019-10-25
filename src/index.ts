@@ -44,7 +44,7 @@ export { LeadSource } from './compass-models/lead/lead-source';
 export { LeadStage } from './compass-models/lead/lead-stage';
 export { LeadType } from './compass-models/lead/lead-type';
 export { Office } from './compass-models/firmorgs/office';
-export { MeetingPlan, MeetingPlanProcessTimeDurationType } from './compass-models/meeting-plan';
+export { MeetingPlan, MeetingPlanProcessTimeDurationType } from './compass-models/call-log/meeting-plan';
 export { OfficeDivision } from './compass-models/firmorgs/office-division';
 export { Opportunity } from './compass-models/opportunity/opportunity';
 export { OpportunityClientType } from './compass-models/opportunity/opportunity-client-type';
