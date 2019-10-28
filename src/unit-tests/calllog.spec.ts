@@ -11,6 +11,8 @@ import { Company } from '../compass-models/company/company';
 import { CallLogContact } from '../compass-models/call-log/call-log-contact';
 import { Personnel } from '../compass-models/personnel';
 import { CallLogPersonnel } from '../compass-models/call-log/call-log-personnel';
+import { CallType } from '../compass-models/call-log/call-type';
+import { CallDisposition } from '../compass-models/call-log/call-disposition';
 
 describe('CallLogClient', () => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
@@ -183,5 +185,47 @@ describe('CallLogClient', () => {
 
     url = '/personnel/' + personnel.PersonnelId;
     let personelDeleteRes = await client.delete(url);
+  });
+
+  it('Should perform Call Type CRUD', async () => {
+    const payload: CallType = < CallType > {
+      value: uuid()
+    };
+    url = '/calllogs/calltype';
+    const createRes = await client.post < CallType[] >(url, [payload]);
+    expect(createRes.success).withContext('successful create ' + url).toBe(true);
+    expect(createRes.result).withContext('non-null create').not.toBeNull();
+    const newCallType = createRes.result.find(calltype => calltype.value === payload.value && !calltype.deleteRecord && calltype.active);
+    expect(newCallType).withContext('correct data in create result').not.toBeNull();
+
+    url += ('/' + newCallType.id);
+    let getRes = await client.get < CallType > (url);
+    expect(getRes.success).withContext('successful get').toBe(true);
+    expect(getRes.result).withContext('non-null get').not.toBeNull();
+    expect(getRes.result.value).withContext('Correct data in get result').toEqual(payload.value);
+
+    let deleteRes = await client.delete < CallType > (url);
+    expect(deleteRes.success).withContext('successful delete').toBe(true);
+  });
+
+  it('Should perform Call disposition CRUD', async () => {
+    const payload: CallDisposition = < CallDisposition > {
+      value: uuid()
+    };
+    url = '/calllogs/calldisposition';
+    const createRes = await client.post < CallDisposition[] >(url, [payload]);
+    expect(createRes.success).withContext('successful create ' + url).toBe(true);
+    expect(createRes.result).withContext('non-null create').not.toBeNull();
+    const newCallDisposition = createRes.result.find(calldisposition => calldisposition.value === payload.value && !calldisposition.deleteRecord && calldisposition.active);
+    expect(newCallDisposition).withContext('correct data in create result').toBeDefined();
+
+    url += ('/' + newCallDisposition.id);
+    let getRes = await client.get < CallDisposition > (url);
+    expect(getRes.success).withContext('successful get').toBe(true);
+    expect(getRes.result).withContext('non-null get').not.toBeNull();
+    expect(getRes.result.value).withContext('Correct data in get result').toEqual(payload.value);
+
+    let deleteRes = await client.delete < CallDisposition > (url);
+    expect(deleteRes.success).withContext('successful delete').toBe(true);
   });
 });
