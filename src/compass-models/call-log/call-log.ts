@@ -13,3 +13,10 @@ export interface CallLog {
   CreatedByUserId: number;
   CreateDateTime: string;
 }
+
+// This is used for the roles of contacts and personnel
+export const enum CallLogRole {
+  Association = 'Association',
+  Attendee = 'Attendee',
+  Caller = 'Caller',
+}

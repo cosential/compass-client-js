@@ -1,5 +1,7 @@
 // Compass Models
-export { CallLog } from './compass-models/call-log';
+export { CallLog, CallLogRole } from './compass-models/call-log/call-log';
+export { CallLogContact } from './compass-models/call-log/call-log-contact';
+export { CallLogPersonnel } from './compass-models/call-log/call-log-personnel';
 export { Company } from './compass-models/company/company';
 export { CompanyAddress } from './compass-models/company/company-address';
 export { CompanyEnrichment } from './compass-models/company/company-enrichment';
@@ -42,7 +44,7 @@ export { LeadSource } from './compass-models/lead/lead-source';
 export { LeadStage } from './compass-models/lead/lead-stage';
 export { LeadType } from './compass-models/lead/lead-type';
 export { Office } from './compass-models/firmorgs/office';
-export { MeetingPlan, MeetingPlanProcessTimeDurationType } from './compass-models/meeting-plan';
+export { MeetingPlan, MeetingPlanProcessTimeDurationType } from './compass-models/call-log/meeting-plan';
 export { OfficeDivision } from './compass-models/firmorgs/office-division';
 export { Opportunity } from './compass-models/opportunity/opportunity';
 export { OpportunityClientType } from './compass-models/opportunity/opportunity-client-type';
