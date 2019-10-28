@@ -1,7 +1,9 @@
 // Compass Models
 export { CallLog, CallLogRole } from './compass-models/call-log/call-log';
 export { CallLogContact } from './compass-models/call-log/call-log-contact';
+export { CallDisposition } from './compass-models/call-log/call-disposition';
 export { CallLogPersonnel } from './compass-models/call-log/call-log-personnel';
+export { CallType } from './compass-models/call-log/call-type';
 export { Company } from './compass-models/company/company';
 export { CompanyAddress } from './compass-models/company/company-address';
 export { CompanyEnrichment } from './compass-models/company/company-enrichment';
