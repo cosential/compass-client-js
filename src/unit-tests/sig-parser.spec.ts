@@ -20,7 +20,7 @@ describe('SigParserClient', () => {
   );
   let url: string;
 
-  it('should successfully parse signiture', async () => {
+  it('should successfully parse signature', async () => {
     url = '/emails/parsesignatures';
     const request: SigParserRequest[] = [{ Sender: 'test', Body: 'test' }]
     let res: ResponseData < SigParserResult[] > = await client.post(url, <any[]> request);
