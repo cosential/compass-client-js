@@ -65,7 +65,7 @@ client.get('/user').then( //... );
 - Open file '**test-client-config.ts**' from the '**./src/unit-tests**' folder. Enter your API Key, and credentials for a test firm and **save** the file.
 - From within the project folder run the command '**npm run build**'.
 - From within the project folder run the command '**npm run test**'.
-- To run an individual unit test, from within the project folder run the command '**npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-tests/schema.spec.ts**'.
+- To run an individual unit test, from within the project folder run the command '**npx ts-node node_modules/jasmine/bin/jasmine src/unit-tests/schema.spec.ts**'.
 
 
 **If** tests pass, authentication and comunication with Compass was successful.

@@ -23,24 +23,24 @@
     "class-transformer": "^0.2.3",
     "es6-promise": "^4.2.8",
     "isomorphic-fetch": "^2.2.1",
-    "js-base64": "^2.5.1",
+    "js-base64": "^2.5.2",
     "shx": "^0.2.2",
     "typescript": "^2.1.6",
-    "webpack": "^2.2.1"
+    "webpack": "^4.41.6"
   },
   "devDependencies": {
-    "@microsoft/tsdoc": "^0.12.16",
+    "@microsoft/tsdoc": "^0.12.18",
     "@types/isomorphic-fetch": "0.0.34",
-    "@types/jasmine": "^3.5.0",
+    "@types/jasmine": "^3.5.7",
     "@types/js-base64": "^2.3.1",
     "codelyzer": "^5.2.1",
     "jasmine": "^3.5.0",
     "jasmine-spec-reporter": "^4.2.1",
     "ts-node": "^7.0.1",
     "tslint": "^5.20.1",
-    "typedoc": "^0.15.7",
+    "typedoc": "^0.15.8",
     "typedoc-webpack-plugin": "^1.1.4",
-    "uuid": "^3.3.3",
+    "uuid": "^3.4.0",
     "webpack-archive-plugin": "^3.0.0"
   }
 }
