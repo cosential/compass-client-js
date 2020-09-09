@@ -1,5 +1,5 @@
 import 'jasmine';
-import * as uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { Company } from '../compass-models/company/company';
 import { Division } from '../compass-models/firmorgs/division';
 import { Office } from '../compass-models/firmorgs/office';

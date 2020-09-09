@@ -72,7 +72,7 @@
 					<h2>Getting Started (Install using npm)</h2>
 				</a>
 				<pre><code>npm <span class="hljs-keyword">install</span> compass-<span class="hljs-keyword">client</span>-js <span class="hljs-comment">--save</span></code></pre>
-				<a href="#a-hrefhttpswwwnpmjscompackagecompass-client-jshttpswwwnpmjscompackagecompass-client-jsa" id="a-hrefhttpswwwnpmjscompackagecompass-client-jshttpswwwnpmjscompackagecompass-client-jsa" style="color: inherit; text-decoration: none;">
+				<a href="#httpswwwnpmjscompackagecompass-client-js" id="httpswwwnpmjscompackagecompass-client-js" style="color: inherit; text-decoration: none;">
 					<h6><a href="https://www.npmjs.com/package/compass-client-js">https://www.npmjs.com/package/compass-client-js</a></h6>
 				</a>
 				<a href="#full-library-reference" id="full-library-reference" style="color: inherit; text-decoration: none;">
@@ -109,10 +109,10 @@ client.<span class="hljs-keyword">get</span>&lt;<span class="hljs-keyword">User<
 				<a href="#reconfigure-the-client-with-a-new-user--pass" id="reconfigure-the-client-with-a-new-user--pass" style="color: inherit; text-decoration: none;">
 					<h2>Reconfigure the client with a new user / pass</h2>
 				</a>
-				<pre><code>client.<span class="hljs-built_in">config</span>.username = <span class="hljs-string">'Jane'</span>;
-client.<span class="hljs-built_in">config</span>.password = <span class="hljs-string">'0th3Rp@Ss!'</span>;
+				<pre><code><span class="hljs-keyword">client</span>.config.username = <span class="hljs-string">'Jane'</span>;
+<span class="hljs-keyword">client</span>.config.password = <span class="hljs-string">'0th3Rp@Ss!'</span>;
 
-client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre>
+<span class="hljs-keyword">client</span>.get(<span class="hljs-string">'/user'</span>).then( <span class="hljs-comment">//... );</span></code></pre>
 				<a href="#building-compassjs" id="building-compassjs" style="color: inherit; text-decoration: none;">
 					<h2>Building compass.js:</h2>
 				</a>
@@ -123,7 +123,7 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					<li>Open file &#39;<strong>test-client-config.ts</strong>&#39; from the &#39;<strong>./src/unit-tests</strong>&#39; folder. Enter your API Key, and credentials for a test firm and <strong>save</strong> the file.</li>
 					<li>From within the project folder run the command &#39;<strong>npm run build</strong>&#39;.</li>
 					<li>From within the project folder run the command &#39;<strong>npm run test</strong>&#39;.</li>
-					<li>To run an individual unit test, from within the project folder run the command &#39;<strong>npx ts-node node_modules/jasmine/bin/jasmine src/services/unit-tests/schema.spec.ts</strong>&#39;.</li>
+					<li>To run an individual unit test, from within the project folder run the command &#39;<strong>npx ts-node node_modules/jasmine/bin/jasmine src/unit-tests/schema.spec.ts</strong>&#39;.</li>
 				</ul>
 				<p><strong>If</strong> tests pass, authentication and comunication with Compass was successful.</p>
 				<a href="#folder-structure" id="folder-structure" style="color: inherit; text-decoration: none;">
@@ -145,6 +145,12 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/calllogrole.html" class="tsd-kind-icon">Call<wbr>Log<wbr>Role</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/meetingplanprocesstimedurationtype.html" class="tsd-kind-icon">Meeting<wbr>Plan<wbr>Process<wbr>Time<wbr>Duration<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/client.html" class="tsd-kind-icon">Client</a>
 					</li>
@@ -167,7 +173,19 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 						<a href="classes/personnelclient.html" class="tsd-kind-icon">Personnel<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/calldisposition.html" class="tsd-kind-icon">Call<wbr>Disposition</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/calllog.html" class="tsd-kind-icon">Call<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/calllogcontact.html" class="tsd-kind-icon">Call<wbr>Log<wbr>Contact</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/calllogpersonnel.html" class="tsd-kind-icon">Call<wbr>Log<wbr>Personnel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/calltype.html" class="tsd-kind-icon">Call<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/company.html" class="tsd-kind-icon">Company</a>
@@ -288,6 +306,9 @@ client.<span class="hljs-built_in">get</span>(<span class="hljs-string">'/user'<
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/leadtype.html" class="tsd-kind-icon">Lead<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/meetingplan.html" class="tsd-kind-icon">Meeting<wbr>Plan</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/office.html" class="tsd-kind-icon">Office</a>

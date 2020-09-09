@@ -7,3 +7,4 @@ lib-esm
 dist
 test
 src/services/test-client-config.ts
+docs

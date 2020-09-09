@@ -1,5 +1,5 @@
 import 'jasmine';
-import * as uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { CallLog, CallLogRole } from '../compass-models/call-log/call-log';
 import { ResponseData } from '../interfaces/response-data';
 import { ClientConfig } from '../service-models/client-config';
