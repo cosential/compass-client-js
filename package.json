@@ -1,6 +1,6 @@
 {
   "name": "compass-client-js",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "Cosential Compass API Javascript Client",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,12 +16,12 @@
   "scripts": {
     "clean": "shx rm -rf _bundles dist lib lib-esm",
     "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack",
-    "test": "ts-node node_modules/jasmine/bin/jasmine --reporter=../../../reporter.ts src/**/*.spec.ts"
+    "test": "snyk test && ts-node node_modules/jasmine/bin/jasmine --reporter=../../../reporter.ts src/**/*.spec.ts"
   },
   "dependencies": {
     "class-transformer": "^0.3.1",
     "es6-promise": "^4.2.8",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-fetch": "^3.0.0",
     "js-base64": "^3.0.0",
     "shx": "^0.3.2",
     "ts-loader": "^8.0.3",
@@ -36,6 +36,7 @@
     "codelyzer": "^6.0.0",
     "jasmine": "^3.6.1",
     "jasmine-spec-reporter": "^5.0.2",
+    "snyk": "^1.424.4",
     "ts-node": "^9.0.0",
     "tslint": "^6.1.3",
     "typedoc": "^0.15.8",
