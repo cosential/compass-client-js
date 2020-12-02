@@ -40,7 +40,7 @@ export class Client {
     includeDeleted: boolean = false
   ): Promise < ResponseData < T >> {
     let headers = {
-      'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
+      'Authorization': this.formatAuthorizationHeader(),
       'x-compass-firm-id': this.config.firmId.toString(),
       'x-compass-api-key': this.config.apiKey,
       'Accept': 'application/json'
@@ -81,7 +81,7 @@ export class Client {
     opts: RequestOptions = { showErrors: true }
   ): Promise < ResponseData < T >> {
     let headers = {
-      'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
+      'Authorization': this.formatAuthorizationHeader(),
       'x-compass-firm-id': this.config.firmId.toString(),
       'x-compass-api-key': this.config.apiKey,
       'Accept': 'application/json',
@@ -116,7 +116,7 @@ export class Client {
     opts: RequestOptions = { showErrors: true }
   ): Promise < ResponseData < T >> {
     let headers = {
-      'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
+      'Authorization': this.formatAuthorizationHeader(),
       'x-compass-firm-id': this.config.firmId.toString(),
       'x-compass-api-key': this.config.apiKey,
       'Accept': 'application/json',
@@ -149,7 +149,7 @@ export class Client {
     opts: RequestOptions = { showErrors: true }
   ): Promise < ResponseData < T >> {
     let headers = {
-      'Authorization': 'Basic ' + Base64.encode(this.config.username + ':' + this.config.password),
+      'Authorization': this.formatAuthorizationHeader(),
       'x-compass-firm-id': this.config.firmId.toString(),
       'x-compass-api-key': this.config.apiKey
     };
@@ -323,5 +323,14 @@ export class Client {
       message: message,
       result: data
     };
+  }
+
+  private formatAuthorizationHeader(): string {
+    if (this.config.token) {
+      return `Bearer ${this.config.token}`
+    } else {
+      const encoded = Base64.encode(this.config.username + ':' + this.config.password);
+      return `Basic ${encoded}`
+    }
   }
 }

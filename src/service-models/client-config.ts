@@ -11,6 +11,7 @@ export class ClientConfig {
   private _firmId: number = 0;
   private _username: string = '';
   private _password: string = '';
+  private _token: string = '';
 
   public get apiKey(): string {
     return this._apiKey;
@@ -46,6 +47,14 @@ export class ClientConfig {
     }
   }
 
+  public get token(): string {
+    return this._token;
+  }
+
+  public set token(value: string) {
+    this._token = value;
+  }
+
   public get username(): string {
     return this._username;
   }
@@ -62,11 +71,12 @@ export class ClientConfig {
     this._password = value
   }
 
-  constructor(firmId ? : number, username ? : string, password ? : string, apiKey ? : string, compassUrl ? : string) {
+  constructor(firmId ? : number, username ? : string, password ? : string, apiKey ? : string, compassUrl ? : string, token ? : string) {
     this.apiKey = apiKey;
     this.compassUrl = compassUrl;
     this.firmId = firmId;
     this.username = username;
     this.password = password;
+    this.token = token;
   }
 }
